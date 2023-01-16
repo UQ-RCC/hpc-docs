@@ -88,7 +88,7 @@ The basic use of FileZilla for file and data transfer is shown [here](https://yo
 If you experience problems with disconnection, then try this: Go to Edit -\> Settings and change the number under "Timeout" from 20 seconds to 120 or more.
 
 With MFA you need to use an interactive session in FileZilla to connect. Click on the icon directly under "File" (left top corner), then select interactive from the drop-down menu.
-
+![](FileZillaInteractive.png)
 
 ## Software
 
