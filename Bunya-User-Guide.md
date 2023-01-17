@@ -154,6 +154,10 @@ _UQ RCC is working on a smoother way to do this and this section will update in 
 
 For now, you will need to ...
 
+* add the location of the apptainer/singularity commands to your PATH
+* set an environment variable that governs the location of where the container will store temporary files
+* provide a complete apptainer/singularity command line invocation including bind mounts.
+
 ## Interactive jobs
 
 ### Do not run on the login nodes
