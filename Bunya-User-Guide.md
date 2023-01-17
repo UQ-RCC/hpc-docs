@@ -140,7 +140,7 @@ The software build management system on Bunya is better equipped to support a ra
 
 Software containers is a generic technology. It permits pre-built image files containing non-standard operating systems and software to be run like they are installed on the HPC. Docker, Shifter, Singularity/Apptainer are like different "brands" of subsystems to support software containers.
 
-Bunya uses [apptainer](https://apptainer.org]. Singularity was rebranded as Apptainer when it joined the Linux Foundation.
+Bunya uses [*Apptainer*](https://apptainer.org). Singularity was rebranded as Apptainer when it joined the Linux Foundation.
 
 #### Where and how to build a software container
 
