@@ -217,7 +217,7 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 
 ***Accounting has now been switched on and will be enforced. Users cannot run jobs without a valid Account String. All valid AccountStrings start with `_a` and are all lower case letters. If you do not have a valid AccountString then please contact your supervisor. AccountStrings and access are managed by research groups and group leaders. Groups who wish to use Bunya are required to apply to set up a group with a valid AccountString. Only group leaders can apply to set up such a group. A PhD student or postdoc without their own funding and group should not apply. Applications can be made by contacting [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
 
-***It takes some time for new AccountStrings to migrate to Slrum. If you still get the error `Unable to allocate resources: Invalid account or account/partition combination specified` after one business day after your user account on Bunys has been enabled, please contact [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
+***It takes some time for new AccountStrings to migrate to Slurm. If you still get the error `Unable to allocate resources: Invalid account or account/partition combination specified` after one business day after your user account on Bunys has been enabled, please contact [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
 
 ### Simple script for AI GPUs.
 
