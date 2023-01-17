@@ -131,6 +131,29 @@ If you add the `–D` option, it will do a dry run first. Please use `eb –H` t
 
 Users who have a working EasyBuild recipe and have tested that the software installed as such is working on Bunya can offer the recipe to be uploaded to the cluster wide installed software and it would then be available via modules.
 
+### Using software containers on Bunya
+
+The software build management system on Bunya is better equipped to support a range of software on the "bare-metal". There is, still, support on Bunya for software container technology to provide greater flexibility for Bunya users.
+
+#### Background
+
+Software containers is a generic technology. It permits pre-built image files containing non-standard operating systems and software to be run like they are installed on the HPC. Docker, Shifter, Singularity/Apptainer are like different "brands" of subsystems to support software containers.
+
+Bunya uses [https://apptainer.org](apptainer). Singularity was rebranded as Apptainer when it joined the Linux Foundation.
+
+#### Where and how to build a software container
+
+Singularity/Apptainer software containers need to be built on systems where the user has system admin access. 
+So, regular users won't be able to _build_ software containers on Bunya. 
+However, you will be able to download/upload software containers and run them on Bunya.
+You can utilise software containers from public repositories, or build your own on a suitable external system and bring it onto Bunya.
+
+#### How to run a software container on Bunya
+
+_UQ RCC is working on a smoother way to do this and this section will update in the coming weeks._
+
+For now, you will need to ...
+
 ## Interactive jobs
 
 ### Do not run on the login nodes
