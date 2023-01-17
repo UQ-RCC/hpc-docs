@@ -45,6 +45,7 @@ Bunya replaces Awoonga and FlashLite (and eventually Tinaroo).
 - Bunya will, however, have different software and versions installed than Tinaroo, FlashLite or Awoonga did.
 - Users should use module avail to check which software and their versions are installed.
 - Users who install their own software are required to recompile their software for Bunya.
+- Users are able to utilise software container technology on Bunya.
 
 ## What remains the same
 
