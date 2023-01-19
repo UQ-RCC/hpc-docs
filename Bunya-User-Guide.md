@@ -128,7 +128,7 @@ For example, if you create a folder called EasyBuild in your home directory and 
 
 `eb --prefix=/home/YourUsername/EasyBuild --installpath=/home/YourUsername/EasyBuild --buildpath=/home/YourUsername/EasyBuild/build --robot=/home/YourUsername/EasyBuild ./EasyBuild-recipe-file.eb`
 
-If you add the `–D` option, it will do a dry run first. Please use `eb –H` to get the help manual.
+If you add the `-D` option, it will do a dry run first. Please use `eb -H` to get the help manual.
 
 Users who have a working EasyBuild recipe and have tested that the software installed as such is working on Bunya can offer the recipe to be uploaded to the cluster wide installed software and it would then be available via modules.
 
@@ -231,13 +231,13 @@ Below are examples for single core, single node but multiple cores, MPI, and arr
 `#SBATCH --account=[Name]` - Account String for your research or accounting group, all Account Strings start with `a\_`<br>
 `#SBATCH --partition=general/gpu/debug/ai`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
-`srun` – runs the executable and will receive info on number of cores etc from Slurm. There is no need to specify them here.
+`srun` - runs the executable and will receive info on number of cores etc from Slurm. There is no need to specify them here.
 
 See `man sbatch` and `man srun` for more options (use arrow keys to scroll up and down and `q` to quit)
 
 ***Please note:*** The default partition is `debug` which will give you are bare minimum of resources. For example the maximum walltime in the `debug queue` is 30 minutes. Most users would want to run in the `general` partition. Important, the slurm defaults are usually not sufficient for most user jobs. If you want appropriate resources, you are required to request them.
 
-***Please note***: Using the `SBATCH` options `–o` and `–e` in a script will result in the standard error and standard output file to appear as soon as the job starts to run. This behaviour is different to standard PBS behaviour on Tinaroo and FlashLite (unless you specified paths for those files there too) where the standard error, .e, and standard output, .o, files only appeared when the job was finished or had crashed.
+***Please note***: Using the `SBATCH` options `-o` and `-e` in a script will result in the standard error and standard output file to appear as soon as the job starts to run. This behaviour is different to standard PBS behaviour on Tinaroo and FlashLite (unless you specified paths for those files there too) where the standard error, .e, and standard output, .o, files only appeared when the job was finished or had crashed.
 
 ***Please note***: In Slurm your job will start in the directory/folder you submitted from. This is different to PBS behaviour on Tinaroo/FlashLite where your job started in your home directory. So on Bunya, using slurm, there is no need to change into the job directory, unless this is different to the directory you submitted from.
 
@@ -262,8 +262,8 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 `#SBATCH --partition=ai`<br>
 `#SBATCH --account=AccountString`<br>
 `#SBATCH --gres=gpu:1 #you can ask for up to 3 here`<br>
-`#SBATCH –o slurm.output`<br>
-`#SBATCH –e slurm.error`<br>
+`#SBATCH -o slurm.output`<br>
+`#SBATCH -e slurm.error`<br>
 <br>
 `module-loads-go-here`<br>
 <br>
@@ -285,8 +285,8 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 `#SBATCH --partition=gpu`<br>
 `#SBATCH --account=AccountString`<br>
 `#SBATCH --gres=gpu:mi210:1 #you can ask for up to 2 here`<br>
-`#SBATCH –o slurm.output`<br>
-`#SBATCH –e slurm.error`<br>
+`#SBATCH -o slurm.output`<br>
+`#SBATCH -e slurm.error`<br>
 <br>
 `module-loads-go-here`<br>
 <br>
@@ -308,8 +308,8 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 `#SBATCH --partition=gpu`<br>
 `#SBATCH --account=AccountString`<br>
 `#SBATCH --gres=gpu:a100:1 #you can ask for up to 2 here`<br>
-`#SBATCH –o slurm.output`<br>
-`#SBATCH –e slurm.error`<br>
+`#SBATCH -o slurm.output`<br>
+`#SBATCH -e slurm.error`<br>
 <br>
 `module-loads-go-here`<br>
 <br>
@@ -328,8 +328,8 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 `#SBATCH --time=1:00:00`<br>
 `#SBATCH --partition=general`<br>
 `#SBATCH --account=AccountString`<br>
-`#SBATCH –o slurm.output`<br>
-`#SBATCH –e slurm.error`<br>
+`#SBATCH -o slurm.output`<br>
+`#SBATCH -e slurm.error`<br>
 <br>
 `module-loads-go-here`<br>
 <br>
@@ -354,8 +354,8 @@ To run over 12 cores for example.
 `#SBATCH --time=1:00:00`<br>
 `#SBATCH --partition=general`<br>
 `#SBATCH --account=AccountString`<br>
-`#SBATCH –o slurm.output`<br>
-`#SBATCH –e slurm.error`<br>
+`#SBATCH -o slurm.output`<br>
+`#SBATCH -e slurm.error`<br>
 <br>
 `module-loads-go-here`<br>
 <br>
@@ -391,7 +391,7 @@ Useful variables for array jobs
 
 ### How to check jobs
 
-`squeue –u YourUsername` – will only print your jobs
+`squeue -u YourUsername` -- will only print your jobs
 
 Here are some other useful additions to the squeue command. For information on what all these means please consult the man pages.
 
