@@ -2,12 +2,12 @@
 
 ## Quick links
 
-* [Connecting to Bunya](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#connecting)
-* [Transferring files](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#file-transfer)
-* [Software on Bunya](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#software)
-* [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#using-software-containers-on-bunya)
-* [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#interactive-jobs)
-* [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#slurm-scripts)
+* [Connecting to Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#connecting)
+* [Transferring files](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#file-transfer)
+* [Software on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#software)
+* [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#using-software-containers-on-bunya)
+* [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#interactive-jobs)
+* [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#slurm-scripts)
 * [RCC's interactive job script builder for SLURM](https://shiny.rcc.uq.edu.au/SLURM/)
 
 ## General HPC information 
