@@ -1,5 +1,14 @@
 # Bunya (very short) user guide
 
+## Quick links
+
+* [Connecting to Bunya](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#connecting)
+* [Transferring files](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#file-transfer)
+* [Software on Bunya](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#software)
+* [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#using-software-containers-on-bunya)
+* [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#interactive-jobs)
+* [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/edit/main/Bunya-User-Guide.md#slurm-scripts)
+
 ## General HPC information 
 
 General HPC training is available via the [RCC and QCIF Training resources](https://www.qcif.edu.au/training/hpc-training-resources/).
