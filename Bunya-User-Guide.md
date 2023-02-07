@@ -109,8 +109,10 @@ The [training resources](https://www.qcif.edu.au/training/hpc-training-resources
 
 The basic commands are:
 
+`module overview` - shows a brief list of all available modules, and the number of distinct versions<br>
 `module avail` - shows all available main modules<br>
-`module --show_hidden avail` - shows all available modules<br>
+`module --show_hidden avail` - shows all available modules, including those that are normally hidden<br>
+`module -t avail` - shows a _terse_ single column list of the available modules<br>
 `module avail [SOFTWARE-NAME or KEYWORD]` - shows all modules for SOFTWARE-NAME or KEYWORD<br>
 `module spider [SOFTWARE-NAME or KEYWORD]` - shows all possible modules for SOFTWARE-NAME or KEYWORD<br>
 `module load [SOFTWARE-NAME/VERSION]` - loads a specific software version<br>
@@ -167,7 +169,7 @@ _UQ RCC is working on a smoother way to do this and this section will update in 
 
 For now, you will need to ...
 
-* add the location of the apptainer/singularity commands to your PATH
+* the apptainer/singularity commands are automatically in your PATH (they are now installed into `/usr/bin/` on all Bunya nodes)
 * set an environment variable that governs the location of where the container will store temporary files
 * provide a complete apptainer/singularity command line invocation including bind mounts.
 
