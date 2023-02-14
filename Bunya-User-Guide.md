@@ -242,7 +242,7 @@ Below are examples for single core, single node but multiple cores, MPI, and arr
 `#SBATCH -o filename` - filename where the standard output should go to<br>
 `#SBATCH -e filename` - filename where the standard error should go to<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
-`#SBATCH --account=[Name]` - Account String for your research or accounting group, all Account Strings start with `a\_`<br>
+`#SBATCH --account=[Name]` - Account String for your research or accounting group, all Account Strings start with `a_`<br>
 `#SBATCH --partition=general/gpu/debug/ai`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
 `srun` – runs the executable and will receive info on number of cores etc from Slurm. There is no need to specify them here.
