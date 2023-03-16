@@ -242,7 +242,7 @@ Below are examples for single core, single node but multiple cores, MPI, and arr
 `#SBATCH -o filename` - filename where the standard output should go to<br>
 `#SBATCH -e filename` - filename where the standard error should go to<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
-`#SBATCH --account=[Name]` - Account String for your research or accounting group, all Account Strings start with `a_`<br>
+`#SBATCH --account=[Name]` - Account String for your research or accounting group, all Account Strings start with `a_`, use the `groups` command to list your groups<br>
 `#SBATCH --partition=general/gpu/debug/ai`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
 `srun` - runs the executable and will receive info on number of cores etc from Slurm. There is no need to specify them here.
@@ -257,7 +257,7 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 
 ***Please note***: There is currently no equivalent to the **$TMPDIR** that was available on FlashLite and Tinaroo. Until this has been set up users are required to use their `/scratch/user` directory for temporary files. RCC is working to set up a large and fast space for temporary files which will accommodate similar loads as was possible on FlashLite, if not more.
 
-***Accounting has now been switched on and will be enforced. Users cannot run jobs without a valid Account String. All valid AccountStrings start with `a_` and are all lower case letters. If you do not have a valid AccountString then please contact your supervisor. AccountStrings and access are managed by research groups and group leaders. Groups who wish to use Bunya are required to apply to set up a group with a valid AccountString. Only group leaders can apply to set up such a group. A PhD student or postdoc without their own funding and group should not apply. Applications can be made by contacting [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
+***Accounting has now been switched on and will be enforced. Users cannot run jobs without a valid Account String. All valid AccountStrings start with `a_` and are all lower case letters. If you do not have a valid AccountString then please contact your supervisor. AccountStrings and access are managed by research groups and group leaders. Groups who wish to use Bunya are required to apply to set up a group with a valid AccountString. Only group leaders can apply to set up such a group. A PhD student or postdoc without their own funding and group should not apply. Applications can be made by contacting [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au). ***
 
 ***It takes some time for new AccountStrings to migrate to Slurm. If you still get the error `Unable to allocate resources: Invalid account or account/partition combination specified` after one business day after your user account on Bunya has been enabled, please contact [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
 
