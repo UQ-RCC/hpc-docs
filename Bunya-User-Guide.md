@@ -191,7 +191,7 @@ User should use interactive jobs to do quick testing and if they need to use a g
 
 `salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l`
 
-Please use `--partition=general` unless you have been given permission to use ai or gpu.
+Please use `--partition=general` unless you have been given permission to use ai or gpu. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
 For an interactive session on the `gpu` or `ai` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. For the `gpu` partition you will need to specify which type of GPU you are requesting as they are now AMD and NVIDIA GPUs. See below for more information.
 
