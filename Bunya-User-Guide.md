@@ -8,6 +8,7 @@
 * [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#using-software-containers-on-bunya)
 * [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#interactive-jobs)
 * [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#slurm-scripts)
+* [How to check jobs in SLURM](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#how-to-check-jobs)
 * [RCC's interactive job script builder for SLURM](https://shiny.rcc.uq.edu.au/SLURM/)
 
 ## General HPC information 
@@ -405,7 +406,7 @@ Useful variables for array jobs
 `$SLURM_ARRAY_TASK_COUNT` = Total number of tasks in a job array.<br>
 `$SLURM_ARRAY_TASK_ID` = Job array ID (index) number.
 
-### How to check jobs
+### How to check jobs in SLURM
 
 #### Just your jobs
 `squeue -u YourUsername` -- will only print your jobs<br>
