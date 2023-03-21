@@ -156,7 +156,7 @@ Software containers is a generic technology. It permits pre-built image files co
 
 Bunya uses [*Apptainer*](https://apptainer.org). Singularity was rebranded as Apptainer when it joined the Linux Foundation. Currently, the version of Apptainer currently installed on Bunya (v1.1.3) is newer than the Singularity (v3.8.0).
 
-NOTE: Apptainer is *not* installed on the Bunya login nodes. You must use an interactive job via the batch system to be able to do use a software container.
+Apptainer is *not* installed on the Bunya login nodes. You must use an interactive job via the batch system to be able to do use a software container.
 
 #### Where and how to build a software container
 
