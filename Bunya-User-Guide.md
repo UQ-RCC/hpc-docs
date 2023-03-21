@@ -407,7 +407,12 @@ Useful variables for array jobs
 
 ### How to check jobs
 
-`squeue -u YourUsername` -- will only print your jobs
+#### Just your jobs
+`squeue -u YourUsername` -- will only print your jobs<br>
+`squeue -u $USER`<br>
+`squeue --me`<br>
+
+#### Some formatting ideas for more detailed reports
 
 Here are some other useful additions to the squeue command. For information on what all these means please consult the man pages.
 
