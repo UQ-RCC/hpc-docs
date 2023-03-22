@@ -127,6 +127,15 @@ Using `module avail` will show only the main software modules installed. It will
 
 `module --show_hidden avail`
 
+Ordinarily, the module command will only search standard pre-configured paths, but you can modify the search path within your current session. 
+If you have created some personal module files and would like to use them, then you need to add the directory containing those personal software modules to the search path using the following command
+
+`module use path_to_where_you_keep_your_modules`
+
+The `-a` option can be used to _append_ the search path instead of pre-pending it. 
+The command `module unuse path_to_where_you_keep_your_modules` will reverse this temporary change (or you could login again). 
+You can make sure it is always set by modifying your `$HOME/.bashrc` file. 
+
 ### How to build your own software
 
 Users can use EasyBuild to build their own software against existing modules on Bunya.
