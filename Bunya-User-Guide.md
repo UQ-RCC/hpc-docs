@@ -169,7 +169,7 @@ Many older versions and toolchains may be present amongst the sample eb scripts 
 
 The specific version of the software you need to build _may_ have an eb script available for one of our "Solid" toolchains available on Bunya. That makes building the software more straightforward.
 
-If "Solid" version doesn't exist then you have two choices and both may involve a extra work. 
+If a "Solid" version doesn't exist then you have two choices and both may involve extra work. 
 You could proceed with attempting to build it using the .eb file without modification. This may entail minor fixes along the way to get it successfully built.  
 Alternatively, you could adapt the eb script to make it compatible with one of the Solid toolchains listed above. This involves tracing dependencies (versions matter!).
 
