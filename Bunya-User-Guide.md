@@ -149,7 +149,7 @@ There are currently over 16,000 sample easybuild (.eb) recipe scripts available 
 The `eb -S  searchtext` will return all .eb scripts with a case insensitive match. You may need to refine your search. 
 
 The names of sample easy build scripts include one of the following labels that represent the toolchain to be used when building the software.
-As you can see, the toolchains are built upon a specific version of compiler.
+As you can see, the toolchains are built upon a specific version of compiler. The vast majority of the software for Bunya has been built with one of the Solid GCC based toolchains.
 
 |Label|Compiler|Status|
 |:---|:---:|:---:|
@@ -167,11 +167,11 @@ As you can see, the toolchains are built upon a specific version of compiler.
 
 Many older versions and toolchains may be present amongst the sample eb scripts (recipes). 
 
-The specific version of the software you need to build _may_ have an eb script available for one of our "Solid" toolchains available on Bunya. That makes building the software more straightforward.
+The specific version of the software you need to build _may_ have an eb script available for one of our "Solid" toolchains available on Bunya. That makes building software quicker and more straightforward because the build can rely on pre-existing components. 
 
 If a "Solid" version doesn't exist then you have two choices and both may involve extra work. 
-You could proceed with attempting to build it using the .eb file without modification. This may entail minor fixes along the way to get it successfully built.  
-Alternatively, you could adapt the eb script to make it compatible with one of the Solid toolchains listed above. This involves tracing dependencies (versions matter!).
+You could proceed with attempting to build it using the .eb file without modification. This will build everything that it needs (i.e. _all_ dependencies) for that software so can take many hours to complete. It may entail minor fixes along the way to get it all successfully built.  
+Alternatively, you could adapt the eb script to make it compatible with one of the Solid toolchains listed above. This involves tracing dependencies (exact versions matter).
 
 Users who have a working EasyBuild recipe and have tested that the software installed as such is working on Bunya can offer their EasyBuild recipe to be uploaded to the suite of cluster wide installed software and it would then be available via modules. It is preferable that the recipe be for one of the "Solid" toolchains, unless there is a strong reason because of compatibility with other software.
 
