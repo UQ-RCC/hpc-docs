@@ -137,7 +137,7 @@ EasyBuild recipes can be found for a very wide range of software. Some might nee
 
 Users can build into their own home directory but use all exisiting software and software tool chains that are already available. Users need to load the EasyBuild module first:
 
-`module load easybuild/4.6.1`
+`module load easybuild/4.7.0`
 
 For example, if you create a folder called EasyBuild in your home directory and have a recipe located in this directory you can build the software via this command.
 
@@ -145,7 +145,37 @@ For example, if you create a folder called EasyBuild in your home directory and 
 
 If you add the `-D` option, it will do a dry run first. Please use `eb -H` to get the help manual.
 
-Users who have a working EasyBuild recipe and have tested that the software installed as such is working on Bunya can offer the recipe to be uploaded to the cluster wide installed software and it would then be available via modules.
+There are currently over 16,000 sample easybuild (.eb) recipe scripts available after you load the easybuild/4.7.0 module.
+The `eb -S  searchtext` will return all .eb scripts with a case insensitive match. You may need to refine your search. 
+
+The names of sample easy build scripts include one of the following labels that represent the toolchain to be used when building the software.
+As you can see, the toolchains are built upon a specific version of compiler.
+
+|Label|Compiler|Status|
+|:---|:---:|:---:|
+|foss-2022a|GCC 11.3.0|Solid|
+|GCCcore-11.3.0|GCC 11.3.0|Solid|
+|foss-2021a|GCC 10.3.0|Solid|
+|GCCcore-10.3.0|GCC 10.3.0|Solid|
+||||
+|intel-2021a|Intel 2021.2.0|Solid|
+||||
+|foss-2020a|GCC 9.3.0|Not exhaustively tested|
+|GCCcore-9.3.0|GCC 9.3.0|Not exhaustively tested|
+|foss-2019a|GCC 8.2.0-2.31.1|Not exhaustively tested|
+|GCCcore-8.2.0|GCC 8.2.0-2.31.1|Not exhaustively tested|
+
+Many older versions and toolchains may be present amongst the sample eb scripts (recipes). 
+
+The specific version of the software you need to build _may_ have an eb script available for one of our "Solid" toolchains available on Bunya. That makes building the software more straightforward.
+
+If "Solid" version doesn't exist then you have two choices and both may involve a extra work. 
+You could proceed with attempting to build it using the .eb file without modification. This may entail minor fixes along the way to get it successfully built.  
+Alternatively, you could adapt the eb script to make it compatible with one of the Solid toolchains listed above. This involves tracing dependencies (versions matter!).
+
+Users who have a working EasyBuild recipe and have tested that the software installed as such is working on Bunya can offer their EasyBuild recipe to be uploaded to the suite of cluster wide installed software and it would then be available via modules. It is preferable that the recipe be for one of the "Solid" toolchains, unless there is a strong reason because of compatibility with other software.
+
+
 
 ### Using software containers on Bunya
 
