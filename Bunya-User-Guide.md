@@ -207,19 +207,18 @@ You can utilise software containers from public repositories, or build your own 
 
 #### How to run a software container on Bunya
 
-_UQ RCC is working on a smoother way to do this and this section will update in the coming weeks._
-
 For now, you will need to ...
 
-* the apptainer/singularity commands are automatically in your PATH (they are now installed into `/usr/bin/` on all Bunya nodes)
-* set an environment variable that governs the location of where the container will store temporary files
+* the apptainer/singularity command is automatically in your PATH (they are now installed into `/usr/bin/` on all Bunya _compute_ nodes but _not_ login nodes)
+* set environment variables that govern the location of where the container will store temporary files.<br> 
+Specifically, you may run into /home quota trouble if you do not set the **SINGULARITY_CACHEDIR** and **SINGULARITY_TMPDIR** where you have sufficient space (such as /scratch/user or /scratch/project)
 * provide a complete apptainer/singularity command line invocation including bind mounts.
 
 ## Interactive jobs
 
 ### Do not run on the login nodes
 
-Users are reminded that no calculation, no matter how quick or small, should be run on the login nodes. So no, the quick python or R or bash script or similar should NOT be just quickly run from the command line as it is so much more convenient. All calculations are required to be done on the compute nodes.
+Users are reminded that no calculation, no matter how quick or small, should be run on the login nodes. So no, the quick python or R or bash script or similar should NOT be just quickly run from the command line as it is so much more convenient. **All calculations are required to be done on the compute nodes.**
 
 Users can use interactive jobs which will give them that command line feel and flexibility and allow the use of graphical user interfaces.
 
