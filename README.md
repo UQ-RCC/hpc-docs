@@ -8,9 +8,9 @@ This project is for providing _up-to-date_ information about HPC systems operate
 <br>
 This is an external website that guides you in creating successful SLURM job submissions for Bunya HPC.
 
-[Information how to login and use the CVL@Wiener system](https://characterisation-virtual-laboratory.github.io/CVL_Community/CVLWiener)
+[Information how to login and use the CVL@Wiener system](https://imagingtools.au/characterisation-virtual-laboratory/cvl-wiener)
 <br>
-This is an external website that includes a list of available software on CVL@Wiener.
+This is an external website that includes information about gaining access and using the CVL@Wiener system.
 
 [RCC's older documentation set](https://rcc.uq.edu.au/rcc-user-guides-public)
 <br>
