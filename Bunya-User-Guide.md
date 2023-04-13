@@ -146,7 +146,7 @@ EasyBuild recipes can be found for a very wide range of software. Some might nee
 
 Users can build into their own home directory but use all exisiting software and software tool chains that are already available. Users need to load the EasyBuild module first:
 
-`module load easybuild/4.7.0`
+`module load easybuild`
 
 For example, if you create a folder called EasyBuild in your home directory and have a recipe located in this directory you can build the software via this command.
 
@@ -154,7 +154,7 @@ For example, if you create a folder called EasyBuild in your home directory and 
 
 If you add the `-D` option, it will do a dry run first. Please use `eb -H` to get the help manual.
 
-There are currently over 16,000 sample easybuild (.eb) recipe scripts available after you load the easybuild/4.7.0 module.
+There are currently over 16,000 sample easybuild (.eb) recipe scripts available after you load the easybuild module.
 The `eb -S  searchtext` will return all .eb scripts with a case insensitive match. You may need to refine your search. 
 
 The names of sample easy build scripts include one of the following labels that represent the toolchain to be used when building the software.
