@@ -226,13 +226,13 @@ Users have access to a debug queue for quick testing of new jobs and codes etc.
 
 ### Interactive jobs
 
-User should use interactive jobs to do quick testing and if they need to use a graphical user interface (GUI) to run their calculations. This could include jupyter, spider, etc. salloc is used to submit an interactive job and you should specify the required resources via the command line:
+User should use interactive jobs to do quick testing and if they need to use a graphical user interface (GUI) to run their calculations. This could include jupyter, spider, etc. salloc is used to submit an interactive job and you should specify the required resources via the command line. IMPORTANT: Interactive jobs should be limited to a single node. Multinode jobs are required to be submitted as a batch job.
 
 **This seems to work:**
 
 `salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l`
 
-Please use `--partition=general` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a limit walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+Please use `--partition=general` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
 For an interactive session on the `gpu`, `ai` or `aibn_omara` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. (Note: The A100 GPUs have been removed from the `gpu` partition until further notice. For the `gpu` partition you will need to specify which type of GPU you are requesting as they are now AMD and NVIDIA GPUs.) See below for more information.
 
@@ -276,7 +276,7 @@ Below are examples for single core, single node but multiple cores, MPI, and arr
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
 `#SBATCH --ntasks-per-node=[number]` - This is 1 for single core jobs and multi core jobs. This is 96 (or less if single node) for MPI jobs.<br>
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single core jobs, number of cores for multi core jobs, and 1 for MPI jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`.<br>
-`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). Ask for `2000000M` to get the maximum memory on a standard node. Ask for `4000000M` to get the maximum memory on a high memory node.<br>
+`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). THe full memory of 2TB or 4TB is not avaiable to jobs, therefore jobs asking for 2TB or 4TB will NOT run. Ask for `2000000M` to get the maximum memory on a standard node. Ask for `4000000M` to get the maximum memory on a high memory node.<br>
 (`#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.)<br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. On the `gpu` partition there are 2 per node and on the `ai` partition there are 3 per node. Please see the example scripts below for the available types of GPUs<br>
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete<br>
@@ -284,15 +284,15 @@ Below are examples for single core, single node but multiple cores, MPI, and arr
 `#SBATCH -e filename` - filename where the standard error should go to<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
 `#SBATCH --account=[Name]` - Account String for your research or accounting group, all Account Strings start with `a_`, use the `groups` command to list your groups<br>
-`#SBATCH --partition=general/gpu/debug/ai`<br>
+`#SBATCH --partition=general/gpu/debug/ai/aibn_omara`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
 `srun` - runs the executable and will receive info on number of cores etc from Slurm. There is no need to specify them here.
 
 See `man sbatch` and `man srun` for more options (use arrow keys to scroll up and down and `q` to quit)
 
-***Please note:*** The default partition is `debug` which will give you are bare minimum of resources. For example the maximum walltime in the `debug queue` is 30 minutes. Most users would want to run in the `general` partition. Important, the slurm defaults are usually not sufficient for most user jobs. If you want appropriate resources, you are required to request them.
+***Please note:*** If you do not specify a partition when you submit you get the default partition.The default partition is `debug` which will give you are bare minimum of resources. For example the maximum walltime in the `debug queue` is 1 hour. Most users would want to run in the `general` partition. Important, the slurm defaults are usually not sufficient for most user jobs. If you want appropriate resources, you are required to request them.
 
-***Please note***: Using the `SBATCH` options `-o` and `-e` in a script will result in the standard error and standard output file to appear as soon as the job starts to run. This behaviour is different to standard PBS behaviour on Tinaroo and FlashLite (unless you specified paths for those files there too) where the standard error, .e, and standard output, .o, files only appeared when the job was finished or had crashed.
+***Please note***: Using the `SBATCH` options `-o` and `-e` with a `filename` in a script will result in the standard error and standard output file to appear as soon as the job starts to run. This behaviour is different to standard PBS behaviour on Tinaroo and FlashLite (unless you specified paths for those files there too) where the standard error, .e, and standard output, .o, files only appeared when the job was finished or had crashed.
 
 ***Please note***: In Slurm your job will start in the directory/folder you submitted from. This is different to PBS behaviour on Tinaroo/FlashLite where your job started in your home directory. So on Bunya, using slurm, there is no need to change into the job directory, unless this is different to the directory you submitted from.
 
@@ -349,9 +349,9 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 
 
 
-### Simple script for A100 GPUs.
+### Simple script for AIBN_OMARA A100 GPUs.
 
-**Node bun068. Most can use this node but access is prioritised for the group who owns this one.**
+**Node bun068. The AIBN_OMARA A100 GPUs are restricted to a specific set of users. If you have not been given explicit permission you cannot use these. Only certain AccountStrings have access to these GPUs. If you should and cannot run a job please contact your supervisor..**
 
 `#!/bin/bash --login`<br>
 `#SBATCH --nodes=1`<br>
@@ -360,7 +360,7 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 `#SBATCH --mem=10G`<br>
 `#SBATCH --job-name=Test`<br>
 `#SBATCH --time=1:00:00`<br>
-`#SBATCH --partition=gpu`<br>
+`#SBATCH --partition=aibn_omara`<br>
 `#SBATCH --account=AccountString`<br>
 `#SBATCH --gres=gpu:a100:1 #you can ask for up to 2 here`<br>
 `#SBATCH -o slurm.output`<br>
