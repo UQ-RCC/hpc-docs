@@ -276,7 +276,7 @@ Below are examples for single core, single node but multiple cores, MPI, and arr
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
 `#SBATCH --ntasks-per-node=[number]` - This is 1 for single core jobs and multi core jobs. This is 96 (or less if single node) for MPI jobs.<br>
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single core jobs, number of cores for multi core jobs, and 1 for MPI jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`.<br>
-`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). THe full memory of 2TB or 4TB is not avaiable to jobs, therefore jobs asking for 2TB or 4TB will NOT run. Ask for `2000000M` to get the maximum memory on a standard node. Ask for `4000000M` to get the maximum memory on a high memory node.<br>
+`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 2TB or 4TB is not avaiable to jobs, therefore jobs asking for 2TB or 4TB will NOT run. Ask for `2000000M` to get the maximum memory on a standard node. Ask for `4000000M` to get the maximum memory on a high memory node.<br>
 (`#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.)<br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. On the `gpu` partition there are 2 per node and on the `ai` partition there are 3 per node. Please see the example scripts below for the available types of GPUs<br>
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete<br>
