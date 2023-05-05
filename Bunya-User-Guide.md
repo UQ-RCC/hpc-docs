@@ -25,9 +25,7 @@ To get a basic understanding of what you need to be aware of when using HPC for 
 [Relative and absolute path (common problem in user scripts)](https://youtu.be/XBG7QpGGY9E)<br>
 [How to load installed software](https://youtu.be/AN0zqXj06N4)<br>
 [Why no calculation should be run on the login nodes](https://youtu.be/FYqzSP6HWs8)<br>
-[PBS qstat (monitoring jobs)](https://youtu.be/R7uJ1-_AV_o)<br>
-[PBS qsub (submitting jobs)](https://youtu.be/Li_h_6PaCe4)<br>
-[PBS qdel (deleting jobs)](https://youtu.be/gz5ExFmtDEk)<br>
+
 
 For UQ users and QCIF users with a QRIScloud collection please also listen to
 
