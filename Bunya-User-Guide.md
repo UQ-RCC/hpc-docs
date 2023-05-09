@@ -226,17 +226,21 @@ Users have access to a debug queue for quick testing of new jobs and codes etc.
 
 User should use interactive jobs to do quick testing and if they need to use a graphical user interface (GUI) to run their calculations. This could include jupyter, spider, etc. salloc is used to submit an interactive job and you should specify the required resources via the command line. IMPORTANT: Interactive jobs should be limited to a single node. Multinode jobs are required to be submitted as a batch job.
 
-**This seems to work:**
+**Use this full command line to create an interactive session on a compute node. You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
 `salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l`
 
-Please use `--partition=general` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+Please use `--partition=general` or `--partition=debug` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
 For an interactive session on the `gpu`, `ai` or `aibn_omara` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. (Note: The A100 GPUs have been removed from the `gpu` partition until further notice. For the `gpu` partition you will need to specify which type of GPU you are requesting as they are now AMD and NVIDIA GPUs.) See below for more information.
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As srun was already used in the above command there is no need to use srun to run your executables, it will just mess things up.
 
 Once you are done type `exit` on the command line which will stop any processes still running and will release the allocation for the job.
+
+Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ use `srun` to run your command command otherwise it will start running on login node and that is not fair on other users.
+
+
 
 ***At the moment there are issues with testing MPI jobs through an interactive session.***
 
