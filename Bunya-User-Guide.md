@@ -99,8 +99,25 @@ The basic use of FileZilla for file and data transfer is shown [here](https://yo
 
 If you experience problems with disconnection, then try this: Go to Edit -\> Settings and change the number under "Timeout" from 20 seconds to 120 or more.
 
-With MFA you need to use an interactive session in FileZilla to connect. Click on the icon directly under "File" (left top corner) ![](FileZilla-n.png) then select interactive from the drop-down menu.
-![](FileZillaInteractive.png)
+With MFA you need to use an interactive session in FileZilla to connect. Click on the icon directly under "File" (left top corner). Please do not enter anything in the boxes for hostname etc or click the Qickconnect button. 
+
+![](FileZilla-n.png) 
+
+Then click on *New site* and use "bunya.rcc.uq.edu" as the *Host*, "22" for *Port* and select "SFTP" for the *Protocol*. Be sure to select "Interactive" as the *Logon Type*. Enter your "username for Bunya" under *User*. Then click *Connect*.
+
+![](FileZilla-2-n.png]
+
+You then might need to accept the host key by clicking *OK*.
+
+![](FileZilla-3-n.png)
+
+You will then be asked for your password for your username. Please enter this.
+
+Then you will see the reqeust for the multifactor authentication. Please enter the 6 number passcode from your authenticator app (DUO or other) here. It is advisable to click "refresh" on the passcode first or check the timer on the passcode before entering the passcode.
+
+![](FileZilla-4-n.png)
+
+
 
 ## Software
 
