@@ -1,4 +1,4 @@
-# Bunya (very short) user guide
+# Bunya user guide
 
 ## Quick links
 
@@ -32,37 +32,24 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 [General overview of Q RDM](https://youtu.be/zI3jQfaSyCQ)<br>
 [Q RDM on HPC](https://youtu.be/kX1k--eXndM)<br>
 
-## What is changing
+## Hardware
 
-Bunya replaces Awoonga and FlashLite (and eventually Tinaroo).
-
-**Hardware:**
-
-- Bunya currently has around 6000 cores, with 96 physical cores per node.
+- Bunya currently has around 6000 cores, with 96 physical cores per compute node.
   - (2 \* 48 core CPUs per node).
-- These CPUs are based on AMD (epyc3 Milan). They are not Intel CPUs as was the case with FlashLite and Tinaroo.
+- The queue allows 2 \* 96 = 192 threads per compute node (requested by `--cpus-per-task`)  
+- These CPUs are based on AMD (epyc3 Milan). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
 - These CPU cores are based on the industry standard x86\_64 architecture.
-- Each standard Bunya node has 2TB of RAM.
-- There are also 3 high memory nodes that each have 4TB of RAM.
-
-**Resource Scheduler:**
-
-- Bunya uses the [Slurm](https://slurm.schedmd.com/pdfs/summary.pdf) scheduler and batch queue system which is different to the PBS scheduler and batch queue used on FlashLite and Tinaroo. Users will not be able to reuse their PBS scripts from Tinaroo/FlashLite but will have to change to Slurm scripts.
+- Each standard Bunya compute node has 2TB of RAM (2000000M is the maximum that can be requested in jobs).
+- There are also 3 high memory nodes that each have 4TB of RAM (4000000M is the maximum that can be requested in jobs).
 - Bunya is currently CPU only for the standard user. The standard queues do not have GPU hardware resources associated with them yet.
 
-**Software:**
+- Users have a location in `/home` and `/scratch/user`.
+- RDMs are located in `/QRISdata`. These are automounted and there is no need to request a RDM to be mounted on Bunya.
+- The quota in `/home` is 50GB and 1 million files
+- The quota in `/scratch/user` is 150GB and 100000 files.
+- User can use the command `rquota` to check on quotas and usage.
+- Users can request a shared scratch space for their group if more space is required. Email rcc-support@uq.edu.au for the application form.
 
-- Software is still available via the [module system](https://modules.readthedocs.io/en/latest/) as it was on FlashLite and Tinaroo.
-- Bunya will, however, have different software and versions installed than Tinaroo, FlashLite or Awoonga did.
-- Users should use module avail to check which software and their versions are installed.
-- Users who install their own software are required to recompile their software for Bunya.
-- Users are able to utilise software container technology on Bunya.
-
-## What remains the same
-
-- Locations for data: `/home`, `/scratch/user`, `/scratch/project` and `/QRISdata` remain the same.
-- `/RDS` has been retired (it was set up as a link to `/QRISdata` so for users accustomed to `/RDS` it is just the name that is changing) and users are now required to use `/QRISdata`.
-- Users will see the same data in `/home`, `/scratch/user`, `/scratch/project` and `/QRISdata` on Tinaroo/FlashLite and Bunya. There will be no need for users to transfer any data from Tinaroo/FlashLite before using Bunya.
 
 # Guide
 
