@@ -105,7 +105,7 @@ With MFA you need to use an interactive session in FileZilla to connect. Click o
 
 Then click on *New site* and use "bunya.rcc.uq.edu" as the *Host*, "22" for *Port* and select "SFTP" for the *Protocol*. Be sure to select "Interactive" as the *Logon Type*. Enter your "username for Bunya" under *User*. Then click *Connect*.
 
-![](FileZilla-2-n.png]
+![](FileZilla-2-n.png)
 
 You then might need to accept the host key by clicking *OK*.
 
