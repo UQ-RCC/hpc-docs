@@ -16,26 +16,14 @@ To load the dependencies and set the environment for using Ansys:
 Please submit a support request via email to rcc-support@uq.edu.au if you experience any issues with Ansys.
 
 ___
-## Star-CCM+
-
-[**AVAILABLE FOR TESTING**]
-
-* Access to the UQ license server for this product has been established.
-* Several dependencies have been deployed.
-
-To test functionality please 
-
-`module load star-ccm+/.17.02.008`
-
-Please submit a support request via email to rcc-support@uq.edu.au if you experience any issues while testing Star-CCM+.
-
-___
 ## Gurobi
 
 [**UNAVAILABLE DUE TO LICENSE ISSUE**]
 
+* Version 9.5 has been installed.
 * There is an ongoing issue with accessing the Gurobi product license servers campus.
 * RCC is working with the vendor to faciliate access to the campus license server.
+* Version 10.x will be installed once the license issue is resolved. 
 
 Watch this space!
 ___
@@ -54,4 +42,18 @@ ___
 
 * The access to license servers at home institutions needs to be configured.
 * Once that is established, software installation can occur.
+___
+## Star-CCM+
+
+[**AVAILABLE FOR TESTING**]
+
+* Access to the UQ license server for this product has been established.
+* Several dependencies have been deployed.
+
+To test functionality please 
+
+`module load star-ccm+/.17.02.008`
+
+Please submit a support request via email to rcc-support@uq.edu.au if you experience any issues while testing Star-CCM+.
+
 ___
