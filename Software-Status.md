@@ -36,7 +36,7 @@ ___
 * The version of MATLAB that is available does not support some Simulink functionality.
 * Updates will be installed soon.
 
-## Non-UQ 
+### Non-UQ 
 
 [**UNAVAILABLE**]
 
