@@ -6,7 +6,7 @@
 
 * Access is restricted to approved UQ EAIT users only.
 
-* The Ansys dependencies have been built and deployed as a single "mega-module".
+* The Ansys dependencies have been built and deployed as a single *mega-module*.
 * The issue with the system coupling component now appears to have been resolved following a system configuration patch.
  
 To load the dependencies and set the environment for using Ansys:
@@ -21,8 +21,8 @@ ___
 [**UNAVAILABLE DUE TO LICENSE ISSUE**]
 
 * Version 9.5 has been installed.
-* There is an ongoing issue with accessing the Gurobi product license servers campus.
-* RCC is working with the vendor to faciliate access to the campus license server.
+* There is an ongoing issue with accessing the Gurobi product license servers on campus.
+* RCC is working with the vendor to faciliate access and use of the campus license server.
 * Version 10.x will be installed once the license issue is resolved. 
 
 Watch this space!
