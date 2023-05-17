@@ -22,10 +22,11 @@ ___
 
 [**UNAVAILABLE DUE TO LICENSE ACCESS ISSUE**]
 
-* Version 9.5 has been installed.
 * There is an ongoing issue with accessing the Gurobi product license servers on campus.
-* RCC is working with the vendor to faciliate access and use of the campus license server.
-* Version 10.x will be installed once the license issue is resolved. 
+* RCC is working with the vendor and ITS to faciliate access and use of the campus license server.
+* Version 9.5 has been installed.
+* Version 10.0.1 has been installed and configured. 
+* Awaiting a patch to the license server to be applied. 
 
 Watch this space!
 ___
