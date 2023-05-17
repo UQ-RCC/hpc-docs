@@ -33,10 +33,13 @@ ___
 
 #### UQ Users
 
-[**AVAILABLE BUT UPDATES NEEDED**]
+[**AVAILABLE BUT UPDATES BEING TESTED**]
 
-* The version of MATLAB that is available does not support some Simulink functionality.
-* Updates will be installed soon.
+* The version of MATLAB (2022a) that is available does not support some Simulink functionality.
+* The Update 6 of R2022a is installed.
+
+Please test the updated version using
+`module load matlab/R2022a6`
 
 #### Non-UQ 
 
