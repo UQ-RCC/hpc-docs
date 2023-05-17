@@ -293,3 +293,8 @@ ___
 
 These are requests that were not included in the software survey and have been requested since that time. They are necessarily lower priority.
 
+* DIA-NN
+* Mr Bayes
+* VBZ Compression Tool
+* LESYMAP
+* 
