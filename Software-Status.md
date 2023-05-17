@@ -61,20 +61,6 @@ To test functionality please
 **`module load star-ccm+/.17.02.008`**
 
 Please submit a support request via email to rcc-support@uq.edu.au if you experience any issues while testing Star-CCM+.
-
-___
-## Software Survey Requests
-
-In late 2022, we asked users to participate in the software survey to ascertain which tools were required on Bunya.
-The following table summarises the status of those requests.
-
-_BIG TABLE_
-
-___
-## Post Software Survey Requests
-
-These are requests that were not included in the software survey and have been requested since that time. They are necessarily lower priority.
-
 ___
 ## Full Module List
 
@@ -165,3 +151,144 @@ f5c     (1)   hisat2   (1)   mixer     (1)   nanopolish    (1)   sra-tools (1)  
 fastool (1)   kallisto (1)   mlst      (1)   ont-fast5-api (1)   star      (1)   trinotate    (1)
 
 ```
+___
+## Software Survey Requests
+
+In late 2022, we asked users to participate in the software survey to ascertain which tools were required on Bunya.
+The following table summarises the status of those requests.
+
+|Name|Requests|Responsible|Completed|
+|:---|:------:|:--:|:--------|
+|Anaconda|96|RCC|YES|
+|R|95|RCC|YES|
+|GNU compilers (gcc and gfortran)|74|RCC|YES|
+|bedtools|56|RCC|YES|
+|bamtools|53|RCC|YES|
+|fastqc|53|RCC|YES|
+|samtools|50|RCC|YES|
+|Singularity|49|RCC|YES|
+|bcftools|47|RCC|YES|
+|OpenMPI (Intel and/or GNU)|46|RCC|YES|
+|blast2|45|RCC|YES|
+|bowtie2|43|RCC|YES|
+|Matlab|41|RCC|YES|
+|trimmomatic|36|RCC|YES|
+|Intel Compilers (icc and ifort)|29|RCC|YES|
+|curl|29|RCC|YES|
+|gatk4|27|RCC |YES|
+|BLAS|26|RCC|YES|
+|IntelMPI|26|RCC|YES|
+|gcta|25|RCC|YES|
+|LAPACK|24|RCC|YES|
+|cutadapt|24|RCC|YES|
+|STAR|24|QCIF|YES|
+|fastp|23|RCC|YES|
+|hisat2|22|QCIF|YES|
+|hmmer|22|RCC|YES|
+|Julia|20|RCC|YES|
+|Gaussian|20|RCC|YES|
+|busco|20|RCC|YES|
+|picard|20|RCC|YES|
+|trinity|20|QCIF/RCC|YES|
+|beagle|19|RCC|YES|
+|htseq|18|RCC |YES|
+|seqtk|18|RCC|YES|
+|sra-tools|18|QCIF|YES|
+|augustus|17|RCC|YES|
+|cellRanger|16|RCC|YES|
+|multiQC|16|RCC|YES|
+|OpenJDK|15|RCC|YES|
+|canu|15|RCC |YES|
+|jellyfish|15|RCC |YES|
+|RepeatMasker|15|RCC ||
+|deeptools|14|RCC |YES|
+|Gromacs|13|RCC|YES|
+|cd-hit|13|RCC|YES|
+|guppy|13|User||
+|qiime2|13|RCC|YES|
+|transdecoder|13|QCIF|YES|
+|Orca|12|RCC ||
+|LAMMPS|12|RCC|YES|
+|gffcompare|12|RCC |YES|
+|hclust2|12|QCIF ?||
+|kallisto|12|QCIF|YES|
+|pacbio|12|RCC/QCIF||
+|snakemake|12|RCC |YES|
+|flye|11|RCC |YES|
+|interproscan|11|RCC |YES|
+|macs2|11|RCC ||
+|spades|11|RCC |YES|
+|trinotate|11|QCIF|YES|
+|VASP|10|RCC |YES|
+|diamond|10|RCC|YES|
+|gmap|10|||
+|prokka|10|RCC|YES|
+|braker2|9|||
+|checkm|9|RCC |YES|
+|htslib|9||YES|
+|kraken2|9||YES|
+|mafft|9|RCC|YES|
+|maker|9|QCIF||
+|nextflow|9|RCC|YES|
+|quast|9|RCC|YES|
+|pb-assembly|8|QCIF||
+|repeatmodeler|8|QCIF||
+|plink (inc plink 1.9)|8|RCC|YES|
+|exonerate|7|QCIF||
+|iqtree|7|QCIF||
+|VEP|7|RCC||
+|ATLAS|6|RCC||
+|Nimrod|6|RCC||
+|krona|6|RCC|YES|
+|mauve|6|RCC||
+|NextPolish|6|QCIF||
+|SNAP|6|QCIF||
+|StarCCM|6|RCC|NEARLY|
+|circlator|5|QCIF||
+|isoseq3|5|QCIF||
+|3d-dna|4|QCIF|YES|
+|edirect|4|QCIF||
+|raxml|4|RCC||
+|cp2k|4|RCC|YES|
+|eilmer4|4|User||
+|plink2|4|RCC|YES|
+|neurodesk|4|User||
+|abricate|3|RCC|YES|
+|celseq2|3|QCIF||
+|dfam|3|QCIF||
+|metaphlan|3|QCIF||
+|mlst|3|QCIF||
+|salsa|3|QCIF|YES|
+|spaceRanger|3|QCIF||
+|pytorch/tensorflow/cuda|3|RCC||
+|gtdb-tk|3|RCC|YES|
+|juicer|2|QCIF||
+|maxquant|2|RCC |YES|
+|mira|2|QCIF||
+|pear|2|QCIF||
+|cmake|2|RCC|YES|
+|ansys|2|RCC|YES|
+|gurobi|2|RCC|NEARLY|
+|AOCC|1|||
+|besst|1|||
+|dammit|1|||
+|NextDenovo|1|||
+|picrust2|1|||
+|rcorrector|1|||
+|shovill|1|RCC/QCIF||
+|go (golang)|1|RCC|YES|
+|intel mkl|1|RCC|YES|
+|parallel|1|RCC|YES|
+|vcftools|1|RCC|YES|
+|mikado|0|QCIF||
+|proovread|0|QCIF||
+|ratatosk|0|QCIF||
+|sortmerna|0|QCIF||
+|humann|0|RCC|YES|
+|srst2|0|QCIF||
+|rust|0|RCC|YES|
+___
+## Post Software Survey Requests
+
+These are requests that were not included in the software survey and have been requested since that time. They are necessarily lower priority.
+
