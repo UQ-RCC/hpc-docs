@@ -142,7 +142,7 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 - Use the full module name, software/version, to be sure to load the version you need and esure that your research is consistend and repeatable
 - Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky8.6/epyc3/modules/all` or `/sw/local/rocky8.6/noarch/qcif/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
 - Most system libraries and tools (gfortran, gcc, eigen, etc) are required to be loaded as modules. Users should check `module --show_hidden avail` if they get a *library not found error* to see if it is avialable via a module.
-  
+
 
 ### How to build your own software
 
@@ -238,7 +238,7 @@ User should use interactive jobs to do quick testing and if they need to use a g
 
 **Use this full command line to create an interactive session on a compute node. You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
-`salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l`
+`salloc --x11 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l`
 
 Please use `--partition=general` or `--partition=debug` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
@@ -264,7 +264,7 @@ For those using the **intel** tool chain please do
 
 `salloc --nodes=1 --ntasks-per-node=96 --cpus-per-task=1 --ntasks=96 --mem=500G --job-name=MPI-test --time=05:00:00 --partition=general --account=AccountString`
 
-This will give you a new shell and an allocation, but you are still on the login node. You can now use srun to actually start a job on a node.
+This will give you a new shell and an allocation, **but you are still on the login node**. You can now use srun to actually start a job on a node.
 
 1. Load all the modules you need
 2. `export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi2.so`
@@ -308,11 +308,10 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 
 ***Please note***: In Slurm your job will start in the directory/folder you submitted from. This is different to PBS behaviour on Tinaroo/FlashLite where your job started in your home directory. So on Bunya, using slurm, there is no need to change into the job directory, unless this is different to the directory you submitted from.
 
-***Please note***: There is currently no equivalent to the **$TMPDIR** that was available on FlashLite and Tinaroo. Until this has been set up users are required to use their `/scratch/user` directory for temporary files. RCC is working to set up a large and fast space for temporary files which will accommodate similar loads as was possible on FlashLite, if not more.
+***Please note***: If your job produces temporary files during the calculation or if you need a space to write to that does not impact your quotas in `/home`, `/scratch/user` or `/scratch/project` then please use **$TMPDIR** during your calculations. **$TMPDIR** is automatically created at the start of a job and is then automatically deleted at the end of the job. It is therefore the best place to write temporary files (those not needed after the calculation is done) to. If you use **$TMPDIR** for output you wish to keep then please make sure you copy all needed files to a location in `/home`, `/scratch/user`, `/scratch/project` or `/QRISdata`. A big (all in one go) copy from **$TMPDIR** to `/QRISdata` (RDM) at the end of a job is possible.
 
-***Accounting has now been switched on and will be enforced. Users cannot run jobs without a valid Account String. All valid AccountStrings start with `a_` and are all lower case letters. If you do not have a valid AccountString then please contact your supervisor. AccountStrings and access are managed by research groups and group leaders. Groups who wish to use Bunya are required to apply to set up a group with a valid AccountString. Only group leaders can apply to set up such a group. A PhD student or postdoc without their own funding and group should not apply. Applications can be made by contacting [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au). ***
+***Accounting has now been switched on and will be enforced. Users cannot run jobs without a valid AccountString. All valid AccountStrings start with `a_` and are all lower case letters. If you do not have a valid AccountString then please contact your supervisor. AccountStrings and access are managed by research groups and group leaders. Groups who wish to use Bunya are required to apply to set up a group with a valid AccountString. Only group leaders can apply to set up such a group. A PhD student or postdoc without their own funding and group should not apply. Applications can be made by contacting [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au). ***
 
-***It takes some time for new AccountStrings to migrate to Slurm. If you still get the error `Unable to allocate resources: Invalid account or account/partition combination specified` after one business day after your user account on Bunya has been enabled, please contact [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
 
 ### Simple script for AI GPUs.
 
