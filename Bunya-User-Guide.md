@@ -78,7 +78,7 @@ For QCIF users, you will be asked to enter the one-time-authentication code.
 After this you will be logged into Bunya.
 
 **Note for QCIF users:**
-QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. This can be done via their existing Tinaroo account.
+QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. For this users are required to provide a public ssh key as part of the application procedure.
 
 ## File Transfer
 
@@ -136,7 +136,7 @@ If you have created some personal module files and would like to use them, then 
 
 The `-a` option can be used to _append_ the search path instead of pre-pending it. 
 The command `module unuse path_to_where_you_keep_your_modules` will reverse this temporary change (or you could login again). 
-You can make sure it is always set by modifying your `$HOME/.bashrc` file. 
+You can make sure it is always set by modifying your `$HOME/.bashrc` file.  
 
 ### How to build your own software
 
