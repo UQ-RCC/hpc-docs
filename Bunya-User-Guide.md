@@ -138,6 +138,12 @@ The `-a` option can be used to _append_ the search path instead of pre-pending i
 The command `module unuse path_to_where_you_keep_your_modules` will reverse this temporary change (or you could login again). 
 You can make sure it is always set by modifying your `$HOME/.bashrc` file.  
 
+**Please note:**
+- Use the full module name, software/version, to be sure to load the version you need and esure that your research is consistend and repeatable
+- Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky8.6/epyc3/modules/all` or `/sw/local/rocky8.6/noarch/qcif/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
+- Most system libraries and tools (gfortran, gcc, eigen, etc) are required to be loaded as modules. Users should check `module --show_hidden avail` if they get a *library not found error* to see if it is avialable via a module.
+  
+
 ### How to build your own software
 
 Users can use EasyBuild to build their own software against existing modules on Bunya.
