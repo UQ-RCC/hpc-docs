@@ -218,27 +218,27 @@ The following table summarises the status of those requests.
 |deeptools|14|RCC |YES|
 |Gromacs|13|RCC|YES|
 |cd-hit|13|RCC|YES|
-|guppy|13|User||
+|guppy|13|User|YES ... User must install personal licensed copy|
 |qiime2|13|RCC|YES|
 |transdecoder|13|QCIF|YES|
-|Orca|12|RCC ||
+|Orca|12|RCC||
 |LAMMPS|12|RCC|YES|
-|gffcompare|12|RCC |YES|
-|hclust2|12|QCIF ?||
+|gffcompare|12|RCC|YES|
+|hclust2|12|QCIF||
 |kallisto|12|QCIF|YES|
 |pacbio|12|RCC/QCIF||
-|snakemake|12|RCC |YES|
-|flye|11|RCC |YES|
-|interproscan|11|RCC |YES|
+|snakemake|12|RCC|YES|
+|flye|11|RCC|YES|
+|interproscan|11|RCC|YES|
 |macs2|11|RCC ||
 |spades|11|RCC |YES|
 |trinotate|11|QCIF|YES|
 |VASP|10|RCC |YES|
 |diamond|10|RCC|YES|
-|gmap|10|||
+|gmap|10|QCIF||
 |prokka|10|RCC|YES|
-|braker2|9|QCIF|YES but has issues?|
-|checkm|9|RCC |YES|
+|braker2|9|QCIF|YES but has issues ?|
+|checkm|9|RCC|YES|
 |htslib|9||YES|
 |kraken2|9||YES|
 |mafft|9|RCC|YES|
@@ -270,8 +270,8 @@ The following table summarises the status of those requests.
 |abricate|3|RCC|YES|
 |celseq2|3|QCIF||
 |dfam|3|QCIF||
-|metaphlan|3|QCIF||
-|mlst|3|QCIF||
+|metaphlan|3|QCIF|YES|
+|mlst|3|QCIF|YES|
 |salsa|3|QCIF|YES|
 |spaceRanger|3|QCIF||
 |pytorch/tensorflow/cuda|3|RCC||
