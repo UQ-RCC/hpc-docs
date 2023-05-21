@@ -213,8 +213,8 @@ The following table summarises the status of those requests.
 |multiQC|16|RCC|YES|
 |OpenJDK|15|RCC|YES|
 |canu|15|RCC |YES|
-|jellyfish|15|RCC |YES|
-|RepeatMasker|15|RCC ||
+|jellyfish|15|RCC|YES|
+|RepeatMasker|15|QCIF|YES|
 |deeptools|14|RCC |YES|
 |Gromacs|13|RCC|YES|
 |cd-hit|13|RCC|YES|
@@ -237,7 +237,7 @@ The following table summarises the status of those requests.
 |diamond|10|RCC|YES|
 |gmap|10|||
 |prokka|10|RCC|YES|
-|braker2|9|||
+|braker2|9|QCIF|YES but has issues?|
 |checkm|9|RCC |YES|
 |htslib|9||YES|
 |kraken2|9||YES|
@@ -289,7 +289,7 @@ The following table summarises the status of those requests.
 |NextDenovo|1|||
 |picrust2|1|||
 |rcorrector|1|||
-|shovill|1|RCC/QCIF||
+|shovill|1|QCIF|YES|
 |go (golang)|1|RCC|YES|
 |intel mkl|1|RCC|YES|
 |parallel|1|RCC|YES|
