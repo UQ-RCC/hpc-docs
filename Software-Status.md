@@ -239,7 +239,7 @@ The following table summarises the status of those requests.
 |VASP|10|RCC|YES|
 |diamond|10|RCC|YES|
 |gmap|10|QCIF||
-|prokka|10|RCC|YES|
+|prokka|10|RCC|Has been removed for redeployment due to a dependency issue|
 |braker2|9|QCIF|YES but has issues ?|
 |checkm|9|RCC|YES|
 |htslib|9|RCC|YES|
