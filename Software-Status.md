@@ -192,7 +192,7 @@ The following table summarises the status of those requests.
 |trimmomatic|36|RCC|YES|
 |Intel Compilers (icc and ifort)|29|RCC|YES|
 |curl|29|RCC|YES|
-|gatk4|27|RCC |YES|
+|gatk4|27|RCC|YES|
 |BLAS|26|RCC|YES|
 |IntelMPI|26|RCC|YES|
 |gcta|25|RCC|YES|
@@ -208,20 +208,20 @@ The following table summarises the status of those requests.
 |picard|20|RCC|YES|
 |trinity|20|QCIF/RCC|YES|
 |beagle|19|RCC|YES|
-|htseq|18|RCC |YES|
+|htseq|18|RCC|YES|
 |seqtk|18|RCC|YES|
 |sra-tools|18|QCIF|YES|
 |augustus|17|RCC|YES|
 |cellRanger|16|RCC|YES|
 |multiQC|16|RCC|YES|
 |OpenJDK|15|RCC|YES|
-|canu|15|RCC |YES|
+|canu|15|RCC|YES|
 |jellyfish|15|RCC|YES|
 |RepeatMasker|15|QCIF|YES|
-|deeptools|14|RCC |YES|
+|deeptools|14|RCC|YES|
 |Gromacs|13|RCC|YES|
 |cd-hit|13|RCC|YES|
-|guppy|13|User|YES ... User must install personal licensed copy|
+|guppy|13|User|YES ... User must install personally licensed copy|
 |qiime2|13|RCC|YES|
 |transdecoder|13|QCIF|YES|
 |Orca|12|RCC||
@@ -233,17 +233,17 @@ The following table summarises the status of those requests.
 |snakemake|12|RCC|YES|
 |flye|11|RCC|YES|
 |interproscan|11|RCC|YES|
-|macs2|11|RCC ||
+|macs2|11|RCC||
 |spades|11|RCC |YES|
 |trinotate|11|QCIF|YES|
-|VASP|10|RCC |YES|
+|VASP|10|RCC|YES|
 |diamond|10|RCC|YES|
 |gmap|10|QCIF||
 |prokka|10|RCC|YES|
 |braker2|9|QCIF|YES but has issues ?|
 |checkm|9|RCC|YES|
-|htslib|9||YES|
-|kraken2|9||YES|
+|htslib|9|RCC|YES|
+|kraken2|9|QCIF|YES|
 |mafft|9|RCC|YES|
 |maker|9|QCIF||
 |nextflow|9|RCC|YES|
@@ -285,7 +285,7 @@ The following table summarises the status of those requests.
 |pear|2|QCIF||
 |cmake|2|RCC|YES|
 |ansys|2|RCC|YES|
-|gurobi|2|RCC|NEARLY|
+|gurobi|2|RCC|YES|
 |AOCC|1|||
 |besst|1|||
 |dammit|1|||
