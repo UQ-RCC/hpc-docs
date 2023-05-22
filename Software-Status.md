@@ -310,6 +310,7 @@ ___
 These are requests that were not included in the software survey and have been requested since that time. They are necessarily lower priority.
 
 * DIA-NN
+* Vienna RNA
 * Mr Bayes
 * VBZ Compression Tool
 * FoldX, Rosetta and RFdiffusion
