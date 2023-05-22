@@ -312,5 +312,6 @@ These are requests that were not included in the software survey and have been r
 * DIA-NN
 * Mr Bayes
 * VBZ Compression Tool
+* FoldX, Rosetta and RFdiffusion
 * LESYMAP
 * 
