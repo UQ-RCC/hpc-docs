@@ -309,10 +309,12 @@ ___
 
 These are requests that were not included in the software survey and have been requested since that time. They are necessarily lower priority.
 
-* DIA-NN
-* Vienna RNA
-* Mr Bayes
-* VBZ Compression Tool
-* FoldX, Rosetta and RFdiffusion
-* LESYMAP
-* 
+|Name|Requested|Ready?|Note|
+|:---|:------:|:--:|:--------|
+|DIA-NN||NO|Installation will commence next week|
+|Vienna RNA||NO|Installation via EB mechanism yet to be done after initial attempts failed.| 
+|Mr Bayes||Nearly|Installation by EB mechanism successful. Submitted for deployment.|
+|VBZ Compression Tool||NO||
+|FoldX, Rosetta and RFdiffusion||NO||
+|LESYMAP||YES|Identified suitable docker image to use with Apptainer on Bunya.|
+
