@@ -239,7 +239,7 @@ The following table summarises the status of those requests.
 |VASP|10|RCC|YES|
 |diamond|10|RCC|YES|
 |gmap|10|QCIF||
-|prokka|10|RCC|Has been removed for redeployment due to a dependency issue|
+|prokka|10|RCC|Has been reinstalled due to a dependency issue|
 |braker2|9|QCIF|YES but has issues ?|
 |checkm|9|RCC|YES|
 |htslib|9|RCC|YES|
@@ -311,9 +311,9 @@ These are requests that were not included in the software survey and have been r
 
 |Name|Requested|Ready?|Note|
 |:---|:------:|:--:|:--------|
-|DIA-NN||NO|Installation will commence next week|
+|DIA-NN||NO|Suitable download found. User is testing|
 |Vienna RNA||NO|Installation via EB mechanism yet to be done after initial attempts failed.| 
-|Mr Bayes||Nearly|Installation by EB mechanism successful. Submitted for deployment.|
+|Mr Bayes||Nearly|Installation by modified EB script mechanism successful. Submitting for deployment|
 |VBZ Compression Tool||NO||
 |FoldX, Rosetta and RFdiffusion||NO||
 |LESYMAP||YES|Identified suitable docker image to use with Apptainer on Bunya.|
