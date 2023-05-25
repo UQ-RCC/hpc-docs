@@ -238,9 +238,13 @@ User should use interactive jobs to do quick testing and if they need to use a g
 
 **Use this full command line to create an interactive session on a compute node. You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
-`salloc --x11 --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l`
+**Below is a single line! Copy all of it, not just the top bit.**
+`salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l`
+**Above is a single line, copy all of it for an interactive job.**
 
 Please use `--partition=general` or `--partition=debug` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+
+If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
 For an interactive session on the `gpu`, `ai` or `aibn_omara` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. (Note: The A100 GPUs have been removed from the `gpu` partition until further notice. For the `gpu` partition you will need to specify which type of GPU you are requesting as they are now AMD and NVIDIA GPUs.) See below for more information.
 
