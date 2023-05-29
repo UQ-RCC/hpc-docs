@@ -146,6 +146,19 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 ### How to build your own software
 
+#### Building additional packages for R
+
+The installation of R on Bunya comes with many packages provided (see `module help r`) that can be loaded using the library() function.
+Additional R packages (ones that you need but don't have provided already need to be built using the `install.package()` function _within_ R. 
+**Note: R packages that were built for Tinaroo, or for a different version of R will NOT work properly or at all on Bunya.**
+We recommend that you delete all packages built with/for/on Tinaroo and FlashLite and run `install.packages()` again.
+
+#### Building Python environments ####
+
+Similary to information about for R packages. Python environments built with/for/on Tinaroo and FlashLite need to be reinstalled on Bunya.
+
+#### Building software using EasyBuild
+
 Users can use EasyBuild to build their own software against existing modules on Bunya.
 
 [https://docs.easybuild.io/en/latest/index.html](https://docs.easybuild.io/en/latest/index.html)
@@ -191,7 +204,6 @@ You could proceed with attempting to build it using the .eb file without modific
 Alternatively, you could adapt the eb script to make it compatible with one of the Solid toolchains listed above. This involves tracing dependencies (exact versions matter).
 
 Users who have a working EasyBuild recipe and have tested that the software installed as such is working on Bunya can offer their EasyBuild recipe to be uploaded to the suite of cluster wide installed software and it would then be available via modules. It is preferable that the recipe be for one of the "Solid" toolchains, unless there is a strong reason because of compatibility with other software.
-
 
 
 ### Using software containers on Bunya
