@@ -299,22 +299,23 @@ Users with MPI jobs should run in multiples of nodes, so in multiples of 96 core
 
 The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://support.pawsey.org.au/documentation/display/US/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
 
-Below are examples for single core, single node but multiple cores, MPI, and array job submission scripts. The different request flags mean the following:
+Below are examples for single thread, single node but multiple threads, MPI, and array job submission scripts. The different request flags mean the following:
 
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
-`#SBATCH --ntasks-per-node=[number]` - This is 1 for single core jobs and multi core jobs. This is 96 (or less if single node) for MPI jobs.<br>
-`#SBATCH --cpus-per-task=[number]` - This is 1 for single core jobs, number of cores for multi core jobs, and 1 for MPI jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`.<br>
-`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 2TB or 4TB is not avaiable to jobs, therefore jobs asking for 2TB or 4TB will NOT run. Ask for `2000000M` to get the maximum memory on a standard node. Ask for `4000000M` to get the maximum memory on a high memory node.<br>
-(`#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.)<br>
-`#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. On the `gpu` partition there are 2 per node and on the `ai` partition there are 3 per node. Please see the example scripts below for the available types of GPUs<br>
-`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete<br>
+`#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 96 (or less if single node) for MPI jobs.<br>
+`#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of threads for the job (what you woudl use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduleing of MPI jobs.<br> 
+`#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. This is 1 for MPI jobs.<br>
+`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 2TB or 4TB is not available to jobs, therefore jobs asking for 2TB or 4TB will NOT run. Ask for `2000000M` to get the maximum memory on a standard node. Ask for `4000000M` to get the maximum memory on a high memory node.<br>
+`#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
+`#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. On the `gpu` partition and `aibn_omara` partition there are 2 per node and on the `ai` partition there are 3 per node. Please see the example scripts below for the available types of GPUs<br>
+`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `ai,gpu,aibn_omara` = 168 hours (1 week).<br>
 `#SBATCH -o filename` - filename where the standard output should go to<br>
 `#SBATCH -e filename` - filename where the standard error should go to<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
-`#SBATCH --account=[Name]` - Account String for your research or accounting group, all Account Strings start with `a_`, use the `groups` command to list your groups<br>
+`#SBATCH --account=[Name]` - AccountString for your research or accounting group, all AccountStrings start with `a_`, use the `groups` command to list your groups<br>
 `#SBATCH --partition=general/gpu/debug/ai/aibn_omara`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
-`srun` - runs the executable and will receive info on number of cores etc from Slurm. There is no need to specify them here.
+`srun` - runs the executable and will receive info on number of threads, memory, etc from Slurm. There is no need to specify them here.
 
 See `man sbatch` and `man srun` for more options (use arrow keys to scroll up and down and `q` to quit)
 
@@ -355,7 +356,7 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 
 ### Simple script for AMD GPUs.
 
-**Nodes bun001 and bun002. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these.**
+**Nodes bun001 and bun002. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these. See the [AMD Inifinity Hub](https://www.amd.com/en/technologies/infinity-hub) for some available containers**
 
 `#!/bin/bash --login`<br>
 `#SBATCH --nodes=1`<br>
@@ -417,21 +418,20 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 <br>
 `srun executable < input > output`<br>
 
-To ask for more than 1 core change the line
+To ask for more than 1 thread change the line
 
 `#SBATCH --cpus-per-task=12`
 
-To run over 12 cores for example.
+To run over 12 threads for example.
 
 
 
-### Simple MPI script (used 2 nodes, giving 192 cores, as an example)
+### Simple MPI script (using 192 cores, as an example). Using --ntasks will spread the job over multiple nodes where there is space.
 
 `#!/bin/bash --login`<br>
-`#SBATCH --nodes=2`<br>
-`#SBATCH --ntasks-per-node=96`<br>
+`#SBATCH --ntasks=192`<br>
 `#SBATCH --cpus-per-task=1`<br>
-`#SBATCH --mem=5G`<br>
+`#SBATCH --mem-per-cpu=5G`<br>
 `#SBATCH --job-name=MPI-Test`<br>
 `#SBATCH --time=1:00:00`<br>
 `#SBATCH --partition=general`<br>
