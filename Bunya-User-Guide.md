@@ -82,6 +82,29 @@ QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. F
 
 ## File Transfer
 
+We recommend to use command line `'scp` and `sftp`. The are accessible to all users, via a shell for Linux and Mac users and via WSL and `cmd` for Windows users.
+
+`scp file username@bunya.rcc.uq.edu.au:/path-to-place-for-file/`
+
+For example
+
+`scp test.dat username:bunya.rcc.uq.edu.au:/scratch/user/username/`
+
+will copy the file `test.dat` to the user's scratch directory.
+
+`sftp username@bunya.rcc.uq.edu.au`
+
+You will see `sftp>` as prompt once you have logged in.
+
+`ls` and `cd` work as usual on the Bunya end. Use `lls` to list files on your desktop/laptop and `lcd` to change directories on your desktop/laptop.
+
+Use `get` to pull files and directories from Bunya to your desktop/laptop and 
+use `put` to move files and directories from your desktop/laptop to Bunya.
+
+Windows users can also use WinSCP if they require a graphical SFTP client. WinSCP allows the MFA authentication without extra setup. WinSCP also allows mutiple file and directory transfer without having to re-enter the MFA passcode.
+
+FileZilla is no longer recommeneded, but if required please find the details here:
+
 The basic use of FileZilla for file and data transfer is shown [here](https://youtu.be/9ABMxcKqfkQ).
 
 If you experience problems with disconnection, then try this: Go to Edit -\> Settings and change the number under "Timeout" from 20 seconds to 120 or more.
@@ -447,7 +470,7 @@ To run over 12 threads for example.
 
 ### Job Arrays
 
-Here is one example of an array job script with 5 tasks.
+Here is one example of an array job script with 5 array tasks.
 
 `#!/bin/bash --login`<br>
 `#SBATCH --job-name=testarray`<br>
@@ -484,6 +507,7 @@ Here are some other useful additions to the squeue command. For information on w
 
 `squeue -o "%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %.10a %.4c %R"`<br>
 `squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`<br>
+`squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L"`(my own favourite)<br>
 
 sinfo is used to obtain information about the actual nodes. Here some useful examples.
 
