@@ -88,7 +88,6 @@ ___
 You should run **`module -I -w 120 --show-hidden overview`** on Bunya to get the up-to-date list of installed software.
 ```
 
-
 ----------------------------------------- /sw/auto/rocky8.6/epyc3/modules/all ------------------------------------------
 abricate           (1)   fermi-lite            (1)   interproscan  (1)   makeinfo        (2)   pyyaml            (2)
 alsa-lib           (1)   ffmpeg                (2)   intervaltree  (1)   mako            (2)   qhull             (2)
@@ -166,17 +165,17 @@ fasttree           (1)   intel                 (1)   magma         (2)   python 
 matlab (1)
 
 ---------------------------------------- /sw/local/rocky8.6/noarch/rcc/modules -----------------------------------------
-ansys (1)   gurobi (2)   matlab (1)   star-ccm+ (4)
+ansys (1)   gurobi (2)   matlab (1)   star-ccm+ (2)
 
 ---------------------------------------- /sw/local/rocky8.6/epyc3/qcif/modules -----------------------------------------
-3d-dna              (1)   braker3 (1)   mtag        (1)   salsa2  (1)   shpc (1)
-biobakery_workflows (1)   gtdbtk  (1)   rmats-turbo (1)   shovill (1)
+3d-dna              (1)   braker3 (1)   gtdbtk (1)   rmats-turbo (1)   shovill (1)
+biobakery_workflows (1)   enrichm (1)   mtag   (1)   salsa2      (1)   shpc    (1)
 
 ---------------------------------------- /sw/local/rocky8.6/noarch/qcif/modules ----------------------------------------
 blast    (1)   hisat2    (1)   mixer       (1)   ont-fast5-api (1)   sra-tools    (1)   trinotate (1)
 f5c      (1)   kallisto  (1)   mlst        (1)   repeatmasker  (1)   star         (1)   xpore     (1)
 fastool  (1)   kofamscan (1)   nanocompore (1)   repeatmodeler (1)   transdecoder (1)
-gff3sort (1)   ldsc      (1)   nanopolish  (1)   rsem          (1)   trinity      (2)
+gff3sort (1)   ldsc      (1)   nanopolish  (1)   rsem          (1)   trinity      (1)
 
 
 ```
