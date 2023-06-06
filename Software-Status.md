@@ -69,10 +69,15 @@ ___
 
 * Access to the UQ license server for this product has been established.
 * Several dependencies have been deployed.
+* Some command line options are essential. Please refer to `module help starccm+/17.02.008`
 
-To test functionality please 
+To test functionality please either of these 
 
-**`module load star-ccm+/.17.02.008`**
+```
+module load star-ccm+/15.06.008
+module load star-ccm+/17.02.008
+```
+
 
 Please submit a support request via email to rcc-support@uq.edu.au if you experience any issues while testing Star-CCM+.
 ___
