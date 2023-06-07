@@ -322,10 +322,11 @@ These are requests that were not included in the software survey and have been r
 
 |Name|Requested|Ready?|Note|
 |:---|:------:|:--:|:--------|
-|DIA-NN||NO|Suitable download found. User is testing|
-|Vienna RNA||NO|Installation via EB mechanism yet to be done after initial attempts failed.| 
-|Mr Bayes||YES|Installation by modified EB script mechanism successful. Submitting for deployment. Deployed!|
+|DIA-NN|202303|NO|Suitable download found. User is testing|
+|Vienna RNA|202303|NO|Installation via EB mechanism yet to be done after initial attempts failed.| 
+|Mr Bayes|202303|YES|Installation by modified EB script mechanism successful. Submitting for deployment. Deployed!|
 |VBZ Compression Tool||NO||
 |FoldX, Rosetta and RFdiffusion||NO||
-|LESYMAP||YES|Identified suitable docker image to use with Apptainer on Bunya.|
+|LESYMAP|2023-06-01|YES|HackyHour. Identified suitable docker image to use with Apptainer on Bunya.|
+|REEF3D||NO|Was installed on Tinaroo previously. User to install with RCC guidance.|
 
