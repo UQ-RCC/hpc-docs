@@ -6,6 +6,8 @@ This project is for providing _up-to-date_ information about HPC systems operate
 
 [Bunya Access Conditions all users agree to](Bunya-access-conditions.png)
 
+[Conda on Bunya](conda-environment.md)
+
 [Software Installation Status](Software-Status.md)
 
 [RCC's Interactive tool for building SLURM job scripts](https://shiny.rcc.uq.edu.au/SLURM/)
