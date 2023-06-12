@@ -74,7 +74,7 @@ Tip: Install all the programs that you want in this environment at the same time
 
 ## Deactivating a conda environment
 
-`conda deactive myenv`
+`conda deactivate myenv`
 
 For further information on conda environments please go [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#).
 
