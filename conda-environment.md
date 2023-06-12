@@ -30,7 +30,8 @@ You can also use the environment variables set by the module:
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br>
 or<br>
 `source $EBROOTMINICONDA3/etc/profile.d/conda.sh`<br>
-to set this up independent of the version of the module.
+
+to set this up independent of the version of the Anaconda3 or Miniconda3.
 
 Now your shell is ready to create a conda environment.
 
@@ -46,7 +47,7 @@ And to get out of the base conda environment you can do<br>
 
 ## Creating a new conda environment
 
-1. Here we are creating a conda environment called `myenv` which you can replace by a name more relevant to you
+1. Here we are creating a conda environment called `myenv` which you can replace by a name more relevant to you<br>
 `conda create --name myenv`
 
 Please note: By default environments are installed into the `envs` directory in your conda directory which is `/home/YourUsername/.conda`. If you need to specify a particular location for an environment please have a look [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#specifying-location)
