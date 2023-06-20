@@ -515,3 +515,30 @@ sinfo is used to obtain information about the actual nodes. Here some useful exa
 `sinfo -O Partition,NodeList,Nodes,Gres,CPUs`<br>
 `sinfo -o "%.P %.5a %.10l %.6D %.6t %N %.C %.E %.g %.G %.m"`
 
+#### How to know what resources are actually being utilised by a job?
+
+It is also very important that your jobs do not occupy valuable HPC resources and _not_ utilise them.
+The fairshare system calculates your usage based on the resources you requested.
+If you order a lot of food, but you don't eat it all, then you still pay for the food you ordered.
+HPC's don't have a mechanism like doggy bags ;-)
+
+The fairshare system will account for your usage based on the resources (CPU and/or MEM) you requested even if you did not consume them all. That is because noone else could used those resources while your job was running. A job that finishes earlier than the requested walltime does get charged less.
+
+We often don't know in advance how much resource a set of jobs may require. 
+You may have some idea based on calculations you have performed on a workstation or other HPC cluster.
+Obviously if your software cannot utilised a GPU resource you would never request it.
+But if you have CPU code that is expected to run faster on a single node in shared memory (OpenMP) mode, or on multiple nodes in message passing interface (MPI) mode, then you should be certain that you are getting the performance gains that you expect.
+
+##### A running job
+
+You are able to access any node that is running a job that belongs to you. 
+
+The `squeue --me` command will tell you which node is running your job.
+You will need to set up SSH public/private keys and authorized_keys to allow you to easily ssh to any compute node.
+
+Once logged in to the node that is running your job you can use the `top -c -u $USER` command and note the %CPU and RES (memory) values for your processes.
+
+##### A Completed job
+
+The `sacct` command can be used to report CPU and Memory utiisation by a completed job.
+RCC are working on better ways to report this information, DETAILS TO FOLLOW
