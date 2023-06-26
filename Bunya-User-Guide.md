@@ -320,8 +320,10 @@ Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cor
 
 The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://support.pawsey.org.au/documentation/display/US/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
 
-You would usually write a slurm script to subimit your jobs. Once you have a script you use `sbatch` to submit this script. For example if you have a script called `first-job-script` then you use
-`sbatch first-job-script`
+### How to submit a job
+
+You would usually write a slurm script to subimit your jobs. Once you have a script you use `sbatch` to submit this script. For example if you have a script called `first-job-script` then you use<br>
+`sbatch first-job-script`<br>
 to submit the slurm script and your job.
 
 Below are examples for single thread, single node but multiple threads, MPI, and array job submission scripts. 
