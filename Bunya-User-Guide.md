@@ -316,13 +316,16 @@ This will start the job. Once it is done or crashed you get your prompt back but
 
 ## Slurm scripts
 
-Users should keep in mind that Bunya has 96 cores per node. 96 cores or cpu-per-task is therefore the maximum a multi core job can request. Please note not all calculations scale well with cores, so before requesting all 96 cores **do some testing first**.
-
-Users with MPI jobs should run in multiples of nodes, so in multiples of 96 cores. This means the calculation needs to scale well to such numbers of cores. Most will not, so **do some testing first**!
+Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cores (ntask-per-node=96)  192 threads (cpu-per-task=192)  is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 96/192 cores/threads **do some testing first**.
 
 The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://support.pawsey.org.au/documentation/display/US/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
 
-Below are examples for single thread, single node but multiple threads, MPI, and array job submission scripts. The different request flags mean the following:
+You would usually write a slurm script to subimit your jobs. Once you have a script you use `sbatch` to submit this script. For example if you have a script called `first-job-script` then you use
+`sbatch first-job-script`
+to submit the slurm script and your job.
+
+Below are examples for single thread, single node but multiple threads, MPI, and array job submission scripts. 
+The different request flags mean the following:
 
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
 `#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 96 (or less if single node) for MPI jobs.<br>
