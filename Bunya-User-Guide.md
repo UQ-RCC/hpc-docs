@@ -323,7 +323,9 @@ The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](h
 ### How to submit a job
 
 You would usually write a slurm script to subimit your jobs. Once you have a script you use `sbatch` to submit this script. For example if you have a script called `first-job-script` then you use<br>
+
 `sbatch first-job-script`<br>
+
 to submit the slurm script and your job.
 
 Below are examples for single thread, single node but multiple threads, MPI, and array job submission scripts. 
