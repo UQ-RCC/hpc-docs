@@ -517,7 +517,7 @@ Useful variables for array jobs
 Here are some other useful additions to the squeue command. For information on what all these means please consult the man pages.
 
 `squeue -o "%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %.10a %.4c %R"`<br>
-`squeue -o"%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`<br>
+`squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`<br>
 `squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L"`(my own favourite)<br>
 
 sinfo is used to obtain information about the actual nodes. Here some useful examples.
