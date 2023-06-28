@@ -301,14 +301,13 @@ Otherwise we have found that you get multiple processes per MPI process which ev
 
 For those using the **intel** tool chain please do
 
-`salloc --nodes=1 --ntasks-per-node=96 --cpus-per-task=1 --ntasks=96 --mem=500G --job-name=MPI-test --time=05:00:00 --partition=general --account=AccountString`
-
-This will give you a new shell and an allocation, **but you are still on the login node**. You can now use srun to actually start a job on a node.
-
-1. Load all the modules you need
-2. `export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi2.so`
-3. `export SLURM_MPI_TYPE=pmi2`
-4. `srun --ntasks=[number up to 96] --export=ALL executable < input> output`
+```
+salloc --nodes=1 --ntasks-per-node=96 --cpus-per-task=1 --ntasks=96 --mem=500G --job-name=MPI-test --time=05:00:00 --partition=general --account=AccountString
+module load YOUR_REQUIRED MODULES
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi2.so
+export SLURM_MPI_TYPE=pmi2
+srun --ntasks=[number up to 96] --export=ALL executable < input> output
+```
 
 You can use any number of cores you need up to the full 96 you requested via `salloc`. You need the `--export=ALL` to export the environment with the loaded modules and pointing to `pmi2` to the job. This will only work for the `general` and `debug` partition. For the GPU ones you might have to do some testing and provide a long list of what needs to be exported.
 
@@ -516,13 +515,22 @@ Useful variables for array jobs
 
 Here are some other useful additions to the squeue command. For information on what all these means please consult the man pages.
 
-`squeue -o "%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %.10a %.4c %R"`<br>
+```
+squeue -o "%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %.10a %.4c %R"
+JOBID  PARTITION  NAME  USER  STATE  TIME TIME_LIMIT NODES  ACCOUNT  MIN_CPU  NODELIST(or REASON)
+```
+<br>
 `squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`<br>
 `squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L"`(my own favourite)<br>
 
 sinfo is used to obtain information about the actual nodes. Here some useful examples.
 
-`sinfo -o "%n %e %m %a %c %C"` <br>
+```
+sinfo -o "%n %e %m %a %c %C"
+which yields
+HOSTNAMES FREE_MEM MEMORY AVAIL CPUS CPUS(A/I/O/T)
+```
+<br>
 `sinfo -O Partition,NodeList,Nodes,Gres,CPUs`<br>
 `sinfo -o "%.P %.5a %.10l %.6D %.6t %N %.C %.E %.g %.G %.m"`
 
@@ -552,4 +560,11 @@ Once logged in to the node that is running your job you can use the `top -c -u $
 ##### A Completed job
 
 The `sacct` command can be used to report CPU and Memory utiisation by a completed job.
+```
+sacct -p  -a --format JobID,User,Group,State,Cluster,AllocCPUS,REQMEM,TotalCPU,Elapsed,MaxRSS,ExitCode,NNodes,NTasks
+yields these metrics
+|JobID|User|Group|State|Cluster|AllocCPUS|ReqMem|TotalCPU|Elapsed|MaxRSS|ExitCode|NNodes|NTasks|
+```
+
 RCC are working on better ways to report this information, DETAILS TO FOLLOW
+
