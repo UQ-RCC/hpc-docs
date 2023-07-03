@@ -521,9 +521,13 @@ Here are some other useful additions to the squeue command. For information on w
 squeue -o "%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %.10a %.4c %R"
 JOBID  PARTITION  NAME  USER  STATE  TIME TIME_LIMIT NODES  ACCOUNT  MIN_CPU  NODELIST(or REASON)
 ```
-<br>
-`squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`<br>
-`squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L"`(my own favourite)<br>
+
+`squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`
+
+```
+squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L" (my own favourite)
+JOBID QOS PARTITION NAME USER STATE TIME NODE CPUS TRES_PER_NODE MIN_MEMORY NODELIST(REASON) PRIORITY EXEC_HOST TIME_LEFT
+```
 
 sinfo is used to obtain information about the actual nodes. Here some useful examples.
 
@@ -532,7 +536,7 @@ sinfo -o "%n %e %m %a %c %C"
 which yields
 HOSTNAMES FREE_MEM MEMORY AVAIL CPUS CPUS(A/I/O/T)
 ```
-<br>
+
 `sinfo -O Partition,NodeList,Nodes,Gres,CPUs`<br>
 `sinfo -o "%.P %.5a %.10l %.6D %.6t %N %.C %.E %.g %.G %.m"`
 
