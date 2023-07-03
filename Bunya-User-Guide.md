@@ -278,6 +278,9 @@ User should use interactive jobs to do quick testing and if they need to use a g
 ```
 salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
+You can use the command<br>
+`hostname`<br>
+to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
 
 Please use `--partition=general` or `--partition=debug` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
@@ -293,15 +296,15 @@ Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ 
 
 
 
-***At the moment there are issues with testing MPI jobs through an interactive session.***
+### Interactive MPI jobs only
 
-For those using the **foss** tool chain, please do
+**MPI with foss tool chain**
 
 `export OMP_NUM_THREADS=1`
 
 Otherwise we have found that you get multiple processes per MPI process which eventually locks up the node.
 
-For those using the **intel** tool chain please do
+**MPI with intel tool chain**
 
 ```
 salloc --nodes=1 --ntasks-per-node=96 --cpus-per-task=1 --ntasks=96 --mem=500G --job-name=MPI-test --time=05:00:00 --partition=general --account=AccountString
@@ -350,13 +353,13 @@ The different request flags mean the following:
 
 See `man sbatch` and `man srun` for more options (use arrow keys to scroll up and down and `q` to quit)
 
-***Please note:*** If you do not specify a partition when you submit you get the default partition.The default partition is `debug` which will give you are bare minimum of resources. For example the maximum walltime in the `debug queue` is 1 hour. Most users would want to run in the `general` partition. Important, the slurm defaults are usually not sufficient for most user jobs. If you want appropriate resources, you are required to request them.
+***Default partition is debug*** If you do not specify a partition when you submit you get the default partition.The default partition is `debug` which will give you are bare minimum of resources. For example the maximum walltime in the `debug queue` is 1 hour. Most users would want to run in the `general` partition. Important, the slurm defaults are usually not sufficient for most user jobs. If you want appropriate resources, you are required to request them.
 
-***Please note***: Using the `SBATCH` options `-o` and `-e` with a `filename` in a script will result in the standard error and standard output file to appear as soon as the job starts to run. This behaviour is different to standard PBS behaviour on Tinaroo and FlashLite (unless you specified paths for those files there too) where the standard error, .e, and standard output, .o, files only appeared when the job was finished or had crashed.
+***Standard outout and error***: Using the `SBATCH` options `-o` and `-e` with a `filename` in a script will result in the standard error and standard output file to appear as soon as the job starts to run. This behaviour is different to standard PBS behaviour on Tinaroo and FlashLite (unless you specified paths for those files there too) where the standard error, .e, and standard output, .o, files only appeared when the job was finished or had crashed.
 
-***Please note***: In Slurm your job will start in the directory/folder you submitted from. This is different to PBS behaviour on Tinaroo/FlashLite where your job started in your home directory. So on Bunya, using slurm, there is no need to change into the job directory, unless this is different to the directory you submitted from.
+***Default working directory***: In Slurm your job will start in the directory/folder you submitted from. This is different to PBS behaviour on Tinaroo/FlashLite where your job started in your home directory. So on Bunya, using slurm, there is no need to change into the job directory, unless this is different to the directory you submitted from.
 
-***Please note***: If your job produces temporary files during the calculation or if you need a space to write to that does not impact your quotas in `/home`, `/scratch/user` or `/scratch/project` then please use **$TMPDIR** during your calculations. **$TMPDIR** is automatically created at the start of a job and is then automatically deleted at the end of the job. It is therefore the best place to write temporary files (those not needed after the calculation is done) to. If you use **$TMPDIR** for output you wish to keep then please make sure you copy all needed files to a location in `/home`, `/scratch/user`, `/scratch/project` or `/QRISdata`. A big (all in one go) copy from **$TMPDIR** to `/QRISdata` (RDM) at the end of a job is possible.
+***$TMPDIR***: If your job produces temporary files during the calculation or if you need a space to write to that does not impact your quotas in `/home`, `/scratch/user` or `/scratch/project` then please use **$TMPDIR** during your calculations. **$TMPDIR** is automatically created at the start of a job and is then automatically deleted at the end of the job. It is therefore the best place to write temporary files (those not needed after the calculation is done) to. If you use **$TMPDIR** for output you wish to keep then please make sure you copy all needed files to a location in `/home`, `/scratch/user`, `/scratch/project` or `/QRISdata`. A big (all in one go) copy from **$TMPDIR** to `/QRISdata` (RDM) at the end of a job is possible.
 
 ***Note on maximum memory requests:*** The standard compute node has 2TB of physical memory available (or 4TB for the 3 high memory compute nodes). Not all of this can be given to jobs running on the compute node as the Linux operating system also needs resources. This is why the maximum requestable memory has been capped at 2000000MB for the standard compute nodes and 4000000MB for high memory compute nodes. 
 
@@ -522,12 +525,11 @@ squeue -o "%.18i %.9P %.8j %.8u %.8T %.10M %.9l %.6D %.10a %.4c %R"
 JOBID  PARTITION  NAME  USER  STATE  TIME TIME_LIMIT NODES  ACCOUNT  MIN_CPU  NODELIST(or REASON)
 ```
 
-`squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`
-
 ```
-squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L" (my own favourite)
+squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L" 
 JOBID QOS PARTITION NAME USER STATE TIME NODE CPUS TRES_PER_NODE MIN_MEMORY NODELIST(REASON) PRIORITY EXEC_HOST TIME_LEFT
 ```
+`squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`
 
 sinfo is used to obtain information about the actual nodes. Here some useful examples.
 
