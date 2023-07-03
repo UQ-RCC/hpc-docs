@@ -274,9 +274,9 @@ User should use interactive jobs to do quick testing and if they need to use a g
 **Use this full command line to create an interactive session on a compute node. You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
 **Below is a single line! Copy all of it, not just the top bit.**
-...
+```
 salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
-...
+```
 
 **Above is a single line, copy all of it for an interactive job.**
 
