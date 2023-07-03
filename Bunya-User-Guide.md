@@ -194,7 +194,9 @@ Users can build into their own home directory but use all exisiting software and
 
 For example, if you create a folder called EasyBuild in your home directory and have a recipe located in this directory you can build the software via this command.
 
-`eb --prefix=/home/YourUsername/EasyBuild --installpath=/home/YourUsername/EasyBuild --buildpath=/home/YourUsername/EasyBuild/build --robot=/home/YourUsername/EasyBuild ./EasyBuild-recipe-file.eb`
+```
+eb --prefix=/home/YourUsername/EasyBuild --installpath=/home/YourUsername/EasyBuild --buildpath=/home/YourUsername/EasyBuild/build --robot=/home/YourUsername/EasyBuild ./EasyBuild-recipe-file.eb
+```
 
 If you add the `-D` option, it will do a dry run first. Please use `eb -H` to get the help manual.
 
@@ -273,12 +275,9 @@ User should use interactive jobs to do quick testing and if they need to use a g
 
 **Use this full command line to create an interactive session on a compute node. You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
-**Below is a single line! Copy all of it, not just the top bit.**
 ```
 salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
-
-**Above is a single line, copy all of it for an interactive job.**
 
 Please use `--partition=general` or `--partition=debug` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
