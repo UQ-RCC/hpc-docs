@@ -394,7 +394,7 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 
 ### Simple script for AMD GPUs.
 
-**Nodes bun001 and bun002. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these. See the [AMD Inifinity Hub](https://www.amd.com/en/technologies/infinity-hub) for some available containers**
+**Nodes bun001 and bun002. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these. See the [AMD Infinity Hub](https://www.amd.com/en/technologies/infinity-hub) for some available containers**
 
 `#!/bin/bash --login`<br>
 `#SBATCH --nodes=1`<br>
