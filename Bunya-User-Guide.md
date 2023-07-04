@@ -180,6 +180,8 @@ We recommend that you delete all packages built with/for/on Tinaroo and FlashLit
 
 Similary to information about for R packages. Python environments built with/for/on Tinaroo and FlashLite need to be reinstalled on Bunya.
 
+Please see [here](conda-environment.md) for more information on how to build conda environments on Bunya.
+
 #### Building software using EasyBuild
 
 Users can use EasyBuild to build their own software against existing modules on Bunya.
@@ -286,7 +288,7 @@ Please use `--partition=general` or `--partition=debug` unless you have been giv
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu`, `ai` or `aibn_omara` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. (Note: The A100 GPUs have been removed from the `gpu` partition until further notice. For the `gpu` partition you will need to specify which type of GPU you are requesting as they are now AMD and NVIDIA GPUs.) See below for more information.
+For an interactive session on the `gpu`, `ai` or `aibn_omara` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. (Note: The A100 GPUs have been removed from the `gpu` partition until further notice.) See below for more information.
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As srun was already used in the above command there is no need to use srun to run your executables, it will just mess things up.
 
@@ -317,6 +319,51 @@ srun --ntasks=[number up to 96] --export=ALL executable < input> output
 You can use any number of cores you need up to the full 96 you requested via `salloc`. You need the `--export=ALL` to export the environment with the loaded modules and pointing to `pmi2` to the job. This will only work for the `general` and `debug` partition. For the GPU ones you might have to do some testing and provide a long list of what needs to be exported.
 
 This will start the job. Once it is done or crashed you get your prompt back but you are still in the `salloc` allocation, so you are able to submit more under that allocation. To exit and release the job allocation type `exit`.
+
+## Available partitions
+
+The available partitions on Bunya are
+```
+general
+debug
+gpu
+ai
+aibn_omara
+```
+
+The `ai` and `aibn_omara` partitions are restricted to specific groups and are not open to other users.
+
+`general`<br>
+Maximum walltime: 2 weeks (14 days, 336 hours)<br>
+CPU only partition<br>
+This should be used for the majority of jobs on Bunya.<br>
+
+`debug`<br>
+Maximum walltime: 1 hour<br>
+Maximum jobs per user: 2<br>
+CPU only partition<br>
+**Default** partition which means jobs will be queued there if no partition is specified. <br>
+This has higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
+
+`gpu`<br>
+Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum GPUs per user: 3<br>
+GPU partition<br>
+2 AMD Mi210 per node (2 nodes)<br>
+
+`ai`<br>
+Restricted access<br>
+Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum GPUs per user: 3<br>
+GPU partition<br>
+3 NVIDIA A100 per node (3 nodes)<br>
+
+`aibn_omara`<br>
+Restricted access<br>
+Maximum walltime: 1 week (7 days, 168 hours)<br>
+GPU partition<br>
+2 A100 per node (1 node)<br>
+
 
 ## Slurm scripts
 
