@@ -32,7 +32,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 [General overview of Q RDM](https://youtu.be/zI3jQfaSyCQ)<br>
 [Q RDM on HPC](https://youtu.be/kX1k--eXndM)<br>
 
-## Hardware
+## Hardware (CPUs, space, RDM)
 
 - Bunya currently has around 6000 cores, with 96 physical cores per compute node.
   - (2 \* 48 core CPUs per node).
@@ -44,11 +44,13 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - Bunya is currently CPU only for the standard user. The standard queues do not have GPU hardware resources associated with them yet.
 
 - Users have a location in `/home` and `/scratch/user`.
-- RDMs are located in `/QRISdata`. These are automounted and there is no need to request a RDM to be mounted on Bunya.
 - The quota in `/home` is 50GB and 1 million files
 - The quota in `/scratch/user` is 150GB and 100000 files.
 - User can use the command `rquota` to check on quotas and usage.
 - Users can request a shared scratch space for their group if more space is required. Email rcc-support@uq.edu.au for the application form.
+
+- RDMs are located in `/QRISdata`. These are automounted and there is no need to request a RDM to be mounted on Bunya. 
+- Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to *see* your RDM (where QNNNN is your RDM number). Due to the automount the RDM needs to be *used* to be *seen*.
 
 
 # Guide
@@ -82,7 +84,7 @@ QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. F
 
 ## File Transfer
 
-We recommend to use command line `'scp` and `sftp`. The are accessible to all users, via a shell for Linux and Mac users and via WSL and `cmd` for Windows users.
+We recommend to use command line `scp` and `sftp`. The are accessible to all users, via a shell for Linux and Mac users and via WSL and `cmd` for Windows users.
 
 `scp file username@bunya.rcc.uq.edu.au:/path-to-place-for-file/`
 
@@ -162,7 +164,7 @@ The command `module unuse path_to_where_you_keep_your_modules` will reverse this
 You can make sure it is always set by modifying your `$HOME/.bashrc` file.  
 
 **Please note:**
-- Use the full module name, software/version, to be sure to load the version you need and esure that your research is consistend and repeatable
+- Use the full module name, software/version, to be sure to load the version you need and ensure that your research is consistend and repeatable
 - Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky8.6/epyc3/modules/all` or `/sw/local/rocky8.6/noarch/qcif/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
 - Most system libraries and tools (gfortran, gcc, eigen, etc) are required to be loaded as modules. Users should check `module --show_hidden avail` if they get a *library not found error* to see if it is avialable via a module.
 
@@ -258,7 +260,7 @@ For now, you will need to ...
 
 * the apptainer/singularity command is automatically in your PATH (they are now installed into `/usr/bin/` on all Bunya _compute_ nodes but _not_ login nodes)
 * set environment variables that govern the location of where the container will store temporary files.<br> 
-Specifically, you may run into /home quota trouble if you do not set the **SINGULARITY_CACHEDIR** and **SINGULARITY_TMPDIR** where you have sufficient space (such as /scratch/user or /scratch/project)
+Specifically, you may run into /home quota trouble if you do not set the **SINGULARITY_CACHEDIR** and **SINGULARITY_TMPDIR** where you have sufficient space (such as `/scratch/user` or `/scratch/project`)
 * provide a complete apptainer/singularity command line invocation including bind mounts.
 
 ## Interactive jobs
@@ -269,7 +271,7 @@ Users are reminded that no calculation, no matter how quick or small, should be 
 
 Users can use interactive jobs which will give them that command line feel and flexibility and allow the use of graphical user interfaces.
 
-Users have access to a debug queue for quick testing of new jobs and codes etc.
+Users have access to a `debug` queue for quick testing of new jobs and codes etc.
 
 ### Interactive jobs
 
@@ -284,17 +286,17 @@ You can use the command<br>
 `hostname`<br>
 to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
 
-Please use `--partition=general` or `--partition=debug` unless you have been given permission to use ai, gpu or aibn_omara. The debug parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+Please use `--partition=general` or `--partition=debug` unless you have been given permission to use `ai`, `gpu` or `aibn_omara`. The `debug` parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu`, `ai` or `aibn_omara` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. (Note: The A100 GPUs have been removed from the `gpu` partition until further notice.) See below for more information.
+For an interactive session on the `gpu`, `ai` or `aibn_omara` partitions you will need to add `--gres=gpu:[number]` to the `salloc` request. (Note: The A100 GPU has been removed from the `gpu` partition until further notice.) See below for more information.
 
-This will log you onto a node. To run a job just type as you would usually do on the command line. As srun was already used in the above command there is no need to use srun to run your executables, it will just mess things up.
+This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
 
 Once you are done type `exit` on the command line which will stop any processes still running and will release the allocation for the job.
 
-Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ use `srun` to run your command command otherwise it will start running on login node and that is not fair on other users.
+Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ use `srun` to run your command otherwise it will start running on login node and that is not fair on other users.
 
 
 
@@ -349,7 +351,7 @@ GPU partition<br>
 
 ## Slurm scripts
 
-Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cores (ntask-per-node=96)  192 threads (cpu-per-task=192)  is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 96/192 cores/threads **do some testing first**.
+Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cores (`--ntask-per-node=96`)  192 threads (`--cpu-per-task=192`)  is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 96/192 cores/threads **do some testing first**.
 
 The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://support.pawsey.org.au/documentation/display/US/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
 
