@@ -300,25 +300,7 @@ Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ 
 
 ### Interactive MPI jobs only
 
-**MPI with foss tool chain**
-
-`export OMP_NUM_THREADS=1`
-
-Otherwise we have found that you get multiple processes per MPI process which eventually locks up the node.
-
-**MPI with intel tool chain**
-
-```
-salloc --nodes=1 --ntasks-per-node=96 --cpus-per-task=1 --ntasks=96 --mem=500G --job-name=MPI-test --time=05:00:00 --partition=general --account=AccountString
-module load YOUR_REQUIRED MODULES
-export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi2.so
-export SLURM_MPI_TYPE=pmi2
-srun --ntasks=[number up to 96] --export=ALL executable < input> output
-```
-
-You can use any number of cores you need up to the full 96 you requested via `salloc`. You need the `--export=ALL` to export the environment with the loaded modules and pointing to `pmi2` to the job. This will only work for the `general` and `debug` partition. For the GPU ones you might have to do some testing and provide a long list of what needs to be exported.
-
-This will start the job. Once it is done or crashed you get your prompt back but you are still in the `salloc` allocation, so you are able to submit more under that allocation. To exit and release the job allocation type `exit`.
+Instructions for interactive MPI jobs can be found [here](MPI-interactive.md)
 
 ## Available partitions
 
