@@ -596,14 +596,21 @@ You will need to set up SSH public/private keys and authorized_keys to allow you
 
 Once logged in to the node that is running your job you can use the `top -c -u $USER` command and note the %CPU and RES (memory) values for your processes.
 
-##### A Completed job
+##### Your completed jobs
 
 The `sacct` command can be used to report CPU and Memory utiisation by a completed job.
 ```
-sacct -p  -a --format JobID,User,Group,State,Cluster,AllocCPUS,REQMEM,TotalCPU,Elapsed,MaxRSS,ExitCode,NNodes,NTasks
+sacct -p  -a --format JobID,User,Group,State,Cluster,AllocCPUS,REQMEM,TotalCPU,Elapsed,MaxRSS,ExitCode,NNodes,NTasks -u $USER 
+```
 yields these metrics
+```
 |JobID|User|Group|State|Cluster|AllocCPUS|ReqMem|TotalCPU|Elapsed|MaxRSS|ExitCode|NNodes|NTasks|
 ```
+Notes:
+* Each job will result in three of slightly different lines of output. 
+* The requested memory is in the first line and the MaxRSS value is in the second line of the three lines for each job.
+* Without specifying the start and end for the report, sacct will give you just your jobs for today.
+* You can use the `-j JobID` option to generate a report for a single job. 
 
 RCC are working on better ways to report this information, DETAILS TO FOLLOW
 
