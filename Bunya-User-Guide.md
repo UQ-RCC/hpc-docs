@@ -34,20 +34,23 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 ## Hardware (CPUs, space, RDM)
 
-- Bunya currently has around 6000 cores, with 96 physical cores per compute node.
-  - (2 \* 48 core CPUs per node).
+- Bunya has 90 CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 9000 cores) 
 - The queue allows 2 \* 96 = 192 threads per compute node (requested by `--cpus-per-task`)  
-- These CPUs are based on AMD (epyc3 Milan). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
+- These CPUs are based on AMD epyc3 Milan (60, phase 1) and epyc4 Genoa (30, phase 2). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
 - These CPU cores are based on the industry standard x86\_64 architecture.
-- Each standard Bunya compute node has 2TB of RAM (2000000M is the maximum that can be requested in jobs).
-- There are also 3 high memory nodes that each have 4TB of RAM (4000000M is the maximum that can be requested in jobs).
-- Bunya is currently CPU only for the standard user. The standard queues do not have GPU hardware resources associated with them yet.
+- Each Bunya phase 1 standard compute node (epyc3) has 2TB of RAM (2000000M is the maximum that can be requested in jobs).
+- Each Bunya phase 2 standard compute node (epyc4) has 1.5TB of ram (1500000M is the maximum that can be requested in jobs) 
+- There are also 3 high memory nodes (epyc3) that each have 4TB of RAM (4000000M is the maximum that can be requested in jobs).
+- There are 6 H100 NVIDIA GPU nodes (epyc3) with 3 H100 cards each (12 in total)
+- There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (12 in total)
 
 - Users have a location in `/home` and `/scratch/user`.
-- The quota in `/home` is 50GB and 1 million files
+- The quota in `/home` is 50GB and 1 million files. 
 - The quota in `/scratch/user` is 150GB and 100000 files.
 - User can use the command `rquota` to check on quotas and usage.
 - Users can request a shared scratch space for their group if more space is required. Email rcc-support@uq.edu.au for the application form.
+- Software and software environments should be installed in `/home` or `/scratch`. Software should not be installed on RDM (`/QRISData`)
+- Jobs should be run from `/scratch`. It is not advisable to use `/home` as the space to run (submit jobs) from. Jobs are not permitted to be submitted from RDM (`/QRISdata`).
 
 - RDMs are located in `/QRISdata`. These are automounted and there is no need to request a RDM to be mounted on Bunya. 
 - Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to *see* your RDM (where QNNNN is your RDM number). Due to the automount the RDM needs to be *used* to be *seen*.
