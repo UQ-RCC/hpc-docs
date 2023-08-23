@@ -34,15 +34,15 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 ## Hardware (CPUs, space, RDM)
 
-- Bunya has 90 CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 9000 cores) 
+- Bunya has 93 CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 9000 cores) 
 - The queue allows 2 \* 96 = 192 threads per compute node (requested by `--cpus-per-task`)  
-- These CPUs are based on AMD epyc3 Milan (60, phase 1) and epyc4 Genoa (30, phase 2). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
+- These CPUs are based on AMD epyc3 Milan (60, phase 1) and epyc4 Genoa (33, phase 2). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
 - These CPU cores are based on the industry standard x86\_64 architecture.
 - Each Bunya phase 1 standard compute node (epyc3) has 2TB of RAM (2000000M is the maximum that can be requested in jobs).
 - Each Bunya phase 2 standard compute node (epyc4) has 1.5TB of ram (1500000M is the maximum that can be requested in jobs) 
 - There are also 3 high memory nodes (epyc3) that each have 4TB of RAM (4000000M is the maximum that can be requested in jobs).
-- There are 6 H100 NVIDIA GPU nodes (epyc3) with 3 H100 cards each (12 in total)
-- There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (12 in total)
+- There are 7 H100 NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total)
+- There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (18 in total)
 
 - Users have a location in `/home` and `/scratch/user`.
 - The quota in `/home` is 50GB and 1 million files. 
@@ -171,8 +171,21 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 - Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky8.6/epyc3/modules/all` or `/sw/local/rocky8.6/noarch/qcif/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
 - Most system libraries and tools (gfortran, gcc, eigen, etc) are required to be loaded as modules. Users should check `module --show_hidden avail` if they get a *library not found error* to see if it is avialable via a module.
 
+**Please note:**
+- The modules in `/sw/auto/rocky8.6/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8.6/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
+- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which moduels are avialable for the specif GPU architectures.
+
+
+### Compilers
+
+- The GCC compilers are available via the `foss` modules. These contain the complete tool chain, which include the compiler, OpenMPI, FlexiBlas, FFTW and Scalapack.
+- Users should use `foss/2021a`, `foss/2022a` or `foss/2023a`
+- The Intel compilers are available via the `intel/2021a` module. It includes the compiler, IntelMPI and MKL. 
 
 ### How to build your own software
+
+***IMPORTANT*** If you are building your own software, especially if you are compiling your own software, you need to be aware of the different architectures, `epyc3` and `epyc4`. Software built on an `epyc3` compute node will run on a `epyc4` compute node **BUT** software built on a `epyc4` compute node will not run on a `epyc3` compute node. If you want ease of use you need to make sure to compile on a `epyc3` compute node. If you want best performance you shold compile for a specific architecture but then need to request that architecture for your jobs. 
+
 
 #### Building additional packages for R
 
@@ -289,7 +302,10 @@ You can use the command<br>
 `hostname`<br>
 to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
 
-Please use `--partition=general` or `--partition=debug` unless you have been given permission to use `ai_collab`, `gpu_rocm` or `aibn_omara`. The `debug` parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+Please use `--partition=general` or `--partition=debug` unless you have been given permission to use `ai_collab` or `aibn_omara`. The `debug` parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+
+To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc`
+part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
@@ -377,7 +393,7 @@ The different request flags mean the following:
 `#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 96 (or less if single node) for MPI jobs.<br>
 `#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of threads for the job (what you woudl use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduleing of MPI jobs.<br> 
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. This is 1 for MPI jobs.<br>
-`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 2TB or 4TB is not available to jobs, therefore jobs asking for 2TB or 4TB (2000G or 4000G) will NOT run. Ask for `2000000M` to get the maximum memory on a standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
+`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB r 2TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 4TB (1500G or 2000G or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. On the `gpu_rocm` partition and `aibn_omara` partition there are 2 per node and on the `ai_collab` partition there are 3 per node. Please see the example scripts below for the available types of GPUs<br>
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `ai,gpu,aibn_omara` = 168 hours (1 week).<br>
@@ -385,6 +401,8 @@ The different request flags mean the following:
 `#SBATCH -e filename` - filename where the standard error should go to<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
 `#SBATCH --account=[Name]` - AccountString for your research or accounting group, all AccountStrings start with `a_`, use the `groups` command to list your groups<br>
+`#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.
+`#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, need to be applied with `--constraint` above.
 `#SBATCH --partition=general/gpu_rocm/debug/ai_collab/aibn_omara`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
 `srun` - runs the executable and will receive info on number of threads, memory, etc from Slurm. There is no need to specify them here.
@@ -499,7 +517,6 @@ To ask for more than 1 thread change the line
 `#SBATCH --cpus-per-task=12`
 
 To run over 12 threads for example.
-
 
 
 ### Simple MPI script (using 192 cores, as an example). Using --ntasks will spread the job over multiple nodes where there is space.
