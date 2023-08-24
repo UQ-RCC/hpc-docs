@@ -173,7 +173,7 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 **Please note:**
 - The modules in `/sw/auto/rocky8.6/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8.6/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
-- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which moduels are avialable for the specif GPU architectures.
+- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which moduels are avialable for the specific GPU architectures.
 
 
 ### Compilers
@@ -185,6 +185,8 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 ### How to build your own software
 
 ***IMPORTANT*** If you are building your own software, especially if you are compiling your own software, you need to be aware of the different architectures, `epyc3` and `epyc4`. Software built on an `epyc3` compute node will run on a `epyc4` compute node **BUT** software built on a `epyc4` compute node will not run on a `epyc3` compute node. If you want ease of use you need to make sure to compile on a `epyc3` compute node. If you want best performance you shold compile for a specific architecture but then need to request that architecture for your jobs. 
+
+***Please note*** **ALL** software builds should be done on a compute node. Processes running on the login nodes, including software builds (conda environments, make-make install, EasyBuild) will most likley be killed if found on the login nodes.
 
 
 #### Building additional packages for R
@@ -212,7 +214,7 @@ Users can build into their own home directory but use all exisiting software and
 
 `module load easybuild`
 
-For example, if you create a folder called EasyBuild in your home directory and have a recipe located in this directory you can build the software via this command.
+For example, if you create a folder called EasyBuild in your home directory and have a recipe located in this directory you can build the software via this command. Make sure you are on a compute node before doing this.
 
 ```
 eb --prefix=/home/YourUsername/EasyBuild --installpath=/home/YourUsername/EasyBuild --buildpath=/home/YourUsername/EasyBuild/build --robot=/home/YourUsername/EasyBuild ./EasyBuild-recipe-file.eb
@@ -302,14 +304,14 @@ You can use the command<br>
 `hostname`<br>
 to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
 
-Please use `--partition=general` or `--partition=debug` unless you have been given permission to use `ai_collab` or `aibn_omara`. The `debug` parition has a walltime limit of 1 hour. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+Please use `--partition=general` or `--partition=debug` unless you have been given permission to use `ai_collab` or `aibn_omara`. The `debug` parition has a walltime limit of 1 hour. The `general` and `debug` partition only have `epyc3` architecture CPUs. The `general_beta` partition has `epyc3` and `epyc4` architecture CPUs. Please use the `general_beta` partition to test the new nodes. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
 To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc`
 part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu_rocm`, `ai_collab` or `aibn_omara` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. 
+For an interactive session on the `gpu_rocm`, `ai_collab` or `aibn_omara` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
 
@@ -328,6 +330,7 @@ Instructions for interactive MPI jobs can be found [here](MPI-interactive.md)
 The available partitions on Bunya are
 ```
 general
+general_beta
 debug
 gpu_rocm
 gpu_cuda - not active
@@ -341,19 +344,27 @@ The `ai_collab` and `aibn_omara` partitions are restricted to specific groups an
 `general`<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
+epyc3 architecture only bun[006-067]
 This should be used for the majority of jobs on Bunya.<br>
+
+`general_beta`<br>
+Maximum walltime: 2 weeks (14 days, 336 hours)<br>
+CPU only partition<br>
+epyc3 and epyc4 architecture bun[006-067] and bun[83-112]
+Testing to have a large parition with both architectures. Please make use of this as this will be how general will be operated in the future.<br>
 
 `debug`<br>
 Maximum walltime: 1 hour<br>
 Maximum jobs per user: 2<br>
 CPU only partition<br>
+epyc3 architecture only bun[006-067]
 **Default** partition which means jobs will be queued there if no partition is specified. <br>
 This has higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
 `gpu_rocm`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user: 3<br>
-GPU partition<br>
+GPU partition bun[001-002]<br>
 2 AMD Mi210 per node (2 nodes)<br>
 [type]=mi210
 
@@ -361,14 +372,14 @@ GPU partition<br>
 Restricted access<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user: 3<br>
-GPU partition<br>
+GPU partition bun[003-005]<br>
 3 NVIDIA A100 per node (3 nodes)<br>
 [type]=a100
 
 `aibn_omara`<br>
 Restricted access<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
-GPU partition<br>
+GPU partition bun[068]<br>
 2 A100 per node (1 node)<br>
 [type]=a100
 
@@ -402,7 +413,7 @@ The different request flags mean the following:
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
 `#SBATCH --account=[Name]` - AccountString for your research or accounting group, all AccountStrings start with `a_`, use the `groups` command to list your groups<br>
 `#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.
-`#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, need to be applied with `--constraint` above.
+`#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.
 `#SBATCH --partition=general/gpu_rocm/debug/ai_collab/aibn_omara`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
 `srun` - runs the executable and will receive info on number of threads, memory, etc from Slurm. There is no need to specify them here.
@@ -496,21 +507,23 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 
 ### Simple script for CPUs and single node
 
-`#!/bin/bash --login`<br>
-`#SBATCH --nodes=1`<br>
-`#SBATCH --ntasks-per-node=1`<br>
-`#SBATCH --cpus-per-task=1`<br>
-`#SBATCH --mem=10G`<br>
-`#SBATCH --job-name=Test`<br>
-`#SBATCH --time=1:00:00`<br>
-`#SBATCH --partition=general`<br>
-`#SBATCH --account=AccountString`<br>
-`#SBATCH -o slurm.output`<br>
-`#SBATCH -e slurm.error`<br>
-<br>
-`module-loads-go-here`<br>
-<br>
-`srun executable < input > output`<br>
+```
+#!/bin/bash --login
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --job-name=Test
+#SBATCH --time=1:00:00
+#SBATCH --partition=general
+#SBATCH --account=AccountString
+#SBATCH -o slurm.output
+#SBATCH -e slurm.error
+
+module-loads-go-here
+
+srun executable < input > output
+```
 
 To ask for more than 1 thread change the line
 
@@ -519,50 +532,86 @@ To ask for more than 1 thread change the line
 To run over 12 threads for example.
 
 
+Please use
+```
+#SBATCH --partition=general_beta
+```
+if you wish to use the new 33 nodes that have been added to Bunya. You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+
+```
+#SBATCH --constraint=[epyc3 or epyc4]
+#SBATCH --batch=[epyc3 or epyc4]
+```
+
+
 ### Simple MPI script (using 192 cores, as an example). Using --ntasks will spread the job over multiple nodes where there is space.
 
-`#!/bin/bash --login`<br>
-`#SBATCH --ntasks=192`<br>
-`#SBATCH --cpus-per-task=1`<br>
-`#SBATCH --mem-per-cpu=5G`<br>
-`#SBATCH --job-name=MPI-Test`<br>
-`#SBATCH --time=1:00:00`<br>
-`#SBATCH --partition=general`<br>
-`#SBATCH --account=AccountString`<br>
-`#SBATCH -o slurm.output`<br>
-`#SBATCH -e slurm.error`<br>
-<br>
-`module-loads-go-here`<br>
-<br>
-`srun executable < input > output`<br>
+```
+#!/bin/bash --login
+#SBATCH --ntasks=192
+#SBATCH --cpus-per-task=1
+#SBATCH --mem-per-cpu=5G
+#SBATCH --job-name=MPI-Test
+#SBATCH --time=1:00:00
+#SBATCH --partition=general
+#SBATCH --account=AccountString
+#SBATCH -o slurm.output
+#SBATCH -e slurm.error
 
+module-loads-go-here
 
+srun executable < input > output
+```
+
+Please use
+```
+#SBATCH --partition=general_beta
+```
+if you wish to use the new 33 nodes that have been added to Bunya. You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+
+```
+#SBATCH --constraint=[epyc3 or epyc4]
+#SBATCH --batch=[epyc3 or epyc4]
+```
 
 ### Job Arrays
 
 Here is one example of an array job script with 5 array tasks.
 
-`#!/bin/bash --login`<br>
-`#SBATCH --job-name=testarray`<br>
-`#SBATCH --nodes=1`<br>
-`#SBATCH --ntasks=1`<br>
-`#SBATCH --cpus-per-task=1`<br>
-`#SBATCH --mem=5G`<br>
-`#SBATCH --time=00:01:00`<br>
-`#SBATCH --account=AccountString`<br>
-`#SBATCH --partition=general`<br>
-`#SBATCH --output=test_array_%A_%a.out`<br>
-`#SBATCH --array=1-5`<br>
-<br>
-`module-loads-go-here`<br>
-<br>
-`srun executable < input > output`<br>
+```
+#!/bin/bash --login
+#SBATCH --job-name=testarray
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=5G
+#SBATCH --time=00:01:00
+#SBATCH --account=AccountString
+#SBATCH --partition=general
+#SBATCH --output=test_array_%A_%a.out
+#SBATCH --array=1-5
+
+module-loads-go-here
+
+srun executable < input > output
+```
 
 Useful variables for array jobs
 
 `$SLURM_ARRAY_JOB_ID` = Job array's master job ID number.<br>
 `$SLURM_ARRAY_TASK_COUNT` = Total number of tasks in a job array.<br>
 `$SLURM_ARRAY_TASK_ID` = Job array ID (index) number.
+
+Please use
+```
+#SBATCH --partition=general_beta
+```
+if you wish to use the new 33 nodes that have been added to Bunya. You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+
+```
+#SBATCH --constraint=[epyc3 or epyc4]
+#SBATCH --batch=[epyc3 or epyc4]
+``````
 
 ### How to check jobs in SLURM
 
