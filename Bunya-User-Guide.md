@@ -334,7 +334,7 @@ general_beta
 debug
 gpu_rocm
 gpu_cuda
-gpu_viz - not active
+gpu_viz 
 ai_collab
 aibn_omara
 ```
