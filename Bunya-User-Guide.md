@@ -230,7 +230,7 @@ The `eb -S  searchtext` will return all .eb scripts with a case insensitive matc
 The names of sample easy build scripts include one of the following labels that represent the toolchain to be used when building the software.
 As you can see, the toolchains are built upon a specific version of compiler. The vast majority of the software for Bunya has been built with one of the Solid GCC based toolchains.
 
-|Label|Compiler|Status|
+|toolchain|Compiler|Status|
 |:---|:---:|:---:|
 |foss/2023a|GCC 12.3.0|Solid|
 |gcc/12.3|GCC 12.3.0|Solid|
@@ -344,20 +344,20 @@ The `ai_collab` and `aibn_omara` partitions are restricted to specific groups an
 `general`<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
-epyc3 architecture only bun[006-067]
+epyc3 architecture only bun[006-067]<br>
 This should be used for the majority of jobs on Bunya.<br>
 
 `general_beta`<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
-epyc3 and epyc4 architecture bun[006-067] and bun[83-112]
+epyc3 and epyc4 architecture bun[006-067] and bun[83-112]<br>
 Testing to have a large parition with both architectures. Please make use of this as this will be how general will be operated in the future.<br>
 
 `debug`<br>
 Maximum walltime: 1 hour<br>
 Maximum jobs per user: 2<br>
 CPU only partition<br>
-epyc3 architecture only bun[006-067]
+epyc3 architecture only bun[006-067]<br>
 **Default** partition which means jobs will be queued there if no partition is specified. <br>
 This has higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
