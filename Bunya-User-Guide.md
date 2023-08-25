@@ -333,7 +333,7 @@ general
 general_beta
 debug
 gpu_rocm
-gpu_cuda - not active
+gpu_cuda
 gpu_viz - not active
 ai_collab
 aibn_omara
@@ -368,7 +368,7 @@ GPU partition bun[001-002]<br>
 2 AMD Mi210 per node (bun[001-002]), [type]=mi210<br>
 **1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
 
-`gpu_cuda` (not active)<br>
+`gpu_cuda`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[071-082]<br>
@@ -377,9 +377,9 @@ GPU partition bun[071-082]<br>
 **1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
-H100: 16 bit CUDA, tf32 (16 bit), half precision<br>
+H100: 16 bit and TF32 CUDA, half precision<br>
 
-`gpu_viz`(not active)<br>
+`gpu_viz`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[077-082]<br>
