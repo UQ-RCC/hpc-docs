@@ -168,12 +168,12 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 **Please note:**
 - Use the full module name, software/version, to be sure to load the version you need and ensure that your research is consistend and repeatable
-- Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky8.6/epyc3/modules/all` or `/sw/local/rocky8.6/noarch/qcif/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
+- Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky8c/epyc3/modules/all` or `/sw/local/rocky8/noarch/qcif/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
 - Most system libraries and tools (gfortran, gcc, eigen, etc) are required to be loaded as modules. Users should check `module --show_hidden avail` if they get a *library not found error* to see if it is avialable via a module.
 
 **Please note:**
-- The modules in `/sw/auto/rocky8.6/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8.6/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
-- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which moduels are avialable for the specific GPU architectures.
+- The modules in `/sw/auto/rocky8c/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8/epyc3/rcc/modules`, `/sw/local/rocky8/noarch/rcc/modules`, and `/sw/local/rocky8/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
+- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which modules are avialable for the specific GPU architectures. For example, CUDA modules will not be availalbe on CPU nodes, but will be available on the CUDA GPU nodes.
 
 
 ### Compilers
@@ -214,6 +214,8 @@ Users can build into their own home directory but use all exisiting software and
 
 `module load easybuild`
 
+Please note: We usually advise to use the full module, name/version, to load software modules. The easybuild module is an exception as you want to make sure to always have the lastest version to have access to all available recipes.
+
 For example, if you create a folder called EasyBuild in your home directory and have a recipe located in this directory you can build the software via this command. Make sure you are on a compute node before doing this.
 
 ```
@@ -230,17 +232,15 @@ As you can see, the toolchains are built upon a specific version of compiler. Th
 
 |Label|Compiler|Status|
 |:---|:---:|:---:|
-|foss-2022a|GCC 11.3.0|Solid|
-|GCCcore-11.3.0|GCC 11.3.0|Solid|
-|foss-2021a|GCC 10.3.0|Solid|
-|GCCcore-10.3.0|GCC 10.3.0|Solid|
+|foss/2023a|GCC 12.3.0|Solid|
+|gcc/12.3|GCC 12.3.0|Solid|
+|foss/2022a|GCC 11.3.0|Solid|
+|gcc/11.3|GCC 11.3.0|Solid|
+|foss/2021a|GCC 10.3.0|Solid|
+|gcc/10.3|GCC 10.3.0|Solid|
 ||||
-|intel-2021a|Intel 2021.2.0|Solid|
-||||
-|foss-2020a|GCC 9.3.0|Not exhaustively tested|
-|GCCcore-9.3.0|GCC 9.3.0|Not exhaustively tested|
-|foss-2019a|GCC 8.2.0-2.31.1|Not exhaustively tested|
-|GCCcore-8.2.0|GCC 8.2.0-2.31.1|Not exhaustively tested|
+|intel/2021a|Intel 2021.2.0|Solid|
+
 
 Many older versions and toolchains may be present amongst the sample eb scripts (recipes). 
 
@@ -363,25 +363,45 @@ This has higher priority than `general` and should be used for testing and quick
 
 `gpu_rocm`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
-Maximum GPUs per user: 3<br>
+Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[001-002]<br>
-2 AMD Mi210 per node (2 nodes)<br>
-[type]=mi210
+2 AMD Mi210 per node (bun[001-002]), [type]=mi210<br>
+**1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
+
+`gpu_cuda` (not active)<br>
+Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum GPUs per user (in all partitions): 3<br>
+GPU partition bun[071-082]<br>
+3 NVIDIA H100 per node (bun[071-076]), [type]=h100<br>
+3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br> 
+**1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
+**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
+L40: 32 bit CUDA, single precision<br>
+H100: 16 bit CUDA, tf32 (16 bit), half precision<br>
+
+`gpu_viz`(not active)<br>
+Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum GPUs per user (in all partitions): 3<br>
+GPU partition bun[077-082]<br>
+3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br>
+**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
+L40: 32 bit CUDA, single precision<br>
 
 `ai_collab`<br>
 Restricted access<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
-Maximum GPUs per user: 3<br>
+Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[003-005]<br>
-3 NVIDIA A100 per node (3 nodes)<br>
-[type]=a100
+3 NVIDIA A100 per node (bun[003-005]), [type]=a100<br>
+**1 NVIDIA A100 is charged 50 \* 1 CPU core**
 
 `aibn_omara`<br>
 Restricted access<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[068]<br>
-2 A100 per node (1 node)<br>
-[type]=a100
+2 A100 per node (bun[068]), [type]=a100<br>
+**1 NVIDIA A100 is charged 50 \* 1 CPU core**
 
 ## Slurm scripts
 
