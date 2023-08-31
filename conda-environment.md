@@ -19,19 +19,11 @@ Please load the relevant module
 or <br>
 `module load miniconda3/4.12.0`<br>
 
-Then set up your shell to use the chosen conda version
-
-`source /sw/auto/rocky8.6/epyc3/software/Anaconda3/2022.05/etc/profile.d/conda.sh`<br>
-or<br>
-`source /sw/auto/rocky8.6/epyc3/software/Miniconda3/4.12.0/etc/profile.d/conda.sh`<br>
-
-You can also use the environment variables set by the module:
+Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3` or `$EBROOTMINICONDA3` will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3 or miniconda3 you loaded.
 
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br>
 or<br>
 `source $EBROOTMINICONDA3/etc/profile.d/conda.sh`<br>
-
-to set this up independent of the version of the Anaconda3 or Miniconda3.
 
 Now your shell is ready to create a conda environment.
 
