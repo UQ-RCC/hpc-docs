@@ -339,43 +339,40 @@ ai_collab
 aibn_omara
 ```
 
-The `ai_collab` and `aibn_omara` partitions are restricted to specific groups and are not open to other users.
+The `aibn_omara` partition is restricted to specific groups and are not open to other users.
+
 
 `general`<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
-epyc3 architecture only bun[006-067]<br>
-This should be used for the majority of jobs on Bunya.<br>
-
-`general_beta`<br>
-Maximum walltime: 2 weeks (14 days, 336 hours)<br>
-CPU only partition<br>
 epyc3 and epyc4 architecture bun[006-067] and bun[83-112]<br>
-Testing to have a large parition with both architectures. Please make use of this as this will be how general will be operated in the future.<br>
+This should be used for the majority of jobs on Bunya.<br>
 
 `debug`<br>
 Maximum walltime: 1 hour<br>
 Maximum jobs per user: 2<br>
 CPU only partition<br>
-epyc3 architecture only bun[006-067]<br>
+epyc3 and epyc4 architecture bun[006-067] and bun[83-112]<br>
 **Default** partition which means jobs will be queued there if no partition is specified. <br>
 This has higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
 `gpu_rocm`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
-GPU partition bun[001-002]<br>
-2 AMD Mi210 per node (bun[001-002]), [type]=mi210<br>
+GPU partition bun[001-002, 070]<br>
+2 AMD Mi210 per node (bun[001-002, 070]), [type]=mi210<br>
 **1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
 
 `gpu_cuda`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
-GPU partition bun[071-082]<br>
+GPU partition bun[003-005, 071-082]<br>
 3 NVIDIA H100 per node (bun[071-076]), [type]=h100<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br> 
+3 NVIDIA A100 per node (bun[003-005]), [type]=a100<br>
 **1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
+**1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
 H100: 16 bit and TF32 CUDA, half precision<br>
 
@@ -387,13 +384,6 @@ GPU partition bun[077-082]<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
 
-`ai_collab`<br>
-Restricted access<br>
-Maximum walltime: 1 week (7 days, 168 hours)<br>
-Maximum GPUs per user (in all partitions): 3<br>
-GPU partition bun[003-005]<br>
-3 NVIDIA A100 per node (bun[003-005]), [type]=a100<br>
-**1 NVIDIA A100 is charged 50 \* 1 CPU core**
 
 `aibn_omara`<br>
 Restricted access<br>
@@ -426,15 +416,15 @@ The different request flags mean the following:
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. This is 1 for MPI jobs.<br>
 `#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB r 2TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 4TB (1500G or 2000G or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
-`#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. On the `gpu_rocm` partition and `aibn_omara` partition there are 2 per node and on the `ai_collab` partition there are 3 per node. Please see the example scripts below for the available types of GPUs<br>
-`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `ai,gpu,aibn_omara` = 168 hours (1 week).<br>
+`#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
+`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `gpu_cuda, gpu_viz,aibn_omara` = 168 hours (1 week).<br>
 `#SBATCH -o filename` - filename where the standard output should go to<br>
 `#SBATCH -e filename` - filename where the standard error should go to<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
 `#SBATCH --account=[Name]` - AccountString for your research or accounting group, all AccountStrings start with `a_`, use the `groups` command to list your groups<br>
 `#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.
 `#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.
-`#SBATCH --partition=general/gpu_rocm/debug/ai_collab/aibn_omara`<br>
+`#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_viz/aibn_omara`<br>
 `#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
 `srun` - runs the executable and will receive info on number of threads, memory, etc from Slurm. There is no need to specify them here.
 
@@ -454,28 +444,32 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 
 ***Accounting has now been switched on and will be enforced. Users cannot run jobs without a valid AccountString. Type `groups` on the command line to check if you have one. All valid AccountStrings start with `a_` and are all lower case letters. If you do not have a valid AccountString then please contact your supervisor. AccountStrings and access are managed by research groups and group leaders. Groups who wish to use Bunya are required to apply to set up a group with a valid AccountString. Only group leaders can apply to set up such a group. A PhD student or postdoc without their own funding and group should not apply. Applications can be made by contacting [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
 
+### Simple script for CUDA GPUs.
 
-### Simple script for AI_COLLAB GPUs.
+```
+#!/bin/bash --login
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --job-name=Test
+#SBATCH --time=1:00:00
+#SBATCH --partition=gpu_cuda
+#SBATCH --gres=gpu:a100:1
+#SBATCH --account=AccountString
+#SBATCH -o slurm.output
+#SBATCH -e slurm.error
 
-**Nodes bun003, bun004, and bun005. AI_COLLAB GPUs are restricted to a specific set of users. If you have not been given explicit permission by their owners you cannot use these. Only certain AccountStrings have access to these GPUs. If you should and cannot run a job please contact your supervisor.**
+module-loads-go-here
 
+srun executable < input > output
+```
 
-`#!/bin/bash --login`<br>
-`#SBATCH --nodes=1`<br>
-`#SBATCH --ntasks-per-node=1`<br>
-`#SBATCH --cpus-per-task=1`<br>
-`#SBATCH --mem=10G`<br>
-`#SBATCH --job-name=Test`<br>
-`#SBATCH --time=1:00:00`<br>
-`#SBATCH --partition=ai_collab`<br>
-`#SBATCH --account=AccountString`<br>
-`#SBATCH --gres=gpu:a100:1 #you can ask for up to 3 here`<br>
-`#SBATCH -o slurm.output`<br>
-`#SBATCH -e slurm.error`<br>
-<br>
-`module-loads-go-here`<br>
-<br>
-`srun executable < input > output`<br>
+For H100 change to<br> 
+`#SBATCH --gres=gpu:h100:1`<br>
+
+For L40 change to<br> 
+`#SBATCH --gres=gpu:l40:1`<br>
 
 
 
@@ -483,46 +477,48 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 
 **Nodes bun001 and bun002. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these. See the [AMD Infinity Hub](https://www.amd.com/en/technologies/infinity-hub) for some available containers**
 
-`#!/bin/bash --login`<br>
-`#SBATCH --nodes=1`<br>
-`#SBATCH --ntasks-per-node=1`<br>
-`#SBATCH --cpus-per-task=1`<br>
-`#SBATCH --mem=10G`<br>
-`#SBATCH --job-name=Test`<br>
-`#SBATCH --time=1:00:00`<br>
-`#SBATCH --partition=gpu_rocm`<br>
-`#SBATCH --account=AccountString`<br>
-`#SBATCH --gres=gpu:mi210:1 #you can ask for up to 2 here`<br>
-`#SBATCH -o slurm.output`<br>
-`#SBATCH -e slurm.error`<br>
-<br>
-`module-loads-go-here`<br>
-<br>
-`srun executable < input > output`<br>
+```
+#!/bin/bash --login
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --job-name=Test
+#SBATCH --time=1:00:00
+#SBATCH --partition=gpu_rocm
+#SBATCH --account=AccountString
+#SBATCH --gres=gpu:mi210:1 #you can ask for up to 2 here
+#SBATCH -o slurm.output
+#SBATCH -e slurm.error
 
+module-loads-go-here
+
+srun executable < input > output
+```
 
 
 ### Simple script for AIBN_OMARA A100 GPUs.
 
 **Node bun068. The AIBN_OMARA A100 GPUs are restricted to a specific set of users. If you have not been given explicit permission you cannot use these. Only certain AccountStrings have access to these GPUs. If you should and cannot run a job please contact your supervisor..**
 
-`#!/bin/bash --login`<br>
-`#SBATCH --nodes=1`<br>
-`#SBATCH --ntasks-per-node=1`<br>
-`#SBATCH --cpus-per-task=1`<br>
-`#SBATCH --mem=10G`<br>
-`#SBATCH --job-name=Test`<br>
-`#SBATCH --time=1:00:00`<br>
-`#SBATCH --partition=aibn_omara`<br>
-`#SBATCH --account=AccountString`<br>
-`#SBATCH --gres=gpu:a100:1 #you can ask for up to 2 here`<br>
-`#SBATCH -o slurm.output`<br>
-`#SBATCH -e slurm.error`<br>
-<br>
-`module-loads-go-here`<br>
-<br>
-`srun executable < input > output`<br>
+```
+#!/bin/bash --login
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --job-name=Test
+#SBATCH --time=1:00:00
+#SBATCH --partition=aibn_omara
+#SBATCH --account=AccountString
+#SBATCH --gres=gpu:a100:1 #you can ask for up to 2 here
+#SBATCH -o slurm.output
+#SBATCH -e slurm.error
 
+module-loads-go-here
+
+srun executable < input > output
+```
 
 
 ### Simple script for CPUs and single node
