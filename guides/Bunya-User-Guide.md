@@ -2,13 +2,13 @@
 
 ## Quick links
 
-* [Connecting to Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#connecting)
-* [Transferring files](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#file-transfer)
-* [Software on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#software)
-* [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#using-software-containers-on-bunya)
-* [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#interactive-jobs)
-* [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#slurm-scripts)
-* [How to check jobs in SLURM](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md#how-to-check-jobs-in-slurm)
+* [Connecting to Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#connecting)
+* [Transferring files](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#file-transfer)
+* [Software on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#software)
+* [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#using-software-containers-on-bunya)
+* [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#interactive-jobs)
+* [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#slurm-scripts)
+* [How to check jobs in SLURM](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-check-jobs-in-slurm)
 * [RCC's interactive job script builder for SLURM](https://shiny.rcc.uq.edu.au/SLURM/)
 
 ## General HPC information 
@@ -116,21 +116,21 @@ If you experience problems with disconnection, then try this: Go to Edit -\> Set
 
 With MFA you need to use an interactive session in FileZilla to connect. Click on the icon directly under "File" (left top corner). Please do not enter anything in the boxes for hostname etc or click the Qickconnect button. 
 
-[FileZilla picture 1](FileZilla-n.png) 
+[FileZilla picture 1](../media/FileZilla-n.png) 
 
 Then click on *New site* and use "bunya.rcc.uq.edu" as the *Host*, "22" for *Port* and select "SFTP" for the *Protocol*. Be sure to select "Interactive" as the *Logon Type*. Enter your "username for Bunya" under *User*. Then click *Connect*.
 
-[FileZilla picture 2](FileZilla-2-n.png)
+[FileZilla picture 2](../media/FileZilla-2-n.png)
 
 You then might need to accept the host key by clicking *OK*.
 
-[FileZilla picture 3](FileZilla-3-n.png)
+[FileZilla picture 3](../media/FileZilla-3-n.png)
 
 You will then be asked for your password for your username. Please enter this.
 
 Then you will see the reqeust for the multifactor authentication. Please enter the 6 number passcode from your authenticator app (DUO or other) here. It is advisable to click "refresh" on the passcode first or check the timer on the passcode before entering the passcode.
 
-[FileZilla picture 4](FileZilla-4-n.png)
+[FileZilla picture 4](../media/FileZilla-4-n.png)
 
 
 

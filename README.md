@@ -2,13 +2,13 @@
 
 This project is for providing _up-to-date_ information about HPC systems operated and supported by the UQ Research Computing Centre.
 
-[Bunya User Guide](Bunya-User-Guide.md)
+[Bunya User Guide](guides/Bunya-User-Guide.md)
 
-[Bunya Access Conditions all users agree to](Bunya-access-conditions.png)
+[Bunya Access Conditions all users agree to](media/Bunya-access-conditions.png)
 
-[Conda on Bunya](conda-environment.md)
+[Conda on Bunya](guides/conda-environment.md)
 
-[Software Installation Status](Software-Status.md)
+[Software Installation Status](guides/Software-Status.md)
 
 [RCC's Interactive tool for building SLURM job scripts](https://shiny.rcc.uq.edu.au/SLURM/)
 <br>
