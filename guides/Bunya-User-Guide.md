@@ -49,7 +49,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - The quota in `/scratch/user` is 150GB and 100000 files.
 - User can use the command `rquota` to check on quotas and usage.
 - Users can request a shared scratch space for their group if more space is required. Email rcc-support@uq.edu.au for the application form.
-- Software and software environments should be installed in `/home` or `/scratch`. Software should not be installed on RDM (`/QRISData`)
+- Software and software environments should be installed in `/home` or `/scratch`. Software should not be installed on RDM (`/QRISdata`)
 - Jobs should be run from `/scratch`. It is not advisable to use `/home` as the space to run (submit jobs) from. Jobs are not permitted to be submitted from RDM (`/QRISdata`).
 
 - RDMs are located in `/QRISdata`. These are automounted and there is no need to request a RDM to be mounted on Bunya. 
@@ -180,7 +180,7 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 - The GCC compilers are available via the `foss` modules. These contain the complete tool chain, which include the compiler, OpenMPI, FlexiBlas, FFTW and Scalapack.
 - Users should use `foss/2021a`, `foss/2022a` or `foss/2023a`
-- The Intel compilers are available via the `intel/2021a` module. It includes the compiler, IntelMPI and MKL. 
+- The Intel compilers are available via the `intel/2021a`, `intel/2022a` or `intel/2023a` modules which include the compiler, IntelMPI and MKL. 
 
 ### How to build your own software
 
@@ -304,14 +304,14 @@ You can use the command<br>
 `hostname`<br>
 to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
 
-Please use `--partition=general` or `--partition=debug` unless you have been given permission to use `ai_collab` or `aibn_omara`. The `debug` parition has a walltime limit of 1 hour. The `general` and `debug` partition only have `epyc3` architecture CPUs. The `general_beta` partition has `epyc3` and `epyc4` architecture CPUs. Please use the `general_beta` partition to test the new nodes. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+Please use `--partition=general` or `--partition=debug` unless you need access to GPUs. The `debug` parition has a walltime limit of 1 hour. The `general` and `debug` partition have `epyc3` and `epyc4` architecture CPUs. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
 To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc`
 part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu_rocm`, `ai_collab` or `aibn_omara` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
+For an interactive session on the `gpu_rocm`, `gpu_cuda`, `gpu_viz` or `aibn_omara` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
 
@@ -330,12 +330,10 @@ Instructions for interactive MPI jobs can be found [here](MPI-interactive.md)
 The available partitions on Bunya are
 ```
 general
-general_beta
 debug
 gpu_rocm
 gpu_cuda
 gpu_viz 
-ai_collab
 aibn_omara
 ```
 
@@ -417,7 +415,7 @@ The different request flags mean the following:
 `#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB r 2TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 4TB (1500G or 2000G or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
-`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `gpu_cuda, gpu_viz,aibn_omara` = 168 hours (1 week).<br>
+`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `gpu_rocm, gpu_cuda, gpu_viz, aibn_omara` = 168 hours (1 week).<br>
 `#SBATCH -o filename` - filename where the standard output should go to<br>
 `#SBATCH -e filename` - filename where the standard error should go to<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
@@ -548,11 +546,7 @@ To ask for more than 1 thread change the line
 To run over 12 threads for example.
 
 
-Please use
-```
-#SBATCH --partition=general_beta
-```
-if you wish to use the new 33 nodes that have been added to Bunya. You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
 
 ```
 #SBATCH --constraint=[epyc3 or epyc4]
@@ -579,11 +573,7 @@ module-loads-go-here
 srun executable < input > output
 ```
 
-Please use
-```
-#SBATCH --partition=general_beta
-```
-if you wish to use the new 33 nodes that have been added to Bunya. You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
 
 ```
 #SBATCH --constraint=[epyc3 or epyc4]
@@ -618,11 +608,8 @@ Useful variables for array jobs
 `$SLURM_ARRAY_TASK_COUNT` = Total number of tasks in a job array.<br>
 `$SLURM_ARRAY_TASK_ID` = Job array ID (index) number.
 
-Please use
-```
-#SBATCH --partition=general_beta
-```
-if you wish to use the new 33 nodes that have been added to Bunya. You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+
+You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
 
 ```
 #SBATCH --constraint=[epyc3 or epyc4]
