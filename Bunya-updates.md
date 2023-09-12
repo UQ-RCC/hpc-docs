@@ -8,4 +8,4 @@
 ## 24 August 2023
 
 * Bunya phase 2 introduces 33 new AMD Genoa epyc4 nodes for use on partition "general\_beta".
-* As there is now a mix of epyc3 and epyc4 nodes, the correct architecture must be targeted, see [hpc-docs/Bunya-User-Guide.md](https://github.com/UQ-RCC/hpc-docs/blob/main/Bunya-User-Guide.md) for more details on how to do this. 
+* As there is now a mix of epyc3 and epyc4 nodes, the correct architecture must be targeted, see [hpc-docs/Bunya-User-Guide.md](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md) for more details on how to do this. 
