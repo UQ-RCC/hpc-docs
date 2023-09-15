@@ -96,7 +96,8 @@ In your home directory open the `.condarc` file. You can use `nano` for this or 
 
 The insert these lines:
 
-```envs_dirs:
+```
+envs_dirs:
   - /scratch/rest-of-the-path-of-location/envs
 ```
 Or you can do 
