@@ -1,5 +1,10 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 15 September 2023
+
+* The beta partitions should no longer be targeted as all of the Bunya phase 2 nodes have now been moved into the general and debug queues.
+* Users who compile their own software will now need to target specific architecture (epyc3 or epyc4) to be able to compile and run jobs as expected. Refer to the [user guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md) for more information.
+
 ## 29 August 2023
 
 * H100 and L40 GPU's are now available for use on partition "gpu\_cuda".
