@@ -138,7 +138,7 @@ The different request flags mean the following:
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. <br> 
 `#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). <br> 
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br> 
-`#SBATCH --gres=gpu:[type]:[number-of-gpus]` - to request the use of 1 or more GPUs. `[type]` can be `tesla` with up to 2 GPUs per node or ‘tesla-smx2` with up to 4 GPUs per node. <br> 
+`#SBATCH --gres=gpu:[type]:[number-of-gpus]` - to request the use of 1 or more GPUs. `[type]` can be `tesla` with up to 2 GPUs per node or `tesla-smx2` with up to 4 GPUs per node. <br> 
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. <br> 
 `#SBATCH -o filename` - filename where the standard output should go to<br> 
 `#SBATCH -e filename` - filename where the standard error should go to<br> 
