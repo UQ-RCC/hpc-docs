@@ -108,7 +108,8 @@ cat << EOF >> $HOME/.condarc
 ```
 You will see a `>` once you pressed the enter key. Now enter these lines (you can copy and paste)
 
-```envs_dirs:
+```
+envs_dirs:
    - /scratch/rest-of-the-path-of-location/envs
 EOF
 
