@@ -54,6 +54,30 @@ Users will first be asked for their password (or key). After users have entered 
 
 After this you will be logged into Wiener. 
 
+## File Systems and Quotas
+
+You have access to a set of locations to store data
+
+* /clusterdata/$USER is your home directory, (5GB only, NO BACKUP)
+* /scratch/OrgUnit/ is your scratch space, (2TB, NO BACKUP, suggest you create a /scratch/OrgUnit/$USER folder)
+* /afm03/ is the top level directory for locating RDM collections. They are arranged in groups of 1000 collections. eg. /afm03/Q5/Q5002
+
+
+
+When you login you will see a summary of your home and scratch allocations.
+```
+------------------------------------------------------------------------------------------------------------------------------------------
+Block Limits                                                                          |File Limits
+Filesystem   Fileset    type         blocks      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+SCRATCH2     root       USR          419.4M         2T     2.148T          0     none |     1871       0        0        0     none
+CLUSTERDATA2 root       USR          1.588G         5G        10G          0     none |    12190       0        0        0     none
+------------------------------------------------------------------------------------------------------------------------------------------
+```
+
+You can also use this command.
+` /usr/lpp/mmfs/bin/mmlsquota -e --block-size=auto SCRATCH2 CLUSTERDATA2`
+
+
 ## File Transfer 
 
 We recommend to use command line `scp` and `sftp`. They are accessible to all users, via a shell for Linux and Mac users and via WSL and `cmd` for Windows users. 
