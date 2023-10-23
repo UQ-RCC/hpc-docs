@@ -2,6 +2,8 @@
 
 ## Quick links
 
+* [General HPC Information](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#general-hpc-information)
+* [Bunya Hardware](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#bunya-hardware)
 * [Connecting to Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#connecting)
 * [Transferring files](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#file-transfer)
 * [Software on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#software)
@@ -32,7 +34,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 [General overview of Q RDM](https://youtu.be/zI3jQfaSyCQ)<br>
 [Q RDM on HPC](https://youtu.be/kX1k--eXndM)<br>
 
-## Hardware (CPUs, space, RDM)
+## Bunya Hardware
 
 - Bunya has 93 CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 9000 cores) 
 - The queue allows 2 \* 96 = 192 threads per compute node (requested by `--cpus-per-task`)  
@@ -41,8 +43,8 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - Each Bunya phase 1 standard compute node (epyc3) has 2TB of RAM (2000000M is the maximum that can be requested in jobs).
 - Each Bunya phase 2 standard compute node (epyc4) has 1.5TB of ram (1500000M is the maximum that can be requested in jobs) 
 - There are also 3 high memory nodes (epyc3) that each have 4TB of RAM (4000000M is the maximum that can be requested in jobs).
-- There are 7 H100 NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total)
-- There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (18 in total)
+- There are 7 H100 NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total). Each H100 card has 80GB of GPU RAM.
+- There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (18 in total). Each L40 card has 48GB of GPU RAM. The L40 are good for visualisation and FP32 workloads.
 
 - Users have a location in `/home` and `/scratch/user`.
 - The quota in `/home` is 50GB and 1 million files. 
