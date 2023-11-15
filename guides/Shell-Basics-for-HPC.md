@@ -5,7 +5,7 @@ You will be able to participate without having an active HPC account.
 
 ## Workshop Objective
 
-_To enhance your effectiveness in using HPC by improving the resilience of your HPC job scripts using shell scripting techniques._
+_To enhance your effectiveness in using HPC by improving the resilience and utility of your HPC job scripts using shell scripting techniques._
 
 ## Assumed Knowledge
 You should be familiar with command line environments. 
