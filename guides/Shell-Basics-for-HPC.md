@@ -5,10 +5,10 @@ You will be able to participate without having an active HPC account but it woul
 
 ## Workshop Objective
 
-_To enhance your effectiveness in using HPC by improving the resilience and utility of your HPC job scripts using shell scripting techniques._
+_Learn how to enhance your effectiveness in using high-performance computing (HPC) resources, by improving the resilience and utility of your HPC job scripts using shell scripting techniques._
 
 ## Assumed Knowledge
-You should be familiar with command line environments. 
+You should be familiar (though not expected to be experts) with command line linux environments. 
 This [link](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#general-hpc-information)
  will provide you with access to short videos that will be of assistance.
 
@@ -37,15 +37,23 @@ To connect with a remote linux system, you will need to use one of
 - Getting connected to HPC (or emulating)
 - What is linux shell?
 - What the BASH ?!
-- Features of bash that are very handy
+- Features of bash that are very useful
 
 ## What the BASH ?!
-  * What is BASH?
-  * man bash
-  * .bashrc
-  * .bash_profile
-  * Shell script structure
-  * Executing scripts vs. Sourcing
+### What is BASH?
+    * Bourne Again SHell (bash) is an improvement on the original Bourne SHell (sh)
+    * BASH is one of several linux/unix shells
+    * A shell is the outer lay that wraps the operating system kernel, drivers and hardware to allow the user to do things.
+    * It provides command line interactivity with the operating system. 
+  * See ``man bash`` for details. ``-l`` (or ``--login``) is an important option on Bunya HPC.
+  * .bashrc and .bash_profile
+### (Typical) shell script structure
+  * Language line
+  * Mix of Comment lines and linux commands that get run sequentially (unless you use backgrounding)
+
+### Executing scripts vs. Sourcing
+  * executing a script forks a process that runs the contents of the shell script.
+  * sometimes you wnat to modify your current environment (so use ``source mySettings`` or ``. mySettings`
 
 ## What are HPC job scripts?
   * Language line
@@ -53,7 +61,8 @@ To connect with a remote linux system, you will need to use one of
   * Job payload that gets run
   * A simple Bunya example
 
-* Some issues that arise with job payloads
+## Some situations that are enhanced by the use of some shell code
+  * issues that arise with job payloads
   * an executable that isn't
   * a data file that is missing
   * module hasn't loaded
