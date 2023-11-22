@@ -33,10 +33,11 @@ To connect with a remote linux system, you will need to use one of
 
 ## Workshop Outline
 
-- Getting connected to HPC (or emulating)
-- What is linux shell?
+- Getting ourselves connected to HPC (or emulating same)
 - What the BASH ?!
 - Features of bash that are very useful
+- Some scenarios that benefit from shell scripting.
+- If time permits, we'll look at what is giving your trouble in job scripts.
 
 ## What the BASH ?!
 ### What is BASH?
@@ -52,26 +53,28 @@ To connect with a remote linux system, you will need to use one of
 * Mix of Comment lines and linux commands that get run sequentially (unless you use backgrounding)
 
 ### [Pipes](https://swcarpentry.github.io/shell-novice/04-pipefilter.html) vs. [Scripts](https://swcarpentry.github.io/shell-novice/06-script.html)
-* Output from a command can be piped into another command. Makes for powerful but linear operations.
+* Output from a command can be piped into another command. Makes for powerful, but linear operations.
 * Scripts have more overhead but provide flow control that you don't get with pipes.
   
 ### Executing scripts vs. Sourcing
-* executing a script forks a process that runs the contents of the shell script.
-* sometimes you wnat to modify your current environment (so use ``source mySettings`` or ``. mySettings``
+* executing a script "forks" a new process that runs the contents of the shell script.
+* sometimes you want to modify your current environment (so use ``source mySettings`` or ``. mySettings``
 
 ## What are HPC job scripts?
 * Language line
-* Batch system resource directives
+* Batch system resource directives (funky comment lines near the top)
 * Job payload that gets run
 * A simple Bunya example
 
 ## Shell language features
+* ``$ENVIRONMENT_VARIABLES``
+* special cryptic environment variables ``$0 $1 $2 $* $! $$` 
 * arrays (bash and a couple of the other shells)
 * tests  using ``test -x myCode`` or ``[ -x myCode ]`` 
 * ``if then else elif fi`` blocks
+* ``case`` statements are like a switch in C language
 * ``for`` and ``while`` [loops](https://swcarpentry.github.io/shell-novice/05-loop.html)
 * functions (for more reusable code)
-* special cryptic environment variables ``$0 $1 $2 $* $! $$` 
 
 ## Some of the linux command line power tools ([aka filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
 * ``sort`` and ``uniq``
@@ -89,5 +92,5 @@ To connect with a remote linux system, you will need to use one of
   * you need to generate individual scripts from a template
   * basic templating techniques
 
-## Think and test before you fire a shell script at the HPC 
+## Think, and test, before you fire a shell script at the HPC 
 
