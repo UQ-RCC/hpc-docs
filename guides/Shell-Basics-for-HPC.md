@@ -3,7 +3,7 @@
 ## Workshop Objective
 _Learn how to enhance your effectiveness in using high-performance computing (HPC) resources, by improving the resilience and utility of your HPC job scripts using shell scripting techniques._
 
-##Workshop Background
+## Workshop Background
 This document will form the basis of a workshop being offered at ResBaz Brisbane 2023.
 You will be able to participate without having an active HPC account but it would be preferrable.
 
