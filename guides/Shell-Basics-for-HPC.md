@@ -41,38 +41,40 @@ To connect with a remote linux system, you will need to use one of
 
 ## What the BASH ?!
 ### What is BASH?
-    * Bourne Again SHell (bash) is an improvement on the original Bourne SHell (sh)
-    * BASH is one of several linux/unix shells e.g. csh tcsh ksh zsh
-    * A shell is the outer lay that wraps the operating system kernel, drivers and hardware to allow the user to do things.
-    * It provides command line interactivity with the operating system. 
-  * See ``man bash`` for details. ``-l`` (or ``--login``) is an important option on Bunya HPC.
-  * .bashrc and .bash_profile
-### (Typical) shell script structure
-  * Language line
-  * Mix of Comment lines and linux commands that get run sequentially (unless you use backgrounding)
+* Bourne Again SHell (bash) is an improvement on the original Bourne SHell (sh)
+* BASH is one of several linux/unix shells e.g. csh tcsh ksh zsh
+* A shell is the outer lay that wraps the operating system kernel, drivers and hardware to allow the user to do things.
+* It provides command line interactivity with the operating system. 
+* See ``man bash`` for details. ``-l`` (or ``--login``) is an important option on Bunya HPC.
+* .bashrc and .bash_profile
 
-### Scripts vs. Pipes
+### (Typical) shell script structure
+* Language line
+* Mix of Comment lines and linux commands that get run sequentially (unless you use backgrounding)
+
+### [Pipes](https://swcarpentry.github.io/shell-novice/04-pipefilter.html) vs. Scripts
 * Output from a command can be piped into another command. Makes for powerful but linear operations.
 * Scripts have more overhead but provide flow control that you don't get with pipes.
   
 ### Executing scripts vs. Sourcing
-  * executing a script forks a process that runs the contents of the shell script.
-  * sometimes you wnat to modify your current environment (so use ``source mySettings`` or ``. mySettings``
+* executing a script forks a process that runs the contents of the shell script.
+* sometimes you wnat to modify your current environment (so use ``source mySettings`` or ``. mySettings``
 
 ## What are HPC job scripts?
-  * Language line
-  * Batch system resource directives
-  * Job payload that gets run
-  * A simple Bunya example
+* Language line
+* Batch system resource directives
+* Job payload that gets run
+* A simple Bunya example
 
 ## Shell language features
 * arrays (bash and a couple of the other shells)
-* if then else elif fi
-* for loops
+* tests  using ``test -x myCode`` or ``[ -x myCode ]`` 
+* ``if then else elif fi`` blocks
+* ``for`` and ``while`` loops refer to the [SWC materials]()
 * functions
 
 
-## Some of the linux command line power tools
+## Some of the linux command line power tools ([aka filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
 * ``sort`` and ``uniq``
 * ``find``
 * ``grep`` ``sed`` ``awk``
@@ -86,4 +88,6 @@ To connect with a remote linux system, you will need to use one of
   * a module hasn't loaded
   * you need to generate individual scripts from a template
   * basic templating techniques
-*  
+
+## Think and test before you fire a shell script at the HPC 
+
