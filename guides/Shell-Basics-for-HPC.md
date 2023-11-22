@@ -70,16 +70,17 @@ To connect with a remote linux system, you will need to use one of
 * arrays (bash and a couple of the other shells)
 * tests  using ``test -x myCode`` or ``[ -x myCode ]`` 
 * ``if then else elif fi`` blocks
-* ``for`` and ``while`` loops refer to the [SWC materials]()
-* functions
-
+* ``for`` and ``while`` [loops](https://swcarpentry.github.io/shell-novice/05-loop.html)
+* functions (for more reusable code)
+* special cryptic environment variables ``$0 $1 $2 $* $! $$` 
 
 ## Some of the linux command line power tools ([aka filters](https://swcarpentry.github.io/shell-novice/04-pipefilter.html))
 * ``sort`` and ``uniq``
 * ``find``
-* ``grep`` ``sed`` ``awk``
+* ``grep`` ``sed`` and ``awk``
 * ``tr``
 * ``cut``
+* ``bc`` and ``expr``
 
 ## Some situations that are enhanced by the use of some shell scripting
   * issues that arise with job payloads
