@@ -1,16 +1,15 @@
 # Shell Basics for HPC
 
+## Workshop Objective
+_Learn how to enhance your effectiveness in using high-performance computing (HPC) resources, by improving the resilience and utility of your HPC job scripts using shell scripting techniques._
+
+##Workshop Background
 This document will form the basis of a workshop being offered at ResBaz Brisbane 2023.
 You will be able to participate without having an active HPC account but it would be preferrable.
 
-## Workshop Objective
-
-_Learn how to enhance your effectiveness in using high-performance computing (HPC) resources, by improving the resilience and utility of your HPC job scripts using shell scripting techniques._
-
 ## Assumed Knowledge
 You should be familiar (though not expected to be experts) with command line linux environments. 
-This [link](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#general-hpc-information)
- will provide you with access to short videos that will be of assistance.
+This [link](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#general-hpc-information) will provide you with access to short videos that will be of assistance.
 
 ## Pre-requisites
 
@@ -52,7 +51,7 @@ To connect with a remote linux system, you will need to use one of
 * Language line
 * Mix of Comment lines and linux commands that get run sequentially (unless you use backgrounding)
 
-### [Pipes](https://swcarpentry.github.io/shell-novice/04-pipefilter.html) vs. Scripts
+### [Pipes](https://swcarpentry.github.io/shell-novice/04-pipefilter.html) vs. [Scripts](https://swcarpentry.github.io/shell-novice/06-script.html)
 * Output from a command can be piped into another command. Makes for powerful but linear operations.
 * Scripts have more overhead but provide flow control that you don't get with pipes.
   
