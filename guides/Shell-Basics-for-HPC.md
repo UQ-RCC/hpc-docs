@@ -68,7 +68,7 @@ To connect with a remote linux system, you will need to use one of
 
 ## Shell language features
 * ``$ENVIRONMENT_VARIABLES``
-* special cryptic environment variables ``$0 $1 $2 $* $! $$` 
+* special cryptic environment variables ``\$0 \$1 \$2 \$* \$! \$\$` 
 * arrays (bash and a couple of the other shells)
 * tests  using ``test -x myCode`` or ``[ -x myCode ]`` 
 * ``if then else elif fi`` blocks
