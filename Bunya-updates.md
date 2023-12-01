@@ -1,5 +1,11 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 1 December 2023
+
+* RCC Support will be unavailable over the Christmas break from the 23rd of December 2023 to the 1st of January 2024 inclusive, and will reopen on the 2nd of January 2024.
+* The last Hacky Hour for the year will be on the 5th of December 2023. Hacky Hour will resume on Tuesdays as usual on the 30th January 2024.
+* The last Virtual HPC user support meetup for the year will be on the 14th of December 2023. vHPC will resume on Thursdays as usual on the 11th January 2024.
+
 ## 17 October 2023
 
 * The next scheduled maintenance on Bunya will occur between 9pm Monday 6th November and 9pm Tuesday 7th November.
