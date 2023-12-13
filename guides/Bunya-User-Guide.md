@@ -409,25 +409,33 @@ to submit the slurm script and your job.
 
 Below are examples for single thread, single node but multiple threads, MPI, and array job submission scripts. 
 The different request flags mean the following:
-
+<br>
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
 `#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 96 (or less if single node) for MPI jobs.<br>
-`#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of threads for the job (what you woudl use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduleing of MPI jobs.<br> 
+`#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of threads for the job (what you woudl use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduling of MPI jobs.<br> 
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. This is 1 for MPI jobs.<br>
 `#SBATCH --hint nomultithread` - This option may help in situations where your parallelisation (single node multicore or hybrid OpenMP+MPI) is confused by the numbers of cores/threads.<br>
+<br>
 `#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB r 2TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 4TB (1500G or 2000G or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
+<br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `gpu_rocm, gpu_cuda, gpu_viz, aibn_omara` = 168 hours (1 week).<br>
-`#SBATCH -o filename` - filename where the standard output should go to<br>
-`#SBATCH -e filename` - filename where the standard error should go to<br>
+<br>
+`#SBATCH -o filename` - filename where the standard output should go to. See `man sbatch` for filename templating options.<br>
+`#SBATCH -e filename` - filename where the standard error should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
-`#SBATCH --account=[Name]` - AccountString for your research or accounting group, all AccountStrings start with `a_`, use the `groups` command to list your groups<br>
-`#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.
-`#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.
+<br>
+`#SBATCH --account=[Name]` - AccountString for your research or accounting group. All AccountStrings start with `a_`. Use the `groups` command to list your groups<br>
+<br>
+`#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.<br>
+`#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.<br>
+<br>
 `#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_viz/aibn_omara`<br>
-`#SBATCH --array=[range]` - Indicates that this is and array job with range number of tasks.<br>
-`srun` - runs the executable and will receive info on number of threads, memory, etc from Slurm. There is no need to specify them here.
+<br>
+`#SBATCH --array=[range]` - Indicates that this is an array job with range number of tasks. Range can be `0-99`. The maximum range value is 1000.<br>
+<br>
+`srun` - runs the executable using the resources you requested for this job. It will receive info on number of threads, memory, etc from Slurm. There is no need to specify them here.
 
 See `man sbatch` and `man srun` for more options (use arrow keys to scroll up and down and `q` to quit)
 
