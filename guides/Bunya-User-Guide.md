@@ -186,7 +186,9 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 ### How to build your own software
 
-***IMPORTANT*** If you are building your own software, especially if you are compiling your own software, you need to be aware of the different architectures, `epyc3` and `epyc4`. Software built on an `epyc3` compute node will run on a `epyc4` compute node **BUT** software built on a `epyc4` compute node will not run on a `epyc3` compute node. If you want ease of use you need to make sure to compile on a `epyc3` compute node. If you want best performance you shold compile for a specific architecture but then need to request that architecture for your jobs. 
+***IMPORTANT*** If you are building your own software, especially if you are compiling your own software, you need to be aware of the different architectures, `epyc3` and `epyc4`. Software built on an `epyc3` compute node will run on a `epyc4` compute node **BUT** software built on a `epyc4` compute node will not run on a `epyc3` compute node. If you want ease of use you need to make sure to compile on a `epyc3` compute node. If you want best performance you should compile for a specific architecture but then need to request that architecture for your jobs. 
+
+These AMD guides (in PDF) [EPYC3](https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/programmer-references/compiler-options-quick-ref-guide-epyc-7xx3-series-processors.pdf)  [EPYC4](https://www.amd.com/content/dam/amd/en/documents/developer/compiler-options-quick-ref-guide-amd-epyc-9xx4-series-processors.pdf) will be useful to understanding the options you may need to consider for optimising the performance of your code on Bunya. 
 
 ***Please note*** **ALL** software builds should be done on a compute node. Processes running on the login nodes, including software builds (conda environments, make-make install, EasyBuild) will most likley be killed if found on the login nodes.
 
