@@ -20,7 +20,6 @@ General HPC training is available via the [RCC and QCIF Training resources](http
 To get a basic understanding of what you need to be aware of when using HPC for your research please listen to the following videos:
 
 [Connecting to HPC via putty](https://youtu.be/oP_5JJrMm1U)<br>
-[Transferring files with FileZilla](https://youtu.be/9ABMxcKqfkQ)<br>
 [Where does my data go on HPC](https://youtu.be/cNW7F9V1plA)<br>
 [Directories (folders) I should be aware of on HPC](https://youtu.be/rgfbORJLOa8)<br>
 [Message of the day (info on current status and problems)](https://youtu.be/B33OKA2QwyI)<br>
