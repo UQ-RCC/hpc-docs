@@ -35,8 +35,8 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 ## Bunya Hardware
 
-- Bunya has 93 CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 9000 cores) 
-- The queue allows 2 \* 96 = 192 threads per compute node (requested by `--cpus-per-task`)  
+- Bunya has 93 CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 9000 cores). Cores are requested by `--ntasks-per-node` or `--ntasks` and by keeping `--cpus-per-task=1`. 
+- The queue allows 2 \* 96 = 192 threads per compute node (requested by `--cpus-per-task` and by keeping `--ntasks=1` or `--ntasks-per-node=1`)  
 - These CPUs are based on AMD epyc3 Milan (60, phase 1) and epyc4 Genoa (33, phase 2). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
 - These CPU cores are based on the industry standard x86\_64 architecture.
 - Each Bunya phase 1 standard compute node (epyc3) has 2TB of RAM (2000000M is the maximum that can be requested in jobs).
@@ -413,7 +413,7 @@ The different request flags mean the following:
 <br>
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
 `#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 96 (or less if single node) for MPI jobs.<br>
-`#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of threads for the job (what you woudl use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduling of MPI jobs.<br> 
+`#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of tasks for the job (what you would use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduling of MPI jobs.<br> 
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. This is 1 for MPI jobs.<br>
 `#SBATCH --hint nomultithread` - This option may help in situations where your parallelisation (single node multicore or hybrid OpenMP+MPI) is confused by the numbers of cores/threads.<br>
 <br>
