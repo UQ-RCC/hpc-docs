@@ -133,7 +133,24 @@ Then you will see the reqeust for the multifactor authentication. Please enter t
 
 [FileZilla picture 4](../media/FileZilla-4-n.png)
 
+## Accessing Compute Nodes from Login Nodes
 
+On Bunya, you are able to login to any compute node that is currently running your job(s). <br>
+If you do not have a running job on a compute node you will be unable to connect.
+
+Before you can do that, you will need to set up an SSH keypair on Bunya for use within Bunya.<br> 
+**This keypair should only be used within Bunya HPC and NOT for connecting from outside**
+
+On your Bunya login node run command<br>
+`ssh-keygen -b 2048 -t rsa`<br>
+Press enter for the default filename and location, then press enter (twice) for no password to be set on the private key (see warning above about keeping this key for use within Bunya only).<br>
+This should have generated a key pair: `$HOME/.ssh/id_rsa` (the private key) and `$HOME/.ssh/id_rsa.pub` (the public key)
+
+Append the public key contents to your authorized keys file.<br>
+`cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys`<br>
+
+Use `squeue --me` to figure out the compute node that is running your job of interest.<br>
+Then you can use the `ssh` command to connect to that compute node.
 
 ## Software
 
