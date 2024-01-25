@@ -697,13 +697,15 @@ But if you have CPU code that is expected to run faster on a single node in shar
 You are able to access any node that is running a job that belongs to you. 
 
 The `squeue --me` command will tell you which node is running your job.
-You will need to set up SSH public/private keys and authorized_keys to allow you to easily ssh to any compute node.
+You will need to set up SSH public/private keys and authorized_keys to allow you to easily ssh to any compute node. 
+Refer to [this section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#accessing-compute-nodes-from-login-nodes), above, for how to setup SSH keypairs for internal connections within Bunya.
 
-Once logged in to the node that is running your job you can use the `top -c -u $USER` command and note the %CPU and RES (memory) values for your processes.
+Once logged in to the node that is running your job you can use the `top -c -u $USER` command and note the %CPU and RES (memory) values for your processes.<br>
+The performance of jobs running on NVIDIA GPUs can be monitored using the /usr/bin/nvidia-smi command once you are logged into the node running your job..
 
 ##### Your completed jobs
 
-The `sacct` command can be used to report CPU and Memory utiisation by a completed job.
+The `sacct` command can be used to report CPU and Memory utilisation by a completed job.
 ```
 sacct -p  -a --format JobID,User,Group,State,Cluster,AllocCPUS,REQMEM,TotalCPU,Elapsed,MaxRSS,ExitCode,NNodes,NTasks -u $USER 
 ```
@@ -717,5 +719,4 @@ Notes:
 * Without specifying the start and end for the report, sacct will give you just your jobs for today.
 * You can use the `-j JobID` option to generate a report for a single job. 
 
-RCC are working on better ways to report this information, DETAILS TO FOLLOW
-
+The perl utility script /usr/local/bin/seff will generate a brief report of the total resource utilisation (CPU and MEM).
