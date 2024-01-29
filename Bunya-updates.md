@@ -1,5 +1,11 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 29 January 2024
+
+* The next scheduled maintenance on Bunya will occur between 9pm Monday 5th February and 9pm Tuesday 6th February.
+* There will be no access to Bunya during the maintenance. This includes no access to data in /home, /scratch/user and /scratch/project.
+* Bunya queues will not schedule jobs that would run into the maintenance window.
+
 ## 1 December 2023
 
 * RCC Support will be unavailable over the Christmas break from the 23rd of December 2023 to the 1st of January 2024 inclusive, and will reopen on the 2nd of January 2024.
