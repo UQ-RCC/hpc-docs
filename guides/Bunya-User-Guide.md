@@ -331,7 +331,7 @@ part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu_rocm`, `gpu_cuda`, `gpu_viz` or `aibn_omara` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
+For an interactive session on the `gpu_rocm`, `gpu_cuda` or `gpu_viz` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
 
@@ -354,10 +354,7 @@ debug
 gpu_rocm
 gpu_cuda
 gpu_viz 
-aibn_omara
 ```
-
-The `aibn_omara` partition is restricted to specific groups and are not open to other users.
 
 
 `general`<br>
@@ -384,10 +381,11 @@ GPU partition bun[001-002, 070]<br>
 `gpu_cuda`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
-GPU partition bun[003-005, 071-082]<br>
+GPU partition bun[003-005, 068, 071-082]<br>
 3 NVIDIA H100 per node (bun[071-076]), [type]=h100<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br> 
 3 NVIDIA A100 per node (bun[003-005]), [type]=a100<br>
+2 NVIDIA A100 per node (bun068), [type]=a100<br>
 **1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 **1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
@@ -402,14 +400,6 @@ GPU partition bun[077-082]<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
 
-
-`aibn_omara`<br>
-Restricted access<br>
-Maximum walltime: 1 week (7 days, 168 hours)<br>
-Maximum GPUs per user (in all partitions): 3<br>
-GPU partition bun[068]<br>
-2 A100 per node (bun[068]), [type]=a100<br>
-**1 NVIDIA A100 is charged 50 \* 1 CPU core**
 
 ## Slurm scripts
 
@@ -449,7 +439,7 @@ The different request flags mean the following:
 `#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.<br>
 `#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.<br>
 <br>
-`#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_viz/aibn_omara`<br>
+`#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_viz`<br>
 <br>
 `#SBATCH --array=[range]` - Indicates that this is an array job with range number of tasks. Range can be `0-99`. The maximum range value is 1000.<br>
 <br>
@@ -524,30 +514,6 @@ srun executable < input > output
 ```
 
 
-### Simple script for AIBN_OMARA A100 GPUs.
-
-**Node bun068. The AIBN_OMARA A100 GPUs are restricted to a specific set of users. If you have not been given explicit permission you cannot use these. Only certain AccountStrings have access to these GPUs. If you should and cannot run a job please contact your supervisor..**
-
-```
-#!/bin/bash --login
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=10G
-#SBATCH --job-name=Test
-#SBATCH --time=1:00:00
-#SBATCH --partition=aibn_omara
-#SBATCH --account=AccountString
-#SBATCH --gres=gpu:a100:1 #you can ask for up to 2 here
-#SBATCH -o slurm.output
-#SBATCH -e slurm.error
-
-module-loads-go-here
-
-srun executable < input > output
-```
-
-
 ### Simple script for CPUs and single node
 
 ```
@@ -611,7 +577,7 @@ You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 
 
 ### Job Arrays
 
-Here is one example of an array job script with 5 array tasks.
+Here is one example of an array job script with 5 array tasks. Important: Request resources for a single task and not resources for all together.
 
 ```
 #!/bin/bash --login
