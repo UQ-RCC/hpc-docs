@@ -109,7 +109,10 @@ use `put` to move files and directories from your desktop/laptop to Bunya.
 
 Windows users can also use WinSCP if they require a graphical SFTP client. WinSCP allows the MFA authentication without extra setup. WinSCP also allows mutiple file and directory transfer without having to re-enter the MFA passcode.
 
-FileZilla is no longer recommeneded, but if required please find the details here:
+FileZilla is no longer recommeneded. 
+
+<!---
+but if required please find the details here:
 
 The basic use of FileZilla for file and data transfer is shown [here](https://youtu.be/9ABMxcKqfkQ).
 
@@ -132,6 +135,7 @@ You will then be asked for your password for your username. Please enter this.
 Then you will see the reqeust for the multifactor authentication. Please enter the 6 number passcode from your authenticator app (DUO or other) here. It is advisable to click "refresh" on the passcode first or check the timer on the passcode before entering the passcode.
 
 [FileZilla picture 4](../media/FileZilla-4-n.png)
+-->
 
 ## Accessing Compute Nodes from Login Nodes
 
