@@ -44,6 +44,8 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - There are also 3 high memory nodes (epyc3) that each have 4TB of RAM (4000000M is the maximum that can be requested in jobs).
 - There are 7 H100 NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total). Each H100 card has 80GB of GPU RAM.
 - There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (18 in total). Each L40 card has 48GB of GPU RAM. The L40 are good for visualisation and FP32 workloads.
+- There are 2 A100 NVIDIA GPU nodes (epyc3) with 3 A100 cards each, 1 A100 NVIDIA GPU node with 2 A100 cards. Each A100 card has 80GB of GPU RAM. 
+- There is 1 A100 NVIDIA GPU node with MIG A100 cards leading to 21 MIG slices (7 per A100 card) each with 10GB of GPU RAM. 
 
 - Users have a location in `/home` and `/scratch/user`.
 - The quota in `/home` is 50GB and 1 million files. 
@@ -330,12 +332,14 @@ to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or
 
 Please use `--partition=general` or `--partition=debug` unless you need access to GPUs. The `debug` parition has a walltime limit of 1 hour. The `general` and `debug` partition have `epyc3` and `epyc4` architecture CPUs. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
-To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc`
-part.
+To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc` part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
 For an interactive session on the `gpu_rocm`, `gpu_cuda` or `gpu_viz` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
+
+To target a particular GPU RAM in the `gpu_cuda` partition, especially an A100 MIG slice add `--constraint=cuda10gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
+
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
 
@@ -388,7 +392,8 @@ Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[003-005, 068, 071-082]<br>
 3 NVIDIA H100 per node (bun[071-076]), [type]=h100<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br> 
-3 NVIDIA A100 per node (bun[003-005]), [type]=a100<br>
+3 NVIDIA A100 per node (bun[003-004]), [type]=a100<br>
+3 NVIDIA A100 per node and 7 MIG per A100 (bun005), [type]=nvidia_a100_80gb_pcie_1g.10gb<br>
 2 NVIDIA A100 per node (bun068), [type]=a100<br>
 **1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
@@ -432,7 +437,7 @@ The different request flags mean the following:
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
 <br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
-`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `gpu_rocm, gpu_cuda, gpu_viz, aibn_omara` = 168 hours (1 week).<br>
+`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `gpu_rocm, gpu_cuda, gpu_viz` = 168 hours (1 week).<br>
 <br>
 `#SBATCH -o filename` - filename where the standard output should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -e filename` - filename where the standard error should go to. See `man sbatch` for filename templating options.<br>
