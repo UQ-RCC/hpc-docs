@@ -398,6 +398,7 @@ GPU partition bun[003-005, 068, 071-082]<br>
 **1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 **1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
+**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
 H100: 16 bit and TF32 CUDA, half precision<br>
 
