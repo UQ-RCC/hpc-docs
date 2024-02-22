@@ -1,5 +1,9 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 22 February 2024
+
+* Issues with Jupyter in [Open OnDemand](https://bunya-ondemand.rcc.uq.edu.au) have been resolved.
+
 ## 29 January 2024
 
 * The next scheduled maintenance on Bunya will occur between 9pm Monday 5th February and 9pm Tuesday 6th February.
