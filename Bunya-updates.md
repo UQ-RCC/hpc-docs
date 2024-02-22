@@ -3,6 +3,7 @@
 ## 22 February 2024
 
 * Issues with Jupyter in [Open OnDemand](https://bunya-ondemand.rcc.uq.edu.au) have been resolved.
+* MIG has been enabled for some A100 GPUs. This allows you to request a lower-powered GPU and get a cheaper FairShare charge. Please see the [user guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md) Guide for details.
 
 ## 29 January 2024
 
