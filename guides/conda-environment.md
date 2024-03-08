@@ -9,7 +9,19 @@ to switch on the conda base environment and<br>
 to switch it off again.
 This is keeping the shell clean and conda base and other conda environments can so be loaded for jobs only.
 
-IMPORTANT: If you have the conda initialisation in your .bashrc file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean .bashrc file.
+Users can clean their `.bashrc` file by opening it and removing everything between and including these two lines<br>
+`# >>> conda initialize >>>`<br>
+`# <<< conda initialize <<<`<br>
+
+Users can also clean their `.bashrc` file by using `conda init` again with <br>
+`conda init --reverse`<br>
+
+
+## Advice on conda and Open OnDemand usage
+
+If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
+`conda init --reverse`<br>
+
 
 ## Using a conda module
 
