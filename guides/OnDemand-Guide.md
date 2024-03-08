@@ -16,13 +16,15 @@ Please be patient as the OnDemand dashboard loads, it can take time after authen
 
 The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *My Interactive Sessions*, let users interact in different ways with Bunya.
 
-**Interactive Apps** the easiest way to set up an interactive session a Bunya CPU or GPU node. Please see below for more details.
+**Interactive Apps** is the easiest way to set up an interactive session a Bunya CPU or GPU node. Please see below for more details.
 
 ### Files
 
 Users can manage all of their files from their home directory, scratch and any scratch projects they have access to.
 
 Users can rename, download or delete directories; view, edit, rename, download or delete individual files by clicking the 3 dots to the right of the file or directory name.
+
+To access data in Research storage records (RDM storage records starting with Q) under /QRISdata pleae click on the "change directory" button and type in the full directory path (/QRISdata/Qnnnn, where n is a number), then click `okay`. Please be patient as it might take some time to load.
 
 ### Jobs
 
@@ -43,6 +45,11 @@ This is similar to a standard ssh session on one of Bunya's login nodes. Do not 
 ### Interactive Apps
 
 Access to *Jupyter* notebook session (CPU and/or GPU), *Compute Desktop* (CPU and/or GPU) and *GPU-Accelerated Visualisation Desktop* (L40 GPU only). 
+
+**IMPORTANT** If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
+`conda init --reverse` <br>
+
+Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md)to set up your conda environment.
 
 **Jupyter** will launch a Jupyter notebook on a compute node.<br>
 **Compute Desktop** will launch an interactive desktop session on a compute node<br>
@@ -66,3 +73,6 @@ Access to *Jupyter* notebook session (CPU and/or GPU), *Compute Desktop* (CPU an
 * The job wall time will commence immediately upon resource allocation, monitor the Interactive Sessions page, as users will not be notified when the job starts.
 * Matlab jobs should be run on a CPU desktop environment. If GPU resources are required, request a GPU partition (gpu_viz partition recommended) and use uq_vglrun.
 * If running on a GPU desktop, accelerated matlab MUST be run with the -nosoftwareopengl argument on GPU, and non-accelerated matlab MUST NOT.
+* If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
+`conda init --reverse` <br>
+Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md)to set up your conda environment.
