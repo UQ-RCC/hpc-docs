@@ -9,6 +9,8 @@ to switch on the conda base environment and<br>
 to switch it off again.
 This is keeping the shell clean and conda base and other conda environments can so be loaded for jobs only.
 
+IMPORTANT: If you have the conda initialisation in your .bashrc file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean .bashrc file.
+
 ## Using a conda module
 
 ### Bunya
