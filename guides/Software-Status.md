@@ -2,6 +2,18 @@
 
 ## Licensed Software 
 
+### Mathematica
+
+* Installation in progress
+
+### SPSS
+
+* Installation in progress
+
+### STATA
+
+* Installation in progress
+
 ### Ansys 
 
 [**AVAILABLE**]
