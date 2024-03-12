@@ -14,6 +14,8 @@ Please be patient as the OnDemand dashboard loads, it can take time after authen
 
 ## Open OnDemand Dashboard
 
+![OOD top bar](../media/OOD-top-bar.png)
+
 The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *My Interactive Sessions*, let users interact in different ways with Bunya.
 
 **Interactive Apps** is the easiest way to set up an interactive session a Bunya CPU or GPU node. Please see below for more details.
