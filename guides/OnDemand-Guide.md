@@ -57,7 +57,7 @@ Access to *Jupyter* notebook session (CPU and/or GPU), *Compute Desktop* (CPU an
 **IMPORTANT** If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse` <br>
 
-Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md)to set up your conda environment.
+Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
 
 **Jupyter** will launch a Jupyter notebook or Lab on a compute node.<br>
 **Compute Desktop** will launch an interactive desktop session on a compute node<br>
