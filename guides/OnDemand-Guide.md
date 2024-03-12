@@ -59,7 +59,7 @@ Access to *Jupyter* notebook session (CPU and/or GPU), *Compute Desktop* (CPU an
 
 Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md)to set up your conda environment.
 
-**Jupyter** will launch a Jupyter notebook on a compute node.<br>
+**Jupyter** will launch a Jupyter notebook or Lab on a compute node.<br>
 **Compute Desktop** will launch an interactive desktop session on a compute node<br>
 **GPU-Accelerated Visualisation Desktop** will launch an interactive desktop session on a L40 compute node.<br>
 
@@ -67,6 +67,11 @@ Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/m
  * Getting an interactive desktop session is not automatic when clicking on it.
  * Users should give their job a meaningful name, select target partition and resources they require as they would through the terminal on Bunya. The account string will autofill. For more information on resources available see the [Bunya user guide.](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md)
  * If users choose a CPU job, the GPU field will be ignored and the job will not target GPU nodes.
+
+Clicking on *Compute Desktop* will bring up the following:
+
+![Compute Desktop 1](../media/ComputeDesktop-1.png)![Compute Desktop 2](../media/ComputeDesktop-2.png)
+
  * After clicking launch, the page will redirect to the *My Interactive Sessions* page, the job number and status will appear. The user may need to wait for the resources to be allocated, once allocated the job status will change to "Running".
  * Click on Launch Desktop to open a new browser tab containing a desktop environment, users have file system access to all files (Caja), a terminal emulator (MATE terminal), internet browser access (Firefox), and other accessories such as text editors.
  * Users can use the terminal emulator to load modules, edit files, run jobs, etc. as normal on Bunya.
