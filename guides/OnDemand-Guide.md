@@ -89,7 +89,7 @@ Most of the options offer drop down menues for you to select an option. <br>
 
  * Once you are finished and the desktop is no longer needed close the browser tab with the desktop in your web browser.
  * Then you need to delete the job to free up the resources for other users.
- * Click the *delete* button to finsih your job and release the resources.
+ * Click the *Delete* button to finsih your job and release the resources.
 
  ![Deleting desktop](../media/Launch-delete-n.png) 
 
