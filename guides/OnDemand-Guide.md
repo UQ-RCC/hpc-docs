@@ -14,7 +14,9 @@ Please be patient as the OnDemand dashboard loads, it can take time after authen
 
 ## Open OnDemand Dashboard
 
+
 ![OOD top bar](../media/OOD-top-bar.png)
+
 
 The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *My Interactive Sessions*, let users interact in different ways with Bunya.
 
@@ -45,6 +47,10 @@ Launch Bunya shell access in a new browser tab. Users will need to log in with a
 This is similar to a standard ssh session on one of Bunya's login nodes. Do not run calculations in this session as this is on one of the login nodes. To run calculations or install software users are required to submit a batch or interactive job.
 
 ### Interactive Apps
+
+
+![Interactive Apps](../media/InteractiveApps.png)
+
 
 Access to *Jupyter* notebook session (CPU and/or GPU), *Compute Desktop* (CPU and/or GPU) and *GPU-Accelerated Visualisation Desktop* (L40 GPU only). 
 
