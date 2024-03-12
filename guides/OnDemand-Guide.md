@@ -86,7 +86,7 @@ Most of the options offer drop down menues for you to select an option. <br>
  * Users can use the terminal emulator to load modules, edit files, run jobs, etc. as normal on Bunya.
 
  ![Virtual desktop](../media/VirtualDesktop-n.png)
- 
+
 
 ### My Interactive Sessions
 * View and access any currently running interactive sessions.
@@ -97,7 +97,7 @@ Most of the options offer drop down menues for you to select an option. <br>
 * Users are still queueing for jobs to be scheduled as normal on Bunya, access to a desktop environment will not be instant.
 * The job wall time will commence immediately upon resource allocation, monitor the Interactive Sessions page, as users will not be notified when the job starts.
 * Matlab jobs should be run on a CPU desktop environment. If GPU resources are required, request a GPU partition (gpu_viz partition recommended) and use uq_vglrun.
-* If running on a GPU desktop, accelerated matlab MUST be run with the -nosoftwareopengl argument on GPU, and non-accelerated matlab MUST NOT.
+* If running on a GPU desktop, accelerated Matlab MUST be run with the -nosoftwareopengl argument on GPU, and non-accelerated Matlab MUST NOT.
 * If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse` <br>
-Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md)to set up your conda environment.
+Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
