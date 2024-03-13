@@ -1,6 +1,10 @@
 # Accounting Group and Administration
 
-## Accounting Groups
+## Accounting group policy
+
+Accounting group owners and administrators should read and consult the [Accounting Group Policy](../policy/Bunya-Accounting-Group-Policy-2024-03.pdf).
+
+## Accounting groups
 
 Every Bunya user is required to be in a Bunya accounting group and every Bunya user should be in one accounting group only. 
 
