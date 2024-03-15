@@ -107,3 +107,30 @@ Most of the options offer drop down menues for you to select an option. <br>
 * If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse` <br>
 Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
+
+## Software
+
+### CVL Apps
+
+
+### RStudio
+
+To use *RStudio* click on the terminal icon at the top. In the terminal type `module load rstudio/2023.12.1-r4.2.1`. To check if there are newer versions available type `module available rstudio` and then select the version you wish to use. The type `RStudio`.
+
+![Load RStudio](../media/RStudio-1.png)
+
+![Run RStudio](../media/RStudio-2.png)
+
+You can also select *RStudio* from the *CVL APPs*. Please see above.
+
+### GaussView
+
+To use *Gaussview* click on the terminal icon at the top. In the terminal type `module load gaussian/16.b.01-gv`. To check if there are newer versions available type `module available gaussian` and then select the version you wish to use. Then type `gv`.
+
+![Load Gaussian](../media/Gaussview-1.png)
+
+![Run GaussView](../media/Gaussview-2.png)
+
+### Matematica
+
+To use *Mathematica* click on the terminal icon at the top. In the terminal type `module load mathematica/14.0`. To check if there are newer versions available type `module available mathematica` and then select the version you wish to use. Then type `Mathematica`.
