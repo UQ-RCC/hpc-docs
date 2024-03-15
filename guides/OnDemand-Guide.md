@@ -112,6 +112,10 @@ Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/m
 
 ### CVL Apps
 
+The *CVL Apps* can be found under *Applications* on the left in the top panel of the desktop. Please note that not all of these have been tested on Bunya. Please report any issues to rcc-support@uq.edu.au.
+
+![CVL Apps](../media/CVL-apps.png)
+
 
 ### RStudio
 
@@ -121,7 +125,7 @@ To use *RStudio* click on the terminal icon at the top. In the terminal type `mo
 
 ![Run RStudio](../media/RStudio-2.png)
 
-You can also select *RStudio* from the *CVL APPs*. Please see above.
+You can also select *RStudio* from the *CVL Apps*. Please see above.
 
 ### GaussView
 
@@ -134,3 +138,9 @@ To use *Gaussview* click on the terminal icon at the top. In the terminal type `
 ### Matematica
 
 To use *Mathematica* click on the terminal icon at the top. In the terminal type `module load mathematica/14.0`. To check if there are newer versions available type `module available mathematica` and then select the version you wish to use. Then type `Mathematica`.
+
+![Load Mathematica](../media/Mathematica-1.png)
+
+![Run Mathematica](../media/Mathematica-2.png)
+
+You can also select *Mathematica* from the *CVL Apps*, see above.
