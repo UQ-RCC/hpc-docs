@@ -119,7 +119,7 @@ The *CVL Apps* can be found under *Applications* on the left in the top panel of
 
 ### RStudio
 
-To use *RStudio* click on the terminal icon at the top. In the terminal type `module load rstudio/2023.12.1-r4.2.1`. To check if there are newer versions available type `module available rstudio` and then select the version you wish to use. The type `RStudio`.
+To use *RStudio* click on the terminal icon at the top. In the terminal type `module load rstudio/2023.12.1-r4.2.1`. To check if there are newer versions available type `module available rstudio` and then select the version you wish to use. Then type `RStudio`.
 
 ![Load RStudio](../media/RStudio-1.png)
 
@@ -127,7 +127,7 @@ To use *RStudio* click on the terminal icon at the top. In the terminal type `mo
 
 You can also select *RStudio* from the *CVL Apps*. Please see above.
 
-### GaussView
+### Gaussview
 
 To use *Gaussview* click on the terminal icon at the top. In the terminal type `module load gaussian/16.b.01-gv`. To check if there are newer versions available type `module available gaussian` and then select the version you wish to use. Then type `gv`.
 
@@ -135,7 +135,7 @@ To use *Gaussview* click on the terminal icon at the top. In the terminal type `
 
 ![Run GaussView](../media/Gaussview-2.png)
 
-### Matematica
+### Mathematica
 
 To use *Mathematica* click on the terminal icon at the top. In the terminal type `module load mathematica/14.0`. To check if there are newer versions available type `module available mathematica` and then select the version you wish to use. Then type `Mathematica`.
 
