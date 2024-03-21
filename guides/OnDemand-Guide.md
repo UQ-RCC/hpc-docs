@@ -62,12 +62,12 @@ Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/m
 * **Jupyter** will launch a Jupyter notebook or Lab on a compute node. User will need to request appropriate resources.
 * **GPU-Accelerated Desktop** will launch an accelerated interactive desktop session on a L40 NVIDIA compute node.
 * **Desktop** will launch an interactive desktop on one of Bunya's compute nodes. Users can select from preset flavours with different cores and memory. Users can request a custem running time and add GPU to any of the preset flavours. The flavours are<br>
-Standard: 4 cores (8 cpu threads), 32 GB of RAM<br>
-Medium: 8 cores (16 cpu threads), 64 GB of RAM<br>
-High-RAM Medium: 8 cores (16 cpu threads), 128 GB of RAM<br>
-Large: 16 cores (32 cpu threads), 256 GB of RAM<br>
-Extra Large: 24 cores (48 cpu threads), 512 GB of RAM<br>
-Huge: 48 cores (96 cpu threads), 1000 GB of RAM
+*Standard*: 4 cores (8 cpu threads), 32 GB of RAM<br>
+*Medium*: 8 cores (16 cpu threads), 64 GB of RAM<br>
+*High-RAM Medium*: 8 cores (16 cpu threads), 128 GB of RAM<br>
+*Large*: 16 cores (32 cpu threads), 256 GB of RAM<br>
+*Extra Large*: 24 cores (48 cpu threads), 512 GB of RAM<br>
+*Huge*: 48 cores (96 cpu threads), 1000 GB of RAM
 * **Expert Desktop** will launch an interactive desktop on one of Bunya's compute nodes. Users can custom request all resources.
 
 
