@@ -82,7 +82,7 @@ Clicking on *Desktop* will bring up the following:
 Most options are preset depending on which flavour is chosen. Users can select how long to run.
 
 
-Clicking on *Compute Desktop* will bring up the following:
+Clicking on *Expert Desktop* will bring up the following:
 
 ![Expert Desktop 1](../media/Expert-Desktop-1_2.png)![Expert Desktop 2](../media/Expert-Desktop-2_2.png)
 
