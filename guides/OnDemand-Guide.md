@@ -49,19 +49,26 @@ This is similar to a standard ssh session on one of Bunya's login nodes. Do not 
 ### Interactive Apps
 
 
-![Interactive Apps](../media/InteractiveApps.png)
+![Interactive Apps](../media/Interactive-Apps.png)
 
 
-Access to *Jupyter* notebook session (CPU and/or GPU), *Compute Desktop* (CPU and/or GPU) and *GPU-Accelerated Visualisation Desktop* (L40 GPU only). 
+Access to *Jupyter* notebook and Lab session (CPU and/or GPU) *GPU-Accelerated Desktop* (L40 NVIDIA GPU only), *Desktop* preset resource flavours (CPU and/or GPU) and *Expert Desktop* (CPU and/or GPU, allows custom request of resources). 
 
 **IMPORTANT** If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse` <br>
 
 Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
 
-**Jupyter** will launch a Jupyter notebook or Lab on a compute node.<br>
-**Compute Desktop** will launch an interactive desktop session on a compute node<br>
-**GPU-Accelerated Visualisation Desktop** will launch an interactive desktop session on a L40 compute node.<br>
+* **Jupyter** will launch a Jupyter notebook or Lab on a compute node. User will need to request appropriate resources.
+* **GPU-Accelerated Desktop** will launch an accelerated interactive desktop session on a L40 NVIDIA compute node.
+* **Desktop** will launch an interactive desktop on one of Bunya's compute nodes. Users can select from preset flavours with different cores and memory. Users can request a custem running time and add GPU to any of the preset flavours. The flavours are<br>
+Standard: 4 cores (8 cpu threads), 32 GB of RAM<br>
+Medium: 8 cores (16 cpu threads), 64 GB of RAM<br>
+High-RAM Medium: 8 cores (16 cpu threads), 128 GB of RAM<br>
+Large: 16 cores (32 cpu threads), 256 GB of RAM<br>
+Extra Large: 24 cores (48 cpu threads), 512 GB of RAM<br>
+Huge: 48 cores (96 cpu threads), 1000 GB of RAM
+* **Expert Desktop** will launch an interactive desktop on one of Bunya's compute nodes. Users can custom request all resources.
 
 
  * Getting an interactive desktop session is not automatic when clicking on it.
@@ -70,7 +77,14 @@ Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/m
 
 Clicking on *Compute Desktop* will bring up the following:
 
-![Compute Desktop 1](../media/ComputeDesktop-1.png)![Compute Desktop 2](../media/ComputeDesktop-2.png)
+![Compute Desktop 1](../media/Desktop1_2.png)![Compute Desktop 2](../media/Desktop1_2.png)
+
+Most options are preset depending on which flavour is chosen. Users can select how long to run.
+
+
+Clicking on *Compute Desktop* will bring up the following:
+
+![Expert Desktop 1](../media/Expert-Desktop-1_2.png)![Expert Desktop 2](../media/Expert-Desktop-2_2.png)
 
 Most of the options offer drop down menues for you to select an option. <br>
 * Please note that the *Partition* will display the default partition which is `debug`. This allows a maximum of 1 hour of time but also allows for shorter queue time. It is advised to keep the `debug` partition and the 1 hour time for work that will fit into this time limit.
