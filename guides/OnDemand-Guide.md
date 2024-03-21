@@ -77,7 +77,7 @@ Huge: 48 cores (96 cpu threads), 1000 GB of RAM
 
 Clicking on *Desktop* will bring up the following:
 
-![Compute Desktop 1](../media/Desktop1_2.png)![Compute Desktop 2](../media/Desktop1_2.png)
+![Compute Desktop 1](../media/Desktop1_2.png)![Compute Desktop 2](../media/Desktop2_2.png)
 
 Most options are preset depending on which flavour is chosen. Users can select how long to run.
 
