@@ -75,7 +75,7 @@ Huge: 48 cores (96 cpu threads), 1000 GB of RAM
  * Users should give their job a meaningful name, select target partition and resources they require as they would through the terminal on Bunya. The account string will autofill. For more information on resources available see the [Bunya user guide.](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md)
  * If users choose a CPU job, the GPU field will be ignored and the job will not target GPU nodes.
 
-Clicking on *Compute Desktop* will bring up the following:
+Clicking on *Desktop* will bring up the following:
 
 ![Compute Desktop 1](../media/Desktop1_2.png)![Compute Desktop 2](../media/Desktop1_2.png)
 
