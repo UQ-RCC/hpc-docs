@@ -141,7 +141,7 @@ To use *RStudio* click on the terminal icon at the top. In the terminal type `mo
 
 You can also select *RStudio* from the *CVL Apps*. Please see above.
 
-### Gaussview
+### Gaussview (UQ only)
 
 To use *Gaussview* click on the terminal icon at the top. In the terminal type `module load gaussian/16.b.01-gv`. To check if there are newer versions available type `module available gaussian` and then select the version you wish to use. Then type `gv`.
 
@@ -149,7 +149,7 @@ To use *Gaussview* click on the terminal icon at the top. In the terminal type `
 
 ![Run GaussView](../media/Gaussview-2.png)
 
-### Mathematica
+### Mathematica (UQ only)
 
 To use *Mathematica* click on the terminal icon at the top. In the terminal type `module load mathematica/14.0`. To check if there are newer versions available type `module available mathematica` and then select the version you wish to use. Then type `Mathematica`.
 
@@ -158,3 +158,12 @@ To use *Mathematica* click on the terminal icon at the top. In the terminal type
 ![Run Mathematica](../media/Mathematica-2.png)
 
 You can also select *Mathematica* from the *CVL Apps*, see above.
+
+### SPSS Statistics (UQ only)
+
+To use *SPSS Statistics* click on the terminal icon at the top. In the terminal type `module load spss/statistics-27`. To check if there are newer versions available type `module available spss` and then select the version you wish to use. Then type `stats`.
+
+![Load SPSS](../media/SPSS-1.png)
+
+![Run SPSS](../media/SPSS-2.png)
+
