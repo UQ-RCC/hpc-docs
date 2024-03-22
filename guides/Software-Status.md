@@ -8,15 +8,20 @@ Please consult the  [Open OnDemand User Guide](../guides/OnDemand-Guide.md) to s
 
 ### Mathematica
 
-[**Available**}
+[**AVAILABLE**]
 
 * Access is restricted to UQ users
 
 * See [Open OnDemand User Guide](../guides/OnDemand-Guide.md)
 
-### SPSS
+### SPSS Statistics
 
-* Installation in progress
+* [**AVAILABLE**]
+
+* Access is restrcited to UQ users
+
+See [Open OnDemand User Guide](../guides/OnDemand-Guide.md)
+
 
 ### STATA
 
