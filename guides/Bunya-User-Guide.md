@@ -10,8 +10,7 @@
 * [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#using-software-containers-on-bunya)
 * [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#interactive-jobs)
 * [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#slurm-scripts)
-* [How to check jobs in SLURM](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-check-jobs-in-slurm)
-* [RCC's interactive job script builder for SLURM](https://shiny.rcc.uq.edu.au/SLURM/)
+* [How to check jobs in SLURM](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-manage-your-jobs-and-cluster-activity-in-slurm)
 
 ## General HPC information 
 
