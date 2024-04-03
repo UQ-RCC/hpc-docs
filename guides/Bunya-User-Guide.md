@@ -332,7 +332,9 @@ Users have access to a `debug` queue for quick testing of new jobs and codes etc
 
 User should use interactive jobs to do quick testing and if they need to use a graphical user interface (GUI) to run their calculations. This could include jupyter, spider, etc. salloc is used to submit an interactive job and you should specify the required resources via the command line. IMPORTANT: Interactive jobs should be limited to a single node. Multinode jobs are required to be submitted as a batch job.
 
-**Use this full command line to create an interactive session on a compute node. You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
+**Use this full command line to create an interactive session on a compute node.**
+<br>
+**You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
 ```
 salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
