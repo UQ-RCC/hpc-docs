@@ -336,7 +336,7 @@ User should use interactive jobs to do quick testing and if they need to use a g
 **Use this full command line to create an interactive session on a compute node. You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
 ```
-salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=50G --job-name=TEST --time=05:00:00 --partition=general --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
+salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
 You can use the command<br>
 `hostname`<br>
@@ -633,14 +633,14 @@ You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 
 #SBATCH --batch=[epyc3 or epyc4]
 ``````
 
-### How to check jobs in SLURM
+### How to manage your jobs and cluster activity in SLURM
 
-#### Just your jobs
-`squeue -u YourUsername` -- will only print your jobs<br>
+#### To list _only_ your jobs
+`squeue -u YourUsername`<br>
 `squeue -u $USER`<br>
 `squeue --me`<br>
 
-#### Some formatting ideas for more detailed reports
+#### Some formatting ideas for more detailed squeue reports
 
 Here are some other useful additions to the squeue command. For information on what all these means please consult the man pages.
 
@@ -653,9 +653,42 @@ JOBID  PARTITION  NAME  USER  STATE  TIME TIME_LIMIT NODES  ACCOUNT  MIN_CPU  NO
 squeue -o "%12i %7q %.9P %.20j %.10u %.2t %.11M %.4D %.4C %.14b %8m %16R %18p %10B %.10L" 
 JOBID QOS PARTITION NAME USER STATE TIME NODE CPUS TRES_PER_NODE MIN_MEMORY NODELIST(REASON) PRIORITY EXEC_HOST TIME_LEFT
 ```
-`squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"`
+```
+#One for the MPI users, perhaps!
+squeue -o "%.7i %.9P %.8j %.8u %.2t %.10M %.6D %C"
+JOBID PARTITION     NAME     USER ST       TIME  NODES CPUS
+```
 
-sinfo is used to obtain information about the actual nodes. Here some useful examples.
+#### When you are wondering why your job has not started
+
+##### Check the REASON in your squeue output
+
+Checking the REASON field of the squeue output should provide you with some clue.
+The manual page for the squeue command lists the most commonly encountered reasons.
+They can be found in the "JOB REASON CODES" section of the `man squeue` command output or online [here](https://slurm.schedmd.com/squeue.html#SECTION_JOB-REASON-CODES).
+A full list of job reasons can be found on [this web page](https://slurm.schedmd.com/resource_limits.html#reasons) 
+
+##### Check the sinfo output for a status report of Bunya nodes
+
+The sinfo command is used to obtain information about the actual nodes.<br>
+You can request the report for a single or all partitions.<br>
+Some of the more commonly seen values for the STATE are: 
+* idle => nothing running so completely empty
+* mix => running jobs but have space available
+* drain or drng => drained or draining ... will finish current jobs and await maintenance work
+* alloc => fully allocated so no space available
+<br>
+Here's a snippet for GPU partitions and nodes. So 3 CUDA nodes and 2 VIZ nodes are empty.
+
+```
+PARTITION  AVAIL  TIMELIMIT  NODES  STATE NODELIST
+gpu_cuda      up 7-00:00:00     14    mix bun[003-004,068,071-079,082,116]
+gpu_cuda      up 7-00:00:00      3   idle bun[005,080-081]
+gpu_viz       up 7-00:00:00      4    mix bun[077-079,082]
+gpu_viz       up 7-00:00:00      2   idle bun[080-081]
+```
+
+Here some useful examples.
 
 ```
 sinfo -o "%n %e %m %a %c %C"
@@ -664,7 +697,11 @@ HOSTNAMES FREE_MEM MEMORY AVAIL CPUS CPUS(A/I/O/T)
 ```
 
 `sinfo -O Partition,NodeList,Nodes,Gres,CPUs`<br>
-`sinfo -o "%.P %.5a %.10l %.6D %.6t %N %.C %.E %.g %.G %.m"`
+
+```
+sinfo -o "%.P %.5a %.10l %.6D %.6t %N %.C %.E %.g %.G %.m"
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST CPUS(A/I/O/T) REASON GROUPS GRES MEMORY
+```
 
 #### How to know what resources are actually being utilised by a job?
 
