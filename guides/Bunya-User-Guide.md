@@ -727,6 +727,14 @@ Refer to [this section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Buny
 Once logged in to the node that is running your job you can use the `top -c -u $USER` command and note the %CPU and RES (memory) values for your processes.<br>
 The performance of jobs running on NVIDIA GPUs can be monitored using the /usr/bin/nvidia-smi command once you are logged into the node running your job..
 
+##### Cancelling a job
+
+If you see that your job is not performing as expected, or is not properly utilising the resources you requested, then you should cancel the job. 
+
+Use the *`scancel`* command to cancel the job. You can cancle an individaul job or job array element, or an entire job array.
+
+Before resubmitting the job, review the job resource request and job inputs and code.
+
 ##### Your completed jobs
 
 The `sacct` command can be used to report CPU and Memory utilisation by a completed job.
