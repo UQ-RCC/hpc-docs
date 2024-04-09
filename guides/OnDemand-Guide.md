@@ -54,7 +54,9 @@ This is similar to a standard ssh session on one of Bunya's login nodes. Do not 
 
 Access to *Jupyter* notebook and Lab session (CPU and/or GPU) *GPU-Accelerated Desktop* (L40 NVIDIA GPU only), *Desktop* preset resource flavours (CPU and/or GPU) and *Expert Desktop* (CPU and/or GPU, allows custom request of resources). 
 
-**IMPORTANT** If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
+#### Important: If you get a "Could not connect to the session bus: Failed to connect ..." error
+
+If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virtual desktop in Open OnDemand, you need to have "clean" `.bashrc` file. The easiest way to clean it is to run <br>
 `conda init --reverse` <br>
 
 Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
