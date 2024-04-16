@@ -324,7 +324,9 @@ You cannot build a container on Bunya directly from a Dockerfile prescription. I
 
 Users are reminded that no calculation, no matter how quick or small, should be run on the login nodes. So no, the quick python or R or bash script or similar should NOT be just quickly run from the command line as it is so much more convenient. **All calculations are required to be done on the compute nodes.**
 
-Users can use interactive jobs which will give them that command line feel and flexibility and allow the use of graphical user interfaces.
+This also includes software installations. Conda and pip installs should be run via an interactive job not on the login nodes. Software installations using make and then make install especially are not suitable to be done on a login node. For these users should be careful choosing the correct architecture, see [here] (https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-build-your-own-software)
+
+Users can use interactive jobs which will give them that command line feel and flexibility and allow the use of graphical user interfaces. Users who need a Graphical User Interface (GUI) should consult the [Open OnDemand User Guide](./OnDemand-Guide.md). 
 
 Users have access to a `debug` queue for quick testing of new jobs and codes etc.
 
