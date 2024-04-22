@@ -4,6 +4,8 @@ This project is for providing _up-to-date_ information about HPC systems operate
 
 [Bunya User Guide](guides/Bunya-User-Guide.md)
 
+[Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)
+
 [Wiener User Guide](guides/Wiener-Guide.md)
 
 [Open OnDemand](guides/OnDemand-Guide.md)
