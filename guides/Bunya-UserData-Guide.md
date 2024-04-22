@@ -4,7 +4,7 @@ Bunya has several spaces users have access to to keep their data and software.
 
 ### Spaces available by default for every user
 
-The spaces below are individual spaces. This means, by default, they are only accessible by the user who this space belongs to. These spaces **should NOT be shared with any ohter users**. If a shared space is required please see further below in the section on shared spaces.
+The spaces below are individual spaces. This means, by default, they are only accessible by the user who this space belongs to. These spaces **should NOT be shared with any other users**. If a shared space is required please see further below in the section on shared spaces.
 
 #### `/home/username` 
 * Every user has a home directory. This is where a user lands when they login.
