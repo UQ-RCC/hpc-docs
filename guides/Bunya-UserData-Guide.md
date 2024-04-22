@@ -38,7 +38,7 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 
 #### `/QRISdata`
 
-RDM storage records, where users have selceted that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically availble on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
+RDM storage records, where users have selected that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically availble on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
 
 
 * `/QRISdata/QNNNN` are shared spaces with default quotas of *1TB and 1 million files*. This can be increased by applying for more storage via the [RDM portal](https://rdm.uq.edu.au/).
