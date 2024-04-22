@@ -20,7 +20,7 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The user scratch directory can also be used to install software.
 * The scratch user directory is **not backed up**.
 
-### Checking quotas and usage in /home and /scratch/user
+### Checking quotas and usage in /home and /scratch
 
 Users can use the command `rquota` on Bunya to check their current quotas and usage. It provides quotas and usage for `/home`, `/scratch/user` and `/scratch/project` (more information below) they have access too.
 
