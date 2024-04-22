@@ -4,7 +4,7 @@ Bunya has several spaces users have access to to keep their data and software.
 
 ### Spaces available by default for every user
 
-The spaces below are individual spaces. This means, by default, they are only accessible by the user who this space belongs to. These spaces **should NOT be shared with nay ohter users**. If a shared space is required please see futher below in the section on shared spaces.
+The spaces below are individual spaces. This means, by default, they are only accessible by the user who this space belongs to. These spaces **should NOT be shared with any ohter users**. If a shared space is required please see further below in the section on shared spaces.
 
 #### `/home/username` 
 * Every user has a home directory. This is where a user lands when they login.
@@ -33,6 +33,8 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 * Apply for a scratch project by sending a request to rcc-support@uq.edu.au and you will then be send the link to the application form.
 * Scratch projects should be used to install software that needs to be shared.
 * Scratch projects can be used to share data sets and output that multiple users need access to during their calculations.
+* The scratch project directory is **not backed up**.
+
 
 #### `/QRISdata`
 
