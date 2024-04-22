@@ -1,5 +1,11 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 23 April 2024
+
+* The next scheduled maintenance on Bunya will occur between 9pm Monday 6th May and 9pm Tuesday 7th May.
+* There will be no access to Bunya during the maintenance. This includes no access to data in /home, /scratch/user and /scratch/project.
+* Bunya queues will not schedule jobs that would run into the maintenance window.
+
 ## 22 February 2024
 
 * Issues with Jupyter in [Open OnDemand](https://bunya-ondemand.rcc.uq.edu.au) have been resolved.
