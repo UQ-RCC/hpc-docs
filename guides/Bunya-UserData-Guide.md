@@ -48,7 +48,7 @@ RDM storage records, where users selected that the data should be available on H
 * Jobs should not do multiple reads or writes from or to a directory in `/QRISdata` a calculations. So standard output should not be written to `/QRISdata`. A once off read of input at the start and a once off write at the end is permitted. However, the general data workflow should be using `/scratch` for input and output of calculations.
 * Software should not be installed in `/QRISdata` as accessing software is also continuously accessing `/QRISdata` which is not permitted.
 * Do not unpack archives or tar files directly in `/QRISdata`, unpack these into a directory in `/scratch`
-* Do not move diectories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
+* Do not move directories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
 
 
 
