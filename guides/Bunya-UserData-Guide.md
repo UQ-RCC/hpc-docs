@@ -38,10 +38,11 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 
 #### `/QRISdata`
 
-RDM storage records, where users have selected that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically availble on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
+RDM storage records, where users selected that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically available on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
 
 
 * `/QRISdata/QNNNN` are shared spaces with default quotas of *1TB and 1 million files*. This can be increased by applying for more storage via the [RDM portal](https://rdm.uq.edu.au/).
+* RHD students who have dual credentials (staff and student) will need to add the other credential as a collaborator. For example, if your RDM was created with your student account, then you will need to add your staff account as a collaborator if you need access to it from the staff credentials. You manage collaborators on your RDM via the [RDM portal](https://rdm.uq.edu.au/).
 * Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to see the RDM storage record. Due to the automount the RDM storage record needs to be used to be seen.
 * Users are **not allowed** to submit jobs (type `sbatch` or `salloc`) from a directory in `/QRISdata`. 
 * Jobs should not do multiple reads or writes from or to a directory in `/QRISdata` a calculations. So standard output should not be written to `/QRISdata`. A once off read of input at the start and a once off write at the end is permitted. However, the general data workflow should be using `/scratch` for input and output of calculations.
