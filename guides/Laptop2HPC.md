@@ -1,3 +1,8 @@
+### Using R on Bunya - Making the move from Laptop to HPC
+
+_This document was the basis of a presentation to The University of Queensland R Users Group meetup on April 24 2024_
+_Presenter was Dr David Green UQ RCC_
+
 <!-- https://bootswatch.com/ -->
 <!-- bootswatch:  default _minty_  celurean solar cyborg  quartz  zephyr   -->
 
