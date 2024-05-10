@@ -499,8 +499,8 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 #SBATCH --partition=gpu_cuda
 #SBATCH --gres=gpu:a100:1
 #SBATCH --account=AccountString
-#SBATCH -o slurm.output
-#SBATCH -e slurm.error
+#SBATCH -o slurm-%j.output
+#SBATCH -e slurm-%j.error
 
 module-loads-go-here
 
@@ -530,8 +530,8 @@ For L40 change to<br>
 #SBATCH --partition=gpu_rocm
 #SBATCH --account=AccountString
 #SBATCH --gres=gpu:mi210:1 #you can ask for up to 2 here
-#SBATCH -o slurm.output
-#SBATCH -e slurm.error
+#SBATCH -o slurm-%j.output
+#SBATCH -e slurm-%j.error
 
 module-loads-go-here
 
@@ -551,8 +551,8 @@ srun executable < input > output
 #SBATCH --time=1:00:00
 #SBATCH --partition=general
 #SBATCH --account=AccountString
-#SBATCH -o slurm.output
-#SBATCH -e slurm.error
+#SBATCH -o slurm-%j.output
+#SBATCH -e slurm-%j.error
 
 module-loads-go-here
 
@@ -585,8 +585,8 @@ You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 
 #SBATCH --time=1:00:00
 #SBATCH --partition=general
 #SBATCH --account=AccountString
-#SBATCH -o slurm.output
-#SBATCH -e slurm.error
+#SBATCH -o slurm-%j.output
+#SBATCH -e slurm-%j.error
 
 module-loads-go-here
 
