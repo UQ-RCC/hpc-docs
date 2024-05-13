@@ -739,7 +739,7 @@ Use the *`scancel`* command to cancel the job. You can cancle an individaul job 
 
 Before resubmitting the job, review the job resource request and job inputs and code.
 
-##### Your completed jobs
+##### Your completed jobs, using sacct
 
 The `sacct` command can be used to report CPU and Memory utilisation by a completed job.
 ```
@@ -755,4 +755,10 @@ Notes:
 * Without specifying the start and end for the report, sacct will give you just your jobs for today.
 * You can use the `-j JobID` option to generate a report for a single job. 
 
+##### Your completed jobs, using seff
+
 The perl utility script /usr/local/bin/seff will generate a brief report of the total resource utilisation (CPU and MEM).
+```
+seff JobID
+```
+
