@@ -743,21 +743,21 @@ Before resubmitting the job, review the job resource request and job inputs and 
 
 The `sacct` command can be used to report CPU and Memory utilisation by a completed job.
 ```
-sacct -p  -a --format JobID,User,Group,State,Cluster,AllocCPUS,REQMEM,TotalCPU,Elapsed,MaxRSS,ExitCode,NNodes,NTasks -u $USER 
+sacct -p  -a -S now-48hours --format JobID,User,Group,State,Cluster,AllocCPUS,REQMEM,TotalCPU,Elapsed,MaxRSS,ExitCode,NNodes,NodeList,NTasks -u $USER
 ```
 yields these metrics
 ```
-|JobID|User|Group|State|Cluster|AllocCPUS|ReqMem|TotalCPU|Elapsed|MaxRSS|ExitCode|NNodes|NTasks|
+|JobID|User|Group|State|Cluster|AllocCPUS|ReqMem|TotalCPU|Elapsed|MaxRSS|ExitCode|NNodes|NodeList|NTasks|
 ```
 Notes:
 * Each job will result in three of slightly different lines of output. 
 * The requested memory is in the first line and the MaxRSS value is in the second line of the three lines for each job.
-* Without specifying the start and end for the report, sacct will give you just your jobs for today.
+* Without specifying the start time (using `-S now-48hours`) for the report, sacct will report just your jobs for today (i.e. since midnight)
 * You can use the `-j JobID` option to generate a report for a single job. 
 
 ##### Your completed jobs, using seff
 
-The perl utility script /usr/local/bin/seff will generate a brief report of the total resource utilisation (CPU and MEM).
+The perl utility script /usr/local/bin/seff will generate a brief more readable report of the total resource utilisation (CPU and MEM). It does not report on GPU utilisation.
 ```
 seff JobID
 ```
