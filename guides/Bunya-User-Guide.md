@@ -255,16 +255,20 @@ The `eb -S  searchtext` will return all .eb scripts with a case insensitive matc
 The names of sample easy build scripts include one of the following labels that represent the toolchain to be used when building the software.
 As you can see, the toolchains are built upon a specific version of compiler. The vast majority of the software for Bunya has been built with one of the Solid GCC based toolchains.
 
-|toolchain|Compiler|Status|
+|Toolchain|Compiler|Status|
 |:---|:---:|:---:|
 |foss/2023a|GCC 12.3.0|Solid|
+|gfbf-2023a|GCC 12.3.0|Solid|
 |gcc/12.3|GCC 12.3.0|Solid|
 |foss/2022a|GCC 11.3.0|Solid|
 |gcc/11.3|GCC 11.3.0|Solid|
 |foss/2021a|GCC 10.3.0|Solid|
 |gcc/10.3|GCC 10.3.0|Solid|
 ||||
+|intel/2023a|Intel 2023.1.0|Solid|
+|intel/2022a|Intel 2022.1.0|Solid|
 |intel/2021a|Intel 2021.2.0|Solid|
+
 
 
 Many older versions and toolchains may be present amongst the sample eb scripts (recipes). 
