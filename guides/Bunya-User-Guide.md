@@ -352,7 +352,7 @@ to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or
 
 Please use `--partition=general` or `--partition=debug` unless you need access to GPUs. The `debug` parition has a walltime limit of 1 hour. The `general` and `debug` partition have `epyc3` and `epyc4` architecture CPUs. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
 
-Replace `AccountString` with you actual accounting group in the `--account=` option. This is the AccountString for your research or accounting group. All AccountStrings start with a_. Use the `groups` command to list your group memberships and grab the one that begins with `a_` characters.
+Replace `AccountString` with your actual accounting group in the `--account=` option. This is the AccountString for your research or accounting group. All AccountStrings start with a_. Use the `groups` command to list your group memberships and grab the one that begins with `a_` characters.
 
 To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc` part.
 
