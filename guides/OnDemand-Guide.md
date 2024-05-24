@@ -6,7 +6,7 @@ Open OnDemand (OOD) is a web portal that provides access to the Bunya supercompu
 
 ## Accessing OnDemand
 
-Users cannot use OnDemand unless they already have Bunya access. To apply for access to Bunya, [click here.](https://rcc.uq.edu.au/bunya) and follow the instructions given under *Getting a Bunya account*.
+Users cannot use OnDemand unless they already have Bunya access. To apply for access to Bunya, [click here.](https://rcc.uq.edu.au/systems/high-performance-computing/bunya) and follow the instructions given under *Getting a Bunya account*.
 
 Access OnDemand [here](https://bunya-ondemand.rcc.uq.edu.au/), users will need to log in with AAF, and may receive an MFA prompt.
 
