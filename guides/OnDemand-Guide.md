@@ -1,18 +1,18 @@
-# Open OnDemand User Guide
+# onBunya User Guide
 
-## What is Open OnDemand?
+## What is onBunya?
 
-Open OnDemand (OOD) is a web portal that provides access to the Bunya supercomputer, allowing users to submit and monitor jobs, manage files, and use a desktop environment to run graphical jobs using software such as Jupyter.
+onBunya is a web portal that provides access to the Bunya supercomputer, allowing users to submit and monitor jobs, manage files, and use a desktop environment to run graphical jobs using software such as Jupyter.
 
 ## Accessing OnDemand
 
-Users cannot use OnDemand unless they already have Bunya access. To apply for access to Bunya, [click here.](https://rcc.uq.edu.au/systems/high-performance-computing/bunya) and follow the instructions given under *Getting a Bunya account*.
+Users cannot use onBunya unless they already have Bunya access. To apply for access to Bunya, [click here.](https://rcc.uq.edu.au/systems/high-performance-computing/bunya) and follow the instructions given under *Getting a Bunya account*.
 
-Access OnDemand [here](https://bunya-ondemand.rcc.uq.edu.au/), users will need to log in with AAF, and may receive an MFA prompt.
+Access onBunya [here](https://bunya-ondemand.rcc.uq.edu.au/), users will need to log in with AAF, and may receive an MFA prompt.
 
-Please be patient as the OnDemand dashboard loads, it can take time after authenticating.
+Please be patient as the onBunya dashboard loads, it can take time after authenticating.
 
-## Open OnDemand Dashboard
+## onBunya Dashboard
 
 
 ![OOD top bar](../media/OOD-top-bar.png)
