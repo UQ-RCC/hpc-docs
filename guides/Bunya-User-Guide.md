@@ -331,7 +331,7 @@ Users are reminded that no calculation, no matter how quick or small, should be 
 
 This also includes software installations. Conda create, pip installs and R install.packages should be run via an interactive job not on the login nodes. Software installations using make and then make install (or cmake) especially are not suitable to be done on a login node. For these users should be careful choosing the correct architecture, see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-build-your-own-software)
 
-Users can use interactive jobs which will give them that command line feel and flexibility and allow the use of graphical user interfaces. Users who need a Graphical User Interface (GUI) should consult the [Open OnDemand User Guide](./OnDemand-Guide.md). 
+Users can use interactive jobs which will give them that command line feel and flexibility and allow the use of graphical user interfaces. Users who need a Graphical User Interface (GUI) should consult the [onBunya User Guide](./OnDemand-Guide.md). 
 
 Users have access to a `debug` queue for quick testing of new jobs and codes etc.
 
