@@ -453,7 +453,8 @@ The different request flags mean the following:
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
 `#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 96 (or less if single node) for MPI jobs.<br>
 `#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of tasks for the job (what you would use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduling of MPI jobs.<br> 
-`#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. This is 1 for MPI jobs.<br>
+`#SBATCH --ntasks-per-core=[number]` - maximum  ntasks on each core. Use with `--ntasks=[number]` for MPI jobs and set to `--ntasks-per-core=1`.
+`#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. Do not use for MPI jobs.<br>
 `#SBATCH --hint nomultithread` - This option may help in situations where your parallelisation (single node multicore or hybrid OpenMP+MPI) is confused by the numbers of cores/threads.<br>
 <br>
 `#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB r 2TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 4TB (1500G or 2000G or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
@@ -586,7 +587,7 @@ You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 
 ```
 #!/bin/bash --login
 #SBATCH --ntasks=192
-#SBATCH --cpus-per-task=1
+#SBATCH --ntasks-per-core=1
 #SBATCH --mem-per-cpu=5G
 #SBATCH --job-name=MPI-Test
 #SBATCH --time=1:00:00
