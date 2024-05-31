@@ -26,13 +26,13 @@ The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *
 
 ![Files](../media/OOD-quota.png)
 
-Users can check their quotas and limits.
+Users can check their quotas and limits under GPFS quota.
 
 Users can manage all of their files from their home directory, scratch and any scratch projects they have access to.
 
-Users can rename, download or delete directories; view, edit, rename, download or delete individual files by clicking the 3 dots to the right of the file or directory name.
+Users can rename, download or delete directories; view, edit, rename, download or delete individual files by clicking the 3 dots to the right of the file or directory name. Users can also select to see dot files (hidden files).
 
-To access data in Research storage records (RDM storage records starting with Q) under /QRISdata pleae click on the "change directory" button and type in the full directory path (/QRISdata/Qnnnn, where n is a number), then click `okay`. Please be patient as it might take some time to load.
+To access data in research storage records (RDM storage records starting with Q) under /QRISdata please click on the "change directory" button and type in the full directory path (/QRISdata/Qnnnn, where n is a number), then click `okay`. Please be patient as it might take some time to load.
 
 ### Jobs
 
