@@ -400,7 +400,7 @@ Maximum jobs per user: 2<br>
 CPU only partition<br>
 epyc3 and epyc4 architecture bun[006-067] and bun[83-115]<br>
 **Default** partition which means jobs will be queued there if no partition is specified. <br>
-This has higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
+This has a higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
 `cpu_viz`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
@@ -408,7 +408,7 @@ Maximum jobs per user: 3<br>
 CPU only partition<br>
 epyc3 and epyc4 architecture bun[009-067] and bun[83-115]<br>
 onBunya job submissions are automatically queued here.<br>
-This has higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
+This has a higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
 `gpu_rocm`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
@@ -441,8 +441,8 @@ GPU partition bun[077-082]<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
-onBunya job submissions are automatically queued here.<br>
-This has higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
+onBunya job submissions requesting L40 GPUs are automatically queued here.<br>
+This has a higher priority than `gpu_cuda` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
 
 ## Slurm scripts
