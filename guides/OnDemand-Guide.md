@@ -15,7 +15,7 @@ Please be patient as the onBunya dashboard loads, it can take time after authent
 ## onBunya Dashboard
 
 
-![OOD top bar](../media/OOD-top-bar.png)
+![onBunya top bar](../media/OOD-top-bar.png)
 
 
 The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *My Interactive Sessions*, let users interact in different ways with Bunya.
@@ -23,6 +23,10 @@ The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *
 **Interactive Apps** is the easiest way to set up an interactive session a Bunya CPU or GPU node. Please see below for more details.
 
 ### Files
+
+![Files](../media/OOD-quota.png)
+
+Users can check their quotas and limits.
 
 Users can manage all of their files from their home directory, scratch and any scratch projects they have access to.
 
