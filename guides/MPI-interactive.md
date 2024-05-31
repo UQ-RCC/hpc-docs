@@ -6,9 +6,9 @@ Therefore the `salloc` and the `srun` part need to be done seperately for intera
 First, the resources need to be requested via `salloc`:
 
 ```
-salloc --nodes=1 --ntasks-per-node=96 --cpus-per-task=1 --ntasks=96 --mem=500G --job-name=MPI-test --time=05:00:00 --partition=general --account=AccountString
+salloc --nodes=1 --ntasks-per-node=96 --ntasks-per-core=1 --ntasks=96 --mem=500G --job-name=MPI-test --time=05:00:00 --partition=general --account=AccountString
 ```
-Resources should be modified to be appropriate for your job as the example is asking for a full node on Bunya. It is important to keep `--cpus-per-task=1`. 
+Resources should be modified to be appropriate for your job as the example is asking for a full node on Bunya. It is important to keep `--ntasks-per-core=1`. 
 Only ever change this if you know exactly what you are doing and how to combine MPI with OpenMP.
 
 The `salloc` command will assign resources only, it will NOT get you to a compute node, you are still on one of the login nodes at this stage. To check you can 
