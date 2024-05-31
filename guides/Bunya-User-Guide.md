@@ -381,6 +381,7 @@ The available partitions on Bunya are
 ```
 general
 debug
+cpu_viz
 gpu_rocm
 gpu_cuda
 gpu_viz 
@@ -390,16 +391,24 @@ gpu_viz
 `general`<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
-epyc3 and epyc4 architecture bun[006-067] and bun[83-112]<br>
+epyc3 and epyc4 architecture bun[006-008,010-067] and bun[83-115]<br>
 This should be used for the majority of jobs on Bunya.<br>
 
 `debug`<br>
 Maximum walltime: 1 hour<br>
 Maximum jobs per user: 2<br>
 CPU only partition<br>
-epyc3 and epyc4 architecture bun[006-067] and bun[83-112]<br>
+epyc3 and epyc4 architecture bun[006-067] and bun[83-115]<br>
 **Default** partition which means jobs will be queued there if no partition is specified. <br>
 This has higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
+
+`cpu_viz`<br>
+Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum jobs per user: 3<br>
+CPU only partition<br>
+epyc3 and epyc4 architecture bun[009-067] and bun[83-115]<br>
+onBunya job submissions are automatically queued here.<br>
+This has higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
 `gpu_rocm`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
@@ -426,11 +435,14 @@ H100: 16 bit and TF32 CUDA, half precision<br>
 
 `gpu_viz`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum jobs per user: 3<br>
 Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[077-082]<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br>
 **1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
+onBunya job submissions are automatically queued here.<br>
+This has higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
 
 ## Slurm scripts
