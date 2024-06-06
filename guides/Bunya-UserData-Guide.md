@@ -50,6 +50,52 @@ RDM storage records, where users selected that the data should be available on H
 * Do not unpack archives or tar files directly in `/QRISdata`, unpack these into a directory in `/scratch`
 * Do not move directories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
 
+##### How `/QRISdata` works
+
+The `/QRISdata` filesystem provides access from Bunya to UQ RDM collections (as well as a smaller number of collections that predate UQ RDM).
+
+The storage technology behind `/QRISdata` consists of multiple layers of storage, and software that manages the copies of your data within those multiple layers. There are also active links to other caches at St Lucia campus that allow you to drag and drop your file onto the St Lucia R:\ drive and have it appear automatically at the remote computer centre that houses Bunya and the RDM Q collections.
+
+|Layer|Purpose|Response Time|
+|:----|:------|:------------|
+|GPFS Cache|Used for intersite transfers and is mounted onto Bunya HPC|Immediate once mounted onto Bunya|
+|Zero Watt Storage (ZWS)|Disk drives that operate like tapes. Only powered on when required.|<1 minute to activate a read from off|
+|Robotic Tape Silo|Deep archive copies|Can take several minutes to commence reading|
+
+The hierarchical storage management (HSM) software will move files downwards when they are not in active use in the top layer.
+If a file is required, but is not in the top layer, then it will be recalled from ZWS, or tape and copied into place on the GPFS Cache layer.
+
+##### How can I check if my files are in the top layer?
+
+_On a compute node via an onBunya or interactive batch job_
+
+Use `ls -salh FILEPATH`
+
+The output contains the size-occupied-on-disk in the first column and the actual-size in column 6
+
+```
+#This one is in the GPFS cache layer (size on disk matches actual size)
+[uqdgree5@bun104 Q0837]$ ls -salh Training.tar
+367M -rw-r--r--+ 1 uqdgree5 Q0837RW 367M Oct 30  2023 Training.tar
+
+#This one is in the GPFS cache layer too but the size on disk is actually bigger because files occupy at least one block (512)
+[uqdgree5@bun104 Q0837]$ ls -salh Readme.md
+512 -rw-rw----+ 1 Q0837 Q0837RW 1 Sep 13  2023 Readme.md
+
+#This one is not in GPFS cache (zero on disk but the actual filesize is 1.7MB)
+[uqdgree5@bun104 Q0837]$ ls -salh .LDAUtype1.tgz
+0 -rw-rw----+ 1 Q0837 Q0837RW 1.7M Dec 16  2019 .LDAUtype1.tgz
+
+[uqdgree5@bun104 Q0837]$
+
+```
 
 
+##### How can I force a recall of my file from the lower layer(s)?
 
+_On a compute node via an onBunya or interactive batch job_
+
+Use `/usr/local/bin/recall_medici FILEPATH`
+Wildcards are also supported.
+
+The `recall_medici` command is also available on data.qriscloud.org.au if you don't have access to Bunya.
