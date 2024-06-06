@@ -75,19 +75,16 @@ The output contains the size-occupied-on-disk in the first column and the actual
 
 ```
 #This one is in the GPFS cache layer (size on disk matches actual size)
-[uqdgree5@bun104 Q0837]$ ls -salh Training.tar
-367M -rw-r--r--+ 1 uqdgree5 Q0837RW 367M Oct 30  2023 Training.tar
+[uquser@bun104 Q0837]$ ls -salh Training.tar
+367M -rw-r--r--+ 1 uquser   Q0837RW 367M Oct 30  2023 Training.tar
 
 #This one is in the GPFS cache layer too but the size on disk is actually bigger because files occupy at least one block (512)
-[uqdgree5@bun104 Q0837]$ ls -salh Readme.md
+[uquser@bun104 Q0837]$ ls -salh Readme.md
 512 -rw-rw----+ 1 Q0837 Q0837RW 1 Sep 13  2023 Readme.md
 
 #This one is not in GPFS cache (zero on disk but the actual filesize is 1.7MB)
-[uqdgree5@bun104 Q0837]$ ls -salh .LDAUtype1.tgz
+[uquser@bun104 Q0837]$ ls -salh .LDAUtype1.tgz
 0 -rw-rw----+ 1 Q0837 Q0837RW 1.7M Dec 16  2019 .LDAUtype1.tgz
-
-[uqdgree5@bun104 Q0837]$
-
 ```
 
 
