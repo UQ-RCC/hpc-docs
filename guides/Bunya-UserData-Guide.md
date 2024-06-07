@@ -12,6 +12,7 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The home directory should be used to install software, such as conda, python and R environments, scripts, and other software installed by `make` and `make install`, etc.
 * The home directory should **not** be used for data and output from calculations. The reason for this is that if it goes over one of the quotas (space of files) a user can effectively lock themsleves out of their account if they do not clean up (get back under quota) quickly. 
 * The home directory is **not backed up**.
+* The home directory should not be shared with other users.
 
 #### `/scratch/user/username`
 * Every user has a directory in `/scratch/user`.
@@ -19,6 +20,7 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The user scratch directory should be used to keep input and output of calculations.
 * The user scratch directory can also be used to install software.
 * The scratch user directory is **not backed up**.
+* The scratch user directory should not be shared with other users.
 
 ### Checking quotas and usage in /home and /scratch
 
@@ -34,6 +36,36 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 * Scratch projects should be used to install software that needs to be shared.
 * Scratch projects can be used to share data sets and output that multiple users need access to during their calculations.
 * The scratch project directory is **not backed up**.
+
+##### How scratch projects work
+
+Scratch projects require an access group. This can be an RDM storeage record access group (QNNNN) or a specific access group created by RCC for the scratch project. Users manage the access groups either via the [RDM portal](https://rdm.uq.edu.au/) for QNNNN groups, or via the [QRIScloud Portal](https://www.qriscloud.org.au/).
+
+Users in the access group who also have access to the scratch project. They have `read-write` access to the scratch project directory. However, directories and files created by other scratch project members in the scratch project directories are only readable (and executable) but not writable (cannot be deleted for files, cannot be written to for directories) to others.
+
+In the below example:<br> 
+* user-2 can change into directory-1 but they will not be able to write to directory-1 or delete files in directory-1<br>
+* user-1 can change into directory-2 and can write to directory-2<br>
+* Only user-1 can delete or change file-1<br>
+* user-1 and user-2 can delete or change file-2<br>
+* Only user-1 change delete or change executable-1<br>
+* user-1 and user-2 change delete or change executable-2<br>
+
+* To make directory writable to other users than user-1, user-1 need to run
+
+`chmod -R g+w directory-1`<br>
+where `-R` means that this is run recursively for all subdirectories and files<br>
+`g+w` adds **w**rite permissions to the **g**roup.
+
+
+```
+drwxr-sr-x.  2 user-1 Project_Access_Group        4K Feb  1 19:08 directory-1
+drwxrwsr-x.  2 user-2 Project_Access_Group        4K Oct  9 2023  directory-2
+-rw-r--r--.  1 user-1 Project_Access_Group        6M Mar 25 13:54 file-1
+-rw-rw-r--.  1 user-2 Project_Access_Group        6M Mar 25 13:54 file-2
+-rwxr-xr-x.  1 user-1 Project_Access_Group        6M Mar  8 14:01 executable-1
+-rwxrwxr-x.  1 user-2 Project_Access_Group        6M Mar  8 14:01 executable-2
+```
 
 
 #### `/QRISdata`
