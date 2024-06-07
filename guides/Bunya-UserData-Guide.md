@@ -44,14 +44,14 @@ Scratch projects require an access group. This can be an RDM storeage record acc
 Users in the access group who also have access to the scratch project. They have `read-write` access to the scratch project directory. However, directories and files created by other scratch project members in the scratch project directories are only readable (and executable) but not writable (cannot be deleted for files, cannot be written to for directories) to others.
 
 In the below example:<br> 
-* user-2 can change into directory-1 but they will not be able to write to directory-1 or delete files in directory-1<br>
-* user-1 can change into directory-2 and can write to directory-2<br>
-* Only user-1 can delete or change file-1<br>
-* user-1 and user-2 can delete or change file-2<br>
-* Only user-1 change delete or change executable-1<br>
-* user-1 and user-2 change delete or change executable-2<br>
+* `user-2` can change into `directory-1` but they will not be able to write to `directory-1` or delete files in `directory-1`<br>
+* `user-1` can change into `directory-2` and can write to `directory-2`<br>
+* Only `user-1` can delete or change `file-1`<br>
+* `user-1` and `user-2` can delete or change `file-2`<br>
+* Only `user-1` change delete or change `executable-1`<br>
+* `user-1` and `user-2` change delete or change `executable-2`<br>
 
-* To make directory writable to other users than user-1, user-1 need to run
+* To make directory writable to other users than `user-1`, `user-1` needs to run
 
 `chmod -R g+w directory-1`<br>
 where `-R` means that this is run recursively for all subdirectories and files<br>
