@@ -10,7 +10,7 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * Every user has a home directory. This is where a user lands when they login.
 * Quotas are *50GB and 1 million files*.
 * The home directory should be used to install software, such as conda, python and R environments, scripts, and other software installed by `make` and `make install`, etc.
-* The home directory should **not** be used for data and output from calculations. The reason for this is that if it goes over one of the quotas (space of files) a user can effectively lock themsleves out of their account if they do not clean up (get back under quota) quickly. 
+* The home directory should **not** be used for data and output from calculations. The reason for this is that if it goes over one of the quotas (space or files) a user can effectively lock themsleves out of their account if they do not clean up (get back under quota) quickly. 
 * The home directory is **not backed up**.
 * The home directory should not be shared with other users.
 
@@ -45,13 +45,13 @@ Users in the access group who also have access to Bunya will have access to the 
 
 In the below example:<br> 
 * `user-2` can change into `directory-1` but they will not be able to write to `directory-1` or delete files in `directory-1`<br>
-* `user-1` can change into `directory-2` and can write to `directory-2`<br>
+* `user-1` can change into `directory-2` and can write to `directory-2` and delete files in `directory-2`<br>
 * Only `user-1` can delete or change `file-1`<br>
 * `user-1` and `user-2` can delete or change `file-2`<br>
 * Only `user-1` change delete or change `executable-1`<br>
 * `user-1` and `user-2` change delete or change `executable-2`<br>
 
-* To make directory writable to other users than `user-1`, `user-1` needs to run
+* To make `directory-1` writable to other users than `user-1`, `user-1` needs to run
 
 `chmod -R g+w directory-1`<br>
 where `-R` means that this is run recursively for all subdirectories and files<br>
@@ -77,7 +77,7 @@ RDM storage records, where users selected that the data should be available on H
 * RHD students who have dual credentials (staff and student) may need to add the other credential as a collaborator. For example, if your RDM was created with your student account, then you will need to add your staff account as a collaborator if you need access to it from the staff credentials. You manage collaborators on your RDM via the [RDM portal](https://rdm.uq.edu.au/).
 * Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to see the RDM storage record. Due to the automount the RDM storage record needs to be used to be seen.
 * Users are **not allowed** to submit jobs (type `sbatch` or `salloc`) from a directory in `/QRISdata`. 
-* Jobs should not do multiple reads or writes from or to a directory in `/QRISdata` a calculations. So standard output should not be written to `/QRISdata`. A once off read of input at the start and a once off write at the end is permitted. However, the general data workflow should be using `/scratch` for input and output of calculations.
+* Jobs should not do multiple reads or writes from or to a directory in `/QRISdata` during a calculations. So standard output should not be written to `/QRISdata`. A once off read of input at the start and a once off write at the end is permitted. However, the general data workflow should be using `/scratch` for input and output of calculations.
 * Software should not be installed in `/QRISdata` as accessing software is also continuously accessing `/QRISdata` which is not permitted.
 * Do not unpack archives or tar files directly in `/QRISdata`, unpack these into a directory in `/scratch`
 * Do not move directories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
