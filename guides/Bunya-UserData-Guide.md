@@ -41,7 +41,7 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 
 Scratch projects require an access group. This can be an RDM storeage record access group (QNNNN) or a specific access group created by RCC for the scratch project. Users manage the access groups either via the [RDM portal](https://rdm.uq.edu.au/) for QNNNN groups, or via the [QRIScloud Portal](https://www.qriscloud.org.au/).
 
-Users in the access group who also have access to the scratch project. They have `read-write` access to the scratch project directory. However, directories and files created by other scratch project members in the scratch project directories are only readable (and executable) but not writable (cannot be deleted for files, cannot be written to for directories) to others.
+Users in the access group who also have access to Bunya will have access to the scratch project on Bunya. They have `read-write` access to the scratch project directory. However, directories and files created by other scratch project members in the scratch project directories are only readable (and executable) but not writable (cannot be deleted for files, cannot be written to for directories) to others.
 
 In the below example:<br> 
 * `user-2` can change into `directory-1` but they will not be able to write to `directory-1` or delete files in `directory-1`<br>
