@@ -39,7 +39,12 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 
 ##### How scratch projects work
 
-Scratch projects require an access group. This can be an RDM storeage record access group (QNNNN) or a specific access group created by RCC for the scratch project. Users manage the access groups either via the [RDM portal](https://rdm.uq.edu.au/) for QNNNN groups, or via the [QRIScloud Portal](https://www.qriscloud.org.au/).
+Scratch projects require an access group. This can be an RDM storeage record access group (QNNNN) or a specific access group created by RCC for the scratch project. Users, not RCC, manage the access groups either via the [RDM portal](https://rdm.uq.edu.au/) for QNNNN groups, or via the [QRIScloud Portal](https://www.qriscloud.org.au/). 
+
+For RDM storage record access groups (QNNNN) the RDM storage record owner add users as collaborators to the RDM storeage recrod via the [RDM portal](https://rdm.uq.edu.au/). 
+For QRIScloud access groups, the group owner or administrator needs to go to the [QRIScloud Portal](https://www.qriscloud.org.au/) and click on *Account* to log in. Tnen they need to go to *Services Dashboard* and there look under *Groups* for the respective *Scratch Project group* and click on the link. THis page outlines how to add and remove users from the access group for the proejct.
+
+New users added either way will have to wait for this to take affect as permissions set in the [RDM portal](https://rdm.uq.edu.au/) need to be propagated to Bunya. In both case user should create a new login to Bunya to have new groups available in their environment. Users can check which groups they belong to by typing the command `groups` on Bunya.
 
 Users in the access group who also have access to Bunya will have access to the scratch project on Bunya. They have `read-write` access to the scratch project directory. However, directories and files created by other scratch project members in the scratch project directories are only readable (and executable) but not writable (cannot be deleted for files, cannot be written to for directories) to others.
 
@@ -69,6 +74,8 @@ drwxrwsr-x.  2 user-2 Project_Access_Group        4K Oct  9 2023  directory-2
 
 
 #### `/QRISdata`
+
+The [RDM User Guides](https://guides.library.uq.edu.au/for-researchers/uq-research-data-manager) provide a lot of information about RDM research records and RDM storage records and how to use and administer these.
 
 RDM storage records, where users selected that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically available on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
 
