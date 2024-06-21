@@ -1,5 +1,9 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 21 June 2024
+
+* RDM in /QRISdata will not be accessible between Monday, 24 June 2024, 5:00pm and Tuesday, 25 June 2024, 12:00am due to a planned outage.
+
 ## 23 April 2024
 
 * The next scheduled maintenance on Bunya will occur between 9pm Monday 6th May and 9pm Tuesday 7th May.
