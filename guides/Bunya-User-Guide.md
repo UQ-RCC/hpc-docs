@@ -486,7 +486,7 @@ The different request flags mean the following:
 <br>
 `#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_viz`<br>
 <br>
-`#SBATCH --array=[range]` - Indicates that this is an array job with range number of tasks. Range can be `0-99`. The maximum range value is 1000.<br>
+`#SBATCH --array=[range]` - Indicates that this is an array job with range number of tasks. Range can be `0-999`. The maximum range value is 1000.<br>
 <br>
 `srun` - runs the executable using the resources you requested for this job. It will receive info on number of threads, memory, etc from Slurm. There is no need to specify them here.
 
