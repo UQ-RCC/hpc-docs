@@ -139,6 +139,8 @@ The *CVL Apps* can be found under *Applications* on the left in the top panel of
 
 ### RStudio
 
+**R 4.4.4 with RStudio** is only available via the *CVL Apps*.
+
 To use *RStudio* click on the terminal icon at the top. In the terminal type `module load rstudio/2023.12.1-r4.2.1`. To check if there are newer versions available type `module available rstudio` and then select the version you wish to use. Then type `RStudio`.
 
 ![Load RStudio](../media/RStudio-1.png)
