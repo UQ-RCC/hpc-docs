@@ -3,7 +3,7 @@
 ## Advice on user installed conda
 
 The advice to users is to avoid running the conda initialisation which writes to the user's `.bashrc` file. This changes the user's shell permanently and can cause problems. If your prompt has a `(base)` attached to it when you log in then your `.bashrc` file has already been changed. You can reverse this by cleaning up your `.bashrc` file and sourcing the `conda.sh` file from your installation. Users can then use<br>
-`conda activate`<br> 
+`source activate`<br> 
 to switch on the conda base environment and<br>
 `conda deactivate` <br>
 to switch it off again.
