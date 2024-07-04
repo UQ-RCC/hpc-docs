@@ -91,7 +91,7 @@ RDM storage records, where users selected that the data should be available on H
 * Do not unpack archives or tar files directly in `/QRISdata`, unpack these into a directory in `/scratch`
 * Do not move directories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
 
-##### How `/QRISdata` works
+#### How `/QRISdata` works
 
 The `/QRISdata` filesystem provides access from Bunya to UQ RDM collections (as well as a smaller number of collections that predate UQ RDM).
 
@@ -106,7 +106,7 @@ The storage technology behind `/QRISdata` consists of multiple layers of storage
 The hierarchical storage management (HSM) software will move files downwards when they are not in active use in the top layer.
 If a file is required, but is not in the top layer, then it will be recalled from ZWS, or tape and copied into place on the GPFS Cache layer.
 
-##### How can I check if my files are in the top layer?
+#### How can I check if my files are in the top layer?
 
 _On a compute node via an onBunya or interactive batch job_
 
@@ -129,7 +129,7 @@ The output contains the size-occupied-on-disk in the first column and the actual
 ```
 
 
-##### How can I force a recall of my file from the lower layer(s)?
+#### How can I force a recall of my file from the lower layer(s)?
 
 _On a compute node via an onBunya or interactive batch job_
 
