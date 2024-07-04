@@ -20,6 +20,7 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The user scratch directory should be used to keep input and output of calculations.
 * The user scratch directory can also be used to install software.
 * The scratch user directory is **not backed up**.
+* Old files might be auto deleted
 * The scratch user directory should not be shared with other users.
 
 ### Checking quotas and usage in /home and /scratch
@@ -36,8 +37,9 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 * Scratch projects should be used to install software that needs to be shared.
 * Scratch projects can be used to share data sets and output that multiple users need access to during their calculations.
 * The scratch project directory is **not backed up**.
+* Old files might be auto deleted
 
-##### How scratch projects work
+#### How scratch projects work
 
 Scratch projects require an access group. This can be an RDM storeage record access group (QNNNN) or a specific access group created by RCC for the scratch project. Users, not RCC, manage the access groups either via the [RDM portal](https://rdm.uq.edu.au/) for QNNNN groups, or via the [QRIScloud Portal](https://www.qriscloud.org.au/). 
 
