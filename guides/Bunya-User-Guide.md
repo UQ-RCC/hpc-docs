@@ -293,9 +293,9 @@ Software containers is a generic technology term. It provides a mechanism for di
 
 The names Docker, Shifter, Singularity/Apptainer are like different "brands" that support software containers.
 
-Bunya uses [*Apptainer*](https://apptainer.org). Apptainer was created when Singularity was rebranded when it joined the Linux Foundation. Currently, the version of Apptainer installed on Bunya is version 1.2.5-1.el8 which is actually newer than the latest Singularity release (v3.8.7).
+Bunya uses [*Apptainer*](https://apptainer.org/docs/user/latest/introduction.html). Apptainer was created when Singularity was rebranded when it joined the Linux Foundation. Currently, the version of Apptainer installed on Bunya is version 1.3.0-1.el8 which is actually newer than the latest Singularity release (v3.8.7).
 
-Apptainer is *not* installed on the Bunya login nodes. Apptainer is installed into the operating system on every compute node. You must use an interactive job via the batch system to be able to reach compute nodes and use apptainer. You do *not* need to load a software module to use the apptainer command.
+Apptainer is *not* installed on the Bunya login nodes. Apptainer is installed into the operating system on every compute node. You must use an interactive job via the batch system (or an [onBunya](http://bunya-ondemand.rcc.uq.edu.au/) session) to be able to reach compute nodes and use apptainer. You do *not* need to load a software module to use the apptainer command.
 
 #### How to run a software container on Bunya
 
