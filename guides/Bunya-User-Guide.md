@@ -62,9 +62,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 ## Connecting
 
-### Passwords, ssh keys, MFA/2FA/DUO/Google-authenticator
-
->[!IMPORTANT]
+>[!CAUTION]
 >***Do not share passwords, ssh keys or your multifactor authentication.*** 
 >
 >This is a violation of UQ's cyber security policy and UQ's conditions of access of RCC infrastrcuture policy to which every Bunya user agrees to when applying >for Bunya access.
