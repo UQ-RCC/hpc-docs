@@ -71,9 +71,9 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 >
 >Here are just some examples (there many more) that are a violation of UQ's policies:
 >
->* You allow another person to use your account to access Bunya - It makes no difference if they have used Bunya (ran jobs) or not. And it makes no difference if you logged them in and were there all the time.
+>* You allow another person to use your account to access Bunya. It makes no difference if they have used Bunya (i.e. ran jobs), or not. And it makes no difference if you logged them in and were there all the time.
 >* Another user is struggling to get enough resources (jobs running) for their work. You allow them to use your account to be able to run more jobs. It does not matter if the other user is a fellow student, or you are their supervisor, or you are their friend, or you are their partner etc.
->* You are sharing your computer (work or home) with others and you have set up an ssh key for convenient access. As you are sharing the computer you all have the same ssh key even if you are accessing different accounts and still need to use a different password and multi factor authentication. If you are sharing a computer you should not use ssh keys but use passwords only. Or you should set up separate accounts on the shared computer for each person.
+>* You are sharing your computer (work or home) with others and you have set up an ssh key for convenient access. If you are sharing a single local account on the computer, you all have the same ssh key even if you are accessing different accounts and still need to use a different password and multifactor authentication. If you are sharing a computer, you should not use ssh keys but use passwords only. Best practice would be to set up separate accounts on the shared computer for each person.
 
 ### How to connect
 
