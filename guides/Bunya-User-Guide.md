@@ -64,7 +64,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 ### Passwords, ssh keys, MFA/2FA/DUO/Google-authenticator
 
->[!NOTE]
+>[!IMPORTANT]
 >***Do not share passwords, ssh keys or your multifactor authentication.*** 
 >
 >This is a violation of UQ's cyber security policy and UQ's conditions of access of RCC infrastrcuture policy to which every Bunya user agrees to when applying >for Bunya access.
@@ -76,7 +76,6 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 >* You allow another person to use your account to access Bunya - It makes no difference if they have used Bunya (ran jobs) or not. And it makes no difference >if you looged them in and where all the time.
 >* Another user is struggling to get enough resources (jobs running) for their work. You allow them to use your account to be able to run more jobs. - It does >not matter if the other user is a fellow student, or you are their supervisor, or you are their friend, or you are their partner etc.
 >* You are sharing your computer (work or home) with others and you have set up an ssh key for convenient access. As you are sharing the computer you all have >the same ssh key even if you are accessing different accounts and still need to use a different password and multi factor authentication. - If you are sharing >a computer you should not use ssh keys but use passwords only. Or you should set up seperate accounts on the shared computer for each person.
-
 
 ### How to connect
 
