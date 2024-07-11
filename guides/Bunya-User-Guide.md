@@ -69,7 +69,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 >
 >Violation of UQ's policies and conditions of access may lead to the suspension of access to RCC infrastructure (temporarily or permanently) and in some cases also to a report of integrety/misconduct.
 >
->Here are just some examples (there many more) that are a violation of UQ's policies:
+>Here are just some examples that are a violation of UQ's policies (there are others):
 >
 >* You allow another person to use your account to access Bunya. It makes no difference if they have used Bunya (i.e. ran jobs), or not. And it makes no difference if you logged them in and were there all the time.
 >* Another user is struggling to get enough resources (jobs running) for their work. You allow them to use your account to be able to run more jobs. It does not matter if the other user is a fellow student, or you are their supervisor, or you are their friend, or you are their partner etc.
