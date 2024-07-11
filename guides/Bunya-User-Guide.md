@@ -75,9 +75,10 @@ Here are just some examples (there many more) that are a violation of UQ's polic
 * You allow another person to use your account to access Bunya - It makes no difference if they have used Bunya (ran jobs) or not. And it makes no difference if you looged them in and where all the time.
 * Another user is struggling to get enough resources (jobs running) for their work. You allow them to use your account to be able to run more jobs. - It does not matter if the other user is a fellow student, or you are their supervisor, or you are their friend, or you are their partner etc.
 * You are sharing your computer (work or home) with others and you have set up an ssh key for convenient access. As you are sharing the computer you all have the same ssh key even if you are accessing different accounts and still need to use a different password and multi factor authentication. - If you are sharing a computer you should not use ssh keys but use passwords only. Or you should set up seperate accounts on the shared computer for each person.<br>
+<br>
+<br>
 
-
-  
+### How to connect
 
 Set 1 of the [Training resources](https://www.qcif.edu.au/training/hpc-training-resources/) explains how to use Putty to connect to a HPC with the basics found [here](https://youtu.be/oP_5JJrMm1U). To connect to Bunya please use:
 
