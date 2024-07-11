@@ -65,7 +65,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 >[!CAUTION]
 >***Do not share passwords, ssh keys or your multifactor authentication.*** 
 >
->This is a violation of UQ's cyber security policy and UQ's conditions of access of RCC infrastructure policy to which every Bunya user agrees to when applying for Bunya access.
+>This is a violation of UQ's cyber security policy and UQ's conditions of access to RCC infrastructure policy to which every Bunya user agrees to when applying for Bunya access.
 >
 >Violation of UQ's policies and conditions of access may lead to the suspension of access to RCC infrastructure (temporarily or permanently) and in some cases a report to the Integrity Unit for misconduct.
 >
