@@ -2,7 +2,7 @@
 
 This project is for providing _up-to-date_ information about HPC systems operated and supported by the UQ Research Computing Centre.
 
-[RCC Infrastructure Policies](policy/Policy.md)
+[RCC Infrastructure Policies](policy/Policies.md)
 
 [Bunya User Guide](guides/Bunya-User-Guide.md)
 
