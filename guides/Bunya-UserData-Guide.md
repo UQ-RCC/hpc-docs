@@ -27,6 +27,22 @@ The spaces below are individual spaces. This means, by default, they are only ac
 
 Users can use the command `rquota` on Bunya to check their current quotas and usage. It provides quotas and usage for `/home`, `/scratch/user` and `/scratch/project` (more information below) they have access too.
 
+#### `$TMPDIR`
+
+* `$TMPDIR` is created automatically for each slurm job and is then automatcally deleted once the slurm job finishes. It is the ideal place for temporary files of jobs.
+* `$TMPDIR` does not count towards user quotas.
+* `$TMPDIR` is recommended if calculations produce a very large amount of (often very small) files.
+* Software that allows a flag or option to set a *temporary* or *scratch* directory should always use `$TMPDIR` and ***NOT*** `/tmp`.
+* To use `$TMPDIR` for software that does not allow to set a temporary/scratch directory, change to `$TMPDIR` (`cd $TMPDIR`), then copy all required input files to `$TMPDIR` or use the full path to point to input files in `/scratch` or `/home` or `/QRISdata` (for `/QRISdata` restrictions apply, see below). After the calculation copy all ouput needed to `/scratch` or `/QRISdata` (see below for restrictions on `/QRISdata`) and make sure to tar and/or zip output if required.
+
+  ```
+  cd $TMPDIR
+  cp input-files .
+  srun ...
+  cp output-files /scratch/.../. (or /QRISdata/.../.)
+  
+  ```
+
 ### Shared spaces, often require an application
 
 #### `/scratch/project`
