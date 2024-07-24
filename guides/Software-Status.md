@@ -39,6 +39,13 @@ See [Open OnDemand User Guide](../guides/OnDemand-Guide.md)
 To load the dependencies and set the environment for using Ansys:
 
 **`module load ansys/2023.1`**
+or
+**`module load ansys/2024.1`**
+
+**Additional Notes**
+
+* You must use the 2024.1 version to utilise the H100 GPUs (only relevant for operations that can utilise a GPU).
+* Using Fluent across multiple servers requires that you override the default Intel-MPI behaviour of the software, and use the OpenMPI instead. The OpenMPI module is automatically loaded when you load the Ansys module, but you _must_ ensure that the fluent command is invoked to use OpenMPI (instead of the default IntelMPI).
 
 Please submit a support request via email to rcc-support@uq.edu.au if you experience any issues with Ansys.
 
