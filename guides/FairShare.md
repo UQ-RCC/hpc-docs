@@ -6,11 +6,11 @@ Bunya employs fair share to ensure that every Bunya user can use an equal share 
 
 The total resources on Bunya are divided by the number of users on Bunya to determine the share of Bunya's resources for a single Bunya user. 
 
-Every time a Bunya user submits a job on Bunya the job's use in resources is calculated after the job has finished. This usage is then charged in fair share to the user's account. This means each job (successfully completed, failed or cancelled) will reduce the user's fair share amount. A user's fair share amount can recduce down to zero.
+Every time a Bunya user runs a job on Bunya the job's use of resources is calculated after the job has finished. This usage is then charged in fair share to the user's account. This means each job (successfully completed, failed or cancelled) will reduce the user's fair share amount. A user's fair share amount can reduce down to zero.
 
 The fair share amount of a Bunya user is used to calculate the priority (how high they sit in the queue) of the user's jobs. The lower the fair share amount the user has the lower the priority of the user's jobs. 
 
-The fair share amount is constantly slowly refilling with time and the fair share will not remain zero for very long. This ensures that every user is able to keep running jobs.
+The fair share amount is constantly slowly refilling over time and the fair share will not remain zero for very long. This ensures that every user is able to keep running jobs.
 
 * The jobs of a new user (or a user who has not run jobs in a while) will have very high priority and will most likely start very quickly.
 * Once some jobs have finished the user's jobs will start to wait longer. This is normal and expected.
@@ -23,7 +23,7 @@ The fair share amount is constantly slowly refilling with time and the fair shar
 >[!CAUTION]
 >* Each job is charged for **requested** resources. This means a job requesting 48 cores but is only using 10 is still charged for all 48 cores. And a job requesting a GPU is charged for the GPU no matter if it was used or not. This is because the requested resources are reserved for the job and cannot be used by other jobs. The only exception is walltime as resources are released when the job finishes.
 >* A job leaving resources idle will still be charged.
->* **Inefficient use of resources is unfair to other users waiting in the queue and will impact the waitime of future jobs.**
+>* **Inefficient use of resources is unfair to other users waiting in the queue and will impact the wait-time of future jobs.**
 
 ### Useful commands
 
