@@ -6,7 +6,7 @@ Bunya employs fair share to ensure that every Bunya user can use an equal share 
 
 The total resources on Bunya are divided by the number of users on Bunya to determine the share of Bunya's resources for a single Bunya user. 
 
-Every time a Bunya user submits a job on Bunya it's use in resources is calculated after the job completed. This usage is then charged in fair share to the user's account. This means each job (completed, failed or cancelled) will reduce the user's fair share amount. A user's fair share amount can recduce down to zero.
+Every time a Bunya user submits a job on Bunya the job's use in resources is calculated after the job has finished. This usage is then charged in fair share to the user's account. This means each job (successfully completed, failed or cancelled) will reduce the user's fair share amount. A user's fair share amount can recduce down to zero.
 
 The fair share amount of a Bunya user is used to calculate the priority (how high they sit in the queue) of the user's jobs. The lower the fair share amount the user has the lower the priority of the user's jobs. 
 
