@@ -27,7 +27,7 @@ The fair share amount is constantly slowly refilling with time and the fair shar
 
 ### Useful commands
 
-You can use the command `squeue` to check why a job is sitting in the queue. In the command below the `%18p` will print out the priority of the job and `%S` will print out an estimated start time. The estimated start time will only be printed for jobs high enough in the queue to be considered by the scheduler. The jobs where this is `N/A` are still too low in the queue. `%16R` will print out the reason why a job is queueing. *Priority* means jobs with higher priority are in the queue before this job. *Resources* means the job is waiting for requested resources to become available. *QOSMax\*Limit* means that this job would bring the user over the maximum allowed resourcs per user.
+You can use the command `squeue` to check why a job is sitting in the queue. In the command below the `%18p` will print out the priority of the job and `%S` will print out an estimated start time. The estimated start time will only be printed for jobs high enough in the queue to be considered by the scheduler. The jobs where this is *N/A* are still too low in the queue. `%16R` will print out the reason why a job is queueing. *Priority* means jobs with higher priority are in the queue before this job. *Resources* means the job is waiting for requested resources to become available. *QOSMax\*Limit* means that this job would bring the user over the maximum allowed resourcs per user.
 
 `squeue --me -o "%12i %6q %.8P %.12j %.10u %.2t %.4D %.4C %.20b %10m %16R %18p %S"`
 
