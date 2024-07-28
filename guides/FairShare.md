@@ -15,9 +15,9 @@ The fair share amount is constantly slowly refilling with time and the fair shar
 * The jobs of a new user (or a user who has not run jobs in a while) will have very high priority and will most likely start very quickly.
 * Once some jobs have finished the user's jobs will start to wait longer. This is normal and expected.
 * This will not stop the user from submitting jobs and jobs will still start running once they have made their way up the queue.
-* Priority of jobs in the queue is recalculated with every job finishing (of any user) and new jobs starting.
+* Priority of jobs in the queue are recalculated with every job finishing (of any user) and new jobs starting.
 
-### Usefull commands
+### Useful commands
 
 You can use the command `squeue` to check why a job is sitting in the queue. In the command below the `%18p` will print out the priority of the job and `%S` will print out an estimated start time. The estimated start time will only be printed for jobs high enough in the queue to be considered by the scheduler. The jobs where this is `N/A` are still too low in the queue.
 
