@@ -16,10 +16,10 @@ The fair share amount is constantly slowly refilling with time and the fair shar
 * Once some jobs have finished the user's jobs will start to wait longer. This is normal and expected.
 * This will not stop the user from submitting jobs and jobs will still start running once they have made their way up the queue.
 * Priority of jobs in the queue are recalculated with every job finishing (of any user) and new jobs starting.
->[IMPORTANT!]
+>[!IMPORTANT]
 >* The fair share amount for each user is based on the total number of users registered in Bunya accounting groups. Bunya accounting group owners and administrators are advised to remove any user who has left their group promptly as this will increase the fair share amount of each user on Bunya.
 >* Fair share is calculated per Bunya user. Being a member of more than one Bunya accounting group does not increase a user's fair share. Being in more than one Bunya accounting group is also a violation of RCC policy unless it has been discussed with and approved by RCC.
->[CAUTION!]
+>[!CAUTION]
 >* Each job is charged for **requested** resources. This means a job requesting 48 cores but is only using 10 is still charged for all 48 cores. And a job requesting a GPU is charged for the GPU no matter if it was used or not. This is because the requested resources are reserved for the job and cannot be used by other jobs. The only exception is walltime as resources are released when the job finishes. 
 
 ### Useful commands
