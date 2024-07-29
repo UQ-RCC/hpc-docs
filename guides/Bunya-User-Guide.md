@@ -7,7 +7,9 @@
 * [Connecting to Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#connecting)
 * [Transferring files](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#file-transfer)
 * [Software on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#software)
+* [Conda on Bunya](conda-environment.md)
 * [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#using-software-containers-on-bunya)
+* [Fair Share on Bunya](FairShare.md)
 * [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#interactive-jobs)
 * [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#slurm-scripts)
 * [How to check jobs in SLURM](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-manage-your-jobs-and-cluster-activity-in-slurm)
@@ -237,7 +239,7 @@ Additional R packages (ones that you need but don't have provided already need t
 **Note: R packages that were built for Tinaroo, or for a different version of R will NOT work properly or at all on Bunya.**
 We recommend that you delete all packages built with/for/on Tinaroo and FlashLite and run `install.packages()` again.
 
-#### Building Python environments ####
+#### Building Python and Conda environments ####
 
 Similary to information about for R packages. Python environments built with/for/on Tinaroo and FlashLite need to be reinstalled on Bunya.
 
@@ -338,6 +340,10 @@ There is, however, one complication. The GPFS filesystem that underpins your `/s
 You can build your own on a suitable external system and bring it onto Bunya.
 
 You cannot build a container on Bunya directly from a Dockerfile prescription. Instead, you will need to use the docker software to create a container image and upload it to a suitable repository. Then you will be able to "pull" a copy of it and it will be converted to apptainer format.
+
+## Fair Share
+
+Bunya employes [fair share](FairShare.md) to ensure that each user is able to use Bunya resources.
 
 ## Interactive jobs
 
