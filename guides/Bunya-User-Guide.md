@@ -288,7 +288,7 @@ As you can see, the toolchains are built upon a specific version of compiler. Th
 
 For more information about the toolchains, refer to the [EasyBuild documentation](https://docs.easybuild.io/common-toolchains/#newest-generations-2022b-and-later)
 
-Many older versions and toolchains may be present amongst the sample eb scripts (recipes). If you choose to build software with a non-Solid toolchain on Bunya, you may find the task quite time consuming and 
+Many older versions and toolchains may be present amongst the sample eb scripts (recipes). If you choose to build software with a non-Solid toolchain on Bunya, you may find the task quite time consuming as you could end up building the entire toolchain and every dependency from source code. You have been warned ;-)
 
 The specific version of the software you need to build _may_ have an eb script available for one of our "Solid" toolchains available on Bunya. That makes building software quicker and more straightforward because the build can rely on pre-existing components. 
 
