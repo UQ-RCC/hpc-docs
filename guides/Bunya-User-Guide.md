@@ -286,9 +286,9 @@ As you can see, the toolchains are built upon a specific version of compiler. Th
 |intel/2022a|Intel 2022.1.0|Solid|
 |intel/2021a|Intel 2021.2.0|Solid|
 
+For more information about the toolchains, refer to the [EasyBuild documentation](https://docs.easybuild.io/common-toolchains/#newest-generations-2022b-and-later)
 
-
-Many older versions and toolchains may be present amongst the sample eb scripts (recipes). 
+Many older versions and toolchains may be present amongst the sample eb scripts (recipes). If you choose to build software with a non-Solid toolchain on Bunya, you may find the task quite time consuming and 
 
 The specific version of the software you need to build _may_ have an eb script available for one of our "Solid" toolchains available on Bunya. That makes building software quicker and more straightforward because the build can rely on pre-existing components. 
 
