@@ -2,7 +2,7 @@
 
 ## Graphical or Browser Software
 
-Please consult the  [Open OnDemand User Guide](../guides/OnDemand-Guide.md) to see which software is installed and how to run. RStudio, Jupyter Notebooks and Labs, Gaussview, Mathematica and many CVL apps are available through Open OnDemand.
+Please consult the  [onBunya User Guide](../guides/OnDemand-Guide.md) to see which software is installed and how to run. RStudio, Jupyter Notebooks and Labs, Gaussview, Mathematica and many CVL apps are available through onBunya.
 
 ## Licensed Software 
 
@@ -12,7 +12,7 @@ Please consult the  [Open OnDemand User Guide](../guides/OnDemand-Guide.md) to s
 
 * Access is restricted to UQ users
 
-* See [Open OnDemand User Guide](../guides/OnDemand-Guide.md)
+* See [onBunya User Guide](../guides/OnDemand-Guide.md)
 
 ### SPSS Statistics
 
@@ -20,7 +20,7 @@ Please consult the  [Open OnDemand User Guide](../guides/OnDemand-Guide.md) to s
 
 * Access is restrcited to UQ users
 
-See [Open OnDemand User Guide](../guides/OnDemand-Guide.md)
+See [onBunya User Guide](../guides/OnDemand-Guide.md)
 
 
 ### STATA
