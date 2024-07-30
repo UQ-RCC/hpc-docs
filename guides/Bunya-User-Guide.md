@@ -402,35 +402,22 @@ Instructions for interactive MPI jobs can be found [here](MPI-interactive.md)
 The available partitions on Bunya are
 ```
 general
-debug
-cpu_viz
 gpu_rocm
 gpu_cuda
+debug
+gpu_cuda_debug
+gpu_rocm_debug
+cpu_viz
 gpu_viz 
 ```
 
+### Partitions for production jobs
 
 `general`<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
 epyc3 and epyc4 architecture bun[006-008,010-067] and bun[83-115]<br>
 This should be used for the majority of jobs on Bunya.<br>
-
-`debug`<br>
-Maximum walltime: 1 hour<br>
-Maximum jobs per user: 2<br>
-CPU only partition<br>
-epyc3 and epyc4 architecture bun[006-067] and bun[83-115]<br>
-**Default** partition which means jobs will be queued there if no partition is specified. <br>
-This has a higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
-
-`cpu_viz`<br>
-Maximum walltime: 1 week (7 days, 168 hours)<br>
-Maximum jobs per user: 3<br>
-CPU only partition<br>
-epyc3 and epyc4 architecture bun[009-067] and bun[83-115]<br>
-onBunya job submissions are automatically queued here.<br>
-This has a higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
 `gpu_rocm`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
@@ -454,6 +441,52 @@ GPU partition bun[003-005, 068, 071-082]<br>
 **1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
 L40: 32 bit CUDA, single precision<br>
 H100: 16 bit and TF32 CUDA, half precision<br>
+
+### Partitions for quick testing jobs
+
+`debug`<br>
+Maximum walltime: 1 hour<br>
+Maximum jobs per user: 2<br>
+CPU only partition<br>
+epyc3 and epyc4 architecture bun[006-067] and bun[83-115]<br>
+**Default** partition which means jobs will be queued there if no partition is specified. <br>
+This has a higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
+
+`gpu_cuda_debug`<br>
+Maximum walltime: 1 hour<br>
+Maximum jobs per user: 2<br>
+Maximum GPUs per user (in all partitions): 3<br>
+GPU partition bun[003-005, 071-082]<br>
+3 NVIDIA H100 per node (bun[071-076]), [type]=h100<br>
+3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br> 
+3 NVIDIA A100 per node (bun[003-004]), [type]=a100<br>
+3 NVIDIA A100 per node and 7 MIG per A100 (bun005), [type]=nvidia_a100_80gb_pcie_1g.10gb<br>
+**1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
+**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
+**1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
+**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
+L40: 32 bit CUDA, single precision<br>
+H100: 16 bit and TF32 CUDA, half precision<br>
+This has a higher priority than `gpu_cuda` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
+
+`gpu_rocm_debug`<br>
+Maximum walltime: 1 hour<br>
+Maximum jobs per user: 2<br>
+Maximum GPUs per user (in all partitions): 3<br>
+GPU partition bun[002, 070]<br>
+2 AMD Mi210 per node (bun[002, 070]), [type]=mi210<br>
+**1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
+This has a higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
+
+### Partitions used by onBunya
+
+`cpu_viz`<br>
+Maximum walltime: 1 week (7 days, 168 hours)<br>
+Maximum jobs per user: 3<br>
+CPU only partition<br>
+epyc3 and epyc4 architecture bun[009-067] and bun[83-115]<br>
+onBunya job submissions are automatically queued here.<br>
+This has a higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
 `gpu_viz`<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
