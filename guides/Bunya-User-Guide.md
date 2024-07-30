@@ -441,6 +441,7 @@ GPU partition bun[003-005, 068, 071-082]<br>
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 >**1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
 >**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
+
 L40: 32 bit CUDA, single precision<br>
 H100: 16 bit and TF32 CUDA, half precision<br>
 
@@ -469,6 +470,7 @@ GPU partition bun[003-005, 071-082]<br>
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 >**1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
 >**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
+
 L40: 32 bit CUDA, single precision<br>
 H100: 16 bit and TF32 CUDA, half precision<br>
 >[!IMPORTANT]
@@ -505,6 +507,7 @@ GPU partition bun[077-082]<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br>
 >[!CAUTION]
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
+
 L40: 32 bit CUDA, single precision<br>
 onBunya job submissions requesting L40 GPUs are automatically queued here.<br>
 >[!IMPORTANT]
