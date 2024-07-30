@@ -380,9 +380,9 @@ To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu_rocm`, `gpu_cuda` or `gpu_viz` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
+For an interactive session on the `gpu_rocm`, `gpu_rocm_debug`, `gpu_cuda` or `gpu_cuda_debug` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
 
-To target a particular GPU RAM in the `gpu_cuda` partition, especially an A100 MIG slice add `--constraint=cuda10gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
+To target a particular GPU RAM in the `gpu_cuda` or `gpu_cuda_debug` partition, especially an A100 MIG slice add `--constraint=cuda10gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
 
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
@@ -517,7 +517,7 @@ onBunya job submissions requesting L40 GPUs are automatically queued here.<br>
 
 Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cores (`--ntask-per-node=96`)  192 threads (`--cpu-per-task=192`)  is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 96/192 cores/threads **do some testing first**.
 
-The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://support.pawsey.org.au/documentation/display/US/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
+The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
 
 ### How to submit a job
 
@@ -541,7 +541,7 @@ The different request flags mean the following:
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
 <br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
-`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug` = 1 hour, `gpu_rocm, gpu_cuda, gpu_viz` = 168 hours (1 week).<br>
+`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug, gpu_cuda_debug, gpu_rocm_debug` = 1 hour, `gpu_rocm, gpu_cuda` = 168 hours (1 week).<br>
 <br>
 `#SBATCH -o filename` - filename where the standard output should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -e filename` - filename where the standard error should go to. See `man sbatch` for filename templating options.<br>
@@ -552,7 +552,7 @@ The different request flags mean the following:
 `#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.<br>
 `#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.<br>
 <br>
-`#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_viz`<br>
+`#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_cuda_debug/gpu_rocm_debug`<br>
 <br>
 `#SBATCH --array=[range]` - Indicates that this is an array job with range number of tasks. Range can be `0-999`. The maximum range value is 1000.<br>
 <br>
