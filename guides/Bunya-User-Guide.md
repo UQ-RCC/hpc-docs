@@ -413,13 +413,13 @@ gpu_viz
 
 ### Partitions for production jobs
 
-`general`<br>
+#### `general`
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
 epyc3 and epyc4 architecture bun[006-008,010-067] and bun[83-115]<br>
 This should be used for the majority of jobs on Bunya.<br>
 
-`gpu_rocm`<br>
+#### `gpu_rocm`
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[001-002, 070]<br>
@@ -427,7 +427,7 @@ GPU partition bun[001-002, 070]<br>
 >[!CAUTION]
 >**1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
 
-`gpu_cuda`<br>
+#### `gpu_cuda`
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[003-005, 068, 071-082]<br>
@@ -447,7 +447,7 @@ H100: 16 bit and TF32 CUDA, half precision<br>
 
 ### Partitions for quick testing jobs
 
-`debug`<br>
+#### `debug`
 Maximum walltime: 1 hour<br>
 Maximum jobs per user: 2<br>
 CPU only partition<br>
@@ -456,7 +456,7 @@ epyc3 and epyc4 architecture bun[006-067] and bun[83-115]<br>
 >[!IMPORTANT]
 >This has a higher priority than `general` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
-`gpu_cuda_debug`<br>
+#### `gpu_cuda_debug`
 Maximum walltime: 1 hour<br>
 Maximum jobs per user: 2<br>
 Maximum GPUs per user (in all partitions): 3<br>
@@ -476,7 +476,7 @@ H100: 16 bit and TF32 CUDA, half precision<br>
 >[!IMPORTANT]
 >This has a higher priority than `gpu_cuda` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
-`gpu_rocm_debug`<br>
+#### `gpu_rocm_debug`
 Maximum walltime: 1 hour<br>
 Maximum jobs per user: 2<br>
 Maximum GPUs per user (in all partitions): 3<br>
@@ -490,7 +490,7 @@ GPU partition bun[002, 070]<br>
 
 ### Partitions used by onBunya
 
-`cpu_viz`<br>
+#### `cpu_viz`
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum jobs per user: 3<br>
 CPU only partition<br>
@@ -499,7 +499,7 @@ onBunya job submissions are automatically queued here.<br>
 >[!IMPORTANT]
 >This has a higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
-`gpu_viz`<br>
+#### `gpu_viz`
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum jobs per user: 3<br>
 Maximum GPUs per user (in all partitions): 3<br>
