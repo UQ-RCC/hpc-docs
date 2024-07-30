@@ -482,6 +482,7 @@ GPU partition bun[002, 070]<br>
 2 AMD Mi210 per node (bun[002, 070]), [type]=mi210<br>
 >[!CAUTION]
 >**1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
+
 >[!IMPORTANT]
 >This has a higher priority than `gpu_rocm` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
