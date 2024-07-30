@@ -436,14 +436,13 @@ GPU partition bun[003-005, 068, 071-082]<br>
 3 NVIDIA A100 per node (bun[003-004]), [type]=a100<br>
 3 NVIDIA A100 per node and 7 MIG per A100 (bun005), [type]=nvidia_a100_80gb_pcie_1g.10gb<br>
 2 NVIDIA A100 per node (bun068), [type]=a100<br>
+L40: 32 bit CUDA, single precision<br>
+H100: 16 bit and TF32 CUDA, half precision<br>
 >[!CAUTION]
 >**1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 >**1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
 >**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
-
-L40: 32 bit CUDA, single precision<br>
-H100: 16 bit and TF32 CUDA, half precision<br>
 
 ### Partitions for quick testing jobs
 
@@ -465,14 +464,14 @@ GPU partition bun[003-005, 071-082]<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br> 
 3 NVIDIA A100 per node (bun[003-004]), [type]=a100<br>
 3 NVIDIA A100 per node and 7 MIG per A100 (bun005), [type]=nvidia_a100_80gb_pcie_1g.10gb<br>
+L40: 32 bit CUDA, single precision<br>
+H100: 16 bit and TF32 CUDA, half precision<br>
 >[!CAUTION]
 >**1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 >**1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
 >**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
 
-L40: 32 bit CUDA, single precision<br>
-H100: 16 bit and TF32 CUDA, half precision<br>
 >[!IMPORTANT]
 >This has a higher priority than `gpu_cuda` and should be used for testing and quick interactive session. It should **NOT** be used for production calculations. <br>
 
@@ -505,11 +504,11 @@ Maximum jobs per user: 3<br>
 Maximum GPUs per user (in all partitions): 3<br>
 GPU partition bun[077-082]<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br>
+L40: 32 bit CUDA, single precision<br>
+onBunya job submissions requesting L40 GPUs are automatically queued here.<br>
 >[!CAUTION]
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
 
-L40: 32 bit CUDA, single precision<br>
-onBunya job submissions requesting L40 GPUs are automatically queued here.<br>
 >[!IMPORTANT]
 >This has a higher priority than `gpu_cuda` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
 
