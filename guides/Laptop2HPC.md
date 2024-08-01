@@ -56,8 +56,8 @@ Imagine the scenario where your R code
 | Cores                 |          4          |          96           |          96           |                    |
 | Logical Processors    |          8          |          192          |          192          |                    |
 | RAM                   |        16 GB        |        2.0 TB         |        1.5 TB         |                    |
-| Number of Devices     |     1 (usually)     |          60           |          33           |                    |
-| Total number of cores |          4          |         5760          |         3168          |                    |
+| Number of Devices     |     1 (usually)     |          62           |          33           |                    |
+| Total number of cores |          4          |         5952          |         3168          |                    |
 
 #### And that’s not all of Bunya !!
 
