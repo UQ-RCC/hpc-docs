@@ -30,6 +30,7 @@ Users can use the command `rquota` on Bunya to check their current quotas and us
 #### `$TMPDIR`
 
 * `$TMPDIR` is created automatically for each slurm job and is then automatcally deleted once the slurm job finishes. It is the ideal place for temporary files of jobs.
+* `$TMPDIR` is pre set. Do not create your own `$TMPDIR` or overwrite it with something else in your scripts.
 * `$TMPDIR` does not count towards user quotas in `/home` or `/scratch/user` or project quotas in `/scratch/project`.
 * `$TMPDIR` is not `/scratch/user`.
 * `$TMPDIR` is not `/tmp`.
