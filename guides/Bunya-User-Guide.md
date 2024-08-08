@@ -125,7 +125,7 @@ After this you will be logged into Bunya.
 **Note for QCIF users:**
 QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. For this users are required to provide a public ssh key as part of the application procedure.
 
-#### What is IP blocking ?
+#### What to do when you can't login ?
 
 To be added
 
