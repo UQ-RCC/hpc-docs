@@ -125,6 +125,10 @@ After this you will be logged into Bunya.
 **Note for QCIF users:**
 QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. For this users are required to provide a public ssh key as part of the application procedure.
 
+#### What is IP blocking ?
+
+To be added
+
 ## File Transfer
 
 We recommend to use command line `scp` and `sftp`. The are accessible to all users, via a shell for Linux and Mac users and via WSL and `cmd` for Windows users.
