@@ -30,6 +30,8 @@ This is an external website that guides you in creating successful SLURM job sub
 <br>
 This is an external website that includes information about gaining access and using the CVL@Wiener system.
 
+[A log of updates and changes to Bunya](/Bunya-updates.md)
+
 [RCC's older documentation set](https://rcc.uq.edu.au/rcc-user-guides-public)
 <br>
 This a collection of PDF files for a sample of the documentation that was hosted on the decommissioned www2.rcc.uq.edu.au server. The internal navigation links within those PDFs will no longer resolve, but you can still scroll within the PDF document. 
