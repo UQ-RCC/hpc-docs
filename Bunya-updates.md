@@ -5,7 +5,9 @@
 * The way users use DUO for multifactor authentication has changed. After you enter your password, you will now need to enter a 6 digit passcode from the DUO app, this replaces push notification approval.
 * QCIF users (non UQ) can now use their QSAC password [https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential) to access Bunya and ssh keys are no longer required.
 * A new tool, jobstats, is now available as a module to Bunya users to monitor the resource utilization of their jobs. The following commands will show visual and numerical CPU, CPU ram, GPU, and GPU ram utilization:
+
   module load jobstats 
+
   jobstats JobID
 
 ## 30 July 2024
