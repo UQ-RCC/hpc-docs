@@ -108,7 +108,7 @@ Port: 22
 For those using command line ssh:<br>
 `ssh username@bunya.rcc.uq.edu.au`
 
-***Bunya enforces MFA (multi factor authentication).***
+#### Bunya enforces MFA (multi factor authentication)
 
 For UQ users, this will use their DUO MFA that is used for all other access to UQ resources.
 
@@ -122,12 +122,18 @@ For QCIF users, you will be asked to enter the one-time-authentication code.
 
 After this you will be logged into Bunya.
 
-**Note for QCIF users:**
+#### Note for QCIF users
 QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. For this users are required to provide a public ssh key as part of the application procedure.
+
+#### Note for those using MobaXTerm Software
+
+This SSH/X11 client has an experimental feature called "Remote monitoring". 
+Please disable it by modifying default behaviour for SSH connections via the main menu _Settings ... SSH ... uncheck Remote-monitoring (Experimental)_ and please don't activate it manually.
 
 #### What to do when you can't login ?
 
-To be added
+Email rcc-support@uq.edu.au and try to provide as much detail about the situation. 
+At the minimum, your Bunya username, where you were trying to connect from (e.g. campus, home, VPN) and the tool you are using to connect with.
 
 ## File Transfer
 
