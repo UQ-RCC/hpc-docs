@@ -266,8 +266,10 @@ These AMD guides (in PDF) [EPYC3](https://www.amd.com/content/dam/amd/en/documen
 
 The installation of R on Bunya comes with many packages provided (see `module help r`) that can be loaded using the library() function.
 Additional R packages (ones that you need but don't have provided already need to be built using the `install.package()` function _within_ R. 
-**Note: R packages that were built for Tinaroo, or for a different version of R will NOT work properly or at all on Bunya.**
+**Note: R packages that were built for Tinaroo, or for a different version of R will NOT work properly, or at all, on Bunya.**
 We recommend that you delete all packages built with/for/on Tinaroo and FlashLite and run `install.packages()` again.
+
+Additionally, R packages built on the newer EPYC4 CPU nodes are known _not_ to work on the older EPYC3 CPU nodes. To ensure you build R packages that can be run on both CPU types you must run install.packages() on the older EPYC3. See the section on interactive jobs for how to target the older nodes for building R packages.
 
 #### Building Python and Conda environments ####
 
