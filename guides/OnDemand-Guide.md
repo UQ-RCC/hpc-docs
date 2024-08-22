@@ -21,8 +21,11 @@ Please be patient as the onBunya dashboard loads, it can take time after authent
 The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *My Interactive Sessions*, let users interact in different ways with Bunya.
 
 >[!NOTE]
->If you are accessing Bunya _for the very first time_ via onBunya, then you will need to trigger the creation of your home directory.
->This can most simply be done using the *Clusters ... Bunya Shell Access* option on the dashboard. 
+>If you are accessing Bunya _for the very first time_ via onBunya,
+>you should be prompted with a link to *Open Shell to create home directory*
+>Click the link and that will trigger the creation of your home directory.
+>Future logins to onBunya will work as described herein.
+
 
 **Interactive Apps** is the easiest way to set up an interactive session a Bunya CPU or GPU node. Please see below for more details.
 
