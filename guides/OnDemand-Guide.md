@@ -23,7 +23,8 @@ The options on the dashboard, *Files*, *Jobs*, *Clusters*, *Interactive Apps*, *
 >[!NOTE]
 >If you are accessing Bunya _for the very first time_ via onBunya,
 >you should be prompted with a link to *Open Shell to create home directory*
->Click the link and that will trigger the creation of your home directory.
+>
+>Click the link and that will pop up a browser window to trigger the creation of your home directory.
 >Future logins to onBunya will work as described herein.
 
 
