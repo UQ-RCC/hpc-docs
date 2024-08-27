@@ -143,7 +143,7 @@ We recommend to use command line `scp` and `sftp`. The are accessible to all use
 
 For example
 
-`scp test.dat username:bunya.rcc.uq.edu.au:/scratch/user/username/`
+`scp test.dat username@bunya.rcc.uq.edu.au:/scratch/user/username/`
 
 will copy the file `test.dat` to the user's scratch directory.
 
