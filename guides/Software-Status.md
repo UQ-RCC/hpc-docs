@@ -57,12 +57,13 @@ ___
 * The issue with accessing the Gurobi product license servers on campus has been resolved.
 * RCC is working with the vendor and ITS to faciliate access and use of the campus license server.
 * Version 9.5.0 has been installed.
-* Version 10.0.1 has been installed and configured. 
+* Version 10.0.1 has been installed and configured.
 * Awaiting a patch to the license server to be applied. 
 * The licensing patch has been applied.
+* Version 11.0.3 has been deployed and is the (current) default version. 
 ```
 [uq_user@bunya2 ~]$ module purge
-[uq_user@bunya2 ~]$ module load gurobi/9.5.0
+[uq_user@bunya2 ~]$ module load gurobi/11.0.3
 
 [uq_user@bunya2 ~]$ alias | grep gurobi
 alias check_gurobi_lic='/sw/local/rocky8.6/noarch/rcc/software/Gurobi/gurobi950/linux64/bin/gurobi_cl --license'
