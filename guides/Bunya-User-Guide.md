@@ -244,8 +244,11 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 **Please note:**
 - The modules in `/sw/auto/rocky8c/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8/epyc3/rcc/modules`, `/sw/local/rocky8/noarch/rcc/modules`, and `/sw/local/rocky8/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
-- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which modules are avialable for the specific GPU architectures. For example, CUDA modules will not be availalbe on CPU nodes, but will be available on the CUDA GPU nodes.
-
+- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which modules are avialable for the specific GPU architectures. For example, CUDA modules will not be availalbe on CPU nodes, but will be available on the CUDA GPU nodes.<br>
+The command that will load the default version of the cuda drivers etc. on a GPU node will be <br>
+`module load cuda`<br>
+An alternative to using an interactive session on a CUDA node, would be to interrogate the `/sw` filesystem for the versions of cuda that are available.<br>
+`ls /sw/auto/rocky8*/*/modules/all/cuda/`
 
 ### Compilers
 
