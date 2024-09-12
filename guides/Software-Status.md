@@ -113,6 +113,14 @@ module load star-ccm+/17.02.008
 
 Please submit a support request via email to rcc-support@uq.edu.au if you experience any issues while testing Star-CCM+.
 ___
+## CUDA Related Modules
+
+The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which modules are avialable for the specific GPU architectures. For example, CUDA modules will not be availalbe on CPU nodes, but will be available on the CUDA GPU nodes.<br>
+The command that will load the default version of the cuda drivers etc. on a GPU node will be <br>
+`module load cuda`<br>
+An alternative to using an interactive session on a CUDA node, would be to interrogate the `/sw` filesystem for the versions of cuda that are available.<br>
+`ls /sw/auto/rocky8*/*/modules/all/cuda/`
+
 ## Full Module List
 
 ### CPU Nodes
