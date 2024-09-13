@@ -70,6 +70,8 @@ Access to Bunya HPC is not automatic. You need to apply by emailing rcc-support@
 >Importantly, there are 8 questions and all are mandatory.
 >Please try and copy the questions into the box on the form answer each of them.
 >
+>Applications under staff account preferred. Those applying under a student account will be asked to provide an end date for their access.
+>
 >You will need to provide current SIX (6) DIGIT FoR code(s).
 >If you do not know what a FoR code is or do not have one please contact your supervisor.
 >
@@ -116,14 +118,14 @@ QCIF users are required to go here [https://services.qriscloud.org.au/credential
 
 Users will first be asked for their password (or key). After users have entered this, they will see one or more options given. Choose the option you wish to use and type the respective number on the command line. If you have only set up one MFA option for your account, it will use this option automatically.
 
-For UQ users, you will authenticate via DUO, as you do for other logins at UQ.
+For UQ users, you will be asekd to enter the DUO passcode (6 numbers with no spaces).
 
-For QCIF users, you will be asked to enter the one-time-authentication code.
+For QCIF users, you will be asked to enter the one-time-authentication code (6 numbers with no spaces).
 
 After this you will be logged into Bunya.
 
 #### Note for QCIF users
-QCIF users (non UQ) are required to set up an ssh-key to gain access to Bunya. For this users are required to provide a public ssh key as part of the application procedure.
+QCIF users (non UQ) will use their QSAC username and password.[https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential)
 
 #### Note for those using MobaXTerm Software
 
