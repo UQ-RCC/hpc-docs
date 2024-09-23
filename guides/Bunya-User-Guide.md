@@ -459,7 +459,7 @@ gpu_viz
 #### `general`
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
-epyc3 and epyc4 architecture bun[006-008,010-067] and bun[83-115]<br>
+epyc3 and epyc4 architecture bun[006-008,010-067] and bun[83-115,126-143]<br>
 This should be used for the majority of jobs on Bunya.<br>
 
 #### `gpu_rocm`
@@ -473,17 +473,20 @@ GPU partition bun[001-002, 070]<br>
 #### `gpu_cuda`
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs per user (in all partitions): 3<br>
-GPU partition bun[003-005, 068, 071-082]<br>
-3 NVIDIA H100 per node (bun[071-076]), [type]=h100<br>
-3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br> 
+GPU partition bun[003-005, 068, 071-076, 077-082, 116-120, 124-125]<br>
+3 NVIDIA H100 per node (bun[071-076, 116-120]), [type]=h100<br>
+3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br>
+3 NVIDIA L40s per node (bun[124, 125]), [type]=l40s<br>
 3 NVIDIA A100 per node (bun[003-004]), [type]=a100<br>
 3 NVIDIA A100 per node and 7 MIG per A100 (bun005), [type]=nvidia_a100_80gb_pcie_1g.10gb<br>
 2 NVIDIA A100 per node (bun068), [type]=a100<br>
 L40: 32 bit CUDA, single precision<br>
+L40s: 32 bit CUDA single precision and 16 bit and TF32 CUDA, half precision.<br>
 H100: 16 bit and TF32 CUDA, half precision<br>
 >[!CAUTION]
 >**1 NVIDIA H100 is charged 100 \* 1 CPU core**<br>
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
+>**1 NVIDIA L40s is charged 42 \* 1 CPU core**<br>
 >**1 NVIDIA A100 is charged 50 \* 1 CPU core**<br>
 >**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
 
@@ -536,7 +539,7 @@ GPU partition bun[002, 070]<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum jobs per user: 3<br>
 CPU only partition<br>
-epyc3 and epyc4 architecture bun[009-067] and bun[83-115]<br>
+epyc3 and epyc4 architecture bun[009-067] and bun[83-115, 126-143]<br>
 onBunya job submissions are automatically queued here.<br>
 >[!IMPORTANT]
 >This has a higher priority than `general` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
@@ -545,12 +548,18 @@ onBunya job submissions are automatically queued here.<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum jobs per user: 3<br>
 Maximum GPUs per user (in all partitions): 3<br>
-GPU partition bun[077-082]<br>
+GPU partition bun[077-082, 121-125]<br>
 3 NVIDIA L40 per node (bun[077-082]), [type]=l40<br>
+3 NVIDIA L40s per node (bun[124, 125]), [type]=l40s<br>
+12 NVIDIA A16 per node (bun[121-123]), [type]=a16<br> 
 L40: 32 bit CUDA, single precision<br>
-onBunya job submissions requesting L40 GPUs are automatically queued here.<br>
+L40s: 32 bit CUDA, single precision and 16 bit and TF32 CUDA, half precision<br>
+A16: Visualisation only
+onBunya job submissions are automatically queued here unless submitted via the ExpertDesktop.<br>
 >[!CAUTION]
 >**1 NVIDIA L40 is charged 40 \* 1 CPU core**<br>
+>**1 NVIDIA L40s is charged 42 \* 1 CPU core**<br>
+>**1 NVIDIA A16 is charged 6 \* 1 CPU core**<br>
 
 >[!IMPORTANT]
 >This has a higher priority than `gpu_cuda` to enable fast turn around for onBunya job submissions. **Users should not be "squatting" on nodes and leave them idle**.<br>
