@@ -36,17 +36,23 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 ## Bunya Hardware
 
-- Bunya has 93 CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 9000 cores). Cores are requested by `--ntasks-per-node` or `--ntasks` and by `--ntasks-per-core=1`. 
+- Bunya has 113 AMD CPU nodes with 96 physical cores per compute node, 2 \* 48 core CPUs per node (roughly 10,600 cores). Cores are requested by `--ntasks-per-node` or `--ntasks` and by `--ntasks-per-core=1`. 
 - The queue allows 2 \* 96 = 192 threads per compute node (requested by `--cpus-per-task` and by keeping `--ntasks=1` or `--ntasks-per-node=1`)  
-- These CPUs are based on AMD epyc3 Milan (60, phase 1) and epyc4 Genoa (33, phase 2). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
+- These CPUs are based on AMD epyc3 Milan (62, phase 1) and epyc4 Genoa (51, 33 phase 2 and 18 in phase 3). They are not Intel CPUs and any software that has been compiled on other HPCs with Intel CPUs will be required to be recompiled on Bunya.
 - These CPU cores are based on the industry standard x86\_64 architecture.
 - Each Bunya phase 1 standard compute node (epyc3) has 2TB of RAM (2000000M is the maximum that can be requested in jobs).
-- Each Bunya phase 2 standard compute node (epyc4) has 1.5TB of ram (1500000M is the maximum that can be requested in jobs) 
+- Each Bunya phase 2 and 3 standard compute node (epyc4) has 1.5TB of ram (1500000M is the maximum that can be requested in jobs) 
 - There are also 3 high memory nodes (epyc3) that each have 4TB of RAM (4000000M is the maximum that can be requested in jobs).
-- There are 7 H100 NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total). Each H100 card has 80GB of GPU RAM.
+
+- Bunya has 29 nodes of various types.
+- There are 4 H100 SXM5 NVIDIA GPU nodes (intel Xeon SP4) with 4 H100 cards each (16 in total). Each H100 card has 80GB of GPU RAM. 
+- There are 7 H100 PCIE NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total). Each H100 card has 80GB of GPU RAM.
 - There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (18 in total). Each L40 card has 48GB of GPU RAM. The L40 are good for visualisation and FP32 workloads.
+- There are 2 L40s NVIDIA GPUs nodes (epyc4) with 3 L40s cards each (6 in total). Each L40s card has 48GB of GPU RAM. The L40s are good for visualisation and FP32 and FP16 workloads.
 - There are 2 A100 NVIDIA GPU nodes (epyc3) with 3 A100 cards each, 1 A100 NVIDIA GPU node with 2 A100 cards. Each A100 card has 80GB of GPU RAM. 
-- There is 1 A100 NVIDIA GPU node with MIG A100 cards leading to 21 MIG slices (7 per A100 card) each with 10GB of GPU RAM. 
+- There is 1 A100 NVIDIA GPU node with MIG A100 cards leading to 21 MIG slices (7 per A100 card) each with 10GB of GPU RAM.
+- There are 3 A16 NVIDIA GPU nodes (epyc4) with 12 A16 GPUs each (36 in total). The A16 GPU are good for vizualisation and accelerated desktops.
+- There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RaM.
 
 - Users have a location in `/home` and `/scratch/user`.
 - The quota in `/home` is 50GB and 1 million files. 
