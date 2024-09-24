@@ -53,7 +53,8 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - There is 1 A100 NVIDIA GPU node with MIG A100 cards leading to 21 MIG slices (7 per A100 card) each with 10GB of GPU RAM.
 - There are 3 A16 NVIDIA GPU nodes (epyc4) with 12 A16 GPUs each (36 in total). The A16 GPU are good for vizualisation and accelerated desktops.
 - There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RaM.
-
+- For a full table of all hardware see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions)
+ 
 - Users have a location in `/home` and `/scratch/user`.
 - The quota in `/home` is 50GB and 1 million files. 
 - The quota in `/scratch/user` is 150GB and 100000 files.
@@ -453,6 +454,27 @@ gpu_rocm_debug
 cpu_viz
 gpu_viz 
 ```
+The available nodes on Buny are listed in the table below. Pleae notet while some feature the same CPU or GPU type, the available memory and/or number of CPUs can differ. Be mindful of this when requesting resources for jobs.
+
+
+| Hostnames |  Count |  CPU Memory (MB) | CPUS | FEATURES | GRES |
+|:---|:---:|:---:|:---:|:---:|:---|
+| bun[006-008] | 3 | 4000000 | 192 | epyc3 | (null) |
+| bun[009-067] | 59 | 2000000 | 192 | epyc3 | (null) |
+| bun[083-115,126-143] | 51 | 1500000 | 192 | epyc4 | (null) |
+|||||||
+| bun[003-004] | 2 | 2000000 | 256 | epyc3,cuda,cuda80gb | gpu:a100:3 |
+| bun005 | 1 | 2000000 | 256 | epyc3,cuda,cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb |
+|||||||
+| bun[071-076,116] | 7 | 2000000 | 192 | epyc3,cuda,cuda80gb | gpu:h100:3 |
+| bun[077-082] | 6 | 2000000 | 192 | epyc3,cuda,cuda48gb | gpu:l40:3 |
+| bun068 | 1 | 2000000 | 192 | epyc3,cuda,cuda80gb | gpu:a100:2 |
+| bun[124-125] | 2 | 750000 | 192 | epyc4,cuda,cuda48gb | gpu:l40s:3 |
+| bun[121-123] | 3 | 750000 | 192 | epyc4,cuda | gpu:a16:12 |
+| bun[117-120] | 4 | 1000000 | 192 | xeonsp4,cuda,cuda80gb,sxm | gpu:h100:4(S:0-1) |
+|||||||
+| bun[001-002] | 2 | 500000 | 192 | epyc3,rocm | gpu:mi210:2 |
+| bun070 | 1 | 380000 | 64 | epyc4,rocm | gpu:mi210:2 |
 
 ### Partitions for production jobs
 
