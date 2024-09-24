@@ -454,7 +454,9 @@ gpu_rocm_debug
 cpu_viz
 gpu_viz 
 ```
-The available nodes on Buny are listed in the table below. Pleae notet while some feature the same CPU or GPU type, the available memory and/or number of CPUs can differ. Be mindful of this when requesting resources for jobs.
+## Available nodes
+
+The available nodes on Buny are listed in the table below. Please notet while some feature the same CPU or GPU type, the available memory and/or number of CPUs can differ. Be mindful of this when requesting resources for jobs.
 
 
 | Hostnames |  Count |  CPU Memory (MB) | CPUS | FEATURES | GRES |
