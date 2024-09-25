@@ -466,7 +466,7 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | bun[083-115,126-143] | 51 | 1500000 | 192 | epyc4 | (null) |
 |||||||
 | bun[003-004] | 2 | 2000000 | 256 | epyc3,cuda,cuda80gb | gpu:a100:3 |
-| bun005 | 1 | 2000000 | 256 | epyc3,cuda,cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb |
+| bun005 | 1 | 2000000 | 256 | epyc3,cuda,cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:21 |
 | bun068 | 1 | 2000000 | 192 | epyc3,cuda,cuda80gb | gpu:a100:2 |
 |||||||
 | bun[071-076,116] | 7 | 2000000 | 192 | epyc3,cuda,cuda80gb | gpu:h100:3 |
