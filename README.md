@@ -18,7 +18,7 @@ Webportal to access Bunya
 
 [Accounting Groups and Accounting Strings](guides/Accounting-group-admin.md)
 
-[Bunya Access Conditions all users agree to](policy/Bunya-Conditions-of-Access-2024-02-02.pdf)
+[Bunya Access Conditions all users agree to](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Policies.md#bunya-conditions-of-access-policy)
 
 [Software Installation Status](guides/Software-Status.md)
 
