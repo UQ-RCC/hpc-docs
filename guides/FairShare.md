@@ -31,12 +31,13 @@ You can use the command `squeue` to check why a job is sitting in the queue. In 
 
 `squeue --me -o "%12i %6q %.8P %.12j %.10u %.2t %.4D %.4C %.20b %10m %16R %18p %S"`
 
-The command `sshare` can be used to check a user's fair share. 
+The command [`sshare`](https://slurm.schedmd.com/sshare.html) can be used to check a user's fair share. 
 
-`sshare -a | grep YourUsername`<br>
+`sshare -U YourUsername`<br>
 will print out the information below. The last value is the fair share. The value will be between `0` and `1`. With `1` being a full fair share and `0` being no fair share. 
 
 ```
 Account                    User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare 
 -------------------- ---------- ---------- ----------- ----------- ------------- ----------
+YourAccountName    YourUsername          X           X           X             X          X
 ```
