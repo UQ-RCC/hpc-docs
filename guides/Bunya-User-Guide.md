@@ -836,14 +836,13 @@ The manual page for the squeue command lists the most commonly encountered reaso
 They can be found in the "JOB REASON CODES" section of the `man squeue` command output or online [here](https://slurm.schedmd.com/squeue.html#SECTION_JOB-REASON-CODES).
 A full list of job reasons can be found on [this web page](https://slurm.schedmd.com/resource_limits.html#reasons) 
 
-##### QOSGrpCpuLimit
+##### QOSGrpCpuLimit or QOSGrpMemLimit
 
 [20241024] A recent change was made to the batch system configuration to accommodate the Bunya Phase 3 hardware and associated workloads. It makes greater use of the QOS feature of SLURM. 
-So you may now see the REASON given as "QOSGrpCpuLimit" for why your job is queued and not running. 
-When it says that is the reason your job is queued then it means that Bunya is currently very busy and there is no available space for your job, at the moment. Previously it would have said something to the effect of resources unavailable.
+So you may now see the REASON given as "QOSGrpCpuLimit" or perhaps "QOSGrpMemLimit" for why your job is queued and not running. 
+When it says that it means that Bunya is currently very busy and there is no available space for your job, at the moment. Previously it would have said something to the effect of Resources are unavailable.
 
 Your jobs _will_ eventually start, if, you leave them in the queue!
-
 
 ##### Check the sinfo output for a status report of Bunya nodes
 
