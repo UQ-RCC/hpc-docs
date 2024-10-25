@@ -47,13 +47,13 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 ### Partitions 
 
 #### `general`
-QoS: normal, debug, viz
+QoS: normal, debug, viz<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
 epyc3 and epyc4 architecture bun[006-009,010-067] and bun[83-115,126-143]<br>
 
 #### `gpu_rocm`
-QoS: gpu, debug
+QoS: gpu, debug<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs: See QoS<br>
 GPU partition bun[001-002, 070]<br>
@@ -62,7 +62,7 @@ GPU partition bun[001-002, 070]<br>
 >**1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
 
 #### `gpu_cuda`
-QoS: gpu, debug, viz, mig
+QoS: gpu, debug, viz, mig<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs: See QoS<br>
 GPU partition bun[003-005, 068, 071-076, 077-082, 116-120, 124-125]<br>
@@ -83,7 +83,7 @@ H100: 16 bit and TF32 CUDA, half precision<br>
 >**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
 
 #### `gpu_viz`
-QoS: debug, gpu, viz
+QoS: debug, gpu, viz<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum jobs per user: See QoS<br>
 Maximum GPUs: see QoS<br>
@@ -102,7 +102,7 @@ onBunya job submissions are automatically queued here unless submitted via the E
 
 
 #### `gpu_sxm`
-QoS: sxm
+QoS: sxm<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs: See QoS<br>
 GPU partition bun[117-120]<br>
