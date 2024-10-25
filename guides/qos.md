@@ -44,7 +44,7 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | bun[001-002] | 2 | 500000 | 192 | epyc3,rocm | gpu:mi210:2 |
 | bun070 | 1 | 380000 | 64 | epyc4,rocm | gpu:mi210:2 |
 
-### Partitions for production jobs
+### Partitions 
 
 #### `general`
 QoS: normal, debug, viz
