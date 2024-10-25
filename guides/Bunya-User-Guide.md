@@ -622,6 +622,7 @@ The different request flags mean the following:
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug, gpu_cuda_debug, gpu_rocm_debug` = 1 hour, `gpu_rocm, gpu_cuda` = 168 hours (1 week).<br>
 <br>
+`#SBATCH --qos=[normal]` - to request a quality of service for the job.
 `#SBATCH -o filename` - filename where the standard output should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -e filename` - filename where the standard error should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
