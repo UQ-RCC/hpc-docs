@@ -442,6 +442,8 @@ Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ 
 Instructions for interactive MPI jobs can be found [here](MPI-interactive.md)
 
 ## Available partitions
+>[!IMPORTANT]
+>Information in this section will change to [this](qos.md) after the maintenance on Tuesday 5th November 2024. Please prepare your jobs scripts accordingly for jobs that will run after the maintenance.  
 
 The available partitions on Bunya are
 ```
