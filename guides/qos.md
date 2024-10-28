@@ -115,6 +115,18 @@ H100: 16 bit and TF32 CUDA, half precision<br>
 
 QoS are used to control access to resources and apply sustainable limits. 
 
+
+| QOS |  Partitions |  Access| Priority | All User Group limit | User limits | Minimum resources
+|:---|:---:|:---:|:---:|:---:|:---|:---|
+||||||||
+| normal | general | open | 10 | 21000 CPUs, 210 T CPU memory | 1536 CPUs, 16 T CPU memory, 0 GPUs, 5000 jobs submitted | none|
+| debug | general, gpu_rocm, gpu_cuda, gpu_viz | open | 20 | none | 1 hour, 1536 CPUs, 16 T CPU memory, 4 GPUs, 2 jobs running, 20 jobs submitted | none |
+| gpu | gpu_rocm, gpu_cuda, gpu_viz | open | 10 | none | 256 CPUs, 2 T of CPU memory, 4 GPUs, 4 jobs running, 100 jobs submitted | none |
+| mig | gpu_cuda | open | 10 | none | 441 CPUs, 1932 GB CPU memory, 21 GPUs, 1000 jobs submitted | gres=gpu:nvidia_a100_80gb_pcie_1g.10gb=1 |
+| viz | general, gpu_cuda, gpu_viz | open | 20 | none | 24 hours, 192 CPUs, 4 GPUs, 2 jobs running, 20 jobs submitted and single node | none |
+| sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, 1 T CPU memory, 4 GPUs, 4 jobs running, 50 jobs submitted | gres=gpu:h100=1 |
+
+
 #### normal
 Partitions: general<br>
 Access: all users<br>
