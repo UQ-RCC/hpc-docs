@@ -8,6 +8,11 @@ onBunya is a web portal that provides access to the Bunya supercomputer, allowin
 
 Users cannot use onBunya unless they already have Bunya access. To apply for access to Bunya, [click here.](https://rcc.uq.edu.au/systems/high-performance-computing/bunya) and follow the instructions given under *Getting a Bunya account*.
 
+>[!NOTE]
+>
+>Even if you want to use onBunya exclusively, you will need to login using the direct ssh method when you access Bunya for the first time. Doing this will trigger the proper setup of your account.
+>See [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-connect) for details.
+
 Access onBunya [here](https://bunya-ondemand.rcc.uq.edu.au/), users will need to log in with AAF, and may receive an MFA prompt.
 
 Please be patient as the onBunya dashboard loads, it can take time after authenticating.
