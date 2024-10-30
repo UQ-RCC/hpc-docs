@@ -109,6 +109,11 @@ You should have your access to Bunya HPC organised prior to attending (noting th
 
 ### How to connect
 
+>[!NOTE]
+>**For onBunya Users**
+>
+>Even if you want to use onBunya exclusively, you will need to login using this direct ssh method when you access Bunya for the first time. Doing this will trigger the proper setup of your account.
+
 Set 1 of the [Training resources](https://www.qcif.edu.au/training/hpc-training-resources/) explains how to use Putty to connect to a HPC with the basics found [here](https://youtu.be/oP_5JJrMm1U). To connect to Bunya please use:
 
 Hostname: bunya.rcc.uq.edu.au<br>
