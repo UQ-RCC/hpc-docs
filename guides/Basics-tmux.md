@@ -30,4 +30,46 @@ You could handle this by
 - re-attach to that terminal using `tmux attach -t NAME`
 - terminate the terminal you are currently in using `Ctrl-B : kill-session`
 
+## Sample Session
+
+### Login node
+
+```
+[uquser@bunya2 ~]$ tmux new -s Test12
+#launched an interactive job
+#set the while loop running in the interactive job
+
+#detached using Ctrl-B d
+[detached (from session Test12)]
+
+#What did I call that tmux session ??!!
+[uquser@bunya2 ~]$ tmux list-sessions
+Test12: 1 windows (created Thu Oct 31 19:39:26 2024) [207x59]
+
+#reattach to the terminal and I get back into the interactive batch job
+[uquser@bunya2 ~]$ tmux attach -t Test12
+
+#and I see more dots than I had before
+
+[detached (from session Test12)]
+[uquser@bunya2 ~]$
+
+
+```
+### Compute Node
+
+```
+srun: ROUTE: split_hostlist: hl=bun048 tree_width 0
+[uquser@bun048 ~]$ while [ 1 ]; do echo "."; sleep 15; done
+.
+.
+
+
+
+[Test12] 0:srun*                                          "bunya2.rcc.uq.edu.au" 19:41 31-Oct-24
+```
+
+
+## More Info
+
 For more info about tmux consult the manual page and online resources.
