@@ -16,7 +16,6 @@ debug
 mig
 sxm
 gpu
-viz
 ```
 
 ## Available nodes
@@ -47,7 +46,7 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 ### Partitions 
 
 #### `general`
-QoS: normal, debug, viz<br>
+QoS: normal, debug<br>
 Maximum walltime: 2 weeks (14 days, 336 hours)<br>
 CPU only partition<br>
 epyc3 and epyc4 architecture bun[006-009,010-067] and bun[83-115,126-143]<br>
@@ -62,7 +61,7 @@ GPU partition bun[001-002, 070]<br>
 >**1 AMD Mi210 is charged 50 \* 1 CPU core**<br>
 
 #### `gpu_cuda`
-QoS: gpu, debug, viz, mig<br>
+QoS: gpu, debug, mig<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum GPUs: See QoS<br>
 GPU partition bun[003-005, 068, 071-076, 077-082, 116-120, 124-125]<br>
@@ -83,7 +82,7 @@ H100: 16 bit and TF32 CUDA, half precision<br>
 >**1 NVIDIA A100 MIG (10GB of GPU RAM) is charged 6 \* 1 CPU core**<br>
 
 #### `gpu_viz`
-QoS: debug, gpu, viz<br>
+QoS: debug, gpu<br>
 Maximum walltime: 1 week (7 days, 168 hours)<br>
 Maximum jobs per user: See QoS<br>
 Maximum GPUs: see QoS<br>
@@ -123,60 +122,7 @@ QoS are used to control access to resources and apply sustainable limits.
 | debug | general, gpu_rocm, gpu_cuda, gpu_viz | open | 20 | none | 1 hour, 1536 CPUs, 16 T CPU memory, 4 GPUs, 2 jobs running, 20 jobs submitted | none |
 | gpu | gpu_rocm, gpu_cuda, gpu_viz | open | 10 | none | 256 CPUs, 2 T of CPU memory, 4 GPUs, 4 jobs running, 100 jobs submitted | none |
 | mig | gpu_cuda | open | 10 | none | 441 CPUs, 1932 GB CPU memory, 21 GPUs, 1000 jobs submitted | gres=gpu:nvidia_a100_80gb_pcie_1g.10gb=1 |
-| viz | general, gpu_cuda, gpu_viz | open | 20 | none | 24 hours, 192 CPUs, 4 GPUs, 2 jobs running, 20 jobs submitted and single node | none |
 | sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, 1 T CPU memory, 4 GPUs, 4 jobs running, 50 jobs submitted | gres=gpu:h100=1 |
-
-
-#### normal
-Partitions: general<br>
-Access: all users<br>
-Priority: 10<br>
-Group (all users) limits: 21000 CPUs, 210 T CPU memory<br>
-User limits: 1536 CPUs, 16 T CPU memory, 0 GPUs, 5000 jobs submitted <br>
-Minimum requested resources: none<br>
-
-#### debug
-Partitions: general, gpu_rocm, gpu_cuda, gpu_viz <br>
-Access: all users<br>
-Priority: 20<br>
-Group (all users) limits: none<br>
-User limits: 1 hour, 1536 CPUs, 16 T CPU memory, 4 GPUs, 2 jobs running, 20 jobs submitted <br>
-Minimum requested resources: none<br>
-
-#### gpu
-Partitions: gpu_rocm, gpu_cuda, gpu_viz <br>
-Access: all users<br>
-Priority: 10<br>
-Group (all users) limits: none<br>
-User limits: 256 CPUs, 2 T of CPU memory, 4 GPUs, 4 jobs running, 100 jobs submitted <br>
-Minimum requested resources: none<br>
-
-#### mig
-Partitions: gpu_cuda<br>
-Access: all users<br>
-Priority: 10<br>
-Group (all users) limits: none <br>
-User limits: 441 CPUs, 1932 GB CPU memory, 21 GPUs, 1000 jobs submitted <br> 
-Minimum requested resources: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb=1<br>
-
-#### viz
-Partitions: general, gpu_cuda, gpu_viz <br>
-Access: all users<br>
-Priority: 20<br>
-Group (all users) limits: none<br>
-User limits: 24 hours, 192 CPUs, 4 GPUs, 2 jobs running, 20 jobs submitted <br>
-Other limits: 1 node only
-Minimum requested resources: none<br>
-
-#### sxm
-Partitions: gpu_sxm<br>
-Access: After approved application<br>
-Priority: 10<br>
-Group (all users) limits: none <br>
-User limits: 192 CPUs, 1 T CPU memory, 4 GPUs, 4 jobs running, 50 jobs submitted  <br> 
-Minimum requested resources: gres=gpu:h100=1<br>
-
-
 
 
 
