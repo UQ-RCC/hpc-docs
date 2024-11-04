@@ -5,7 +5,6 @@ The available partitions on Bunya are
 general
 gpu_rocm
 gpu_cuda
-gpu_viz
 gpu_sxm
 ```
 ## Available Quality of Service (QoS)
@@ -116,13 +115,19 @@ QoS are used to control access to resources and apply sustainable limits.
 
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits | Minimum resources
-|:---|:---:|:---:|:---:|:---:|:---|:---|
-||||||||
-| normal | general | open | 10 | 21000 CPUs, <br> 210 T CPU memory | 1536 CPUs,<br> 16 T CPU memory,<br> 0 GPUs,<br> 5000 jobs submitted | none|
-| debug | general, gpu_rocm, gpu_cuda, gpu_viz | open | 20 | none | 1 hour, 1536 CPUs, 16 T CPU memory, 4 GPUs, 2 jobs running, 20 jobs submitted | none |
-| gpu | gpu_rocm, gpu_cuda, gpu_viz | open | 10 | none | 256 CPUs, 2 T of CPU memory, 4 GPUs, 4 jobs running, 100 jobs submitted | none |
-| mig | gpu_cuda | open | 10 | none | 441 CPUs, 1932 GB CPU memory, 21 GPUs, 1000 jobs submitted | gres=gpu:nvidia_a100_80gb_pcie_1g.10gb=1 |
-| sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, 1 T CPU memory, 4 GPUs, 4 jobs running, 50 jobs submitted | gres=gpu:h100=1 |
+|:---|:---:|:---:|:---:|:---:|:---|
+|||||||
+| normal | general | open | 10 | 20000 CPUs, <br> 200 T CPU memory | 1536 CPUs,<br> 16 T CPU memory,<br> 0 GPUs,<br> 5000 jobs submitted | 
+| debug | general, gpu_rocm, gpu_cuda, gpu_viz | open | 20 | none | 1 hour, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
+| gpu | gpu_rocm, gpu_cuda, gpu_viz | open | 10 | none | 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
+| mig | gpu_cuda | open | 10 | none | 441 CPUs, <br> 1932 GB CPU memory, <br> 21 GPUs, <br> 1000 jobs submitted |
+| sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, <br> 1 T CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 50 jobs submitted |
+
+Important:<br>
+**mig** requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1<br>
+**sxm** requires the request of at least 1 H100:gres=gpu:h100:1<br>
+
+
 
 
 
