@@ -114,7 +114,7 @@ H100: 16 bit and TF32 CUDA, half precision<br>
 QoS are used to control access to resources and apply sustainable limits. 
 
 
-| QOS |  Partitions |  Access| Priority | All User Group limit | User limits | Minimum resources
+| QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
 |:---|:---:|:---:|:---:|:---:|:---|
 |||||||
 | normal | general | open | 10 | 20000 CPUs, <br> 200 T CPU memory | 1536 CPUs,<br> 16 T CPU memory,<br> 0 GPUs,<br> 5000 jobs submitted | 
