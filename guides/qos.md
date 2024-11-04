@@ -27,7 +27,7 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 
 
 | Partition | Hostnames |  Count |  CPU Memory (MB) | CPUS | FEATURES | GRES | Charge Multiplier|
-|:---|:---|:---:|:---:|---:|:---:|:---|:---|---:|
+|:---|:---|:---:|---:|:---:|:---|:---|---:|
 | general | bun[006-008] | 3 | 4000000 | 192 | epyc3 | (null) | 1 |
 | general | bun[009-067] | 59 | 2000000 | 192 | epyc3 | (null) | 1 |
 | general| bun[083-115,126-143] | 51 | 1500000 | 192 | epyc4 | (null) | 1 |
