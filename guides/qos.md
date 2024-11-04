@@ -20,6 +20,26 @@ gpu
 <br>
 <br>
 
+## QoS use and limits
+
+QoS are used to control access to resources and apply sustainable limits.<br> 
+
+**Important:**<br>
+mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1<br>
+sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
+
+| QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
+|:---|:---|:---:|:---:|:---|:---|
+|||||||
+| normal | general | open | 10 | 20000 CPUs, <br> 200 T CPU memory | 1536 CPUs,<br> 16 T CPU memory,<br> 0 GPUs,<br> 5000 jobs submitted | 
+| debug | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 20 | none | 1 hour, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
+| gpu | gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 10 | none | 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
+| mig | gpu_cuda | open | 10 | none | 441 CPUs, <br> 1932 GB CPU memory, <br> 21 GPUs, <br> 1000 jobs submitted |
+| sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, <br> 1 T CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 50 jobs submitted |
+
+<br>
+<br>
+
 ## Available partitions and nodes
 
 The available compute nodes on Bunya are listed in the table below. Please note while some feature the same CPU or GPU type, the available memory and/or number of CPUs or architecture can differ. Be mindful of this when requesting resources for jobs.
@@ -48,26 +68,6 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 |||||||||
 | gpu_rocm | bun[001-002] | 2 | 500000 | 192 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
-
-<br>
-<br>
-
-## QoS use and limits
-
-QoS are used to control access to resources and apply sustainable limits.<br> 
-
-**Important:**<br>
-mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1<br>
-sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
-
-| QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
-|:---|:---|:---:|:---:|:---|:---|
-|||||||
-| normal | general | open | 10 | 20000 CPUs, <br> 200 T CPU memory | 1536 CPUs,<br> 16 T CPU memory,<br> 0 GPUs,<br> 5000 jobs submitted | 
-| debug | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 20 | none | 1 hour, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
-| gpu | gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 10 | none | 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
-| mig | gpu_cuda | open | 10 | none | 441 CPUs, <br> 1932 GB CPU memory, <br> 21 GPUs, <br> 1000 jobs submitted |
-| sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, <br> 1 T CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 50 jobs submitted |
 
 
 
