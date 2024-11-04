@@ -6,6 +6,7 @@ general
 gpu_rocm
 gpu_cuda
 gpu_sxm
+gpu_viz
 ```
 ## Available Quality of Service (QoS)
 
