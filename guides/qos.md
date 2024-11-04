@@ -32,19 +32,19 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 | general | bun[009-067] | 59 | 2000000 | 192 | epyc3 | (null) | 1 |
 | general| bun[083-115,126-143] | 51 | 1500000 | 192 | epyc4 | (null) | 1 |
 |||||||||
-| gpu_cuda | bun[003-004] | 2 | 2000000 | 256 | epyc3,cuda,cuda80gb | gpu:a100:3 | 50 |
-| gpu_cuda | bun005 | 1 | 2000000 | 256 | epyc3,cuda,cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:21 | 6 |
-| gpu_cuda | bun068 | 1 | 2000000 | 192 | epyc3,cuda,cuda80gb | gpu:a100:2 | 50 |
+| gpu_cuda | bun[003-004] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
+| gpu_cuda | bun005 | 1 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:21 | 6 |
+| gpu_cuda | bun068 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
-| gpu_cuda | bun[071-076,116] | 7 | 2000000 | 192 | epyc3,cuda,cuda80gb | gpu:h100:3 | 100 |
-| gpu_sxm | bun[117-120] | 4 | 1000000 | 192 | xeonsp4,cuda,cuda80gb,sxm | gpu:h100:4 | 100 |
+| gpu_cuda | bun[071-076,116] | 7 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
+| gpu_sxm | bun[117-120] | 4 | 1000000 | 192 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 |||||||||
-| gpu_cuda <br> gpu_viz | bun[077-082] | 6 | 2000000 | 192 | epyc3,cuda,cuda48gb | gpu:l40:3 | 40 |
-| gpu_cuda <br> gpu_viz | bun[124-125] | 2 | 750000 | 192 | epyc4,cuda,cuda48gb | gpu:l40s:3 | 42 |
-| gpu_viz | bun[121-123] | 3 | 750000 | 192 | epyc4,cuda | gpu:a16:12 | 6 |
+| gpu_cuda <br> gpu_viz | bun[077-082] | 6 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda48gb | gpu:l40:3 | 40 |
+| gpu_cuda <br> gpu_viz | bun[124-125] | 2 | 750000 | 192 | epyc4,<br> cuda,<br> cuda48gb | gpu:l40s:3 | 42 |
+| gpu_viz | bun[121-123] | 3 | 750000 | 192 | epyc4,<br> cuda | gpu:a16:12 | 6 |
 |||||||||
-| gpu_rocm | bun[001-002] | 2 | 500000 | 192 | epyc3,rocm | gpu:mi210:2 | 50 |
-| gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,rocm | gpu:mi210:2 | 50 |
+| gpu_rocm | bun[001-002] | 2 | 500000 | 192 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
+| gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
 
 
 ## QoS use and limits
