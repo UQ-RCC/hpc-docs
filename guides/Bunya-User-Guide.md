@@ -430,7 +430,7 @@ To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu_rocm` or `gpu_cuda`  partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
+For an interactive session on the `gpu_rocm` or `gpu_cuda`  partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request and use `--qos=gpu` instead of `--qos=normal`. It is important that you use a **`[type]`** to get the correct GPU card for your job.
 
 To target a particular GPU RAM in the `gpu_cuda` partition, especially an A100 MIG slice add `--constraint=cuda10gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
 
