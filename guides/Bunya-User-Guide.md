@@ -840,7 +840,7 @@ But if you have CPU code that is expected to run faster on a single node in shar
 You can use the `jobstats` module to check utilisation of running and completed jobs. It will show CPU, CPU Ram, GPU, and GPU Ram utilisation.
 
 ```
-module load jobstats<br>
+module load jobstats
 jobstats JobID
 ```
 
