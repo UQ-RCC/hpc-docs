@@ -10,6 +10,7 @@
 * [Conda on Bunya](conda-environment.md)
 * [Using software containers on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#using-software-containers-on-bunya)
 * [Fair Share on Bunya](FairShare.md)
+* [Available hardware and user limits](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#qos-use-and-limits)
 * [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#interactive-jobs)
 * [SLURM scripts and examples](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#slurm-scripts)
 * [How to check jobs in SLURM](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#how-to-manage-your-jobs-and-cluster-activity-in-slurm)
@@ -53,7 +54,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - There is 1 A100 NVIDIA GPU node with MIG A100 cards leading to 21 MIG slices (7 per A100 card) each with 10GB of GPU RAM.
 - There are 3 A16 NVIDIA GPU nodes (epyc4) with 12 A16 GPUs each (36 in total). The A16 GPU are good for vizualisation and accelerated desktops.
 - There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RaM.
-- For a full table of all available compute nodes and their features like GPU, Memory and CPUs see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-nodes)
+- For a full table of all available compute nodes and their features like GPU, Memory and CPUs see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions-and-nodes)
  
 - Users have a location in `/home` and `/scratch/user`.
 - The quota in `/home` is 50GB and 1 million files. 
@@ -172,7 +173,7 @@ use `put` to move files and directories from your desktop/laptop to Bunya.
 
 Windows users can also use WinSCP if they require a graphical SFTP client. WinSCP allows the MFA authentication without extra setup. WinSCP also allows mutiple file and directory transfer without having to re-enter the MFA passcode.
 
-FileZilla is no longer recommeneded. 
+**FileZilla is no longer recommeneded.** 
 
 <!---
 but if required please find the details here:
@@ -404,7 +405,7 @@ This also includes software installations. Conda create, pip installs and R inst
 
 Users can use interactive jobs which will give them that command line feel and flexibility and allow the use of graphical user interfaces. Users who need a Graphical User Interface (GUI) should consult the [onBunya User Guide](./OnDemand-Guide.md). 
 
-Users have access to a `debug` queue for quick testing of new jobs and codes etc.
+Users have access to a `debug` QoS for quick testing of new jobs and codes etc.
 
 ### Interactive jobs
 
@@ -415,24 +416,25 @@ User should use interactive jobs to do quick testing and if they need to use a g
 **You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
 ```
-salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
+salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=general --qos=debug -account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
 You can use the command<br>
 `hostname`<br>
 to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
 
-Please use `--partition=general` or `--partition=debug` unless you need access to GPUs. The `debug` parition has a walltime limit of 1 hour. The `general` and `debug` partition have `epyc3` and `epyc4` architecture CPUs. Use the `groups` command to list your groups- Bunya Account Strings will begin a_ .
+Please use `--partition=general` unless you need access to GPUs. The `general` partition has `epyc3` and `epyc4` architecture CPUs. The `--qos=debug` has a higher priority but has a walltime limit of 1 hour and limits number of jobs per user. Use `--qos=normal` to submit standard jobs. The `normal` QoS does not allow GPUs. 
 
-Replace `AccountString` with your actual accounting group in the `--account=` option. This is the AccountString for your research or accounting group. All AccountStrings start with a_. Use the `groups` command to list your group memberships and grab the one that begins with `a_` characters.
+Use the `groups` command to list your groups- Bunya Account Strings will begin a_ . Replace `AccountString` with your actual accounting group in the `--account=` option. This is the AccountString for your research or accounting group. All AccountStrings start with a_. Use the `groups` command to list your group memberships and grab the one that begins with `a_` characters.
 
 To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc` part.
 
 If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
-For an interactive session on the `gpu_rocm`, `gpu_rocm_debug`, `gpu_cuda` or `gpu_cuda_debug` partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
+For an interactive session on the `gpu_rocm` or `gpu_cuda`  partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request. It is important that you use a **`[type]`** to get the correct GPU card for your job.
 
-To target a particular GPU RAM in the `gpu_cuda` or `gpu_cuda_debug` partition, especially an A100 MIG slice add `--constraint=cuda10gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
+To target a particular GPU RAM in the `gpu_cuda` partition, especially an A100 MIG slice add `--constraint=cuda10gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
 
+See [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions-and-nodes) for a full list of partitions, QoS, GPU types and other features.
 
 This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
 
@@ -518,6 +520,7 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 | gpu_rocm | bun[001-002] | 2 | 500000 | 192 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
 
+<br>
 
 ## Slurm scripts
 
@@ -547,9 +550,9 @@ The different request flags mean the following:
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
 <br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
-`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `debug, gpu_cuda_debug, gpu_rocm_debug` = 1 hour, `gpu_rocm, gpu_cuda` = 168 hours (1 week).<br>
+`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `gpu_rocm, gpu_cuda, gpu_sxm` = 168 hours (1 week).<br>
 <br>
-`#SBATCH --qos=[normal]` - to request a quality of service for the job.<br>
+`#SBATCH --qos=[normal,gpu,debug,mig,sxm]` - to request a quality of service for the job.<br>
 `#SBATCH -o filename` - filename where the standard output should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -e filename` - filename where the standard error should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
@@ -559,7 +562,7 @@ The different request flags mean the following:
 `#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.<br>
 `#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.<br>
 <br>
-`#SBATCH --partition=debug/general/gpu_rocm/gpu_cuda/gpu_cuda_debug/gpu_rocm_debug`<br>
+`#SBATCH --partition=general/gpu_rocm/gpu_cuda/gpu_sxm`<br>
 <br>
 `#SBATCH --array=[range]` - Indicates that this is an array job with range number of tasks. Range can be `0-999`. The maximum range value is 1000.<br>
 <br>
@@ -567,11 +570,11 @@ The different request flags mean the following:
 
 See `man sbatch` and `man srun` for more options (use arrow keys to scroll up and down and `q` to quit)
 
-***Default partition is debug*** If you do not specify a partition when you submit you get the default partition.The default partition is `debug` which will give you are bare minimum of resources. For example the maximum walltime in the `debug queue` is 1 hour. Most users would want to run in the `general` partition. Important, the slurm defaults are usually not sufficient for most user jobs. If you want appropriate resources, you are required to request them.
+***Default partition is general*** If you do not specify a partition when you submit you get the default partition. The default partition is `general` which is CPU only.  Important, the slurm defaults are usually not sufficient for most user jobs. If you want appropriate resources, you are required to request them.
 
 ***Standard outout and error***: Using the `SBATCH` options `-o` and `-e` with a `filename` in a script will result in the standard error and standard output file to appear as soon as the job starts to run. This behaviour is different to standard PBS behaviour on Tinaroo and FlashLite (unless you specified paths for those files there too) where the standard error, .e, and standard output, .o, files only appeared when the job was finished or had crashed.
 
-***Default working directory***: In Slurm your job will start in the directory/folder you submitted from. This is different to PBS behaviour on Tinaroo/FlashLite where your job started in your home directory. So on Bunya, using slurm, there is no need to change into the job directory, unless this is different to the directory you submitted from.
+***Default working directory***: In Slurm your job will start in the directory/folder you submitted from. This is different to PBS behaviour where your job started in your home directory. So on Bunya, using slurm, there is no need to change into the job directory, unless this is different to the directory you submitted from.
 
 ***$TMPDIR***: If your job produces temporary files during the calculation or if you need a space to write to that does not impact your quotas in `/home`, `/scratch/user` or `/scratch/project` then please use **$TMPDIR** during your calculations. **$TMPDIR** is automatically created at the start of a job and is then automatically deleted at the end of the job. It is therefore the best place to write temporary files (those not needed after the calculation is done) to. If you use **$TMPDIR** for output you wish to keep then please make sure you copy all needed files to a location in `/home`, `/scratch/user`, `/scratch/project` or `/QRISdata`. A big (all in one go) copy from **$TMPDIR** to `/QRISdata` (RDM) at the end of a job is possible.
 
@@ -591,8 +594,9 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 #SBATCH --mem=10G
 #SBATCH --job-name=Test
 #SBATCH --time=1:00:00
+#SBATCH --qos=gpu
 #SBATCH --partition=gpu_cuda
-#SBATCH --gres=gpu:a100:1
+#SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
 #SBATCH --account=AccountString
 #SBATCH -o slurm-%j.output
 #SBATCH -e slurm-%j.error
@@ -601,6 +605,8 @@ module-loads-go-here
 
 srun executable < input > output
 ```
+For full A100 change to<br>
+`#SBATCH --gres=gpu:a100:1`<br>
 
 For H100 change to<br> 
 `#SBATCH --gres=gpu:h100:1`<br>
@@ -608,11 +614,13 @@ For H100 change to<br>
 For L40 change to<br> 
 `#SBATCH --gres=gpu:l40:1`<br>
 
+For L40s change to<br> 
+`#SBATCH --gres=gpu:l40s:1`<br>
 
 
 ### Simple script for AMD ROCM GPUs.
 
-**Nodes bun001 and bun002. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these. See the [AMD Infinity Hub](https://www.amd.com/en/technologies/infinity-hub) for some available containers**
+**Nodes bun001, bun002, and bun070. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these. See the [AMD Infinity Hub](https://www.amd.com/en/technologies/infinity-hub) for some available containers**
 
 ```
 #!/bin/bash --login
@@ -622,9 +630,10 @@ For L40 change to<br>
 #SBATCH --mem=10G
 #SBATCH --job-name=Test
 #SBATCH --time=1:00:00
+#SBATCH --qos=gpu
 #SBATCH --partition=gpu_rocm
-#SBATCH --account=AccountString
 #SBATCH --gres=gpu:mi210:1 #you can ask for up to 2 here
+#SBATCH --account=AccountString
 #SBATCH -o slurm-%j.output
 #SBATCH -e slurm-%j.error
 
@@ -644,6 +653,7 @@ srun executable < input > output
 #SBATCH --mem=10G
 #SBATCH --job-name=Test
 #SBATCH --time=1:00:00
+#SBATCH --qos=normal
 #SBATCH --partition=general
 #SBATCH --account=AccountString
 #SBATCH -o slurm-%j.output
@@ -678,6 +688,7 @@ You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 
 #SBATCH --mem-per-cpu=5G
 #SBATCH --job-name=MPI-Test
 #SBATCH --time=1:00:00
+#SBATCH --qos=normal
 #SBATCH --partition=general
 #SBATCH --account=AccountString
 #SBATCH -o slurm-%j.output
@@ -707,8 +718,9 @@ Here is one example of an array job script with 5 array tasks. Important: Reques
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=5G
 #SBATCH --time=00:01:00
-#SBATCH --account=AccountString
+#SBATCH --qos=normal
 #SBATCH --partition=general
+#SBATCH --account=AccountString
 #SBATCH --output=test_array_%A_%a.out
 #SBATCH --array=1-5
 
@@ -822,6 +834,16 @@ We often don't know in advance how much resource a set of jobs may require.
 You may have some idea based on calculations you have performed on a workstation or other HPC cluster.
 Obviously if your software cannot utilised a GPU resource you would never request it.
 But if you have CPU code that is expected to run faster on a single node in shared memory (OpenMP) mode, or on multiple nodes in message passing interface (MPI) mode, then you should be certain that you are getting the performance gains that you expect.
+
+##### Jobstats
+
+You can use the `jobstats` module to check utilisation of running and completed jobs. It will show CPU, CPU Ram, GPU, and GPU Ram utilisation.
+
+```
+module load jobstats<br>
+jobstats JobID
+```
+
 
 ##### A running job
 
