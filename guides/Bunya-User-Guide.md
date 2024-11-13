@@ -478,6 +478,8 @@ QoS are used to control access to resources and apply sustainable limits.<br>
 **Important:**<br>
 mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1<br>
 sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
+onBunya Accelerated Desktops with 2 or 3 GPUs will submitted with the debug QoS.<br>
+
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
 |:---|:---|:---:|:---:|:---|:---|
@@ -487,7 +489,7 @@ sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
 | gpu | gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 10 | none | 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
 | mig | gpu_cuda | open | 10 | none | 441 CPUs, <br> 1932 GB CPU memory, <br> 21 GPUs, <br> 1000 jobs submitted |
 | sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, <br> 1 T CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 50 jobs submitted |
-| viz | general, gpu_viz| onBunya | 20 | none | 1 day,<br> 192 CPUs (96 CPU per job), <br> 500G per job, <br> 2 GPUs (1 GPU per job), <br> 2 running jobs, <br> 20 jobs submitted | 
+| viz | general, <br> gpu_viz| onBunya | 20 | none | 1 day,<br> 192 CPUs (96 CPU per job), <br> 500G per job, <br> 2 GPUs (1 GPU per job), <br> 2 running jobs, <br> 20 jobs submitted | 
 <br>
 
 ## Available partitions and nodes
