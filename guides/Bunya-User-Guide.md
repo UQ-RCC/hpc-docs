@@ -416,7 +416,7 @@ User should use interactive jobs to do quick testing and if they need to use a g
 **You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
 
 ```
-salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=general --qos=debug -account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
+salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=general --qos=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
 You can use the command<br>
 `hostname`<br>
