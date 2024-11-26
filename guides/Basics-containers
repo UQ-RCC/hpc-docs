@@ -1,0 +1,89 @@
+# The Software Containers basics
+
+**EARLY DRAFT**
+  
+## What is a software container?
+
+
+## Why is some software provided this way ?
+
+## What is apptainer
+
+## Gotchas
+
+- The apptainer software is _NOT_ installed on login nodes.
+
+- Building a sandbox container can blow your file count quota in /scratch. 
+- Consider building into /home or $TMPDIR.
+- Container caches in /home can blow your quota as well.
+
+## What storage can I access from within the container ?
+  
+A software container can only access /home and /scratch/user because natively you will most often run the container as your default username and group.
+- If you need to access your RDM collection, switch your group from your standard group to the RW group associated with the collection storage allocation (e.g. if qris-uq, then newgrp Q9999RW).
+- If you need to access your /scratch/project, switch your group from your standard group to the access group associated with the /scratch/project space.
+  
+  
+## What are the steps
+
+- build a container (usually from a .def definition file)
+- run/exec/shell the container
+
+### Building a container on Bunya
+
+- if the definition file is complete for what you need then you can build it directly as an image file.
+- if not then you can 
+-- build in "sandbox mode", 
+-- customise your container, 
+-- and convert it to a standalone image.
+
+## Using apptainer - 7 basic container operations
+
+|1|create a container image outright|`apptainer build myContainer.sif myContainer.def`|
+|2|create a sandbox version|`apptainer build --sandbox myContainer.sandbox myContainer.def`|
+  
+- update the sandbox version: `apptainer shell --writable myContainer.sandbox`
+- convert the sandbox to a standalone image `apptainer build myContainer.sif myContainer.sandbox`
+- start a shell interface in the container: 
+- run the default run action for the container
+- exec an arbitrary action using the container
+- 
+
+## Sample Session
+
+### Login node
+
+```
+[uquser@bunya2 ~]$ tmux new -s Test12
+#launched an interactive job
+#set the while loop running in the interactive job
+
+#detached using Ctrl-B d
+[detached (from session Test12)]
+
+#What did I call that tmux session ??!!
+[uquser@bunya2 ~]$ tmux list-sessions
+Test12: 1 windows (created Thu Oct 31 19:39:26 2024) [207x59]
+
+#reattach to the terminal and I get back into the interactive batch job
+[uquser@bunya2 ~]$ tmux attach -t Test12
+
+#and I see more dots than I had before
+
+[detached (from session Test12)]
+[uquser@bunya2 ~]$
+
+
+```
+### Compute Node
+
+```
+
+Example
+
+```
+
+
+## More Info
+
+For more info about apptainer consult the manual page and online resources.
