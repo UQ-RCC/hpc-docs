@@ -157,3 +157,10 @@ Use `/usr/local/bin/recall_medici FILEPATH`
 Wildcards are also supported.
 
 The `recall_medici` command is also available on data.qriscloud.org.au if you don't have access to Bunya.
+
+#### Why does it seem to take a long time to connect to my RDM from Bunya?
+
+At a time between 20 past and 40 past the hour at the hours of  08, 12, 16, and 22,
+access to the RDMs from Bunya can be delayed. It happens while the service access controls are being updated. Access can appear non-responsive for a few minutes. Best to wait 5 minutes and try again.
+
+
