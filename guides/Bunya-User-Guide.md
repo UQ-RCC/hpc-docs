@@ -411,6 +411,8 @@ Users have access to a `debug` QoS for quick testing of new jobs and codes etc.
 
 User should use interactive jobs to do quick testing and if they need to use a graphical user interface (GUI) to run their calculations. This could include jupyter, spider, etc. salloc is used to submit an interactive job and you should specify the required resources via the command line. IMPORTANT: Interactive jobs should be limited to a single node. Multinode jobs are required to be submitted as a batch job.
 
+**Jobs need to request all resources they need or they will fail. This includes GPUs (default is zero) and walltime.** 
+
 **Use this full command line to create an interactive session on a compute node.**
 <br>
 **You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
@@ -480,6 +482,7 @@ mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie
 sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
 viz for onBunya jobs only<br>
 onBunya Accelerated Desktops with 2 or 3 GPUs will submitted with the debug QoS.<br>
+gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.<br>
 
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
@@ -500,6 +503,10 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 **Maximum walltimes**:<br>
 general: 2 weeks (14 days, 336 hours)<br>
 gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br> 
+
+**Default walltime for all partitons: 30 minutes**
+
+**Default number of GPUs for all partitons: zero**
 
 **gpu_viz** is used exclusively by onBunya. Users should not be submitting batch jobs via sbatch to the gpu_viz partition. The L40 and L40s GPUs are available through the gpu_cuda partition. <br>
 
@@ -539,6 +546,8 @@ You would usually write a slurm script to subimit your jobs. Once you have a scr
 `sbatch first-job-script`<br>
 
 to submit the slurm script and your job.
+
+**Jobs need to request all resources they need or they will fail. This includes GPUs (default is zero) and walltime.** 
 
 Below are examples for single thread, single node but multiple threads, MPI, and array job submission scripts. 
 The different request flags mean the following:
