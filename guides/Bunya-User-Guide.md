@@ -393,7 +393,7 @@ You cannot build a container on Bunya directly from a Dockerfile prescription. I
 
 ## Fair Share
 
-Bunya employes [fair share](FairShare.md) to ensure that each user is able to use Bunya resources.
+Bunya employs [fair share](FairShare.md) to ensure that each user is able to use Bunya resources.
 
 ## Interactive jobs
 
