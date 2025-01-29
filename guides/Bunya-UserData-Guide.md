@@ -8,7 +8,9 @@ The spaces below are individual spaces. This means, by default, they are only ac
 
 #### `/home/username` 
 * Every user has a home directory. This is where a user lands when they login.
+* The home directory of a new user is created when the user logs in for the very first time via ssh. onBunya login will **not** create a user's home directory.
 * Quotas are *50GB and 1 million files*.
+* Quotas on a user's home directory will not be increased.
 * The home directory should be used to install software, such as conda, python and R environments, scripts, and other software installed by `make` and `make install`, etc.
 * The home directory should **not** be used for data and output from calculations. The reason for this is that if it goes over one of the quotas (space or files) a user can effectively lock themsleves out of their account if they do not clean up (get back under quota) quickly. 
 * The home directory is **not backed up**.
