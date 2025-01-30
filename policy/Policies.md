@@ -19,7 +19,7 @@ Instructions how to administer accounting groups and accounting strings can be f
 
 ## Bunya User Account Operational Procedure
 
-User access to Bunya is outlined [here](Bunya-User-Account-Policy-2024-03.pdf).
+User access to Bunya is outlined [here](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Operational-Procedure.md).
 
 ## Violation of above operational procedures
 
