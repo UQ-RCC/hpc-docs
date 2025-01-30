@@ -17,7 +17,7 @@ Users can also clean their `.bashrc` file by using `conda init` again with <br>
 `conda init --reverse`<br>
 
 
-## Advice on conda and Open OnDemand usage
+## Advice on conda and onBunya usage
 
 If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse`<br>
@@ -40,27 +40,6 @@ Then set up your shell to use the chosen conda version. Using the environmental 
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br>
 or<br>
 `source $EBROOTMINICONDA3/etc/profile.d/conda.sh`<br>
-
-Now your shell is ready to create a conda environment.
-
-### Wiener
-
-Anaconda2 and Anaconda3 are available on Wiener.
-
-```
-anaconda/2.7
-anaconda/3.5       
-anaconda/3.6 
-anaconda/3.7
-```
-
-The set up your shell to use the chosen conda version. The easiest way to do this on Wiener is to use this line (this is broken for anaconda/3.5):
-
-`eval "$(conda shell.bash hook)"`
-
-This will automatically activate the `(base)` conda environment without changing your `.bashrc` file. To deactivate the `(base)` environment just use
-
-`conda deactivate`
 
 Now your shell is ready to create a conda environment.
 
@@ -101,10 +80,7 @@ Tip: Install all the programs that you want in this environment at the same time
 
 ## Changing the location of conda environments and package caches
 
-On Bunya the home directory has 50GB of space and 1 million files to allow installation of environments. However, in case this is to install shared environments into `/scratch` which is also needed on Wiener, this is an easy way to do this.
-
-The home directoy on Wiener is very small (5GB) and it is advised to install conda environments into scratch.  To have this setup so environments are installed in a different location automatically and also found it is best to use the [Conda configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html), `.condarc`.
-See specifically instructions on envs location [here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs).
+On Bunya the home directory has 50GB of space and 1 million files to allow installation of environments. However, in case this is to install shared environments into `/scratch`, this is an easy way to do this. To have this setup so environments are installed in a different location automatically and also found it is best to use the [Conda configuration file](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html), `.condarc`. See specifically instructions on envs location [here](https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs).
 
 In your home directory open the `.condarc` file. You can use `nano` for this or `vi`, what ever you are comfortable with.
 
