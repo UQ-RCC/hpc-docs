@@ -12,7 +12,7 @@ All users agree to the [UQ Conditions of Access to RCC Infrastructure](UQ-Condit
 
 ## Bunya Accounting Group Operational Procedure
 
-Accounting groups, ownership, responsibilities and administration are outlined in the [Bunya Accounting Group Operational Procedure](Bunya-Accounting-Group-Policy-2024-03.pdf).
+Accounting groups, ownership, responsibilities and administration are outlined in the [Bunya Accounting Group Operational Procedure](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-Accounting-Group-Operational-Procedure.md).
 
 Instructions how to administer accounting groups and accounting strings can be found [here](../guides/Accounting-group-admin.md).
 
