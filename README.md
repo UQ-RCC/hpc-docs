@@ -7,7 +7,7 @@ This project is for providing _up-to-date_ information about HPC systems operate
 [onBunya](guides/OnDemand-Guide.md)<br>
 Webportal to access Bunya
 
-[RCC Infrastructure Policies](policy/Policies.md)
+[RCC Infrastructure Policies and Operating Procedures](policy/Policies.md)
 
 [Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
 Your spaces in *home*, *scratch*, *$TMPDIR* and *RDM*
