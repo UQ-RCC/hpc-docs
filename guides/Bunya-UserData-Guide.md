@@ -155,7 +155,7 @@ The output contains the size-occupied-on-disk in the first column and the actual
 
 _On a compute node via an onBunya session or interactive batch job_
 
-Use the recall_medici command. That command should be in your standard PATH, but in case it isn't, you can copy it completely using the icon on the right side of this code box:
+Use the `recall_medici` command. That command should be in your standard PATH, but in case it isn't, you can copy it completely using the icon on the right side of this code box:
 ```
 /usr/local/bin/recall_medici FILEPATH
 ```
