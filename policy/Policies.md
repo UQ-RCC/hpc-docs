@@ -4,7 +4,7 @@ Access and usage of RCC infrastructure is governed by the following operational 
 
 ## Bunya Conditions of Access
 
-All users agree to the [Bunya Conditions of Access](Bunya-Conditions-of-Access-2024-02-02.pdf) when they apply for access to Bunya.
+All users agree to the [Bunya Conditions of Access](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-Conditions-of-Access.md) when they apply for access to Bunya.
 
 ## UQ Conditions of Access to RCC Infrastructure
 
