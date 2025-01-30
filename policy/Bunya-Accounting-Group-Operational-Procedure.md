@@ -40,17 +40,17 @@ In below clauses:
 
 12) Accounting group owners endorse a Bunya user when they add the Bunya user to the accounting group. The accounting group owner confirms that they know the Bunya user and that the Bunya user has legitimate UQ and/or QCIF research that requires the access to Bunya resources. 
 
-13) Accounting group owners should only add a Bunya user as member to their accounting group in line with the Bunya User Policy (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Account-Policy-2024-03.pdf) 
+13) Accounting group owners should only add a Bunya user as member to their accounting group in line with the Bunya User Operational Procedure (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Operational-Procedure.md) 
 
 14) Accounting group owners take on the responsibility that their group, and each member who is a Bunya user consumes Bunya resources for UQ and/or QCIF research only. 
 
 15) RCC will only add a user or Bunya user as a member to an accounting group after a direct written request or direct written confirmation from the accounting group owner. 
 
-16) Accounting group owners take on the responsibility to remove any Bunya user member of their accounting who should no longer consume Bunya resources under their accounting group and under the Bunya User Policy (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Account-Policy-2024-03.pdf). 
+16) Accounting group owners take on the responsibility to remove any Bunya user member of their accounting who should no longer consume Bunya resources under their accounting group and under the Bunya User Operational Procedure (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Operational-Procedure.md). 
 
 17) RCC requires a direct written request from the accounting group owner to remove a Bunya user membership from an accounting group.  
 
-18) RCC may remove a Bunya user membership from an accounting group when the Bunya user does not comply with the Bunya User Policy (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Account-Policy-2024-03.pdf). RCC will inform the accounting group owner. 
+18) RCC may remove a Bunya user membership from an accounting group when the Bunya user does not comply with the Bunya User Operational Procedure (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Operational-Procedure.md). RCC will inform the accounting group owner. 
 
 19) Accounting group owners can change the role of accounting group members in the accounting group. Roles are standard and administrator.  
 
@@ -64,7 +64,7 @@ In below clauses:
 
 24) The accounting group owner is responsible to inform accounting group administrators of the Accounting Group Policy when the accounting group owner appoints a new accounting group administrator. 
 
-25) New Bunya users are instructed to contact the accounting group administrator(s) of an accounting group to give them the accounting string for Slurm job submission and to add the new Bunya user as a standard member to the accounting group. Bunya users should be added as a standard member to the accounting group in line with the Bunya User Policy (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Account-Policy-2024-03.pdf). If the accounting group does not have an accounting group administrator, then new Bunya users are instructed to contact the accounting group owner. 
+25) New Bunya users are instructed to contact the accounting group administrator(s) of an accounting group to give them the accounting string for Slurm job submission and to add the new Bunya user as a standard member to the accounting group. Bunya users should be added as a standard member to the accounting group in line with the Bunya User Operational Procedure (https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Operational-Procedure.md). If the accounting group does not have an accounting group administrator, then new Bunya users are instructed to contact the accounting group owner. 
 
 26) Accounting group administrators take on the responsibility to add new Bunya users as standard members to the accounting group and to remove Bunya users who should no longer consume Bunya resources under the accounting group. This should be done in consultation with the accounting group owner. The final decision and responsibility of Bunya users and members in an accounting group rests with the accounting group owner. 
 
