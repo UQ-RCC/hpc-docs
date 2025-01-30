@@ -2,19 +2,17 @@
 
 This project is for providing _up-to-date_ information about HPC systems operated and supported by the UQ Research Computing Centre.
 
-[RCC Infrastructure Policies](policy/Policies.md)
-
 [Bunya User Guide](guides/Bunya-User-Guide.md)
-
-[Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
-Your spaces in *home*, *scratch*, *$TMPDIR* and *RDM*
-
-[Wiener User Guide](guides/Wiener-Guide.md)
 
 [onBunya](guides/OnDemand-Guide.md)<br>
 Webportal to access Bunya
 
-[Conda on Bunya and Wiener](guides/conda-environment.md)
+[RCC Infrastructure Policies](policy/Policies.md)
+
+[Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
+Your spaces in *home*, *scratch*, *$TMPDIR* and *RDM*
+
+[Conda on Bunya](guides/conda-environment.md)
 
 [Accounting Groups and Accounting Strings](guides/Accounting-group-admin.md)
 
