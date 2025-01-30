@@ -153,10 +153,13 @@ The output contains the size-occupied-on-disk in the first column and the actual
 
 #### How can I force a recall of my file from the lower layer(s)?
 
-_On a compute node via an onBunya or interactive batch job_
+_On a compute node via an onBunya session or interactive batch job_
 
-Use `/usr/local/bin/recall_medici FILEPATH`
-Wildcards are also supported.
+Use the recall_medici command. That command should be in your standard PATH, but in case it isn't, you can copy it completely using the icon on the right side of this code box:
+```
+/usr/local/bin/recall_medici FILEPATH
+```
+Replace FILEPATH with the name of the file(s) you wish to retrieve. Wildcards are also supported so you can retrieve the files in a folder.
 
 The `recall_medici` command is also available on data.qriscloud.org.au if you don't have access to Bunya.
 
