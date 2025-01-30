@@ -24,10 +24,6 @@ Your spaces in *home*, *scratch*, *$TMPDIR* and *RDM*
 <br>
 This is an external website that guides you in creating successful SLURM job submissions for Bunya HPC.
 
-[Information how to login and use the CVL@Wiener system](https://imagingtools.au/characterisation-virtual-laboratory/cvl-wiener)
-<br>
-This is an external website that includes information about gaining access and using the CVL@Wiener system.
-
 [A log of updates and changes to Bunya](/Bunya-updates.md)
 
 [RCC's older documentation set](https://rcc.uq.edu.au/rcc-user-guides-public)
