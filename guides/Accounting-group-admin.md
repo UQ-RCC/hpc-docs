@@ -2,7 +2,7 @@
 
 ## Accounting group policy
 
-Accounting group owners and administrators should read and consult the [Accounting Group Policy](../policy/Bunya-Accounting-Group-Policy-2024-03.pdf).
+Accounting group owners and administrators should read and consult the [Accounting Group Policy](../policy/Bunya-Accounting-Group-Operational-Procedure.md).
 
 ## Accounting groups
 
