@@ -14,16 +14,17 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The home directory should be used to install software, such as conda, python and R environments, scripts, and other software installed by `make` and `make install`, etc.
 * The home directory should **not** be used for data and output from calculations. The reason for this is that if it goes over one of the quotas (space or files) a user can effectively lock themsleves out of their account if they do not clean up (get back under quota) quickly. 
 * The home directory is **not backed up**.
-* The home directory should not be shared with other users.
+* The home directory **must not** be shared with other users.
 
 #### `/scratch/user/username`
 * Every user has a directory in `/scratch/user`.
 * Quotas are *150GB and 100,000 files*.
+* Quotas in a user's `/scratch/user` dictory may be increased.
 * The user scratch directory should be used to keep input and output of calculations.
 * The user scratch directory can also be used to install software.
 * The scratch user directory is **not backed up**.
 * Old files might be auto deleted
-* The scratch user directory should not be shared with other users.
+* The scratch user directory **must not** be shared with other users.
 
 ### Checking quotas and usage in /home and /scratch
 
@@ -31,7 +32,7 @@ Users can use the command `rquota` on Bunya to check their current quotas and us
 
 #### `$TMPDIR`
 
-* `$TMPDIR` is created automatically for each slurm job and is then automatcally deleted once the slurm job finishes. It is the ideal place for temporary files of jobs.
+* `$TMPDIR` is created automatically for each Slurm job and is then automatcally deleted once the Slurm job finishes. It is the ideal place for temporary files of jobs.
 * `$TMPDIR` provides up to 10TB of temporary space for each user during jobs. 
 * `$TMPDIR` is pre set. Do not create your own `$TMPDIR` or overwrite it with something else in your scripts.
 * `$TMPDIR` does not count towards user quotas in `/home` or `/scratch/user` or project quotas in `/scratch/project`.
@@ -39,7 +40,7 @@ Users can use the command `rquota` on Bunya to check their current quotas and us
 * `$TMPDIR` is not `/tmp`.
 * `$TMPDIR` is recommended if calculations produce a very large amount of (often very small) files.
 * Software that allows a flag or option to set a *temporary* or *scratch* directory should always use `$TMPDIR` and ***NOT*** `/tmp`.
-* To use `$TMPDIR` for software that does not allow to set a temporary/scratch directory, change to `$TMPDIR` (`cd $TMPDIR`), then copy all required input files to `$TMPDIR` or use the full path to point to input files in `/scratch` or `/home` or `/QRISdata` (for `/QRISdata` restrictions apply, see below). After the calculation copy all ouput needed to `/scratch` or `/QRISdata` (see below for restrictions on `/QRISdata`) and make sure to tar and/or zip output if required.
+* To use `$TMPDIR` for software that does not allow to set a temporary/scratch directory, change to `$TMPDIR` (`cd $TMPDIR`), then copy all required input files to `$TMPDIR` or use the full path to point to input files in `/scratch` or `/home` or `/QRISdata` (for `/QRISdata` restrictions apply, see below). After the calculation copy all ouput needed to `/scratch` or `/QRISdata` (see below for restrictions on `/QRISdata`) and make sure to tar and/or zip output if required. This will need to be done in your Slurm submit script.
 
   ```
   cd $TMPDIR
