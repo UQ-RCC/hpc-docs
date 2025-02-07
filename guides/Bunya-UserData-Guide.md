@@ -26,8 +26,6 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * Old files might be auto deleted
 * The scratch user directory **must not** be shared with other users.
 
-### Checking quotas and usage in /home and /scratch
-
 Users can use the command `rquota` on Bunya to check their current quotas and usage. It provides quotas and usage for `/home`, `/scratch/user` and `/scratch/project` (more information below) they have access too.
 
 #### `$TMPDIR`
