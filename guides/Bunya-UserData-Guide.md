@@ -19,9 +19,9 @@ The spaces below are individual spaces. This means, by default, they are only ac
 #### `/scratch/user/username`
 * Every user has a directory in `/scratch/user`.
 * Quotas are *150GB and 100,000 files*.
-* Quotas in a user's `/scratch/user` dictory may be increased.
-* The user scratch directory should be used to keep input and output of calculations.
-* The user scratch directory can also be used to install software.
+* Quotas in a user's `/scratch/user` directory may be increased.
+* The scratch user directory should be used to keep input and output of calculations.
+* The scratch user directory may also be used to install software.
 * The scratch user directory is **not backed up**.
 * Old files might be auto deleted
 * The scratch user directory **must not** be shared with other users.
@@ -55,8 +55,9 @@ Users can use the command `rquota` on Bunya to check their current quotas and us
 Scratch projects are shared spaces in `/scratch` that provide more space and space that is shared by members of a group.
 
 * Apply for a scratch project by sending a request to rcc-support@uq.edu.au and you will then be send the link to the application form.
-* Scratch projects should be used to install software that needs to be shared.
+* Scratch projects may be used to install software that needs to be shared but applying for space in`/sw` is preferred.
 * Scratch projects can be used to share data sets and output that multiple users need access to during their calculations.
+* Scratch projects should not be used to provide additional scratch space for single users. For single users the quotas in `/scratch/user` can be increased. 
 * The scratch project directory is **not backed up**.
 * Old files might be auto deleted
 
