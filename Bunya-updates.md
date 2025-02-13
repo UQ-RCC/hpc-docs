@@ -19,7 +19,6 @@
 
 * There is a 2-week limit on walltime for general and a 1-week limit on all GPU partitions.
 * There are no higher priority partitions. Higher priority, such as for debug jobs, is now done by requesting a QoS (quality of service) with --qos=name.
-
 * Available QoS:
   * normal (this is the default and allows no GPU)
   * gpu
