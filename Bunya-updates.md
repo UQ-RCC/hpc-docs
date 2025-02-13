@@ -1,5 +1,32 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 5 November 2024
+
+* Bunya partitions and how to request GPUs and debug priority has changed.
+* Available partitions are:
+  * general (this is the default partition)
+  * gpu_cuda
+  * gpu_rocm
+  * gpu_viz (onBunya specific and should not be used outside of onBunya)
+  * gpu_sxm (approved users only)
+
+* There is a 2-week limit on walltime for general and a 1-week limit on all GPU partitions.
+* There are no higher priority partitions. Higher priority, such as for debug jobs, is now done by requesting a QoS (quality of service) with --qos=name.
+
+* Available QoS:
+  * normal (this is the default and allows no GPU)
+  * gpu
+  * debug (higher priority but limits resources)
+  * mig
+  * sxm
+
+## 21 October 2024
+
+* The next scheduled maintenance on Bunya will occur between 9pm Monday 4th November and 9pm Tuesday 5th November.
+* There will be no access to Bunya during the maintenance. This includes no access to data in /home, /scratch/user and /scratch/project.
+* Bunya queues will not schedule jobs that would run into the maintenance window.
+* Wiener is not affected by this maintenance and will remain open to users. Wiener will be shutdown and decommissioned on Friday 29th of November 2024.
+
 ## 13 August 2024
 
 * The way users use DUO for multifactor authentication has changed. After you enter your password, you will now need to enter a 6 digit passcode from the DUO app, this replaces push notification approval.
