@@ -53,7 +53,8 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - There is 1 A100 NVIDIA GPU nodes (epyc3) with 3 A100 cards each, 1 A100 NVIDIA GPU node with 2 A100 cards. Each A100 card has 80GB of GPU RAM. 
 - There are 2 A100 NVIDIA GPU node with MIG A100 cards leading to 21 MIG slices (7 per A100 card) each with 10GB of GPU RAM.
 - There are 3 A16 NVIDIA GPU nodes (epyc4) with 12 A16 GPUs each (36 in total). The A16 GPU are good for vizualisation and accelerated desktops.
-- There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RaM.
+- There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RA.M.
+- There is 1 AMD Mi300x GPU node (epyc4) with 8 Mi300x cards. Each Mi300x card has 192GB GPU RAM  
 - For a full table of all available compute nodes and their features like GPU, Memory and CPUs see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions-and-nodes)
  
 - Users have a location in `/home` and `/scratch/user`.
