@@ -469,6 +469,7 @@ normal
 debug
 mig
 sxm
+sdf
 gpu
 viz
 ```
@@ -482,7 +483,7 @@ QoS are used to control access to resources and apply sustainable limits.<br>
 mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1<br>
 sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
 viz for onBunya jobs only<br>
-onBunya Accelerated Desktops with 2 or 3 GPUs will submitted with the debug QoS.<br>
+onBunya Accelerated Desktops with 2 or 3 GPUs will submitted with the gpu QoS.<br>
 gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.<br>
 
 
@@ -494,6 +495,7 @@ gpu still requires that at least one GPU is requested for the job as the default
 | gpu | gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 10 | none | 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
 | mig | gpu_cuda | open | 10 | none | 441 CPUs, <br> 1932 GB CPU memory, <br> 21 GPUs, <br> 1000 jobs submitted |
 | sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, <br> 1 T CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 50 jobs submitted |
+|sdf | gpu_rocm| approved users | 10 | none | 256 CPUs, <br> 2 T CPU memory, <br> 8 GPUs |
 | viz | general, <br> gpu_viz| onBunya only | 20 | none | 1 day,<br> 192 CPUs (96 CPU per job), <br> 500G per job, <br> 2 GPUs (1 GPU per job), <br> 2 running jobs, <br> 20 jobs submitted | 
 <br>
 
@@ -531,12 +533,15 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 |||||||||
 | gpu_rocm | bun[001-002] | 2 | 500000 | 192 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
+| gpu_rocm | bun145 | 1 | 2000000 | 128 | epyc4, <br> rocm | gpu:mi300x:8| |
 
 <br>
 
 ## Slurm scripts
 
-Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cores (`--ntask-per-node=96`)  192 threads (`--cpu-per-task=192`)  is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 96/192 cores/threads **do some testing first**.
+Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cores (`--ntask-per-node=96`)  192 threads (`--cpu-per-task=192`)  is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 96/192 cores/threads **do some testing first**. 
+
+The GPU nodes can have different nmbers of CPUs available. Users are reminded to check and request sensible CPU numbers with their GPU requests.
 
 The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
 
@@ -566,7 +571,7 @@ The different request flags mean the following:
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `gpu_rocm, gpu_cuda, gpu_sxm` = 168 hours (1 week).<br>
 <br>
-`#SBATCH --qos=[normal,gpu,debug,mig,sxm]` - to request a quality of service for the job.<br>
+`#SBATCH --qos=[normal,gpu,debug,mig,sxm,sdf]` - to request a quality of service for the job.<br>
 `#SBATCH -o filename` - filename where the standard output should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -e filename` - filename where the standard error should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
@@ -634,7 +639,7 @@ For L40s change to<br>
 
 ### Simple script for AMD ROCM GPUs.
 
-**Nodes bun001, bun002, and bun070. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these. See the [AMD Infinity Hub](https://www.amd.com/en/technologies/infinity-hub) for some available containers**
+**Nodes bun001, bun002, bun070, and bun145. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these.**
 
 ```
 #!/bin/bash --login
@@ -655,6 +660,10 @@ module-loads-go-here
 
 srun executable < input > output
 ```
+For Mi300x change to<br>
+`#SBATCH --gres=gpu:mi300x:1`<br>
+With `--qos=gpu` you can ask for up to 4<br>
+With `--qos=sdf` you can ask for all 8<br>
 
 
 ### Simple script for CPUs and single node
