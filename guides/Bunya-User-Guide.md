@@ -51,7 +51,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (18 in total). Each L40 card has 48GB of GPU RAM. The L40 are good for visualisation and FP32 workloads.
 - There are 2 L40s NVIDIA GPUs nodes (epyc4) with 3 L40s cards each (6 in total). Each L40s card has 48GB of GPU RAM. The L40s are good for visualisation and FP32 and FP16 workloads.
 - There is 1 A100 NVIDIA GPU nodes (epyc3) with 3 A100 cards each, 1 A100 NVIDIA GPU node with 2 A100 cards. Each A100 card has 80GB of GPU RAM. 
-- There are 2 A100 NVIDIA GPU node with MIG A100 cards leading to 21 MIG slices (7 per A100 card) each with 10GB of GPU RAM.
+- There are 2 A100 NVIDIA GPU node with MIG A100 cards leading to 3 MIG slices with 40GB of GPU RAM, 3 MIG slices with 20GB of GPU RAM and 6 MIG slices with 10GB of GPU RAM.
 - There are 3 A16 NVIDIA GPU nodes (epyc4) with 12 A16 GPUs each (36 in total). The A16 GPU are good for vizualisation and accelerated desktops.
 - There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RA.M.
 - There is 1 AMD Mi300x GPU node (epyc4) with 8 Mi300x cards. Each Mi300x card has 192GB GPU RAM  
@@ -521,7 +521,7 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 | general| bun[083-115,126-143] | 51 | 1500000 | 192 | epyc4 | (null) | 1 |
 |||||||||
 | gpu_cuda | bun003 | 1 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
-| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:21 | 6 |
+| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda10gb, <br> cuda20gb, <br> cuda40gb  | gpu:nvidia_a100_80gb_pcie_1g.10gb:6, <br> gpu:nvidia_a100_80gb_pcie_1g.20gb:e, <br> gpu:nvidia_a100_80gb_pcie_1g.40gb:3| 6, <br> 12, <br> 24 |
 | gpu_cuda | bun068 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
 | gpu_cuda | bun[071-076,116] | 7 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
