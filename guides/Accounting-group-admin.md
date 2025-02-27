@@ -37,7 +37,7 @@ Accounting group owners can add users as administrators to the accounting group.
 1) Go to https://www.qriscloud.org.au/ and click on *Account* to log in
 2) Click on *Services Dashboard*
 3) Under *Groups* find the relevant accounting group, then click on the group's link
-4) This pages gives instructions on how to add users and administrators to the accointing group and remove users from the accounting group.
+4) This pages gives instructions on how to add users and administrators to the accounting group and remove users from the accounting group.
 5) This page also shows the AccountString
 
 
