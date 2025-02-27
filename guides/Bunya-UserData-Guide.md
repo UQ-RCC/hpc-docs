@@ -66,7 +66,7 @@ Scratch projects are shared spaces in `/scratch` that provide more space and spa
 Scratch projects require an access group. This can be an RDM storeage record access group (QNNNN) or a specific access group created by RCC for the scratch project. Users, not RCC, manage the access groups either via the [RDM portal](https://rdm.uq.edu.au/) for QNNNN groups, or via the [QRIScloud Portal](https://www.qriscloud.org.au/). 
 
 For RDM storage record access groups (QNNNN) the RDM storage record owner add users as collaborators to the RDM storeage recrod via the [RDM portal](https://rdm.uq.edu.au/). 
-For QRIScloud access groups, the group owner or administrator needs to go to the [QRIScloud Portal](https://www.qriscloud.org.au/) and click on *Account* to log in. Tnen they need to go to *Services Dashboard* and there look under *Groups* for the respective *Scratch Project group* and click on the link. THis page outlines how to add and remove users from the access group for the proejct.
+For QRIScloud access groups, the group owner or administrator needs to go to the [QRIScloud Portal](https://www.qriscloud.org.au/) and click on *Account* to log in. Then they need to go to *Services Dashboard* and there look under *Groups* for the respective *Scratch Project group* and click on the link. This page outlines how to add and remove users from the access group for the proejct.
 
 New users added either way will have to wait for this to take affect as permissions set in the [RDM portal](https://rdm.uq.edu.au/) need to be propagated to Bunya. In both case user should create a new login to Bunya to have new groups available in their environment. Users can check which groups they belong to by typing the command `groups` on Bunya.
 
