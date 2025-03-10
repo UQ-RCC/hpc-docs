@@ -50,6 +50,15 @@ Users can use the command `rquota` on Bunya to check their current quotas and us
 
 ### Shared spaces, often require an application
 
+#### `/scratch/opendata`
+
+The opendata space is a read-only space to house data sets and models. Current data includes, GTDB, BLAST, Kraken, CheckM2, SingleM, nuScens, nuScenes-C, huggingface, ollama, gguf, and many more.
+
+Users are required to check if the data they need is already housed in `/scratch/opendata` or could be housed there before requesting an increase to their `/scratch/user` space or scratch project. 
+
+If data is not yet available in `/scratch/opendata` users can submit a request for data to be installed there.
+
+
 #### `/scratch/project`
 
 Scratch projects are shared spaces in `/scratch` that provide more space and space that is shared by members of a group.
