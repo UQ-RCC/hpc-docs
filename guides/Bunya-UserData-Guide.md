@@ -1,6 +1,6 @@
 # Where should my data and software go on Bunya
 
-Bunya has several spaces users have access to to keep their data and software.
+Bunya has several spaces users have access to to keep their data and software. These spaces are subject to [Bunya User Data Spaces Operational Procedures](../../policy/Bunya-User-Data-Spaces-Operational-Procedure.md).
 
 ### Spaces available by default for every user
 
