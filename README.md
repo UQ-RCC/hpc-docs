@@ -10,7 +10,7 @@ Webportal to access Bunya
 [RCC Infrastructure Policies and Operational Procedures](policy/Policies.md)
 
 [Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
-Your spaces in *home*, *scratch*, *$TMPDIR* and *RDM*
+Your spaces in *home*, *scratch*, *opendata*, *$TMPDIR* and *RDM*
 
 [Conda on Bunya](guides/conda-environment.md)
 
