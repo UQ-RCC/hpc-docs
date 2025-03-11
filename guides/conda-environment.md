@@ -33,7 +33,9 @@ Please load the relevant module.
 
 ```
 anaconda3/2022.05
+anaconda3/2023.09-0
 miniconda3/4.12.0
+miniconda3/23.9.0-0
 ```
 Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3` or `$EBROOTMINICONDA3` will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3 or miniconda3 you loaded.
 
