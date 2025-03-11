@@ -24,8 +24,9 @@ NumPy, Pandas, bioinformatics and genomics software, and many more.
 
 ## Important warning on user installed conda and onBunya usage
 
-If you have the conda initialisation in your `.bashrc` file then you cannot use onBunya. To use the virutal desktop in onBunya you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
-`conda init --reverse`<br>
+>[!IMPORTANT]
+>If you have the conda initialisation in your `.bashrc` file then you cannot use onBunya. To use the virutal desktop in onBunya you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
+>`conda init --reverse`<br>
 
 
 ## Using a conda module
