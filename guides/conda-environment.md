@@ -19,7 +19,7 @@ Users can also clean their `.bashrc` file by using `conda init` again with <br>
 
 ## Advice on conda and onBunya usage
 
-If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virutal desktop in Open OnDemand you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
+If you have the conda initialisation in your `.bashrc` file then you cannot use onBunya. To use the virutal desktop in onBunya you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse`<br>
 
 
