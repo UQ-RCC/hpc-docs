@@ -13,13 +13,13 @@ NumPy, Pandas, bioinformatics and genomics software, and many more.
 >`conda deactivate` <br>
 >to switch it off again.
 >This is keeping the shell clean and conda base and other conda environments can so be loaded for jobs only.
-
-Users can clean their `.bashrc` file by opening it and removing everything between and including these two lines<br>
-`# >>> conda initialize >>>`<br>
-`# <<< conda initialize <<<`<br>
-
-Users can also clean their `.bashrc` file by using `conda init` again with <br>
-`conda init --reverse`<br>
+>
+>Users can clean their `.bashrc` file by opening it and removing everything between and including these two lines<br>
+>`# >>> conda initialize >>>`<br>
+>`# <<< conda initialize <<<`<br>
+>
+>Users can also clean their `.bashrc` file by using `conda init` again with <br>
+>`conda init --reverse`<br>
 
 
 ## Important warning on user installed conda and onBunya usage
