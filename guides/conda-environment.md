@@ -1,13 +1,18 @@
-# Conda, conda installs and conda environments
+# Conda, conda modules and conda environments
 
-## Advice on user installed conda
+Conda is a Python environment and package manager. It supports isolated environments and allows you to manage dependencies for different Python projects
+without interfering with system-wide packages or each other. It also provides a large set of precompiled binaries for applications such as Tensorflow, PyTorch,
+NumPy, Pandas, bioinformatics and genomics software, and many more.
 
-The advice to users is to avoid running the conda initialisation which writes to the user's `.bashrc` file. This changes the user's shell permanently and can cause problems. If your prompt has a `(base)` attached to it when you log in then your `.bashrc` file has already been changed. You can reverse this by cleaning up your `.bashrc` file and sourcing the `conda.sh` file from your installation. Users can then use<br>
-`conda activate`<br> 
-to switch on the conda base environment and<br>
-`conda deactivate` <br>
-to switch it off again.
-This is keeping the shell clean and conda base and other conda environments can so be loaded for jobs only.
+## Important warning on user installed conda
+
+>[!IMPORTANT]
+>The advice to users is to avoid running the conda initialisation which writes to the user's `.bashrc` file. This changes the user's shell permanently and can cause problems. If your prompt has a `(base)` attached to it when you log in then your `.bashrc` file has already been changed. You can reverse this by cleaning up your `.bashrc` file and sourcing the `conda.sh` file from your installation. Users can then use<br>
+>`conda activate`<br> 
+>to switch on the conda base environment and<br>
+>`conda deactivate` <br>
+>to switch it off again.
+>This is keeping the shell clean and conda base and other conda environments can so be loaded for jobs only.
 
 Users can clean their `.bashrc` file by opening it and removing everything between and including these two lines<br>
 `# >>> conda initialize >>>`<br>
@@ -17,7 +22,7 @@ Users can also clean their `.bashrc` file by using `conda init` again with <br>
 `conda init --reverse`<br>
 
 
-## Advice on conda and onBunya usage
+## Important warning on user installed conda and onBunya usage
 
 If you have the conda initialisation in your `.bashrc` file then you cannot use onBunya. To use the virutal desktop in onBunya you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 `conda init --reverse`<br>
