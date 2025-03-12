@@ -29,11 +29,9 @@ NumPy, Pandas, bioinformatics and genomics software, and many more.
 >`conda init --reverse`<br>
 
 
-## Using a conda module
+## Using existing Conda modules
 
-### Bunya
-
-There is no need to install Anaconda3 or Miniconda3 yourself. Both are available as modules on Bunya. 
+There is no need to install Conda yourself. Several versions are available as modules on Bunya. 
 
 Please load the relevant module. 
 
@@ -42,12 +40,16 @@ anaconda3/2022.05
 anaconda3/2023.09-0
 miniconda3/4.12.0
 miniconda3/23.9.0-0
+miniforge/24.3.0-0
+miniforge/24.11.3-0
 ```
-Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3` or `$EBROOTMINICONDA3` will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3 or miniconda3 you loaded.
+Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3`, `$EBROOTMINICONDA3`, or `$ROOTMINIFORGE' will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3, miniconda3, or miniforge you loaded.
 
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br>
 or<br>
 `source $EBROOTMINICONDA3/etc/profile.d/conda.sh`<br>
+or<br>
+`source $ROOTMINIFORGE/etc/profile.d/conda.sh`<br>
 
 Now your shell is ready to create a conda environment.
 
@@ -61,7 +63,6 @@ And to get out of the base conda environment you can do<br>
 `(base) [username@bunya3 ~]$ conda deactivate`<br>
 `[username@bunya3 ~]$`<br>
 
-This also works on Wiener.
 
 ## Creating a new conda environment
 
