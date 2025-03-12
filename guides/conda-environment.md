@@ -43,7 +43,7 @@ miniconda3/23.9.0-0
 miniforge/24.3.0-0
 miniforge/24.11.3-0
 ```
-Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3`, `$EBROOTMINICONDA3`, or `$ROOTMINIFORGE' will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3, miniconda3, or miniforge you loaded.
+Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3`, `$EBROOTMINICONDA3`, or `$ROOTMINIFORGE` will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3, miniconda3, or miniforge you loaded.
 
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br>
 or<br>
