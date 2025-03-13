@@ -36,7 +36,7 @@ There is no need to install Conda yourself. Several Conda modules are available 
 - `miniforge`
 - `anaconda3`
 - `miniconda3`
-- 
+  
 
 ### Miniforge features
 - Miniforge includes the `mamba` command in addition to `conda`.
