@@ -31,9 +31,13 @@ NumPy, Pandas, bioinformatics and genomics software, and many more.
 
 ## Using existing Conda modules
 
-There is no need to install Conda yourself. Several versions are available as modules on Bunya. 
+There is no need to install Conda yourself. Several Conda modules are available on Bunya for managing Python environments.
 
-Please load the relevant module. 
+- `miniforge`
+- `anaconda3`
+- `miniconda3`
+
+Several versions are available as modules on Bunya. Use `module avail conda` and/or `module avail miniforge` to check on current versions available.
 
 ```
 anaconda3/2022.05
@@ -43,7 +47,10 @@ miniconda3/23.9.0-0
 miniforge/24.3.0-0
 miniforge/24.11.3-0
 ```
-Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3`, `$EBROOTMINICONDA3`, or `$ROOTMINIFORGE` will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter wich version of anaconda3, miniconda3, or miniforge you loaded.
+
+Please load the relevant module by using the full name and version.
+
+Then set up your shell to use the chosen conda version. Using the environmental variables `$EBROOTANACONDA3`, `$EBROOTMINICONDA3`, or `$ROOTMINIFORGE` will ensure that you pick the correct one on any node architecture. This is important as the paths to the installation can differ on compute nodes with different architecture. It also means it will still work no matter which version of anaconda3, miniconda3, or miniforge you loaded.
 
 `source $EBROOTANACONDA3/etc/profile.d/conda.sh`<br>
 or<br>
