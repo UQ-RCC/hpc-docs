@@ -37,7 +37,13 @@ There is no need to install Conda yourself. Several Conda modules are available 
 - `anaconda3`
 - `miniconda3`
 
-Several versions are available as modules on Bunya. Use `module avail anaconda miniconda miniforge` to check on current versions available.
+### Miniforge Features
+- Miniforge includes the `mamba` command in addition to `conda`.
+- `mamba` is a drop-in replacement for `conda`, offering faster dependency resolution. The two commands are interchangeable.
+- Environments created with `mamba` are still referred to as **Conda** environments and follow the same configuration methods.
+- By default, Miniforge uses the `conda-forge` channel for package management.  
+
+Several versions of Anaconda3, Miniconda3, and Miniforge, are available as modules on Bunya. Use `module avail anaconda miniconda miniforge` to check on current versions available.
 
 ```
 anaconda3/2022.05
@@ -58,9 +64,12 @@ or<br>
 or<br>
 `source $ROOTMINIFORGE/etc/profile.d/conda.sh`<br>
 
-Now your shell is ready to create a conda environment.
+Now your shell is ready to use, create, and modify a conda environment.
+
 
 ## Base conda environment
+
+Conda environments are self-contained spaces that contain the software and dependencies needed to run your Python applications.
 
 If you want to activate the base conda environment you can do<br>
 `[username@bunya3 ~]$ conda activate`<br>
