@@ -37,7 +37,7 @@ There is no need to install Conda yourself. Several Conda modules are available 
 - `anaconda3`
 - `miniconda3`
 
-Several versions are available as modules on Bunya. Use `module avail conda` and/or `module avail miniforge` to check on current versions available.
+Several versions are available as modules on Bunya. Use `module avail anaconda miniconda miniforge` to check on current versions available.
 
 ```
 anaconda3/2022.05
