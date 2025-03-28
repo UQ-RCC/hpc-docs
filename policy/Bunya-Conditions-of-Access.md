@@ -1,9 +1,9 @@
 ## Bunya Conditions of Access
-dated 2024-02-02 
+dated 2025-03-28 
 
-**Every user agrees to these conditions before they are granted access to Bunya**
+**By accessing Bunya a user agrees to the below terms of conditions of access.**
 
-The questions in this form determine the basic understanding of a user (new or experienced) of the provided file systems and job submission system on University of Queensland owned and operated HPCs such as Bunya. 
+The terms in this form determine the basic understanding of a user (new or experienced) of the provided file systems and job submission system on University of Queensland owned and operated HPCs such as Bunya. 
 
 * I understand that a basic knowledge of Unix is required to use HPC efficiently. An introduction to basic Unix commands is provided in Set 3 of https://www.qcif.edu.au/training/hpc-training-resources 
 
@@ -23,6 +23,8 @@ The questions in this form determine the basic understanding of a user (new or e
 
 * I understand that I should not be continuously reading from and/or writing to a directory/folder in /QRISdata during a calculation. Once-off read of input and/or once-off write of output is acceptable. 
 
-* I understand that Bunya is for academic use only. Commercial and/or consultation work should not be using Bunya. 
+* I understand that Bunya is for academic use only. Commercial and/or consultation work should not be using Bunya.
+
+* I understand that unless personal use is explicitly allowed, software or data licensed to UQ, which includes Open-Source licensed software or data, must only be used for purposes legitimately associated with UQ's operations as a teaching and research institution. By obtaining or using UQ-licensed software or data I must understand and comply with the terms and conditions for use of the software or data. 
 
 * ***I understand that if I run calculations or processes on the login nodes without an acceptable reason, or that if I submit my calculations from /QRISdata, or that if my calculations continuously write to and/or read from /QRISdata, or if I use Bunya for commercial and/or consultation work my access to Bunya could be suspended.*** 
