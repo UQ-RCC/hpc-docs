@@ -131,6 +131,32 @@ After making these changes:
 > [!Note]
 > Any existing environments and cached packages in `/home/username/.conda/` will remain there unless they are moved manually or recreated in the new location.
 
+## Conda channels
+
+Conda channels are repositories that host precompiled packages.
+
+### Defaults channel
+
+By default, Conda pulls packages from the `defaults` channel, maintained by Anaconda, Inc. Packages available in `defaults` are curated by Anaconda Inc. who prioritise
+stability and compatibility. Some applications may also include commercial or proprietary optimisations.
+
+### Conda-Forge channel
+
+`conda-forge` is a community-driven open-source channel. It offers a broader selection of packages, which are generally more up to date that those in `defaults`. For most use cases `conda-forge` is recommended due to its broader package selection and frequency of updates.
+
+### Other channels
+
+Other channels are available such as:
+- `bioconda` – bioinformatics and genomics software
+- `nvidia` – GPU-accelerated libraries
+- `pytorch` – official PyTorch packages
+
+These channels should be used as needed on a case-by-case basis. In most cases, the required packages can be found on `conda-forge`, but certain specialized
+packages may only be available in specific channels.
+
+> [!NOTE]
+> Installing packages, such as GPU-accelerated libraries, can usually be done using the `conda-forge` channel. A specialised channel such as `nvidia`, should be used when there is a special need to do so.
+> Most bioinformatics packages can usually be done using the `conda-forge` and `bioconda` channels.
 
 ## Creating a new Conda environment
 
@@ -174,7 +200,7 @@ To check which environment is currently active and get other useful information 
 conda info
 ```
 
-## Modifying an Environment
+## Modifying a Conda environment
 
 When an environment is active packages can be modified with Conda commands such as:
 
@@ -190,7 +216,7 @@ conda remove <package>
 
 Environments must be deactivated before they can be deleted using Conda.
 
-## Removing and Environment
+## Removing a Conda environment
 
 Remove an environment in your default location by running:
 
@@ -219,14 +245,14 @@ Pip can be used to install local packages (e.g., locally built) or packages that
 - Package isolation
 - Removing environments including packages and dependencies
 
-### Mixing Pip and Conda Packages
+### Mixing Pip and Conda packages
 
 Although it is not recommended to mix Pip and Conda packages, it is possible to do so by following these rules:
 - Ensure the Conda environment is activated before using Pip.
 - **Always** install the required Conda packages first.
 - Avoid modifying the environment with Conda commands after installing packages with Pip as it may cause issues. Removing and re-creating the environment is generally the best way to fix any problems created.
 
-### Using Pip Packages Exclusively
+### Using Pip packages exclusively
 > [!CAUTION]
 > It is important **not** to install pip packages in 'bare' or 'empty' Conda environments. Doing so can lead to problems with package paths.
 
