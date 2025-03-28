@@ -147,10 +147,6 @@ or
 
 `/scratch/project/project-name/rest-of-path/envs`
 
-On Wiener the location can be 
-
-`/scratch/my-org/username/rest-of-path/envs`
-
 This will allow you to install environments and find them by name. You will not need the full path to activate the environment.
 
 ## Activating a conda environment
