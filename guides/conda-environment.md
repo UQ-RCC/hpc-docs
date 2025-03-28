@@ -161,11 +161,90 @@ Tip: Install all the programs that you want in this environment at the same time
 
 `conda activate myenv`
 
+You can also activate environments outside your default location by specifying its full path:
+
+```
+conda activate /scratch/project/projectname/myenv
+```
+
+After activating an environment Python will use the packages and dependencies installed within it.
+
+To check which environment is currently active and get other useful information run:
+```
+conda info
+```
+
+## Modifying an Environment
+
+When an environment is active packages can be modified with Conda commands such as:
+
+```
+conda install <package>
+conda update <package>
+conda remove <package>
+```
+
 ## Deactivating a Conda environment
 
 `conda deactivate myenv`
 
+Environments must be deactivated before they can be deleted using Conda.
+
+## Removing and Environment
+
+Remove an environment in your default location by running:
+
+```
+conda env remove --name myenv
+```
+
+After removing an environment, clearing your Conda cache can be used to free up disk space and remove package files that are no longer needed. To do this, run:
+
+```
+conda clean --all
+```
+
+This command will:
+
+- Remove unused package tarballs from the package cache.
+- Clear extracted package files.
+- Remove temporary Conda files and logs.
+
 For further information on Conda environments please go [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#).
+
+## Using Pip
+
+Pip can be used to install local packages (e.g., locally built) or packages that are not available from Conda channels. Pip packages can be installed alongside Conda packages, but it is also useful to install Pip packages in an empty Conda environment to make use of Conda's facilities such as:
+- Installing specific Python versions
+- Package isolation
+- Removing environments including packages and dependencies
+
+### Mixing Pip and Conda Packages
+
+Although it is not recommended to mix Pip and Conda packages, it is possible to do so by following these rules:
+- Ensure the Conda environment is activated before using Pip.
+- **Always** install the required Conda packages first.
+- Avoid modifying the environment with Conda commands after installing packages with Pip as it may cause issues. Removing and re-creating the environment is generally the best way to fix any problems created.
+
+### Using Pip Packages Exclusively
+> [!CAUTION]
+> It is important **not** to install pip packages in 'bare' or 'empty' Conda environments. Doing so can lead to problems with package paths.
+
+A Conda environment with no Conda packages installed is known as a 'bare' or 'empty' environment. Creating an environment using the following command will result in a bare environment.
+
+```
+conda create --name myenv-for-pip
+```
+Before an environment can be used for installing Pip applications it must be 'populated' by installing Python. Specifying `python` when creating the Conda environment will install Python automatically:
+
+```
+conda create --name myenv-for-pip python=3.10
+```
+
+This will create a populated Conda environment `myenv-for-pip` with Python 3.10, ready to install pip applications.
+
+
+
 
 
 
