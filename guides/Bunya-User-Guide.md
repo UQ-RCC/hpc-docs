@@ -521,7 +521,7 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 | general| bun[083-115,126-143] | 51 | 1500000 | 192 | epyc4 | (null) | 1 |
 |||||||||
 | gpu_cuda | bun003 | 1 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
-| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:6, <br> gpu:nvidia_a100_80gb_pcie_1g.20gb:3, <br> gpu:nvidia_a100_80gb_pcie_1g.40gb:3| 6, <br> 12, <br> 24 |
+| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:6, <br> gpu:nvidia_a100_80gb_pcie_2g.20gb:3, <br> gpu:nvidia_a100_80gb_pcie_3g.40gb:3| 6, <br> 12, <br> 24 |
 | gpu_cuda | bun068 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
 | gpu_cuda | bun[071-076,116] | 7 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
