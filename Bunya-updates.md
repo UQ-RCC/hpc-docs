@@ -1,5 +1,11 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 14 April 2025
+
+* The next scheduled maintenance on Bunya will occur between 9pm Monday 12th May and 9pm Tuesday 13th May.
+* There will be no access to Bunya during the maintenance. This includes no access to data in /home, /scratch/user and /scratch/project.
+* Bunya queues will not schedule jobs that would run into the maintenance window.
+
 ## 6 January 2025
 
 * The next scheduled maintenance on Bunya will occur between 9pm Monday 10th February and 9pm Tuesday 11th February.
