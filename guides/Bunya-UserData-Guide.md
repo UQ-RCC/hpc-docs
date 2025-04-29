@@ -30,9 +30,9 @@ Users can use the command `rquota` on Bunya to check their current quotas and us
 
 #### `$TMPDIR`
 
-* `$TMPDIR` is created automatically for each Slurm job and is then automatcally deleted once the Slurm job finishes. It is the ideal place for temporary files of jobs.
-* `$TMPDIR` provides up to 10TB of temporary space for each user during jobs. 
-* `$TMPDIR` is pre set. Do not create your own `$TMPDIR` or overwrite it with something else in your scripts.
+* `$TMPDIR` is created automatically for each Slurm job and is then automatically deleted once the Slurm job finishes. It is the ideal place for temporary files of jobs.
+* `$TMPDIR` currently provides upto 10TB (soft limit) and 11TB (hard limit) of temporary space for upto 10,485,760 (soft limit) and 11,534,336 (hard limit) files. These limits apply to the _aggregate_ across all running jobs _for each user_. 
+* `$TMPDIR` is pre-set and unique for each running job. Do not create your own `$TMPDIR` or overwrite it with something else in your scripts.
 * `$TMPDIR` does not count towards user quotas in `/home` or `/scratch/user` or project quotas in `/scratch/project`.
 * `$TMPDIR` is not `/scratch/user`.
 * `$TMPDIR` is not `/tmp`.
