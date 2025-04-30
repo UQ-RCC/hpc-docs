@@ -23,7 +23,7 @@ The terms in this form determine the basic understanding of a user (new or exper
 
 * I understand that I should not be continuously reading from and/or writing to a directory/folder in /QRISdata during a calculation. Once-off read of input and/or once-off write of output is acceptable. 
 
-* I understand that Bunya is for academic use only. Commercial and/or consultation work should not be using Bunya.
+* I understand that Bunya is for academic research use only. Commercial and/or consultation work should not be using Bunya.
 
 * I understand that unless personal use is explicitly allowed, software or data licensed to UQ, which includes Open-Source licensed software or data, must only be used for purposes legitimately associated with UQ's operations as a teaching and research institution. By obtaining or using UQ-licensed software or data I must understand and comply with the terms and conditions for use of the software or data. 
 
