@@ -410,20 +410,32 @@ Users have access to a `debug` QoS for quick testing of new jobs and codes etc.
 
 ### Interactive jobs
 
-User should use interactive jobs to do quick testing and if they need to use a graphical user interface (GUI) to run their calculations. This could include jupyter, spider, etc. salloc is used to submit an interactive job and you should specify the required resources via the command line. IMPORTANT: Interactive jobs should be limited to a single node. Multinode jobs are required to be submitted as a batch job.
+User should use interactive jobs to do quick testing and if they need to use a graphical user interface (GUI) to run their calculations. This could include jupyter, spider, etc. 
+Filesystem operations (e.g. housekeeping tasks, packing and unpacking data sets, copying data from/to RDM or scratch, pulling data from external sources) is much more efficient on a compute node compared with the login nodes.
+
+The salloc is used to submit an interactive job and you should specify the required resources via the command line. IMPORTANT: Interactive jobs should be limited to a single node. Multinode jobs are required to be submitted as a batch job.
 
 **Jobs need to request all resources they need or they will fail. This includes GPUs (default is zero) and walltime.** 
 
-**Use this full command line to create an interactive session on a compute node.**
-<br>
-**You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
+#### How do I launch an interactive job ?
 
+**Use this full command line to create an interactive session on a compute node. Use the copy icon on the right hand side.**
+<br>
 ```
 salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=general --qos=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
+<br>**You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
+
+#### How can I confirm that I am running on a compute node ?
+
+Your shell login prompt will usually include the name of the node. 
+However, some people sometimes don't see that (notably when they use conda environments).
+
 You can use the command<br>
 `hostname`<br>
-to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
+to check that you are on a compute node. If the command output includes `bunya1` or `bunya2` then you are still on a login node. <br> **Do not start your calculation, compile or environment install on a login node.* Make sure you are on a compute node. 
+
+When an interactive job reaches the walltime, the job will terminate and your login session will return to the login node. Again, check your login prompt or use the `hostname` command to confirm you are on a compute node before doing work.
 
 #### Which Partition and QoS ?
 
