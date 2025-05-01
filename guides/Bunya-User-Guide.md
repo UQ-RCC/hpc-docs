@@ -425,11 +425,11 @@ You can use the command<br>
 `hostname`<br>
 to see if you are on a compute node or not. If this shows `bunya1`, `bunya2`, or `bunya3` you are still on a login node. Do not start your calculation, compile or environment install on a login node. Make sure you are on a compute node.
 
-#### Partitions and QoS ?
+#### Which Partition and QoS ?
 
 Please use `--partition=general` unless you need access to GPUs. The `general` partition has `epyc3` and `epyc4` architecture CPUs. The `--qos=debug` has a higher priority but has a walltime limit of 1 hour and limits number of jobs per user. Use `--qos=normal` to submit standard jobs. The `normal` QoS does not allow GPUs. 
 
-#### AccountString ?
+#### What is my AccountString ?
 
 Use the `groups` command to list your groups- Bunya Account Strings will begin a_ . Replace `AccountString` with your actual accounting group in the `--account=` option. This is the AccountString for your research or accounting group. All AccountStrings start with a_. Use the `groups` command to list your group memberships and grab the one that begins with `a_` characters.
 
