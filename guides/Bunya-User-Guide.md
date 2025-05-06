@@ -428,7 +428,9 @@ salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyI
 >[!WARNING]
 >For interactive work, we recommend that you combine `salloc` and `srun`, as shown above, to ensure that your session switches to a Bunya compute node and does not remain on the login node.
 ><br><br>
->You can use the salloc, followed by separate srun commands, however _*every*_ command that you wish to run on the allocated compute node must be explicitly `srun`.  Otherwise that processing will happen on your login node.
+>You can use the salloc, followed by separate srun commands, however _*every*_ command that you wish to run on the allocated compute node must be explicitly `srun`.  Otherwise, that processing will happen on your login node.
+><br><br>
+>In either case, once the walltime of the salloc has elapsed, the job will terminate and the control will return to your login node. In that case, any subsequent commands will run on the login node and will cause problems. Always confirm what node you are on, before running computations on Bunya. 
 
 #### How can I confirm that I am running on a compute node ?
 
