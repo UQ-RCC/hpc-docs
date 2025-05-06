@@ -174,7 +174,7 @@ use `put` to move files and directories from your desktop/laptop to Bunya.
 
 Windows users can also use WinSCP if they require a graphical SFTP client. WinSCP allows the MFA authentication without extra setup. WinSCP also allows mutiple file and directory transfer without having to re-enter the MFA passcode.
 
-**FileZilla is no longer recommeneded.** 
+**FileZilla is no longer recommended.** 
 
 <!---
 but if required please find the details here:
@@ -424,7 +424,11 @@ The salloc is used to submit an interactive job and you should specify the requi
 ```
 salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=general --qos=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
-<br>**You must combine `salloc` and `srun` to ensure that your processing happens on a Bunya compute node and not on the login node.**
+
+>[!WARNING]
+>For interactive work, we recommend that you combine `salloc` and `srun`, as shown above, to ensure that your session switches to a Bunya compute node and does not remain on the login node.
+><br><br>
+>You can use the salloc, followed by separate srun commands, however _*every*_ command that you wish to run on the allocated compute node must be explicitly `srun`.  Otherwise that processing will happen on your login node.
 
 #### How can I confirm that I am running on a compute node ?
 
