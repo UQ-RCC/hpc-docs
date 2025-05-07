@@ -222,9 +222,9 @@ If you need to know the latest, here is how you can look it up for your self.
 ```
 ls -l /scratch/licenseddata/
 
-tree -d -I Downloads -L 2 /scratch/opendata/protein/
+tree -d -L 2 /scratch/opendata/protein
 tree -d -I Downloads -L 2 /scratch/opendata/genomics
 
-tree -d -I Downloads -L 2 /scratch/opendata/models
-tree -d -I Downloads -L 2 /scratch/opendata/model-datasets/
+tree -d -L 2 /scratch/opendata/models
+tree -d -L 2 /scratch/opendata/model-datasets
 ```
