@@ -20,7 +20,7 @@ drwxr-x---. 5 root D_IMAGENET 4096 Apr 17 17:20 imagenet
 ## Open Data Sets
 
 ```
-[uquser@bunya1 scratch]$ tree -d -I genomics/Downloads -L 3 /scratch/opendata/
+[uquser@bunya1 scratch]$ tree -d -I /scratch/opendata/genomics/Downloads -L 3 /scratch/opendata/
 /scratch/opendata/
 ├── genomics
 │   ├── AntiFam -> ProteinSequenceDatabases/AntiFam
@@ -52,21 +52,6 @@ drwxr-x---. 5 root D_IMAGENET 4096 Apr 17 17:20 imagenet
 │   ├── CheckM2
 │   │   ├── version_2
 │   │   └── version_3
-│   ├── Downloads
-│   │   ├── cloud.biohpc.swmed.edu
-│   │   ├── ColabFold
-│   │   ├── data.ace.uq.edu.au
-│   │   ├── eggnog5.embl.de
-│   │   ├── ftp.ebi.ac.uk
-│   │   ├── ftp.genome.jp
-│   │   ├── ftp.ncbi.nlm.nih.gov
-│   │   ├── genome-idx.s3.amazonaws.com
-│   │   ├── GTDB
-│   │   ├── GTDB-R220
-│   │   ├── HOWTOs
-│   │   ├── Q0212
-│   │   ├── RoseTTAFold
-│   │   └── Scripts
 │   ├── DRAM_data
 │   │   ├── kofam_profiles
 │   │   ├── tmp
@@ -216,5 +201,5 @@ drwxr-x---. 5 root D_IMAGENET 4096 Apr 17 17:20 imagenet
 
 ```
 ls -l /scratch/licenseddata/
-tree -d -I genomics/Downloads -L 3 /scratch/opendata/
+tree -d -I /scratch/opendata/genomics/Downloads -L 3 /scratch/opendata/
 ```
