@@ -78,6 +78,7 @@ drwxr-x---. 5 root D_IMAGENET 4096 Apr 17 17:20 imagenet
 ├── EggNOG
 │   └── emapperdb-5.0.2
 ├── GTDB
+│   ├── release220 -> releases/release220
 │   └── releases
 ├── HISAT2
 │   ├── bdgp6
