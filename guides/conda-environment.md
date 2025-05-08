@@ -28,6 +28,7 @@ NumPy, Pandas, bioinformatics and genomics software, and many more.
 >If you have the conda initialisation in your `.bashrc` file then you cannot use onBunya. To use the virutal desktop in onBunya you need to have clean `.bashrc` file. The easiest was to clean it is to run <br>
 >`conda init --reverse`<br>
 
+## Important warning to not run installs on login nodes
 >[!IMPORTANT]
 >**ALL** software builds should be done on a compute node. Processes running on the login nodes, including software builds (conda environments, make-make install, EasyBuild) will most likley be killed if found on the login nodes.
 >
