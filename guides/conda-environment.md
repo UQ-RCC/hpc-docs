@@ -77,11 +77,11 @@ Conda environments are self-contained spaces that contain the software and depen
 
 If you want to activate the base Conda environment you can do<br>
 `[username@bunya3 ~]$ conda activate`<br>
-`(base) [username@bunya3 ~]$`<br> 
+`(base) [username@bun-node ~]$`<br> 
 
 And to get out of the base Conda environment you can do<br>
-`(base) [username@bunya3 ~]$ conda deactivate`<br>
-`[username@bunya3 ~]$`<br>
+`(base) [username@bun-node ~]$ conda deactivate`<br>
+`[username@bun-node ~]$`<br>
 
 ## Changing the default location of Conda environments and package caches
 
