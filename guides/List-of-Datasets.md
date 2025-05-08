@@ -79,6 +79,7 @@ drwxr-x---. 5 root D_IMAGENET 4096 Apr 17 17:20 imagenet
 │   └── emapperdb-5.0.2
 ├── GTDB
 │   ├── release220 -> releases/release220
+│   ├── release226 -> releases/release226
 │   └── releases
 ├── HISAT2
 │   ├── bdgp6
@@ -139,7 +140,7 @@ drwxr-x---. 5 root D_IMAGENET 4096 Apr 17 17:20 imagenet
     ├── 3.2.1
     └── 4.3.0
 
-95 directories
+97 directories
 ```
 ### Machine Learning
 
