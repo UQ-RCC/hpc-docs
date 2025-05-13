@@ -111,8 +111,18 @@ You should have your access to Bunya HPC organised prior to attending (noting th
 
 ### How to connect
 
+#### UQ Users
+
+UQ users of Bunya will use their UQ credentials. If you have both staff and student credentials then you will need to use the one that was used to request your access. This is most likely to be your *staff* credential if you have one. Multi-factor authentication is automatically active for UQ users. See below.
+
+#### QCIF (non-UQ) users
+
+QCIF users (non-UQ) will use their QSAC username and password.[https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential)
+Multi-factor authentication must also be configured. See below.
+
+
 >[!NOTE]
->**For onBunya Users**
+>**For "onBunya only" Users**
 >
 >Even if you want to use onBunya exclusively, you will need to login using this direct ssh method when you access Bunya for the first time. Doing this will trigger the proper setup of your account.
 
@@ -124,7 +134,7 @@ Port: 22
 For those using command line ssh:<br>
 `ssh username@bunya.rcc.uq.edu.au`
 
-#### Bunya enforces MFA (multi factor authentication)
+#### Bunya enforces MFA (multi-factor authentication)
 
 For UQ users, this will use their DUO MFA that is used for all other access to UQ resources.
 
@@ -138,15 +148,24 @@ For QCIF users, you will be asked to enter the one-time-authentication code (6 n
 
 After this you will be logged into Bunya.
 
-#### Note for QCIF users
-QCIF users (non UQ) will use their QSAC username and password.[https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential)
-
 #### Note for those using MobaXTerm Software
 
 This SSH/X11 client has an experimental feature called "Remote monitoring". 
 Please disable it by modifying default behaviour for SSH connections via the main menu _Settings ... SSH ... uncheck Remote-monitoring (Experimental)_ and please don't activate it manually.
 
-#### What to do when you can't login ?
+#### When Bunya is down for maintenance
+
+Bunya is taken offline 4 times per year to perform important maintenance work. All users are advised in the weeks leading up to these occasions.
+
+Depending on where the maintenance work has reached when you attempt to login, you may get connection refused or no route to host (because the login nodes are still being worked on) or you may get a login session that closes immediately and automatically with a message:
+```
+Success. Logging you in...
+Bunya is currently down for maintenance
+
+Connection closed by 203.22.86.167 port 22
+```
+
+#### What to do when you can't login and it isn't a maintenance day ?
 
 Email rcc-support@uq.edu.au and try to provide as much detail about the situation. 
 At the minimum, your Bunya username, where you were trying to connect from (e.g. campus, home, VPN) and the tool you are using to connect with.
