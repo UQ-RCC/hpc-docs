@@ -155,7 +155,7 @@ Please disable it by modifying default behaviour for SSH connections via the mai
 
 #### When Bunya is down for maintenance
 
-Bunya is taken offline 4 times per year to perform important maintenance work. All users are advised in the weeks leading up to these occasions.
+Bunya is taken offline 4 times per year (second Tuesday of February, May, August, November) to perform important maintenance work. All users are advised in the weeks leading up to these occasions.
 
 Depending on where the maintenance work has reached when you attempt to login, you may get connection refused or no route to host (because the login nodes are still being worked on) or you may get a login session that closes immediately and automatically with a message:
 ```
