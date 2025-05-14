@@ -130,7 +130,7 @@ Multi-factor authentication must also be configured. See below.
 >A straightforward way to achieve this is to <br>
 >1. login into the onBunya Dashboard (https://onbunya.rcc.uq.edu.au) <br>
 >2. select Clusters ... Bunya Shell Access  from the drop down menus <br>
->3. enter your password for your Bunya HPC username and your Multfactor Authentication code when prompted (see MFA section below)<br>
+>3. enter your password for your Bunya HPC username and your Multi-factor Authentication code when prompted (see MFA section below)<br>
 >4. once you are logged in you can use `exit` to logout again.<br>
 ><br>
 >Alternatively, you can use an ssh command line client like putty or ssh in a command terminal on a Mac, Linux or Windows PC as described here:
