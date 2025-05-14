@@ -124,7 +124,19 @@ Multi-factor authentication must also be configured. See below.
 >[!NOTE]
 >**For "onBunya only" Users**
 >
->Even if you want to use onBunya exclusively, you will need to login using this direct ssh method when you access Bunya for the first time. Doing this will trigger the proper setup of your account.
+>Even if you want to use onBunya exclusively, you will need to login using a direct ssh method when you access Bunya for the first time. <br>
+>This is required to trigger the proper setup of your account, so that you will be able to use onBunya fully.
+>
+>A straightforward way to achieve this is to <br>
+>1. login into the onBunya Dashboard (https://onbunya.rcc.uq.edu.au) <br>
+>2. select Clusters ... Bunya Shell Access  from the drop down menus <br>
+>3. enter your password for your Bunya HPC username and your Multfactor Authentication code when prompted (see MFA section below)<br>
+>4. once you are logged in you can use `exit` to logout again.<br>
+><br>
+>Alternatively, you can use an ssh command line client like putty or ssh in a command terminal on a Mac, Linux or Windows PC as described here:
+
+
+#### Command line SSH Access to Bunya
 
 Set 1 of the [Training resources](https://www.qcif.edu.au/training/hpc-training-resources/) explains how to use Putty to connect to a HPC with the basics found [here](https://youtu.be/oP_5JJrMm1U). To connect to Bunya please use:
 
