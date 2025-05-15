@@ -8,7 +8,7 @@ Access to this software is facilitated by the *modules* mechanism.
 Some software is made available through GUI menus in [onBunya](https://onbunya.rcc.uq.edu.au)
 
 For more information, please refer to these documents
-- [User Data Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#software)
+- [Bunya User Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#software)
 - [Software Status](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Software-Status.md)
 
 
