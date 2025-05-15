@@ -5,7 +5,7 @@ This is done for a variety of sound technical reasons.
 
 Most software, even some things that would normally be considered part of the standard operating system, are installed separately.
 Access to this software is facilitated by the *modules* mechanism.
-Some software is made available through GUI menus in 
+Some software is made available through GUI menus in [onBunya](https://onbunya.rcc.uq.edu.au)
 
 For more information, please refer to these documents
 - [User Data Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#software)
@@ -226,3 +226,6 @@ _TO BE COMPLETED_
 
 ## HOW TO GENERATE THESE LISTS
 
+```
+module --show-hidden -w 80 -t overview
+```
