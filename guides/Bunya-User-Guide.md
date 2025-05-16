@@ -120,9 +120,12 @@ UQ users of Bunya will use their UQ credentials. If you have both staff and stud
 QCIF users (non-UQ) will use their QSAC username and password.[https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential)
 Multi-factor authentication must also be configured. See below.
 
+#### "onBunya only" users
+
 
 >[!NOTE]
->**For "onBunya only" Users**
+>
+>We get it, but sometimes you need to use the command line to get things done.<br>
 >
 >Even if you want to use onBunya exclusively, you will need to login using a direct ssh method when you access Bunya for the first time. <br>
 >This is required to trigger the proper setup of your account, so that you will be able to use onBunya fully.
@@ -133,6 +136,7 @@ Multi-factor authentication must also be configured. See below.
 >3. enter your password for your Bunya HPC username and your Multi-factor Authentication code when prompted (see MFA section below)<br>
 >4. once you are logged in you can use `exit` to logout again.<br>
 ><br>
+>You may find from time to time that you need to query the batch system or perform tasks that require Bunya Shell Access. <br><br>
 >Alternatively, you can use an ssh command line client like putty or ssh in a command terminal on a Mac, Linux or Windows PC as described here:
 
 
