@@ -11,10 +11,14 @@ Most are freely available to use. Some require agreement to license conditions.
 
 ## Licensed Data Sets
 
+To gain access to these licensed data sets, please submit an email to rcc-support@uq.edu.au to request it.
+
 ```
-[uquser@bunya1 scratch]$ ls -l /scratch/licenseddata/
-total 1
-drwxr-x---. 5 root D_IMAGENET 4096 Apr 17 17:20 imagenet
+/scratch/licenseddata/
+└── imagenet
+    ├── imagenet-10k
+    ├── imagenet-1k
+    └── imagenet-21k
 ```
 
 ## Open Data Sets
@@ -222,7 +226,7 @@ Information on this web page will be updated sporadically.
 If you need to know the latest, here is how you can look it up for your self.
 
 ```
-ls -l /scratch/licenseddata/
+tree -d -L 2 /scratch/licenseddata/
 
 tree -d -L 2 /scratch/opendata/protein
 tree -d -I Downloads -L 2 /scratch/opendata/genomics
