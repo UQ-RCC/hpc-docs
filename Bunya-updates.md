@@ -1,5 +1,9 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 16 May 2025
+
+* Version 6.4.0 of the ROCm software stack is now available on Bunya AMD GPU nodes, and has been set as the default rocm module. ROCm 6.0.1 is no longer available.
+
 ## 14 April 2025
 
 * The next scheduled maintenance on Bunya will occur between 9pm Monday 12th May and 9pm Tuesday 13th May.
