@@ -18,7 +18,8 @@ The spaces below are individual spaces. This means, by default, they are only ac
 
 #### `/scratch/user/username`
 * Every user has a directory in `/scratch/user`.
-* Quotas are *150GB and 100,000 files*.
+* Quotas are *300GB and 1 million files*.
+* The 300GB quota can be exceeded up to 5TB but only up to 2 weeks. The quota has to fall below 300GB within the 2 weeks period or the user can no longer write to `scratch/user`.
 * Quotas in a user's `/scratch/user` directory may be increased.
 * The scratch user directory should be used to keep input and output of calculations.
 * The scratch user directory may also be used to install software.
@@ -27,6 +28,12 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The scratch user directory **must not** be shared with other users.
 
 Users can use the command `rquota` on Bunya to check their current quotas and usage. It provides quotas and usage for `/home`, `/scratch/user` and `/scratch/project` (more information below) they have access too.
+
+Users can use the command 
+```
+/usr/lpp/mmfs/bin/mmlsquota -u $USER --block-size=auto scratch:user
+```
+to check on their quotas and grace period in `/scratch/user`. 
 
 #### `$TMPDIR`
 
