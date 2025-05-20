@@ -27,7 +27,9 @@ The noarch software is either provided by software containers, or, is a commerci
 
 ## Overview List 
 
-This list is grouped by installation branch. It shows the name of the module and the number of distinct versions available.
+This list is grouped by installation branch. 
+
+It shows the name of the module and the number of distinct versions available.
 
 ```
 ---------------------- /sw/auto/rocky8c/epyc3/modules/all ----------------------
