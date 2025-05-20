@@ -1,4 +1,4 @@
-# A Brief Introduction to Globus
+# The Globus Basics
 
 >[!Note]
 >
