@@ -5,7 +5,7 @@
 MPI calculations should be started with `srun` as using `mpirun` (and similar) does not work and can produce some unexpected and undesired behaviour. 
 Therefore the `salloc` and the `srun` part need to be done seperately for interactive MPI jobs.
 
-**Please note that interactive MPI should be restricted to a single node and that multi node testing can be done via the `debug` partition.**
+**Please note that interactive MPI should be restricted to a single node and that multi node testing can be done via the `debug` QoS.**
 
 First, the resources need to be requested via `salloc`:
 
