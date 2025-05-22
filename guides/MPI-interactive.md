@@ -1,3 +1,7 @@
+>[!WARNINH]
+>For MPI interactive jobs only. MPI interactive jobs should **only** be used for essential testing that cannot be done via a batch submission. Any MPI testing that requires more than a 2 tasks should be done via a batch job.
+>If you are just after an interactive job for installation or running your jobs then please go to the interactive job section [Interactive batch jobs](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#interactive-jobs)
+
 MPI calculations should be started with `srun` as using `mpirun` (and similar) does not work and can produce some unexpected and undesired behaviour. 
 Therefore the `salloc` and the `srun` part need to be done seperately for interactive MPI jobs.
 
