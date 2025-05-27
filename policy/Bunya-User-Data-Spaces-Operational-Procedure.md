@@ -136,13 +136,28 @@ In below clauses:
 
 50) Data in /scratch/opendata must be installed by RCC or under RCC supervision. 
 
+### /scratch/licenseddata
+
+51) /scratch/licenseddata houses licensed data sets for software and inout data sets.
+
+52) Access to data in /scratch/licenseddata is controlled by access groups. 
+
+53) Bunya users may apply to store data sets and/or inout data that does not change once installed in /scratch/licenseddata.
+
+54) Data in /scratch/licenseddata requires the set up of a procedure for granting access including required access agreements. 
+
+55) /scratch/licenseddata does not count towards user quotas.
+
+56) Data in /scratch/licenseddata is read-only and may not be changed or written to after it has been installed.
+
+57) Data in /scratch/licenseddata must be installed by RCC or under RCC supervision.
 
 ### /sw 
 
-51) /sw houses all software available through modules on Bunya. 
+58) /sw houses all software available through modules on Bunya. 
 
-52) Research groups may apply for space to install software that is required to be shared with other Bunya users in /sw. 
+59) Research groups may apply for space to install software that is required to be shared with other Bunya users in /sw. 
 
-53) /sw does not count towards user quotas on Bunya. 
+60) /sw does not count towards user quotas on Bunya. 
 
-54) Data sets and input data must not be installed in /sw. 
+61) Data sets and input data must not be installed in /sw. 
