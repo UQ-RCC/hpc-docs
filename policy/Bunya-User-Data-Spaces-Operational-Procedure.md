@@ -84,9 +84,7 @@ In below clauses:
 
 28) Data in /scratch/user/USER is subject to time limits, creation/access, on files. Files that have not been accessed since a set time limit (in weeks or months) will be subject to automatic deletion. Automatic deletion will happen without notification of the user. 
 
-29) Automatic file deletion does only effect files and not the directories that contain the files. 
-
- 
+29) Automatic file deletion does only effect files and not the directories that contain the files.  
 
 ### /scratch/project/PROJECT (/scratch/project_mnt/SNNNN) 
 
@@ -122,7 +120,6 @@ In below clauses:
 
 45) Scratch projects are subject to expiry dates and projects and all the data they contain may be deleted after the expiry date. 
 
- 
 
 ### /scratch/opendata 
 
@@ -136,7 +133,9 @@ In below clauses:
 
 50) Data in /scratch/opendata must be installed by RCC or under RCC supervision. 
 
+
 ### /scratch/licenseddata
+
 
 51) /scratch/licenseddata houses licensed data sets for software and inout data sets.
 
@@ -152,7 +151,9 @@ In below clauses:
 
 57) Data in /scratch/licenseddata must be installed by RCC or under RCC supervision.
 
+
 ### /sw 
+
 
 58) /sw houses all software available through modules on Bunya. 
 
