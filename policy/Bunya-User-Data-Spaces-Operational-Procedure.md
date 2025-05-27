@@ -56,6 +56,7 @@ In below clauses:
  
 ### /scratch/user/USER 
 
+
 15) On Bunya each user is provided with user space for user data in /scratch/user/USER. 
 
 16) User spaces are restricted by quotas for space and number of files. 
@@ -86,7 +87,9 @@ In below clauses:
 
 29) Automatic file deletion does only effect files and not the directories that contain the files.  
 
+
 ### /scratch/project/PROJECT (/scratch/project_mnt/SNNNN) 
+
 
 30) On Bunya research groups may apply for a shared scratch space, called a scratch project. 
 
@@ -122,6 +125,7 @@ In below clauses:
 
 
 ### /scratch/opendata 
+
 
 46) /scratch/opendata houses open data sets for software and input data sets. 
 
