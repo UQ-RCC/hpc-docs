@@ -21,6 +21,10 @@ Instructions how to administer accounting groups and accounting strings can be f
 
 User access to Bunya is outlined [here](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Operational-Procedure.md).
 
+## Bunya User Data Spaces Operational Procedure
+
+Spaces for user data on Bunya, such as `/home` and `/scratch` governed by the [Bunya User Data Spaces Operational Procedure](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-User-Data-Spaces-Operational-Procedure.md) and the [UQ Research Data Management Policy](https://policies.uq.edu.au/document/view-current.php?id=120) and [UQ Research Data Management Procedure](https://policies.uq.edu.au/document/view-current.php?id=476&version=1).
+
 ## Violation of above operational procedures
 
 A violation of the above operational may lead to the suspension of access as a first warning. There will be no second warning and any further violation will be reported as a Misuse of UQ ICT Resources as outlined in the [UQ ICT policy](https://policies.uq.edu.au/document/view-current.php?id=60). Some violations may not receive a warning but will be reported as a Misuse of UQ ICT Resources in the first instance.
