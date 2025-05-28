@@ -74,9 +74,11 @@ If data is not yet available in `/scratch/opendata` users can submit a request f
 Scratch projects are shared spaces in `/scratch` that provide more space and space that is shared by members of a group.
 
 * Apply for a scratch project by sending a request to rcc-support@uq.edu.au and you will then be send the link to the application form.
+* **Only the group leader or grant holder can apply for a scratch projet**
 * Scratch projects may be used to install software that needs to be shared but applying for space in`/sw` is preferred.
 * Scratch projects can be used to share data sets and output that multiple users need access to during their calculations.
-* Scratch projects should not be used to provide additional scratch space for single users. For single users the quotas in `/scratch/user` can be increased. 
+* Scratch projects should not be used to provide additional scratch space for single users. For single users the quotas in `/scratch/user` can be increased.
+* Scratch projects should not contain directories for each of the different users.
 * The scratch project directory is **not backed up**.
 * Old files might be auto deleted
 
