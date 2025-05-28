@@ -1,7 +1,8 @@
 # Where should my data and software go on Bunya
 
+Bunya has several spaces users have access to to keep their data and software.
 >[!IMPORTANT]
->Bunya has several spaces users have access to to keep their data and software. These spaces are subject to the [Bunya User Data Spaces Operational Procedure](../policy/Bunya-User-Data-Spaces-Operational-Procedure.md) and the [UQ Research Data Management Policy](https://policies.uq.edu.au/document/view-current.php?id=120) and [UQ Research Data Management Procedure](https://policies.uq.edu.au/document/view-current.php?id=476&version=1).
+>These spaces are subject to the [Bunya User Data Spaces Operational Procedure](../policy/Bunya-User-Data-Spaces-Operational-Procedure.md) and the [UQ Research Data Management Policy](https://policies.uq.edu.au/document/view-current.php?id=120) and [UQ Research Data Management Procedure](https://policies.uq.edu.au/document/view-current.php?id=476&version=1).
 
 
 ### Spaces available by default for every user
