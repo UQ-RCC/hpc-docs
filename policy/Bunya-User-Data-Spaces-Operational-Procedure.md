@@ -99,7 +99,7 @@ In below clauses:
 
 33) Individual users may not create individual user directories to keep their data separate. /scratch/user/USER should be used for individual user data. 
 
-34) Senior staff group members or the group leader should apply for a scratch project for their group. 
+34) The group leader or grant holder should apply for a scratch project for their group. 
 
 35) Group members should not apply for individual scratch projects. Individual user data should be housed in /scratch/user/USER. 
 
