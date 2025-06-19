@@ -57,10 +57,8 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - There is 1 AMD Mi300x GPU node (epyc4) with 8 Mi300x cards. Each Mi300x card has 192GB GPU RAM  
 - For a full table of all available compute nodes and their features like GPU, Memory and CPUs see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions-and-nodes)
  
-- Users have a location in `/home` and `/scratch/user`.
-- The quota in `/home` is 50GB and 1 million files. 
-- The quota in `/scratch/user` is 150GB and 100000 files.
-- User can use the command `rquota` to check on quotas and usage.
+- Users have a location in `/home` and `/scratch/user`. There are quotas on these locations for total GB _and_ total number of files. Refer to [Bunya UserData Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md) 
+- Users can run the command `rquota` to check on quotas and usage.
 - Users can request a shared scratch space for their group if more space is required. Email rcc-support@uq.edu.au for the application form.
 - Software and software environments should be installed in `/home` or `/scratch`. Software should not be installed on RDM (`/QRISdata`)
 - Jobs should be run from `/scratch`. It is not advisable to use `/home` as the space to run (submit jobs) from. Jobs are not permitted to be submitted from RDM (`/QRISdata`).
