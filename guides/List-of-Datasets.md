@@ -1,5 +1,7 @@
 # List of Datasets
 
+**Updated: 19 June 2025**
+
 To save on disk space, and reduce duplication of effort, a growing number of datasets are being made available.
 They are being provided centrally in Bunya scratch filesystem.
 
@@ -19,6 +21,8 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
     ├── imagenet-10k
     ├── imagenet-1k
     └── imagenet-21k
+
+4 directories
 ```
 
 ## Open Data Sets
@@ -40,6 +44,8 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 │   └── params
 └── mmseqs
     └── NR
+
+13 directories
 ```
 
 ### Genomics
@@ -142,14 +148,17 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 │   └── weights
 └── SingleM
     ├── 3.2.1
-    └── 4.3.0
+    ├── 4.3.0
+    └── 5.4.0
 
-97 directories
+98 directories
 ```
 ### Machine Learning
 
 ```
 /scratch/opendata/models
+├── ComfyUI
+│   └── models
 ├── gguf
 │   ├── aya-expanse-8b
 │   ├── codellama-70b
@@ -180,7 +189,7 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
     ├── text_encoder
     └── VAE
 
-29 directories
+31 directories
 ```
 
 ```
