@@ -1,5 +1,7 @@
 # List of Additional Software on Bunya
 
+**Updated: 19 June 2025**
+
 The operating system installations on Bunya nodes are relatively lightweight.
 This is done for a variety of sound technical reasons.
 
@@ -32,6 +34,36 @@ This list is grouped by installation branch.
 It shows the name of the module and the number of distinct versions available.
 
 ```
+---------------------- /sw/auto/rocky8c/epyc3/modules/all ----------------------
+abricate              (1)   gtdb-tk         (1)   ncbi-vdb           (2)
+alsa-lib              (1)   gtk2            (1)   ncurses            (8)
+anaconda3             (2)   gtk3            (2)   netcdf             (3)
+ansys-dependencies    (1)   guile           (1)   nettle             (3)
+ant                   (2)   gzip            (3)   networkx           (3)
+any2fasta             (1)   h5py            (1)   nextflow           (2)
+archive-zip           (1)   harfbuzz        (3)   nghttp2            (1)
+archspec              (2)   hatchling       (1)   nghttp3            (1)
+armadillo             (1)   hdf             (3)   ngs                (1)
+arpack-ng             (1)   hdf5            (3)   ngtcp2             (1)
+at-spi2-atk           (2)   help2man        (4)   ninja              (4)
+at-spi2-core          (2)   hifiasm         (1)   nlohmann_json      (2)
+atk                   (2)   highway         (1)   nlopt              (3)
+augustus              (2)   hipsycl         (1)   nodejs             (3)
+autoconf              (5)   hisat2          (2)   nspr               (3)
+automake              (5)   hmmer           (2)   nss                (3)
+autotools             (5)   htseq           (1)   numactl            (5)
+bamtools              (2)   htslib          (3)   openbabel          (2)
+bbmap                 (2)   humann          (1)   openblas           (4)
+bcftools              (3)   hwloc           (4)   openexr            (1)
+bcl2fastq2            (1)   hypothesis      (3)   openjpeg           (2)
+beagle-lib            (2)   icu             (3)   openmpi            (4)
+beagle                (1)   iimpi           (4)   openpgm            (2)
+beautifulsoup         (1)   imagemagick     (3)   openssl            (2)
+bedtools              (2)   imath           (1)   p11-kit            (1)
+binutils              (9)   imkl-fftw       (3)   pandoc             (1)
+bio-db-hts            (1)   imkl            (4)   pango              (3)
+[uqdgree5@bunya2 ~]$ module --show-hidden -w 80 -t overview
+
 ---------------------- /sw/auto/rocky8c/epyc3/modules/all ----------------------
 abricate              (1)   gtdb-tk         (1)   ncbi-vdb           (2)
 alsa-lib              (1)   gtk2            (1)   ncurses            (8)
@@ -175,23 +207,30 @@ bolt-lmm (1)   jags        (1)   r-bundle-cran (1)   rjags (1)
 eagleimp (1)   lisflood-fp (4)   r             (2)   vasp  (6)
 
 --------------------- /sw/local/rocky8/noarch/rcc/modules ----------------------
-ProteinMPNN    (1)   compucell3d (1)   gtdb-tk        (3)   qupath      (1)
-alphafold      (3)   crested     (1)   gurobi         (3)   r           (4)
-alphapickle    (1)   crisflash   (1)   huygens        (3)   relion      (5)
-ansys          (2)   cryocare    (1)   ilastik        (1)   rfantibody  (1)
-ansysem        (1)   cuda-q      (4)   imod           (2)   rfdiffusion (1)
-asreml-sa      (1)   deeplabcut  (1)   itk-snap       (1)   rstudio     (6)
-asreml-sa_test (1)   diann       (1)   jobstats       (1)   scenicplus  (1)
-aviary         (3)   diffdock    (1)   julia          (1)   schrodinger (1)
-basespace      (1)   dynamo      (1)   localcolabfold (2)   spss        (1)
-bindcraft      (2)   esa-snap    (1)   mathematica    (1)   star-ccm+   (2)
-bioformats2raw (1)   evobind     (1)   matlab         (2)   strainberry (1)
-boltz-1        (1)   fiji        (3)   metabolic      (1)   subtom      (1)
-cellsnp-lite   (1)   fragpipe    (1)   metaphlan      (1)   tesseract   (1)
-chai-lab       (1)   freesurfer  (1)   miniforge      (2)   transcriptm (1)
-chrombpnet     (1)   fsl         (1)   orca           (1)   wombat      (1)
-cistem         (1)   gaussian    (1)   pyem           (1)
-code-server    (1)   gromacs     (2)   qctool         (1)
+alphafold      (3)   diann          (1)   miniforge         (3)
+alphapickle    (1)   diffdock       (1)   mobsuite          (1)
+amst2          (1)   dynamo         (1)   nnu-net           (1)
+ansys          (2)   esa-snap       (1)   orca              (1)
+ansysem        (1)   evobind        (1)   perceval-quandela (1)
+asreml-sa      (1)   fiji           (3)   proteinmpnn       (1)
+asreml-sa_test (1)   fragpipe       (1)   pyem              (1)
+aviary         (3)   freesurfer     (1)   qctool            (1)
+basespace      (1)   fsl            (1)   qupath            (1)
+bindcraft      (2)   gaussian       (1)   r                 (4)
+bioformats2raw (1)   gromacs        (4)   relion            (5)
+boltz          (3)   gtdb-tk        (3)   rfantibody        (1)
+cebraem        (1)   gurobi         (3)   rfdiffusion       (2)
+cellsnp-lite   (1)   huygens        (3)   rstudio           (6)
+chai-lab       (1)   ilastik        (1)   scenicplus        (1)
+chrombpnet     (1)   imod           (2)   schrodinger       (1)
+cistem         (1)   itk-snap       (1)   spss              (1)
+code-server    (2)   jobstats       (1)   star-ccm+         (2)
+compucell3d    (1)   julia          (1)   strainberry       (1)
+crested        (1)   localcolabfold (3)   subtom            (1)
+crisflash      (1)   mathematica    (1)   tesseract         (1)
+cryocare       (1)   matlab         (2)   transcriptm       (1)
+cuda-q         (4)   metabolic      (1)   wombat            (1)
+deeplabcut     (1)   metaphlan      (1)
 
 --------------------- /sw/local/rocky8/noarch/qcif/modules ---------------------
 3d-dna              (1)   isoseq3         (1)   ratatosk        (1)
@@ -220,7 +259,6 @@ harvesttools        (1)   qapa            (1)   trinity         (1)
 hisat2              (1)   qiime2-amplicon (1)   trinotate       (1)
 ipyrad              (2)   qiime2-shotgun  (1)   unicycler       (1)
 iqtree              (1)   racon           (1)   xpore           (1)
-
 ```
 
 ## WhatIs List
