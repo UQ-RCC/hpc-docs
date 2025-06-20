@@ -4,7 +4,7 @@ Globus Markdown
 
 >[!Note]
 >
->This page is under construction
+>This page is still under construction
 
 ## What is Globus ?
 
@@ -29,9 +29,9 @@ It also allows you to download files to your local computer (or a network drive 
 
 ### Registering to use Globus
 
-Anyone with a AAF ORCID etc credential can apply for access to an endpoint.
+Anyone with a AAF, ORCID, GitHub or Google account credential can apply for access to an endpoint. Most Australian higher education sector people should use their AAF credential.
 
-We do that in the process of connecting
+We will do that automatically as part of the process of connecting your RDM collection to the Globus endpoint. 
 
 If you are connecting to globus to pull data from a collaborator's Globus endpoint to your local machine, and you won't have your RDM storage allocation connected directly to Globus, then you will need to be manually registered to access the Globus endpoint. Again an email to rcc-support@uq.edu.au will sort that out.
 
@@ -45,18 +45,20 @@ If you don't land in the UQ endpoint automatically, search for "The University o
 
 An individual can have multiple institutional credentials but they will have to be linked to the same GlobusID. For example if you have joined UQ (welcome!) and still have access to your previous institution and need to pull your data to UQ, then you will have a single GlobusID but it will be associated with the multiple institution identifiers.
 
-### Globus Personal Connect Software
+### Globus Connect Personal Software
 
 Globus provides a desktop tool that enables your personal computer to pretend to be a Globus endpoint.
-There is a link to the "Get 
+There is a link to the "Get Globus Connect Personal" on the Collections part of teh Globus web interface.
 
-If you not needing to  
+You might find the Personal Connect software useful if you are sending or receiving data from your workstation. 
+
+You do not need Globus Connect Personal to move data between, say, UQ Globus endpoint and a remote endpoint.  
 
 ### Finding your data
 
 Globus uses the term Collection for a group of folders containing data that may belong to different groups.
 
-on UQ endpoint you need to 
+On the UQ endpoint you need to 
 
 * click on COLLECTIONS (you see a list that includes "QRIScloud Data" and you should be subscribed to that Globus Collection if you requested your RDM storage allocation be connected.)
 * click on the ">" link which will show "collection details"
