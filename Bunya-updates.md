@@ -1,5 +1,11 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 20 May 2025
+
+* Multiple versions of PMIx are now available on Bunya. As a consequence, users that run MPI codes built with foss/2021a, need to provide the following additional option to their srun command to ensure the correct version of PMIx is used: 
+
+  `srun  --mpi=pmix_v4  <your_usual_srun_command>`
+
 ## 16 May 2025
 
 * Version 6.4.0 of the ROCm software stack is now available on Bunya AMD GPU nodes, and has been set as the default rocm module. ROCm 6.0.1 is no longer available.
@@ -49,9 +55,11 @@
 * QCIF users (non UQ) can now use their QSAC password [https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential) to access Bunya and ssh keys are no longer required.
 * A new tool, jobstats, is now available as a module to Bunya users to monitor the resource utilization of their jobs. The following commands will show visual and numerical CPU, CPU ram, GPU, and GPU ram utilization:
 
-  module load jobstats 
-
-  jobstats JobID
+  ```
+  module load jobstats
+  
+  jobstats <JobID>
+  ```
 
 ## 30 July 2024
 
