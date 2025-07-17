@@ -211,9 +211,9 @@ You will see `sftp>` as prompt once you have logged in.
 `help` provides a summary of the commands available in sftp.
 
 - Use `pwd`, `ls`, `cd` and `mkdir` to print location, list files, change directory and create a new directory **on the Bunya end**.
-- Use `lpwd`, `lls`, `lcd` and lmkdir to print your location, list files, change directory and create a new directory **on your desktop/laptop**.
-- Use `get` to pull files and directories from Bunya to your desktop/laptop
-- Use `put` to move files and directories from your desktop/laptop to Bunya.
+- Use `lpwd`, `lls`, `lcd` and `lmkdir` to print your location, list files, change directory and create a new directory **on your desktop/laptop**.
+- Use `get` to pull files and directories **from Bunya to your desktop/laptop**.
+- Use `put` to push files and directories **from your desktop/laptop to Bunya**.
 
 ### Using WinSCP
 
