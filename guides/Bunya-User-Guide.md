@@ -186,7 +186,11 @@ At the minimum, your Bunya username, where you were trying to connect from (e.g.
 
 ## File Transfer
 
-We recommend to use command line `scp` and `sftp`. The are accessible to all users, via a shell for Linux and Mac users and via WSL and `cmd` for Windows users.
+We recommend to use command line `scp` and `sftp`. These are accessible to all users, via a shell for Linux and Mac users and via WSL and `cmd` for Windows users.
+
+### Using scp
+
+From the command line on your PC, type
 
 `scp file username@bunya.rcc.uq.edu.au:/path-to-place-for-file/`
 
@@ -196,18 +200,28 @@ For example
 
 will copy the file `test.dat` to the user's scratch directory.
 
+### Using sftp
+
+From the command line on your PC, type
+
 `sftp username@bunya.rcc.uq.edu.au`
 
 You will see `sftp>` as prompt once you have logged in.
 
-`ls` and `cd` work as usual on the Bunya end. Use `lls` to list files on your desktop/laptop and `lcd` to change directories on your desktop/laptop.
+`help` provides a summary of the commands available in sftp.
 
-Use `get` to pull files and directories from Bunya to your desktop/laptop and 
-use `put` to move files and directories from your desktop/laptop to Bunya.
+- Use `pwd`, `ls`, `cd` and `mkdir` to print location, list files, change directory and create a new directory **on the Bunya end**.
+- Use `lpwd`, `lls`, `lcd` and lmkdir to print your location, list files, change directory and create a new directory **on your desktop/laptop**.
+- Use `get` to pull files and directories from Bunya to your desktop/laptop
+- Use `put` to move files and directories from your desktop/laptop to Bunya.
+
+### Using WinSCP
 
 Windows users can also use WinSCP if they require a graphical SFTP client. WinSCP allows the MFA authentication without extra setup. WinSCP also allows mutiple file and directory transfer without having to re-enter the MFA passcode.
 
-**FileZilla is no longer recommended.** 
+### Using FileZilla ... Don't!
+
+FileZilla is no longer recommended. 
 
 <!---
 but if required please find the details here:
