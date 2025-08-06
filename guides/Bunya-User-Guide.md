@@ -54,7 +54,7 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 - There are 2 A100 NVIDIA GPU node with MIG A100 cards leading to 3 MIG slices with 40GB of GPU RAM, 3 MIG slices with 20GB of GPU RAM and 6 MIG slices with 10GB of GPU RAM.
 - There are 3 A16 NVIDIA GPU nodes (epyc4) with 12 A16 GPUs each (36 in total). The A16 GPU are good for vizualisation and accelerated desktops.
 - There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RA.M.
-- There is 1 AMD Mi300x GPU node (epyc4) with 8 Mi300x cards. Each Mi300x card has 192GB GPU RAM  
+- There are 2 AMD Mi300x GPU nodes (epyc4) with 8 Mi300x cards. Each Mi300x card has 192GB GPU RAM  
 - For a full table of all available compute nodes and their features like GPU, Memory and CPUs see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions-and-nodes)
  
 - Users have a location in `/home` and `/scratch/user`. There are quotas on these locations for total GB _and_ total number of files. Refer to [Bunya UserData Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md) 
@@ -608,7 +608,8 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 |||||||||
 | gpu_rocm | bun[001-002] | 2 | 500000 | 192 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
-| gpu_rocm | bun145 | 1 | 2000000 | 256 | epyc4, <br> rocm | gpu:mi300x:8| 100 |
+| gpu_rocm | bun145 | 1 | 2000000 | 128 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+| gpu_rocm | bun146 | 1 | 2000000 | 192 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 
 <br>
 
