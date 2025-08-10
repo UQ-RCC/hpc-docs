@@ -20,7 +20,6 @@ Your spaces in *home*, *scratch*, *opendata*, *$TMPDIR* and *RDM*
 
 [Software Installation Status](guides/Software-Status.md)
 
-[RCC's Interactive tool for building SLURM job scripts](https://shiny.rcc.uq.edu.au/SLURM/)
 <br>
 This is an external website that guides you in creating successful SLURM job submissions for Bunya HPC.
 
