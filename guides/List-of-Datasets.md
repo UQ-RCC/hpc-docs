@@ -53,6 +53,13 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 ```
 /scratch/opendata/genomics
 ├── AntiFam -> ProteinSequenceDatabases/AntiFam
+├── Bakta
+│   └── v6
+├── BinChicken
+│   ├── checkm2
+│   ├── gtdbtk
+│   ├── singlem
+│   └── taxonomy
 ├── Biobakery
 │   └── 3.1
 ├── BLAST
@@ -135,6 +142,8 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 │   ├── humann_example
 │   ├── uniref
 │   └── utility_mapping
+├── Metaphlan
+│   └── Metaphlan4
 ├── Pfam -> ProteinSequenceDatabases/Pfam
 ├── ProteinSequenceDatabases
 │   ├── AntiFam
@@ -151,7 +160,7 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
     ├── 4.3.0
     └── 5.4.0
 
-98 directories
+107 directories
 ```
 ### Machine Learning
 
