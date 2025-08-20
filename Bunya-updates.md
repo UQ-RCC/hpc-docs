@@ -1,5 +1,15 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 20 August 2025
+
+* To ensure that adequate scratch space is available for computation, the RCC is working on implementing automatic deletion of files that have not been accessed in over 90 days from /scratch/user and /scratch/project. This is planned to start after the November quarterly maintenance.
+
+## 4 August 2025
+
+* The next scheduled maintenance on Bunya will occur between 9pm Monday 11th August and 9pm Tuesday 12th August.
+* There will be no access to Bunya during the maintenance. This includes no access to data in /home, /scratch/user and /scratch/project.
+* Bunya queues will not schedule jobs that would run into the maintenance window.
+
 ## 20 May 2025
 
 * Multiple versions of PMIx are now available on Bunya. As a consequence, users that run MPI codes built with foss/2021a, need to provide the following additional option to their srun command to ensure the correct version of PMIx is used: 
