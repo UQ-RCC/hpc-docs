@@ -74,16 +74,12 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 Access to Bunya HPC is not automatic. You need to apply by emailing rcc-support@uq.edu.au or using [this form](https://forms.office.com/r/87rfgvxDnz)
 
 >[!NOTE]
->Importantly, there are 8 questions and all are mandatory.
->Please try and copy the questions into the box on the form answer each of them.
->
 >Applications under staff account preferred. Those applying under a student account will be asked to provide an end date for their access.
 >
 >You will need to provide current SIX (6) DIGIT FoR code(s).
 >If you do not know what a FoR code is or do not have one please contact your supervisor.
 >
->It can take up to one week for a new user access to be processed.
->Incomplete applications will be rejected and applicants have to fill in a new form. 
+>It can take up to one week for a new user access to be processed. 
 
 ## Introduction to HPC Training
 
