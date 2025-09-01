@@ -468,7 +468,7 @@ The salloc is used to submit an interactive job and you should specify the requi
 **Use this full command line to create an interactive session on a compute node. Use the copy icon on the right hand side.**
 <br>
 ```
-salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=TinyInteractive --time=01:00:00 --partition=general --qos=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
+salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=CHANGE-ME --time=01:00:00 --partition=general --qos=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
 
 >[!WARNING]
@@ -686,7 +686,7 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=10G
-#SBATCH --job-name=Test
+#SBATCH --job-name=CHANGE-ME
 #SBATCH --time=1:00:00
 #SBATCH --qos=gpu
 #SBATCH --partition=gpu_cuda
@@ -722,7 +722,7 @@ For L40s change to<br>
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=10G
-#SBATCH --job-name=Test
+#SBATCH --job-name=CHANGE-ME
 #SBATCH --time=1:00:00
 #SBATCH --qos=gpu
 #SBATCH --partition=gpu_rocm
@@ -749,7 +749,7 @@ With `--qos=sdf` you can ask for all 8<br>
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=10G
-#SBATCH --job-name=Test
+#SBATCH --job-name=CHANGE-ME
 #SBATCH --time=1:00:00
 #SBATCH --qos=normal
 #SBATCH --partition=general
@@ -784,7 +784,7 @@ You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 
 #SBATCH --ntasks=192
 #SBATCH --ntasks-per-core=1
 #SBATCH --mem-per-cpu=5G
-#SBATCH --job-name=MPI-Test
+#SBATCH --job-name=MPI-CHANGE-ME
 #SBATCH --time=1:00:00
 #SBATCH --qos=normal
 #SBATCH --partition=general
@@ -810,7 +810,7 @@ Here is one example of an array job script with 5 array tasks. Important: Reques
 
 ```
 #!/bin/bash --login
-#SBATCH --job-name=testarray
+#SBATCH --job-name=array-CHANGE-ME
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
