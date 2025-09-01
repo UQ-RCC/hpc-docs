@@ -39,8 +39,8 @@ The diagram above shows a simplified view of the different ways (paths) a Q coll
 
 * When data is read from a Q collection from Bunya data might need to be staged to RCC's Online data from tape first. This might cause a slight delay.
 * When data is read from a Q collection from a desktop/laptop connected via the Institute cache then the data might need to be staged to the Institute cache via RCC's Online data from tape first. This might cause a slight delay.
-* When data is read from a Q collection from a desktop/laptop connected via the ITS cache then the data might need to be staged to the ITS cache via RCC's Onlien data from tape first. This might cause a slight delay.
-* When data is read from a Q collection from rdm.cloud.uq.edu.au then the data might need to be staged to the ITS cache via RCC's Online data from tape first. This might cause a slight delay.
+* When data is read from a Q collection from a desktop/laptop connected via the ITS cache then the data might need to be staged to the ITS cache via RCC's Online data from tape first. This might cause a slight delay.
+* When data is read from a Q collection from cloud.rdm.uq.edu.au then the data might need to be staged to the ITS cache via RCC's Online data from tape first. This might cause a slight delay.
 * Data that has not been accessed in a while will be cleared from the caches. When it is accessed again it will need to be recalled from tape back to the respective caches.
 
 * When data is written or deleted or moved, changes might not appear instantly via all different access paths. The process to sync all caches can take some time. 
