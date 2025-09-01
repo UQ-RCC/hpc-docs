@@ -21,7 +21,7 @@ There are 3 different types of *Storage Record*: general data (A storage record)
 A UQRDM Q collection is safe, backed up, and recoverable storage for research data. Q collections are automaticaly available on Bunya and onBunya.
 
 >[!IMPORTANT]
->**UQRDM, including Q collections are archival storage.** UQRDM is not suitable for working data that is constantly changing or is worked on by multiple users at the same time. UQRDM is not set up to deal well with large numbers of files (the default file allocation is 1 million). Data should be tarred or archived before being backed up to RDM. 
+>**UQRDM, including Q collections are archival storage.** UQRDM collections are intended as long-term archival storage. UQRDM is not intended for rapidly changing data or simultaneous modification of the same file by multiple users (e.g. one person changing one field in a spreadsheet whilst somebody else has it open and is editing a different one) or in multiple locations (i.e. you should not edit a file on cloud.rdm.uq.edu.au or via HPC Bunya and on your desktop at the same time).  The total number of files available per Q collection is limited (the default is one million) and lots of small files is slower to transfer than a few large files. UQRDM works best when files that are not being frequently used are stored in archive files (e.g. tar, zip, 7zip, rar) before being backed up to RDM. 
 
 ![](RDM-graph-Git.bmp)
 
