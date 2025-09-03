@@ -12,8 +12,22 @@ This document's focus is the key concepts for using RDM Q as they relate to inte
 |St Lucia Gateway|Everybody|\\\\uq.edu.au\UQ-Research|R: Drive||
 |||\\\\shares01.rdm.uq.edu.au||Windows|
 |||smb://shares01.rdm.uq.edu.au||MacOS and Linux|
-|Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au||
-||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au||
-||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au||
-|Institute Gateway #2|IMB|\\\\uq.edu.au\UQ-Inst-Gateway2|data.imb.uq.edu.au||
+|Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au|Q storage allocations only|
+||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au|Q storage allocations only|
+||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au|Q storage allocations only|
+|Institute Gateway #2|IMB|\\\\uq.edu.au\UQ-Inst-Gateway2|data.imb.uq.edu.au|Q storage allocations only|
+
+## Accessing RDM from Bunya HPC
+
+All Q storage allocations can be accessed from Bunya HPC. The filepath will look like `/QRISdata/Q1234` 
+
+It is *not* possible to mount A or I type RDM collection storage allocations onto the HPC.
+
+Users of onBunya service are provided with convenient short cuts on the desktop to access the RDM Q storage allocations that they are the owner of, or collaborator with.
+
+Please refer to the [Bunya Storage User Guide section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata) on using RDM Q collections on Bunya.
+
+## Best Practices for using RDM with Bunya HPC
+
+## Poor Practices for using RDM with Bunya HPC
 
