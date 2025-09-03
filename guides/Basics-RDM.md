@@ -11,7 +11,7 @@ This document's focus is the key concepts for using RDM Q as they relate to inte
 |:---|:---:|:---|:---|:---|
 |St Lucia Gateway|Everybody|\\\\uq.edu.au\UQ-Research|R: Drive||
 |||\\\\shares01.rdm.uq.edu.au||Windows|
-|||smb://shares01.rdm.uq.edu.au||MaxOS and Linux|
+|||smb://shares01.rdm.uq.edu.au||MacOS and Linux|
 |Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au||
 ||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au||
 ||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au||
