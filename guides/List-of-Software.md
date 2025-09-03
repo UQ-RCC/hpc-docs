@@ -235,6 +235,123 @@ iqtree              (1)   racon           (1)   xpore           (1)
 
 _TO BE COMPLETED_
 
+## onBunya Applications
+
+|Application|Category 1|Category 2|
+|:---|:---:|:---:|
+|3dslicer (4.10.1)|General-Imaging|Neuroimaging|
+|3dslicer (5.8.1)|General-Imaging|Neuroimaging|
+|Adxv|Crystallography|General-scientific|
+|AFNI|Imaging|Neuroimaging|
+|AlphaFold 2.3.2|AI-ML|Struct-bio|
+|ANTs|Misc|General-imaging|
+|BIDScoin|Imaging|Neuroimaging|
+|Blender|Misc|General-imaging|
+|Cellpose 3.1.0|Misc|Struct-bio|
+|Cellpose-SAM|Misc|Struct-bio|
+|Cellprofiler|Misc|Cytometry|
+|ChimeraX 1.7|Misc|Cryo-EM|
+|ChimeraX 1.8|Misc|Cryo-EM|
+|ChimeraX 1.9-1|Misc|Cryo-EM|
+|CisTEM 2|CryoEM|Cryo-EM|
+|CisTEM|CryoEM|Cryo-EM|
+|ComfyUI|AI-ML||
+|CompuCell3D|Misc|Struct-bio|
+|Coot|Misc|Struct-bio|
+|Cryolo|Misc|Struct-bio|
+|CryoSPARC|CryoEM|Struct-bio|
+|CryoSPARC updater (to 4.7.1)|CryoEM|Struct-bio|
+|Crystfel|CryoEM|Cryo-EM|
+|Cytoscape|Bioinformatics|Cytometry|
+|DeepLabCut 2.3.11 (AMD GPU)|AI-ML|Struct-bio|
+|DeepLabCut 2.3.8 (NVidia GPU)|AI-ML|Struct-bio|
+|DeepLabCut 3.0.0rc10 (AMD GPU)|AI-ML|Struct-bio|
+|DeepLabCut 3.0.0rc10 (NVidia GPU)|AI-ML|Struct-bio|
+|Diffusion Toolkit|Imaging|Neuroimaging|
+|Dynamo 1.1.532|Misc|General-scientific|
+|EMAN 2.3|CryoEM|Struct-bio|
+|Empanada (Napari)|General-imaging|Cryo-EM|
+|ESA SNAP 10.0.0|Misc|General-scientific|
+|ESA SNAP 9.0|Misc|General-scientific|
+|Fiji 1.53|Cytometry|General-imaging|
+|Fiji 1.54h|Cytometry|General-imaging|
+|Fiji 1.54h (No Cellpose)|Cytometry|General-imaging|
+|Fiji 1.54k|Cytometry|General-imaging|
+|Fiji 1.54k (No Cellpose)|Cytometry|General-imaging|
+|Fiji 1.54p|Cytometry|General-imaging|
+|FoldDock|AI-ML|Struct-bio|
+|FragPipe|Struct-bio||
+|Freesurfer 7.3.2|Imaging|Neuroimaging|
+|FSL 5.0|Imaging|Neuroimaging|
+|FSL 6.0.7.9|Imaging|Neuroimaging|
+|HRM Online - Huygens Core|Scientific|Volume|
+|Huygens Essential|Scientific|Volume|
+|Huygens Localizer|Scientific|Volume|
+|Huygens Professional|Scientific|Volume|
+|IGV|Bioinformatics||
+|Ilastik|Misc|Cytometry|
+|IMOD 4.11.4|Misc|General-imaging|
+|IMOD 4.12.62|Misc|General-imaging|
+|IMOD 4.9.9|Misc|General-imaging|
+|IMOD 5.1.1|Misc|General-imaging|
+|IMOD-RAZA|Misc|General-imaging|
+|ITK-SNAP (4.2.0)|Misc|General-imaging|
+|ITK-SNAP (4.4.0-a3)|Misc|General-imaging|
+|Jupyter notebook|Misc|General-scientific|
+|LabGym 2.8.1|AI-ML||
+|LiberTEM|Misc|Cryo-EM|
+|LibreOffice|Misc|General-scientific|
+|Mathematica 14.0|Misc|General-scientific|
+|Matlab 2022a6|Misc|General-scientific|
+|Matlab 2023b5|Misc|General-scientific|
+|Matlab MCR (v93, for R2017b)|Misc|General-scientific|
+|Matlab MCR (v97, for R2019b)|Misc|General-scientific|
+|MIB|Crystallography|Struct-bio|
+|Minc Tools|Imaging|Neuroimaging|
+|Model-angelo|CryoEM|Cryo-EM|
+|MolSketch|Misc|General-imaging|
+|MrTrix 3|Imaging|Neuroimaging|
+|MrTrix|Imaging|Neuroimaging|
+|Napari (0.4.10)|Misc|General-imaging|
+|Napari (0.5.3)|Misc|General-imaging|
+|Napari (0.6.2)|Misc|General-imaging|
+|NoiseTransfer2Clean|CryoEM|Struct-bio|
+|Octave 9.2.0|Misc|General-scientific|
+|Olex2|Crystallography|Struct-bio|
+|OMERO.insight|Misc|Light-microscopy|
+|Open WebUI|AI-ML||
+|Paraview|Misc|General-imaging|
+|Phenix 1.20.1|Crystallography|Struct-bio|
+|Phenix 1.21.1|Crystallography|Struct-bio|
+|PyEM|Misc|Cryo-EM|
+|QuPath 0.6.0|Cytometry|General-imaging|
+|Relion 4.0|CryoEM|Struct-bio|
+|Relion 5.0b|CryoEM|Struct-bio|
+|Rstudio 2024.04.2 (R 4.4.1)|Misc|General-scientific|
+|Rstudio 2024.12.0 (R 4.4.2, 25k pkgs)|Misc|General-scientific|
+|Rstudio 2024.12.1 (R 4.4.2, 1200 pkgs)|Misc|General-scientific|
+|Schrodinger Maestro|Misc|Struct-bio|
+|Scipion3|Misc|Struct-bio|
+|Scipion3 (with Relion)|Misc|Struct-bio|
+|Scipion3 (with XmippSrc)|Misc|Struct-bio|
+|SHELX|Crystallography|Struct-bio|
+|ShelXle|Crystallography|Struct-bio|
+|Sir2019|CryoEM|Cryo-EM|
+|SPHIRE 1.4|CryoEM|Struct-bio|
+|SPM 12|Imaging|CVL|
+|Spyder|Misc|General-scientific|
+|StaMPS|Misc|General-scientific|
+|Suite2p|Misc|General-imaging|
+|THUNDER|CryoEM|Cryo-EM|
+|TomoBear 0.6.0|CryoEM|Struct-bio|
+|Topaz|CryoEM|Cryo-EM|
+|TrackVis|Imaging|Neuroimaging|
+|TrackVis shell|Imaging|Neuroimaging|
+|VESTA|Crystallography|Struct-bio|
+|VMD|Misc|General-imaging|
+|Xds|Crystallography|Struct-bio|
+
+
 ## HOW TO GENERATE THESE LISTS
 
 ```
