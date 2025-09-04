@@ -1,4 +1,4 @@
-DRAFT
+**DRAFT** 20250904
 
 # Basics of RDM Q Storage Allocations
 
@@ -27,7 +27,19 @@ Users of onBunya service are provided with convenient short cuts on the desktop 
 
 Please refer to the [Bunya Storage User Guide section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata) on using RDM Q collections on Bunya.
 
+## Computational Workflows that incorporate RDM
+
+### A common workflow example
+
+### Job dependencies are your friend
+
+### Pre-staging data using appropriate resources
+
+### Use the special tools for the special work
+
+### Post-processing considerations
+
 ## Best Practices for using RDM with Bunya HPC
 
-## Poor Practices for using RDM with Bunya HPC
+
 
