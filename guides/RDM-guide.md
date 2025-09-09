@@ -23,7 +23,7 @@ A UQRDM Q collection is safe, backed up, and recoverable storage for research da
 >[!IMPORTANT]
 >**UQRDM, including Q collections are archival storage.** UQRDM collections are intended as long-term archival storage. UQRDM is not intended for rapidly changing data or simultaneous modification of the same file by multiple users (e.g. one person changing one field in a spreadsheet whilst somebody else has it open and is editing a different one) or in multiple locations (i.e. you should not edit a file on cloud.rdm.uq.edu.au or via HPC Bunya and on your desktop at the same time).  The total number of files available per Q collection is limited (the default is one million) and lots of small files is slower to transfer than a few large files. UQRDM works best when files that are not being frequently used are stored in archive files (e.g. tar, zip, 7zip, rar) before being backed up to RDM. 
 
-![](RDM-graph-Git.bmp)
+![](../media/RDM-graph-Git.bmp)
 
 The diagram above shows a simplified view of the different ways (paths) a Q collection can be accessed. 
 * *"Q" collections* represent the tape part of the RDM. Data here is backed up and can be recovered if it has been deleted or corrupted recently.
