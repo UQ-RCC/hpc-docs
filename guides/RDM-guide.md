@@ -16,7 +16,7 @@ The term *RDM* is often applied in general terms for storage. In more detail, an
 
 There are 3 different types of *Storage Record*: general data (A storage record), indentifiable data (I storage record), HPC available data (Q storage record). The user must select one type when the *Storage Record* is added and this cannot be changed once the *Storage Record* has been created. Only Q *Storage Records* (Q RDM or Q collection) are accessible through HPC Bunya.
 
-## UQRDM Q collections
+## UQRDM Q storage records
 
 A UQRDM Q storage record is safe, backed up, and recoverable storage for research data. Q storage records are automaticaly available on Bunya and onBunya.
 
