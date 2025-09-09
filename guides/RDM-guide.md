@@ -25,22 +25,22 @@ A UQRDM Q storage record is safe, backed up, and recoverable storage for researc
 
 ![](../media/RDM-graph-Git.bmp)
 
-The diagram above shows a simplified view of the different ways (paths) a Q collection can be accessed. 
+The diagram above shows a simplified view of the different ways (paths) a Q storage record can be accessed. 
 * *"Q" collections* represent the tape part of the RDM. Data here is backed up and can be recovered if it has been deleted or corrupted recently.
-* *ITS cache*, *Institute cache*, and *Online data* represent intermediate disk layers. When writing to a Q collection data is first staged into the respective cache.
+* *ITS cache*, *Institute cache*, and *Online data* represent intermediate disk layers. When writing to a Q storage record data is first staged into the respective cache.
 * If you have `\\uq.edu.au\UQ-Inst-Gateway1`, `\\uq.edu.au\UQ-Inst-Gateway2`, which map to `data.<institute>.uq.edu.au`, e.g. `data.aibn.uq.edu.au`, `data.imb.uq.edu.au`, `data.qbi.uq.edu.au`, and `data.cai.uq.edu.au`, in the mount path on your desktop/laptop then you are using the Institute cache.
 * If you have `shares.rdm.uq.edu.au`, or `shares01.rdm.uq.edu.au`, or `shares02.rdm.uq.edu.au`in the mount path on your desktop/laptop then you are using the ITS cache.
   
-* When data is written to a Q collection from Bunya the data is first staged to RCC's Online data.
-* When data is written to a Q collection from a desktop/laptop/instrument connected to the Institute cache the data is first staged to the Institute cache. It is then staged from the Institute cache to RCC's Online data.
-* When data is written to a Q collection from a desktop/laptop connected to the ITS cache the data is first staged to the ITS cache. It is then staged from the ITS cache to RCC's Online data.
-* When data is written to a Q collection from cloud.rdm.uq.edu.au the data is first staged to the ITS cache. It is then staged from the ITS cache to RCC's Online data.
+* When data is written to a Q storage record from Bunya the data is first staged to RCC's Online data.
+* When data is written to a Q storage record from a desktop/laptop/instrument connected to the Institute cache the data is first staged to the Institute cache. It is then staged from the Institute cache to RCC's Online data.
+* When data is written to a Q storage from a desktop/laptop connected to the ITS cache the data is first staged to the ITS cache. It is then staged from the ITS cache to RCC's Online data.
+* When data is written to a Q storage from cloud.rdm.uq.edu.au the data is first staged to the ITS cache. It is then staged from the ITS cache to RCC's Online data.
 * Data in RCC's Online data is staged (written) to Q collections (tape) several times a day. **Important** Data that has not yet been staged to tape is not yet save and not yet backed up.
 
-* When data is read from a Q collection from Bunya data might need to be staged to RCC's Online data from tape first. This might cause a slight delay.
-* When data is read from a Q collection from a desktop/laptop connected via the Institute cache then the data might need to be staged to the Institute cache via RCC's Online data from tape first. This might cause a slight delay.
-* When data is read from a Q collection from a desktop/laptop connected via the ITS cache then the data might need to be staged to the ITS cache via RCC's Online data from tape first. This might cause a slight delay.
-* When data is read from a Q collection from cloud.rdm.uq.edu.au then the data might need to be staged to the ITS cache via RCC's Online data from tape first. This might cause a slight delay.
+* When data is read from a Q storage record in the Q collections from Bunya data might need to be staged to RCC's Online data from tape first. This might cause a slight delay.
+* When data is read from a Q storage record in the Q collections from a desktop/laptop connected via the Institute cache then the data might need to be staged to the Institute cache via RCC's Online data from tape first. This might cause a slight delay.
+* When data is read from a Q storage record in the Q collections from a desktop/laptop connected via the ITS cache then the data might need to be staged to the ITS cache via RCC's Online data from tape first. This might cause a slight delay.
+* When data is read from a Q storage record in the Q collections from cloud.rdm.uq.edu.au then the data might need to be staged to the ITS cache via RCC's Online data from tape first. This might cause a slight delay.
 * Data that has not been accessed in a while will be cleared from the caches. When it is accessed again it will need to be recalled from tape back to the respective caches.
 
 * When data is written or deleted or moved, changes might not appear instantly via all different access paths. The process to sync all caches can take some time. 
@@ -49,7 +49,7 @@ The following points outline what this means for common user questions and probl
 
 ## FAQ
 
-#### I can see files/folders in my Q collection on Bunya but I cannot see them from my desktop/laptop
+#### I can see files/folders in my Q storage record on Bunya but I cannot see them from my desktop/laptop
 1) The files/folders have been written to RDM recently. The changes are not instantly visible via the Institute or ITS cache as they need to sync first.
 2) The files/folders have been written to RDM at least a few hours ago. There might be a syncing problem. If this concerns the ITS cache please contact the RDM team about this problem. If this concenrs the Institute cache then please contact RCC.
 
