@@ -1,5 +1,3 @@
-**DRAFT** 20250904
-
 # Basics of RDM Q Storage Allocations
 
 ## Document Purpose
@@ -25,21 +23,6 @@ It is *not* possible to mount A or I type RDM collection storage allocations ont
 
 Users of onBunya service are provided with convenient short cuts on the desktop to access the RDM Q storage allocations that they are the owner of, or collaborator with.
 
-Please refer to the [Bunya Storage User Guide section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata) on using RDM Q collections on Bunya.
-
-## Computational Workflows that incorporate RDM
-
-### A common workflow example
-
-### Job dependencies are your friend
-
-### Pre-staging data using appropriate resources
-
-### Use the special tools for the special work
-
-### Post-processing considerations
-
-## Best Practices for using RDM with Bunya HPC
-
+Please refer to the [Bunya Storage User Guide section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata) on using RDM Q collections on Bunya and the [RDM Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/RDM-guide.md) for more details.
 
 
