@@ -169,6 +169,11 @@ The output contains the size-occupied-on-disk in the first column and the actual
 #This one is not in GPFS cache (zero on disk but the actual filesize is 1.7MB)
 [uquser@bun104 Q0837]$ ls -salh .LDAUtype1.tgz
 0 -rw-rw----+ 1 Q0837 Q0837RW 1.7M Dec 16  2019 .LDAUtype1.tgz
+
+#This one is also not in GPFS cache.
+#Sometimes the size-occupied-on-disk value will be 512 (bytes) instead of 0.
+[uquser@bun104 Q0837]$ ls -salh *.dat
+512 -rw-rw----+ 1 Q0837 Q0837RW 2.5G Dec 25  2019 HappyHolidays.dat
 ```
 
 
