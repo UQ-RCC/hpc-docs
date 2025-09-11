@@ -613,9 +613,10 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 ## Maximum CPU resources per GPU
 
 >[!IMPORTANT] 
->Users should be mindful of the CPU resources per node when requesting GPU resources. Over requesting CPU resourcrs such as the number of CPUs and CPU ram can unintentionally block other GPUs on the same node being used as the CPU resources of other jobs cannot be accommodated even if GPUs are still free.
+>Users should be mindful of the CPU resources per node when requesting GPU resources. Over requesting CPU resources such as the number of CPUs and CPU ram can unintentionally block other GPUs on the same node being used as the CPU resources of other jobs cannot be accommodated even if GPUs are still free. This can lead to unnecessary wait time for other users's jobs and might lead to GPU resources being left idle. Users should request the resources that their job needs to run and not just arbritary CPU resources or just always the same CPU resources. Users are required to check the resource utilisation of their jobs and adjust future job accordingly.
+>Jobs that are found to not utilise the resources they have requested and are blocking free GPUs being used mayb be terminated.  
 
-This table shows what are appropriate CPU resource requests per GPU, depending on the GPU and GPU node.
+This table shows what are appropriate maximum CPU resource requests per GPU, depending on the GPU and GPU node.
 
 | Partition | Hostnames |  Count | Max CPU Memory (MB) per GPU| Max CPUS per GPU | FEATURES | GPUs per node | multiplier per GPU|
 |:---|:---|:---:|---:|:---:|:---|:---|---:|
