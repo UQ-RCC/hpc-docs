@@ -610,6 +610,30 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 | gpu_rocm | bun145 | 1 | 2000000 | 128 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun146 | 1 | 2000000 | 192 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 
+## Maximum CPU resources per GPU
+
+>[!IMPORTANT] Users should be mindful of the CPU resources per node when requesting GPU resources. Over requesting CPU resourcrs such as the number of CPUs and CPU ram can unintentionally block other GPUs on the same node being used as the CPU resources of other jobs cannot be accommodated even if GPUs are still free.
+
+This table shows what are appropriate CPU resource requests per GPU, depending on the GPU and GPU node.
+
+| Partition | Hostnames |  Count | Max CPU Memory (MB) per GPU| Max CPUS per GPU | FEATURES | GPUs per node | multiplier per GPU|
+|:---|:---|:---:|---:|:---:|:---|:---|---:|
+| gpu_cuda | bun003 | 1 | 700000 | 86 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
+| gpu_cuda | bun[004-005] | 2 | 180000 | 22 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:6, <br> gpu:nvidia_a100_80gb_pcie_2g.20gb:3, <br> gpu:nvidia_a100_80gb_pcie_3g.40gb:3| 6, <br> 12, <br> 24 |
+| gpu_cuda | bun068 | 1 | 1000000 | 96 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
+|||||||||
+| gpu_cuda | bun[071-076,116] | 7 | 700000 | 64 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
+| gpu_sxm | bun[117-120] | 4 | 250000 | 48 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
+|||||||||
+| gpu_cuda <br> gpu_viz | bun[077-082] | 6 | 700000 | 64 | epyc3,<br> cuda,<br> cuda48gb | gpu:l40:3 | 40 |
+| gpu_cuda <br> gpu_viz | bun[124-125] | 2 | 250000 | 64 | epyc4,<br> cuda,<br> cuda48gb | gpu:l40s:3 | 42 |
+| gpu_viz | bun[121-123] | 3 | 64000 | 16 | epyc4,<br> cuda | gpu:a16:12 | 6 |
+|||||||||
+| gpu_rocm | bun[001-002] | 2 | 250000 | 96 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
+| gpu_rocm | bun070 | 1 | 190000 | 32 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
+| gpu_rocm | bun145 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+| gpu_rocm | bun146 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+
 
 <br>
 
