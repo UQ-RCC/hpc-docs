@@ -588,7 +588,7 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 **gpu_viz** is used exclusively by onBunya. Users should not be submitting batch jobs via sbatch to the gpu_viz partition. The L40 and L40s GPUs are available through the gpu_cuda partition. <br>
 
 
-| Partition | Hostnames |  Count |  CPU Memory (MB) | CPUS | FEATURES | GRES | Charge Multiplier|
+| Partition | Hostnames |  Count |  CPU Memory (MB) per node| CPUS per node| FEATURES | GRES per node| Charge Multiplier|
 |:---|:---|:---:|---:|:---:|:---|:---|---:|
 | general | bun[006-008] | 3 | 4000000 | 192 | epyc3 | (null) | 1 |
 | general | bun[009-067] | 59 | 2000000 | 192 | epyc3 | (null) | 1 |
@@ -609,6 +609,7 @@ gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br>
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun145 | 1 | 2000000 | 128 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun146 | 1 | 2000000 | 192 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+
 
 <br>
 
