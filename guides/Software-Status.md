@@ -25,7 +25,7 @@ See [onBunya User Guide](../guides/OnDemand-Guide.md)
 
 ### STATA
 
-* Installation in progress
+* Cannot be provided on Bunya or on onBunya.
 
 ### Ansys 
 
