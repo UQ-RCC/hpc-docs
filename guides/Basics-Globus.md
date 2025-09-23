@@ -33,7 +33,7 @@ Anyone with a AAF, ORCID, GitHub or Google account credential can apply for acce
 
 We will do that automatically as part of the process of connecting your RDM collection to the Globus endpoint. 
 
-If you are connecting to globus to pull data from a collaborator's Globus endpoint to your local machine, and you won't have your RDM storage allocation connected directly to Globus, then you will need to be manually registered to access the Globus endpoint. Again an email to rcc-support@uq.edu.au will sort that out.
+If you are connecting to globus to pull data from a collaborator's Globus endpoint to your local machine, and you won't have your RDM storage allocation connected directly to Globus, then you will need to be manually registered to access the Globus endpoint. Again, an email to rcc-support@uq.edu.au will sort that out.
 
 ### Getting at the UQ endpoint
 
@@ -48,11 +48,12 @@ An individual can have multiple institutional credentials but they will have to 
 ### Globus Connect Personal Software
 
 Globus provides a desktop tool that enables your personal computer to pretend to be a Globus endpoint.
-There is a link to the "Get Globus Connect Personal" on the Collections part of teh Globus web interface.
+There is a link to the "Get Globus Connect Personal" on the Collections part of the Globus web interface.
 
-You might find the Personal Connect software useful if you are sending or receiving data from your workstation. 
+You might find the Personal Connect software useful if you are sending or receiving data from your workstation. </br>
+You will find it necessary to use the Globus Connect Personal application to _transfer_ big files (>1GB) to the destination.
 
-You do not need Globus Connect Personal to move data between, say, UQ Globus endpoint and a remote endpoint.  
+You do not need Globus Connect Personal to move data between, say, UQ Globus endpoint and a remote endpoint. Just use the app.globus.org website.  
 
 ### Finding your data
 
@@ -73,9 +74,17 @@ Alternatively, you can
 
 ### Not working?
 
+There are a few things we've noticed that can go wrong in your Globus session.
+
 * Too soon, maybe? </br>
 There is a process that is only run once every 24 hours, in the middle of the night, that is required before an RDM Storage Allocation becomes accessible in Globus File Manager (even if it is visible in the list of collections)
-* Stuck? </br>
+
+* Blank panes? </br>
 Sometimes the web interface does not display the list of Collections, or the folders in a Globus Collection. Hit page reload button in your browser, that usually fixes it.
+
 * Sometimes you might get authentication or access errors. You may need to logout and login again.
+
+* Sometimes you are trying to access a Q collection and will get "Authentication/Consent is required for Globus transfer service to manage data on this collection." errors. Click on the Continue button. You will be offered a blue URL click on the link that looks like your **username@institution.dommain.name** Do not use the drop down menu of Institutions because it gets stuck in an infinite loop!
+
+* It is not possible to use the Upload file feature with files in excess of 1GB. Use the Globus Connect Personal application to _transfer_ big files to the destination.
 * If all else fails, email rcc-support@uq.edu.au
