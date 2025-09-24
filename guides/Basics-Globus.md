@@ -37,7 +37,7 @@ If you are connecting to globus to pull data from a collaborator's Globus endpoi
 
 ### Getting at the UQ endpoint
 
-Visit https://app.globus.org/endpoints
+Visit (https://app.globus.org/endpoints)[https://app.globus.org/endpoints]
 
 Login with your institutional credentials
 
@@ -84,7 +84,10 @@ Sometimes the web interface does not display the list of Collections, or the fol
 
 * Sometimes you might get authentication or access errors. You may need to logout and login again.
 
-* Sometimes you are trying to access a Q collection and will get "Authentication/Consent is required for Globus transfer service to manage data on this collection." errors. Click on the Continue button. You will be offered a blue URL click on the link that looks like your **username@institution.dommain.name** Do not use the drop down menu of Institutions because it gets stuck in an infinite loop!
+* Sometimes when you are trying to access a Q collection, </br>
+you may get an "Authentication/Consent is required for Globus transfer service to manage data on this collection." errors. Click on the Continue button. </br>
+You will be offered a blue URL that looks like your **username@institution.domain.name**. Click on that link.</br>
+Do _not_ use the drop down menu of Institutions because it gets stuck in an infinite loop!
 
 * It is not possible to use the Upload file feature with files in excess of 1GB. Use the Globus Connect Personal application to _transfer_ big files to the destination.
 * If all else fails, email rcc-support@uq.edu.au
