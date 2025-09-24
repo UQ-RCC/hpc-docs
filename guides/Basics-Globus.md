@@ -90,4 +90,4 @@ On the "Identity Required" page you will be offered a blue URL that looks like y
 Do _not_ use the drop down menu of Institutions and the Continue button on the Identity Required page because it gets stuck in an infinite loop!
 
 * It is not possible to use the Upload file feature with files in excess of 1GB. Use the Globus Connect Personal application to _transfer_ big files to the destination.
-* If all else fails, email rcc-support@uq.edu.au
+* If all else fails, email rcc-support@uq.edu.au. Screenshots of what you were seeing are very helpful. Please attach screenshots to the email instead of pasting into the body.
