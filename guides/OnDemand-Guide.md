@@ -142,6 +142,16 @@ Most of the options offer drop down menues for you to select an option. <br>
 `conda init --reverse` <br>
 Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
 
+## Troubleshooting
+
+* If you get an error in the authentication stage that says something like this<br>
+User ... authenticated with identity provider bunyaaaf does not exist.<br>
+it could mean that you used the wrong credentials (staff cf. student) or it could be that your application for access to Bunya has not been processed, or possibly even submitted.
+ 
+* If your Desktop looks incomplete or blank then you will need to reinitialise it.<br>You do this by terminating all running onBunya Desktops, then deleting the contents of your Desktop folder in your home directory, but leave the empty folder. Then relaunch a desktop (it may take a little bit longer to initialise)
+
+* If your Desktop looks like it has all the contents of your home directory (instead of just the Desktop icons) then<br>terminate all running onBunya Desktops, then check that this is set in the file `$HOME/.config/user-dirs.dirs`<br>`XDG_DESKTOP_DIR="$HOME/Desktop"`<br>Fix, as necessary, and relaunch a desktop.
+
 ## Software
 
 ### CVL Apps
