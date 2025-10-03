@@ -557,7 +557,7 @@ QoS are used to control access to resources and apply sustainable limits.<br>
 mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1<br>
 sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
 viz for onBunya jobs only<br>
-onBunya Accelerated Desktops with 2 or 3 GPUs will submitted with the gpu QoS.<br>
+onBunya Accelerated Desktops with 2 or 3 GPUs will be submitted with the gpu QoS.<br>
 gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.<br>
 
 
