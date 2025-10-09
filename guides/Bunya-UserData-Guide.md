@@ -5,11 +5,11 @@ Bunya has several spaces users have access to to keep their data and software.
 >These spaces are subject to the [Bunya User Data Spaces Operational Procedure](../policy/Bunya-User-Data-Spaces-Operational-Procedure.md) and the [UQ Research Data Management Policy](https://policies.uq.edu.au/document/view-current.php?id=120) and [UQ Research Data Management Procedure](https://policies.uq.edu.au/document/view-current.php?id=476&version=1).
 
 
-### Spaces available by default for every user
+## Spaces available by default for every user
 
 The spaces below are individual spaces. This means, by default, they are only accessible by the user who this space belongs to. These spaces **should NOT be shared with any other users**. If a shared space is required please see further below in the section on shared spaces.
 
-#### `/home/username` 
+### `/home/username` 
 * Every user has a home directory. This is where a user lands when they login.
 * The home directory of a new user is created when the user logs in for the very first time via ssh. onBunya login will **not** create a user's home directory.
 * Quotas are *50GB and 1 million files*.
@@ -19,7 +19,7 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The home directory is **not backed up**.
 * The home directory **must not** be shared with other users.
 
-#### `/scratch/user/username`
+### `/scratch/user/username`
 * Every user has a directory in `/scratch/user`.
 * Quotas are *300GB and 1 million files*.
 * The 300GB quota can be exceeded up to 5TB but only up to 2 weeks. The quota has to fall below 300GB within the 2 weeks period or the user can no longer write to `/scratch/user`.
@@ -38,7 +38,7 @@ Users can use the command
 ```
 to check on their quotas and grace period in `/scratch/user`. 
 
-#### `$TMPDIR`
+### `$TMPDIR`
 
 * `$TMPDIR` is created automatically for each Slurm job and is then automatically deleted once the Slurm job finishes. It is the ideal place for temporary files of jobs.
 * `$TMPDIR` currently provides upto 10TB (soft limit) and 11TB (hard limit) of temporary space for upto 10,485,760 (soft limit) and 11,534,336 (hard limit) files. These limits apply to the _aggregate_ across all running jobs _for each user_. 
@@ -58,9 +58,9 @@ to check on their quotas and grace period in `/scratch/user`.
   
   ```
 
-### Shared spaces, often require an application
+## Shared spaces, often require an application
 
-#### `/scratch/opendata`
+### `/scratch/opendata`
 
 The opendata space is a read-only space to house data sets and models. Current data includes, GTDB, BLAST, Kraken, CheckM2, SingleM, nuScens, nuScenes-C, huggingface, ollama, gguf, and many more.
 
@@ -69,7 +69,7 @@ Users are required to check if the data they need is already housed in `/scratch
 If data is not yet available in `/scratch/opendata` users can submit a request for data to be installed there.
 
 
-#### `/scratch/project`
+### `/scratch/project`
 
 Scratch projects are shared spaces in `/scratch` that provide more space and space that is shared by members of a group.
 
@@ -118,7 +118,7 @@ drwxrwsr-x.  2 user-2 Project_Access_Group        4K Oct  9 2023  directory-2
 ```
 
 
-#### `/QRISdata`
+### `/QRISdata`
 
 The [RDM User Guides](https://guides.library.uq.edu.au/for-researchers/uq-research-data-manager) provide a lot of information about RDM research records and RDM storage records and how to use and administer these.
 
@@ -195,3 +195,6 @@ At a time between 20 past and 40 past the hour at the hours of  08, 12, 16, and 
 access to the RDMs from Bunya can be delayed. It happens while the service access controls are being updated. Access can appear non-responsive for a few minutes. Best to wait 5 minutes and try again.
 
 
+#### How can I access my /QRISdata collection in other ways?
+
+Please refer to our [UQRDM Overview Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/RDM-guide.md) and links therein to UQRDM portal user information.
