@@ -523,7 +523,7 @@ Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ 
 
 ### Interactive MPI jobs only
 
-Instructions for interactive MPI jobs can be found [here](MPI-interactive.md)
+Instructions for interactive MPI jobs can be found [here](Expert-only-MPI-testing.md)
 
 
 ## Available partitions
