@@ -521,9 +521,9 @@ Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ 
 
 
 
-### Interactive MPI jobs only
+### Interactive MPI jobs only (for experts)
 
-Instructions for interactive MPI jobs can be found [here](Expert-only-MPI-testing.md)
+Instructions for **experts** who know what they are doing in terms of MPI and its usage can be found [here (for MPI experts only)](Expert-only-MPI-testing.md)
 
 
 ## Available partitions
