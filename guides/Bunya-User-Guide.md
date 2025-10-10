@@ -953,16 +953,24 @@ The fairshare system calculates your usage based on the resources you requested.
 If you order a lot of food, but you don't eat it all, then you still pay for the food you ordered.
 HPC's don't have a mechanism like doggy bags ;-)
 
-The fairshare system will account for your usage based on the resources (CPU and/or MEM) you requested even if you did not consume them all. That is because noone else could used those resources while your job was running. A job that finishes earlier than the requested walltime does get charged less.
+The fairshare system will account for your usage based on the resources (CPU and/or MEM) you requested even if you did not consume them all. That is because no one else could used those resources while your job was running. A job that finishes earlier than the requested walltime does get charged less.
 
 We often don't know in advance how much resource a set of jobs may require. 
 You may have some idea based on calculations you have performed on a workstation or other HPC cluster.
 Obviously if your software cannot utilised a GPU resource you would never request it.
 But if you have CPU code that is expected to run faster on a single node in shared memory (OpenMP) mode, or on multiple nodes in message passing interface (MPI) mode, then you should be certain that you are getting the performance gains that you expect.
 
+To prevent users unintentionally reducing their fair share RCC is starting to automatically delete jobs that leave GPU resources idle. The parameters for automatic deletion are:<br>
+
+* GPU job
+* Runtime of at least 24 hour
+* At least 3 hours of walltime left
+* Idle GPU resources for the last 4 hours
+
+
 ##### Jobstats
 
-You can use the `jobstats` module to check utilisation of running and completed jobs. It will show CPU, CPU Ram, GPU, and GPU Ram utilisation.
+You can use the `jobstats` module to check utilisation of running and completed jobs. It will show max CPU, max CPU Ram, average GPU, and max GPU Ram utilisation over the elapsed runtime of the job. Jobstats provides a direct link in the comments to a graphical dashboard in onBunya to show resource utilistaion for whole runtime interval. Jobstats works on running and finihsed jobs. 
 
 ```
 module load jobstats
