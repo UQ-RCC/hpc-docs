@@ -17,8 +17,6 @@
 
 ## General HPC information 
 
-General HPC training is available via the [RCC and QCIF Training resources](https://www.qcif.edu.au/training/hpc-training-resources/).
-
 To get a basic understanding of what you need to be aware of when using HPC for your research please listen to the following videos:
 
 [Connecting to HPC via putty](https://youtu.be/oP_5JJrMm1U)<br>
