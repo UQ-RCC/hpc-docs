@@ -557,6 +557,7 @@ sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
 viz for onBunya jobs only<br>
 onBunya Accelerated Desktops with 2 or 3 GPUs will be submitted with the gpu QoS.<br>
 gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.<br>
+The max of H100 GPUs is 4 across all QoS and paritions<br>
 
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
