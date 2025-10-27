@@ -195,6 +195,12 @@ At a time between 20 past and 40 past the hour at the hours of  08, 12, 16, and 
 access to the RDMs from Bunya can be delayed. It happens while the service access controls are being updated. Access can appear non-responsive for a few minutes. Best to wait 5 minutes and try again.
 
 
+#### Why does my collection not show up in the /QRISdata folder all the time?
+
+As stated in the first section of the /QRISdata section of this guide, you won't see your folder unless it has been mounted onto /QRISdata.
+* Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to see the RDM storage record.</br>Due to the automount the RDM storage record needs to be used to be seen.
+
+
 #### How can I access my /QRISdata collection in other ways?
 
 Please refer to our [UQRDM Overview Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/RDM-guide.md) and links therein to UQRDM portal user information.
