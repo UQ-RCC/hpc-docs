@@ -120,19 +120,35 @@ drwxrwsr-x.  2 user-2 Project_Access_Group        4K Oct  9 2023  directory-2
 
 ### `/QRISdata`
 
-The [RDM User Guides](https://guides.library.uq.edu.au/for-researchers/uq-research-data-manager) provide a lot of information about RDM research records and RDM storage records and how to use and administer these.
+The [UQ RDM User Guides](https://guides.library.uq.edu.au/for-researchers/uq-research-data-manager) provide a lot of information about RDM research records and RDM storage records and how to use and administer these.
 
-RDM storage records, where users selected that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically available on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
+UQ RDM storage records, where users selected that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically available on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
 
 
 * `/QRISdata/QNNNN` are shared spaces with default quotas of *1TB and 1 million files*. This can be increased by applying for more storage via the [RDM portal](https://rdm.uq.edu.au/).
 * RHD students who have dual credentials (staff and student) may need to add the other credential as a collaborator. For example, if your RDM was created with your student account, then you will need to add your staff account as a collaborator if you need access to it from the staff credentials. You manage collaborators on your RDM via the [RDM portal](https://rdm.uq.edu.au/).
-* Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to see the RDM storage record. Due to the automount the RDM storage record needs to be used to be seen.
-* Users are **not allowed** to submit jobs (type `sbatch` or `salloc`) from a directory in `/QRISdata`. 
-* Jobs should not do multiple reads or writes from or to a directory in `/QRISdata` during a calculations. So standard output should not be written to `/QRISdata`. A once off read of input at the start and a once off write at the end is permitted. However, the general data workflow should be using `/scratch` for input and output of calculations.
-* Software should not be installed in `/QRISdata` as accessing software is also continuously accessing `/QRISdata` which is not permitted.
-* Do not unpack archives or tar files directly in `/QRISdata`, unpack these into a directory in `/scratch`
+* Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to see the RDM storage record. Due to the automount mechanism, the RDM Q storage allocation folder `/QRISdata/QNNNN` needs to be mounted to become visible in the filesystem.
+
+#### /QRISdata Best Practices
+
+The following are important _behaviours_ to observe when interacting with the /QRISdata storage from Bunya:
+
+* Users are **not allowed** to submit jobs (using `sbatch` or `salloc`) from a directory in `/QRISdata`. Jobs that are running from /QRISdata impact the service and other users and may be deleted without warning. In your running jobs, it is the value of the environment variable **$SLURM_SUBMIT_DIR** 
+* The /QRISdata storage is designed as archival space (see *How /QRISdata works* section, below). <br>Write once, read rarely. Bigger files are better than lots of small files.
+* You should not do multiple reads from a directory in `/QRISdata`. <br>A once-only read of a few input files on /QRISdata at the start of your computations is OK. You should be using `/scratch` for inputs to calculations when they are repeatedly being accessed.
+* You should not do perform multiple writes into a directory in `/QRISdata`.
+* Standard output should not be written to `/QRISdata`. Use /scratch instead.
+* A once-off write at the end of your job or interactive session is permitted. However, the general data workflow should be using `/scratch` for intensive input _and_ output of calculations.
+* Software should not be installed in `/QRISdata`. This is because accessing software is often repeatedly accessing `/QRISdata` which is not permitted.
+* Do not unpack archives or tar files directly in `/QRISdata`. Unpack archives into a directory in `/scratch`
 * Do not move directories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
+* Do not perform file-by-file copies to RDM (using tools like rsync). This is especially true when very large numbers of files and folders are involved.
+* You should monitor your RDM quota consumption periodically. Always do this from a compute node (interactive job, or onBunya session)<br>These commands will tell you how many GB or TB and how many inodes you have in your RDM Q storage allocation <br>
+```
+du -sh --apparent-size  /QRISdata/QNNNN`
+du -s --inodes /QRISdata/QNNNN
+```
+
 
 #### How `/QRISdata` works
 
