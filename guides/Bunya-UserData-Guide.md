@@ -145,7 +145,7 @@ The following are important _behaviours_ to observe when interacting with the /Q
 * Do not perform file-by-file copies to RDM (using tools like rsync). This is especially true when very large numbers of files and folders are involved.
 * You should monitor your RDM quota consumption periodically. <br>If you are not aware of your current quotas on an RDM, login to the [QRIScloud services portal](https://services.qriscloud.org.au/services) and click on the Q collection you need.<br>These commands will tell you how many GB or TB and how many inodes you have in your RDM Q storage allocation. <br>Always do this from a compute node (interactive job, or onBunya session) <br>
 ```
-du -sh --apparent-size  /QRISdata/QNNNN`
+du -sh --apparent-size  /QRISdata/QNNNN
 df -i /QRISdata/QNNNN
 ```
 
