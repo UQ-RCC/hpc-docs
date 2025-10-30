@@ -143,7 +143,7 @@ The following are important _behaviours_ to observe when interacting with the /Q
 * Do not unpack archives or tar files directly in `/QRISdata`. Unpack archives into a directory in `/scratch`
 * Do not move directories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
 * Do not perform file-by-file copies to RDM (using tools like rsync). This is especially true when very large numbers of files and folders are involved.
-* You should monitor your RDM quota consumption periodically. Always do this from a compute node (interactive job, or onBunya session)<br>These commands will tell you how many GB or TB and how many inodes you have in your RDM Q storage allocation <br>
+* You should monitor your RDM quota consumption periodically. <br>If you are not aware of your current quotas on an RDM, login to the [QRIScloud services portal](https://services.qriscloud.org.au/services) and click on the Q collection you need.<br>These commands will tell you how many GB or TB and how many inodes you have in your RDM Q storage allocation. <br>Always do this from a compute node (interactive job, or onBunya session) <br>
 ```
 du -sh --apparent-size  /QRISdata/QNNNN`
 df -i /QRISdata/QNNNN
