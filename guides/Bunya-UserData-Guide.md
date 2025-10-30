@@ -146,7 +146,7 @@ The following are important _behaviours_ to observe when interacting with the /Q
 * You should monitor your RDM quota consumption periodically. Always do this from a compute node (interactive job, or onBunya session)<br>These commands will tell you how many GB or TB and how many inodes you have in your RDM Q storage allocation <br>
 ```
 du -sh --apparent-size  /QRISdata/QNNNN`
-du -s --inodes /QRISdata/QNNNN
+df -i /QRISdata/QNNNN
 ```
 
 
