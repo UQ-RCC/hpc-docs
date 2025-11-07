@@ -80,4 +80,5 @@ The commands, R and Rscript, will be automatically found in your path.
 
 ## Problems with accessing /QRISdata from container versions of R.
 
-Yes this is an issue. When you launch a software container you do so as your default group which won't be allowed to access your RDM data.
+Yes this is an issue. When you launch a software container you do so as your default group which won't be allowed to access your RDM data.<br>
+Pre-fetch your data from /QRISdata onto $TMPDIR or /scratch.
