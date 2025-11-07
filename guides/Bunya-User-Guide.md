@@ -539,6 +539,7 @@ gpu_viz
 ```
 normal
 debug
+short
 mig
 sxm
 sdf
@@ -564,12 +565,13 @@ The max of H100 GPUs is 4 across all QoS and paritions<br>
 |:---|:---|:---:|:---:|:---|:---|
 |||||||
 | normal | general | open | 10 | 20000 CPUs, <br> 200 T CPU memory | 1536 CPUs,<br> 16 T CPU memory,<br> 0 GPUs,<br> 5000 jobs submitted | 
-| debug | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 20 | none | 1 hour, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
+| debug | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 30 | none | 1 hour, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
+| sort | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 20 | none | 12 hours, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
 | gpu | gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 10 | none | 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
 | mig | gpu_cuda | open | 10 | none | 441 CPUs, <br> 1932 GB CPU memory, <br> 21 GPUs, <br> 1000 jobs submitted |
 | sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, <br> 1 T CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 50 jobs submitted |
 |sdf | gpu_rocm| approved users | 10 | none | 256 CPUs, <br> 2 T CPU memory, <br> 8 GPUs |
-| viz | general, <br> gpu_viz| onBunya only | 20 | none | 1 day,<br> 192 CPUs (96 CPU per job), <br> 500G per job, <br> 2 GPUs (1 GPU per job), <br> 2 running jobs, <br> 20 jobs submitted | 
+| viz | general, <br> gpu_viz| onBunya only | 30 | none | 1 day,<br> 192 CPUs (96 CPU per job), <br> 500G per job, <br> 2 GPUs (1 GPU per job), <br> 2 running jobs, <br> 20 jobs submitted | 
 <br>
 
 ## Available partitions and nodes
