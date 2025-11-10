@@ -25,8 +25,6 @@ Your spaces in *home*, *scratch*, *opendata*, *$TMPDIR* and *RDM*
 [All Available User Guides](guides)
 
 <br>
-This is an external website that guides you in creating successful SLURM job submissions for Bunya HPC.
-
 [A log of updates and changes to Bunya](/Bunya-updates.md)
 
 [RCC's older documentation set](https://rcc.uq.edu.au/rcc-user-guides-public)
