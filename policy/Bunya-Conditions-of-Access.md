@@ -25,6 +25,8 @@ The terms in this form determine the basic understanding of a user (new or exper
 
 * I understand that Bunya is for academic research use only. Commercial and/or consultation work should not be using Bunya. Teaching work should not be using Bunya.
 
-* I understand that unless personal use is explicitly allowed, software or data licensed to UQ, which includes Open-Source licensed software or data, must only be used for purposes legitimately associated with UQ's operations as a teaching and research institution. By obtaining or using UQ-licensed software or data I must understand and comply with the terms and conditions for use of the software or data. 
+* I understand that unless personal use is explicitly allowed, software or data licensed to UQ, which includes Open-Source licensed software or data, must only be used for purposes legitimately associated with UQ's operations as a teaching and research institution. By obtaining or using UQ-licensed software or data I must understand and comply with the terms and conditions for use of the software or data.
+
+* I understand that I must not create a tunnel such that I or a person can connect to a non-UQ site and gain access to any information or service inside the Bunya cluster.
 
 * ***I understand that if I run calculations or processes on the login nodes, or that if I submit my calculations from /QRISdata, or that if my calculations continuously write to and/or read from /QRISdata, or if I use Bunya for commercial and/or consultation work, or if I do not comply with the terms and conditions for use of the software or data my access to Bunya could be suspended.*** 
