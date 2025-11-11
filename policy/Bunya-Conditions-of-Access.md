@@ -27,6 +27,6 @@ The terms in this form determine the basic understanding of a user (new or exper
 
 * I understand that unless personal use is explicitly allowed, software or data licensed to UQ, which includes Open-Source licensed software or data, must only be used for purposes legitimately associated with UQ's operations as a teaching and research institution. By obtaining or using UQ-licensed software or data I must understand and comply with the terms and conditions for use of the software or data.
 
-* I understand that I must not create a tunnel such that I or any other person can connect to Bunya via any method not provided by the Research Computing Centre (e.g. via SSH or onBunya).
+* I understand that I must not create a tunnel such that I or any other person can connect to or gain access to any information or service inside the Bunya supercomputer via any method not provided by the Research Computing Centre (e.g. via SSH or onBunya). If such functionality is required for my research I may apply for an exemption if all relevant code is provided. 
 
 * ***I understand that violation of any of the above conditions may lead to my access to Bunya being suspended.*** 
