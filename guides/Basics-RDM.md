@@ -13,7 +13,19 @@ This document's focus is the key concepts for using RDM Q as they relate to inte
 |Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au|Q storage allocations only|
 ||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au|Q storage allocations only|
 ||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au|Q storage allocations only|
-|Institute Gateway #2|IMB|\\\\uq.edu.au\UQ-Inst-Gateway2|data.imb.uq.edu.au|Q storage allocations only|
+||IMB|\\\\uq.edu.au\UQ-Inst-Gateway1||Q storage allocations only.</br>You may need to request that it be mounted.|
+|Institute Gateway #2|IMB|\\\\uq.edu.au\UQ-Inst-Gateway2|data.imb.uq.edu.au|Q storage allocations only.</br>The Institute Gateway #2 hardware is being decommissioned soon.</br>|
+
+Note:<br>
+<br> 
+All Institute users can access their RDM Q allocations via the Institute Gateway #1 once it has been set up.
+
+## Requesting your RDM Q storage allocation be mounted on an Institutes endpoint
+
+Owners of RDM Q storage allocations should email *rcc-support@uq.edu.au* to request it be mounted. </br>
+Please provide details of the collection and confirm that you are the owner.</br>
+
+New requests to mount RDM Q storage allocations onto Institute Gateway #2 are being mounted to Institute Gateway #1.
 
 ## Accessing RDM from Bunya HPC
 
@@ -26,3 +38,6 @@ Users of onBunya service are provided with convenient short cuts on the desktop 
 Please refer to the [Bunya Storage User Guide section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata) on using RDM Q collections on Bunya and the [RDM Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/RDM-guide.md) for more details.
 
 
+## Document Updated
+
+November 11 2025
