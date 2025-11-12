@@ -8,8 +8,8 @@ This document's focus is the key concepts for using RDM Q as they relate to inte
 |Gateway|Who it is for|How|Local Aliases|Notes|
 |:---|:---:|:---|:---|:---|
 |St Lucia Gateway|Everybody|\\\\uq.edu.au\UQ-Research|R: Drive|Windows|
-|||\\\\shares01.rdm.uq.edu.au||Windows|
-|||smb://shares01.rdm.uq.edu.au||MacOS and Linux|
+|||\\\\shares01.rdm.uq.edu.au|RDM Share|Windows|
+|||smb://shares01.rdm.uq.edu.au|RDM Share|MacOS and Linux|
 |Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au|Q storage allocations only|
 ||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au|Q storage allocations only|
 ||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au|Q storage allocations only|
