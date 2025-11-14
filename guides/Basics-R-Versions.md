@@ -46,7 +46,7 @@ If you need to use a software container version of R without RStudio that is OK.
 |:------------|:------|
 |`r/4.4.1`|Software container with approximately 1,200 popular R packages from CRAN.|
 |`r/4.4.2`|Software container with approximately 1,200 popular R packages from CRAN.|
-|`r/4.4.2-heavy`|Software container with approximately 25,000 R packages from CRAN. Requires >16GB of RAM|
+|`r/4.4.2-heavy`|Software container with approximately 25,000 R packages from CRAN.</br>Requires >24GB of RAM to load.|
 |`r/4.5.1`|Software container with approximately 1,200 popular R packages from CRAN.|
 
 
