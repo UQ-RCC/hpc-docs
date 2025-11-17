@@ -20,6 +20,8 @@ Your spaces in *home*, *scratch*, *opendata*, *$TMPDIR* and *RDM*
 
 [Bunya Access Conditions all users agree to](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-Conditions-of-Access.md)
 
+[How to acknowledge Bunya and/or RCC](https://rcc.uq.edu.au/about/acknowledging-rcc)
+
 [Software Installation Status](guides/Software-Status.md)
 
 [All Available User Guides](guides)
