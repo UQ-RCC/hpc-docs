@@ -553,12 +553,12 @@ viz
 QoS are used to control access to resources and apply sustainable limits.<br> 
 
 **Important:**<br>
-mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1<br>
-sxm requires the request of at least 1 H100:gres=gpu:h100:1<br>
-viz for onBunya jobs only<br>
-onBunya Accelerated Desktops with 2 or 3 GPUs will be submitted with the gpu QoS.<br>
-gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.<br>
-The max of H100 GPUs is 4 across all QoS and paritions<br>
+* mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
+* sxm requires the request of at least 1 H100:gres=gpu:h100:1
+* viz for onBunya jobs only
+* onBunya Accelerated Desktops with 2 or 3 GPUs will be submitted with the gpu QoS.
+* gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.
+T* he max of H100 GPUs is 4 across all QoS and paritions
 
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
@@ -579,8 +579,8 @@ The max of H100 GPUs is 4 across all QoS and paritions<br>
 The available compute nodes on Bunya are listed in the table below. Please note while some feature the same CPU or GPU type, the available memory and/or number of CPUs or architecture can differ. Be mindful of this when requesting resources for jobs.
 
 **Maximum walltimes**:<br>
-general: 2 weeks (14 days, 336 hours)<br>
-gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours)<br> 
+* general: 2 weeks (14 days, 336 hours)
+* gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours) 
 
 **Default walltime for all partitons: 30 minutes**
 
@@ -669,7 +669,7 @@ The different request flags mean the following:
 `#SBATCH --hint nomultithread` - This option may help in situations where your parallelisation (single node multicore or hybrid OpenMP+MPI) is confused by the numbers of cores/threads.<br>
 <br>
 `#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB r 2TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 4TB (1500G or 2000G or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
-`#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs.<br>
+`#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs. This request is per cpu, so RAM per core (MPI task) will be double what is requested here.<br>
 <br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
 `#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `gpu_rocm, gpu_cuda, gpu_sxm` = 168 hours (1 week).<br>
@@ -971,7 +971,9 @@ To prevent users unintentionally reducing their fair share RCC is starting to au
 
 ##### Jobstats
 
-You can use the `jobstats` module to check utilisation of running and completed jobs. It will show max CPU, max CPU Ram, average GPU, and max GPU Ram utilisation over the elapsed runtime of the job. Jobstats provides a direct link in the comments to a graphical dashboard in onBunya to show resource utilistaion for whole runtime interval. Jobstats works on running and finihsed jobs. 
+You can use the `jobstats` module to check utilisation of running and completed jobs. It will show **max** CPU, **max** CPU Ram, **average** GPU, and **max** GPU Ram utilisation over the elapsed runtime of the job. Jobstats provides a direct link in the comments to a graphical dashboard in onBunya to show resource utilistaion for whole runtime interval. Jobstats works on running and finihsed jobs. 
+
+Please note that for MPI jobs a max CPU utilisation of 50% means an effective 100% utilisation (if `ntasks` have been requested with `--ntasks-per-core=1`) as MPI jobs need to run on core and not cpus (threads). For MPI jobs only as CPU RAM has been requested as `--mem-per-cpu` with `--ntasks-per-core=1` the allocated RAM will be double of what has been requested.
 
 ```
 module load jobstats
@@ -1017,6 +1019,9 @@ Notes:
 ##### Your completed jobs, using seff
 
 The perl utility script /usr/local/bin/seff will generate a brief more readable report of the total resource utilisation (CPU and MEM). It does not report on GPU utilisation.
+
+Please note that for MPI jobs a max CPU utilisation of 50% means an effective 100% utilisation (if `ntasks` have been requested with `--ntasks-per-core=1`) as MPI jobs need to run on core and not cpus (threads). For MPI jobs only as CPU RAM has been requested as `--mem-per-cpu` with `--ntasks-per-core=1` the allocated RAM will be double of what has been requested.
+
 ```
 seff JobID
 ```
