@@ -137,6 +137,11 @@ After making these changes:
 > [!Note]
 > Any existing environments and cached packages in `/home/username/.conda/` will remain there unless they are moved manually or recreated in the new location.
 
+> [!Caution]
+> The automatic purging of unused files in /scratch after 90 days commenced in November 2025.
+> If you relocate your envs directory to /scratch it will be subject to automatic deletion. Files within an otherwise active conda environment may be silently deleted.
+> See the section below about some options about what to do.
+
 ## Conda channels
 
 Conda channels are repositories that host precompiled packages.
@@ -275,6 +280,20 @@ conda create --name myenv-for-pip python=3.10
 
 This will create a populated Conda environment `myenv-for-pip` with Python 3.10, ready to install pip applications.
 
+
+## Future proofing your envs
+
+It is possible to work within the fixed /home quota and /scratch 90 day deletion.
+
+There are some options available to you to future proof your access to conda environments:
+* use, where ever possible, conda environments that are already available via the modules mechanism,
+* if your particular conda environment is something that would be of use to other on the Bunya HPC, you could request that it be installed into /sw and made available via modules,
+* if you lead a research group that all use the same set of tools, but they require frequent updates, or group specific customisations, then we could make create a space within /sw for you to manage those installations on behalf of the group,  
+* you could periodically clone the aging conda environments from /scratch into /home and <br>
+`conda create -p ~/envs/envname --clone oldenvname`
+* you could create a tar file of your conda environments (collectively or individually) and copy the tar file to RDM for safe keeping.
+
+The RCC team are exploring some other options to make managing conda environments more straight forward and will update our documentation in due course.
 
 
 
