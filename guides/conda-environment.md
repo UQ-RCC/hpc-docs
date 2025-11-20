@@ -140,7 +140,7 @@ After making these changes:
 > [!Caution]
 > The automatic purging of unused files in /scratch after 90 days commenced in November 2025.
 > If you relocate your envs directory to /scratch it will be subject to automatic deletion. Files within an otherwise active conda environment may be silently deleted.
-> See the section below about some options about what to do.
+> See the [section below](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md#future-proofing-your-envs) about some options about what to do.
 
 ## Conda channels
 
