@@ -295,7 +295,10 @@ There are some options available to you to future proof your access to conda env
 
 The RCC team are exploring some other options to make managing conda environments more straight forward and will update our documentation in due course.
 
-
+You may wish to refer to this document also:</br>
+https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+and specifically</br> 
+https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#building-identical-conda-environments
 
 
 
