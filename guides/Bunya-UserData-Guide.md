@@ -145,7 +145,13 @@ The following are important _behaviours_ to observe when interacting with the /Q
 * Do not perform file-by-file copies to RDM (using tools like rsync). This is especially true when very large numbers of files and folders are involved.
 * You should monitor your RDM quota consumption periodically. <br>If you are not aware of your current quotas on an RDM, login to the [QRIScloud services portal](https://services.qriscloud.org.au/services) and click on the Q collection you need.<br>These commands will tell you how many GB or TB and how many inodes you have in your RDM Q storage allocation. <br>Always do this from a compute node (interactive job, or onBunya session) <br>
 ```
+#Work out how much data is in your collection
 du -sh --apparent-size  /QRISdata/QNNNN
+
+#Work out how much of your data is in the top level GPFS cache disk (see section below)
+du -sh --apparent-size  /QRISdata/QNNNN
+
+#Find out how many files/folders you have in your collection
 df -i /QRISdata/QNNNN
 ```
 
@@ -167,7 +173,7 @@ If a file is required, but is not in the top layer, then it will be recalled fro
 
 #### How can I check if my files are in the top layer?
 
-_On a compute node via an onBunya or interactive batch job_
+_On a compute node via an onBunya session or interactive batch job_
 
 Use `ls -salh FILEPATH`
 
