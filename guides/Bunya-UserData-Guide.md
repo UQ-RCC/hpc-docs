@@ -149,7 +149,7 @@ The following are important _behaviours_ to observe when interacting with the /Q
 du -sh --apparent-size  /QRISdata/QNNNN
 
 #Work out how much of your data is in the top level GPFS cache disk (see section below)
-du -sh --apparent-size  /QRISdata/QNNNN
+du -sh  /QRISdata/QNNNN
 
 #Find out how many files/folders you have in your collection
 df -i /QRISdata/QNNNN
