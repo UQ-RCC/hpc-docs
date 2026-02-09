@@ -10,6 +10,9 @@ Individuals can install ASReml-R as a personal software package into their R or 
 
 ### How to setup ASReml-R for yourself
 
+_Please don't perform these steps on a login node._</br>
+_Instead, use an interactive batch job or onBunya session._
+
 There is a very useful CRAN R package from the University of Adelaide, South Australia, called [biometryassist](https://cran.r-project.org/package=biometryassist) 
 The biometryassist package will handle the installation of ASReml-R for you by providing an R function called `install_asreml()`.
 
