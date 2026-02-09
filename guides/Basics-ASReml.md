@@ -33,6 +33,8 @@ asreml.license.status()
 ## ASReml-SA
 [ASReml-SA](https://vsni.co.uk/software/asreml-sa/) is a stand alone version of ASReml.  
 ASReml-SA is available via the modules mechanism on Bunya HPC. 
+ASReml-SA should not and cannot be run on login nodes (it is a software container).
+Please use a regular batch job, or for interactive use an interactive batch job or onBunya session.
 
 ## Licensing
 The software is licensed. Please contact rcc-support@uq.edu.au regarding licensing.
