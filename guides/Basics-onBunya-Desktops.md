@@ -36,4 +36,3 @@ Instead of requesting a GPU accelerated desktop from the menus,
 - load the virtualgl module using the command `module load virtualgl` in the terminal,
 - start your software using the command `vglrun -d egl <command>` in the terminal.
 
-- 
