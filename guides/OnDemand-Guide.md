@@ -1,5 +1,12 @@
 # onBunya User Guide
 
+## Table of Contents 
+
+(To be completed)</br>
+
+- [Troubleshooting](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#troubleshooting)
+- 
+
 ## What is onBunya?
 
 onBunya is a web portal that provides access to the Bunya supercomputer, allowing users to submit and monitor jobs, manage files, and use a desktop environment to run graphical jobs using software such as Jupyter.
@@ -144,13 +151,60 @@ Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/m
 
 ## Troubleshooting
 
-* If you get an error in the authentication stage that says something like this<br>
+The onBunya desktops have been a game changer for people's access to high performance computing resources.
+
+From time to time, users may experience minor inconvenience due to bugs or hardware malfunction.
+
+This section provides some useful information for some of them. If what you are seeing is not here, then please submit a support request to rcc-support@uq.edu.au
+
+### You get a web page with an error message and a big red button on it 
+
+Please READ what it says, refer to the Note in this [section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#onbunya-dashboard) above and follow the instructions to initialise your home directory _before_ using onBunya.
+
+### Authentication Error
+
+If you get an error in the authentication stage that says something like this<br>
 User ... authenticated with identity provider bunyaaaf does not exist.<br>
 it could mean that you used the wrong credentials (staff cf. student) or it could be that your application for access to Bunya has not been processed, or possibly even submitted.
- 
-* If your Desktop looks incomplete or blank then you will need to reinitialise it.<br>You do this by terminating all running onBunya Desktops, then deleting the contents of your Desktop folder in your home directory, but leave the empty folder. Then relaunch a desktop (it may take a little bit longer to initialise)
+Refer to the  accessing Bunya section of the Bunya User Guide.
 
-* If your Desktop looks like it has all the contents of your home directory (instead of just the Desktop icons) then<br>terminate all running onBunya Desktops, then check that this is set in the file `$HOME/.config/user-dirs.dirs`<br>`XDG_DESKTOP_DIR="$HOME/Desktop"`<br>Fix, as necessary, and relaunch a desktop.
+### Your onBunya Desktop appears blank 
+
+Your Desktop has become damaged and needs to be rebuilt.</br>
+Close all your launched desktops and delete their associated jobs.</br>
+Then, </br>
+use one of 
+- an ssh connection to a login node,
+- the Clusters/Bunya_Shell_Access feature of onBunya,
+- the Files feature of onBunya
+to remove the entire Desktop folder from your home directory.
+
+Then resubmit an onBunya desktop job and launch the desktop. 
+It will take a little bit longer to launch the first time.
+
+# Your Desktop appears to display all of the contents of your home directory
+
+If your Desktop looks like it has all the contents of your home directory (instead of just a few Desktop icons) then</br>
+terminate all running onBunya Desktops, then check that this is set in the file `$HOME/.config/user-dirs.dirs`</br>
+`XDG_DESKTOP_DIR="$HOME/Desktop"`<br>Fix, as necessary, and relaunch a desktop.
+
+### Your Expert Desktop job cancels almost immediately
+
+This is generally some sort of error has occurred as the desktop environment was being set up or as you launched the desktop.
+
+We usually suspect that you are hitting the "Invalid EGL device" error. Try the following.
+
+Instead of requesting a GPU accelerated desktop from the menus, 
+- request a Regular or Expert Desktop,
+- add a suitable GPU using the web form,
+- when the job starts, launch the desktop,
+- open a terminal app in the desktop,
+- load the virtualgl module using the command `module load virtualgl` in the terminal,
+- start your software using the command `vglrun -d egl <command>` in the terminal.
+
+ 
+
+
 
 ## Software
 
