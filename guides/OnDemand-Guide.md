@@ -182,7 +182,7 @@ to remove the entire Desktop folder from your home directory.
 Then resubmit an onBunya desktop job and launch the desktop. 
 It will take a little bit longer to launch the first time.
 
-# Your Desktop appears to display all of the contents of your home directory
+### Your Desktop appears to display all of the contents of your home directory
 
 If your Desktop looks like it has all the contents of your home directory (instead of just a few Desktop icons) then</br>
 terminate all running onBunya Desktops, then check that this is set in the file `$HOME/.config/user-dirs.dirs`</br>
