@@ -8,8 +8,8 @@ This short note, gives some useful information for some of them.
 
 ## Desktop appears blank 
 
-Your Desktop has become damaged and needs to be rebuilt.
-Close all your launched desktops and delete their associated jobs.
+Your Desktop has become damaged and needs to be rebuilt.</br>
+Close all your launched desktops and delete their associated jobs.</br>
 Then, </br>
 use one of 
 - an ssh connection to a login node,
