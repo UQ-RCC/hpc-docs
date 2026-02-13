@@ -22,7 +22,7 @@ It will take a little bit longer to launch the first time.
 
 ## 
 
-## Expert Desktop job completes almost immediately (Invalid VGL Device)
+## Expert Desktop job completes almost immediately (Invalid EGL Device)
 
 This is generally some sort of error has occurred as the desktop environment was being set up or as you launched the desktop.
 
