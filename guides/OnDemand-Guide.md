@@ -253,3 +253,21 @@ To use *SPSS Statistics* click on the terminal icon at the top. In the terminal 
 
 ![Run SPSS](../media/SPSS-2.png)
 
+### Neurodesk
+
+To use Neurodesk applications on Bunya you first need to use the neurodesk modules. Also make sure to define the directories you want to access with Neurodesk software using the APPTAINER_BINDPATH.
+```
+module use /sw/local/rocky8/noarch/neuro/software/neurocommand/local/containers/modules/
+export APPTAINER_BINDPATH=/scratch,/QRISdata
+```
+
+Now you can list all modules (Neurodesk modules are the first ones in the list):
+```
+ml av
+```
+
+Or you can module load any tool you need:
+```
+ml qsmxt/6.4.1
+```
+
