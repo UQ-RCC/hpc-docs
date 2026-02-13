@@ -33,7 +33,7 @@ Instead of requesting a GPU accelerated desktop from the menus,
 - add a suitable GPU using the web form,
 - when the job starts, launch the desktop,
 - open a terminal app in the desktop,
-- load the virtualgl module using the command `module load virtualgl` in the terminal
-- start your software using the command `vglrun -d egl <command>` in the terminal
+- load the virtualgl module using the command `module load virtualgl` in the terminal,
+- start your software using the command `vglrun -d egl <command>` in the terminal.
 
 - 
