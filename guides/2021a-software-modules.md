@@ -1,4 +1,9 @@
-# 2021a and GCC 10.3 softeware modules that will be removed
+# 2021a, GCC 10.3, and other softeware modules that will be removed
+
+```
+BUSCO-5.4.5-foss-2022a
+GDAL-3.5.0-foss-2022a
+```
 
 ```
 abricate/1.0.0-gompi-2021a
