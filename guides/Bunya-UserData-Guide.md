@@ -144,20 +144,6 @@ The following are important _behaviours_ to observe when interacting with the /Q
 * Do not move directories with many files to `/QRISdata`, tar or archive these first as lots of (small) files can cause problems (not just for you but also others).
 * Do not perform file-by-file copies to RDM (using tools like rsync). This is especially true when very large numbers of files and folders are involved.
 * You should monitor your RDM quota consumption periodically. <br>If you are not aware of your current quotas on an RDM, login to the [QRIScloud services portal](https://services.qriscloud.org.au/services) and click on the Q collection you need.<br>These commands will tell you how many GB or TB and how many inodes you have in your RDM Q storage allocation. <br>Always do this from a compute node (interactive job, or onBunya session) <br>
-```
-#Work out how much data is in your collection, how much is in cache and how many files and folders for the entire collection
-du -sh --apparent-size  /QRISdata/QNNNN
-du -sh  /QRISdata/QNNNN
-df -i /QRISdata/QNNNN
-```
-* If you need to ascertain where the data is you can use these variants of the du command
-```
-#You can explore subdirectories by adding to the path for the du command.
-du -sh  /QRISdata/QNNNN/something/*
-du -sh --apparent-size /QRISdata/QNNNN/something/*
-du -s --inodes  /QRISdata/QNNNN/something/*
-```
-
 
 #### How `/QRISdata` works
 
@@ -173,6 +159,28 @@ The storage technology behind `/QRISdata` consists of multiple layers of storage
 
 The hierarchical storage management (HSM) software will move files downwards when they are not in active use in the top layer.
 If a file is required, but is not in the top layer, then it will be recalled from ZWS, or tape and copied into place on the GPFS Cache layer.
+
+#### How much data, and how many files, do I have?
+
+```
+#Total size of the data in your RDM collection
+du -sh --apparent-size  /QRISdata/QNNNN
+
+#How much is in the GPFS cache layer
+du -sh  /QRISdata/QNNNN
+
+#How many files and folders for the entire collection (this is much quicker than du -s --inodes)
+df -i /QRISdata/QNNNN
+```
+
+* If you need to ascertain where the data is you can use these variants of the du command
+```
+#You can explore subdirectories by adding to the path for the du command.
+du -sh  /QRISdata/QNNNN/something/*
+du -sh --apparent-size /QRISdata/QNNNN/something/*
+du -s --inodes  /QRISdata/QNNNN/something/*
+```
+
 
 #### How can I check if my files are in the top layer?
 
