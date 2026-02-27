@@ -17,6 +17,7 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The home directory should be used to install software, such as conda, python and R environments, scripts, and other software installed by `make` and `make install`, etc.
 * The home directory should **not** be used for data and output from calculations. The reason for this is that if it goes over one of the quotas (space or files) a user can effectively lock themsleves out of their account if they do not clean up (get back under quota) quickly. 
 * The home directory is **not backed up**.
+* Deleted files from the home directory cannot be recovered.
 * The home directory **must not** be shared with other users.
 
 ### `/scratch/user/username`
@@ -25,9 +26,10 @@ The spaces below are individual spaces. This means, by default, they are only ac
 * The 300GB quota can be exceeded up to 5TB but only up to 2 weeks. The quota has to fall below 300GB within the 2 weeks period or the user can no longer write to `/scratch/user`.
 * Quotas in a user's `/scratch/user` directory may be increased.
 * The scratch user directory should be used to keep input and output of calculations.
-* The scratch user directory may also be used to install software.
+* The scratch user directory should not be used to install software.
 * The scratch user directory is **not backed up**.
-* Old files might be auto deleted
+* Deleted files from the scratch user directory cannot be recovered. 
+* Files not accessed for 90 days are auto deleted and cannot be recovered.
 * The scratch user directory **must not** be shared with other users.
 
 Users can use the command `rquota` on Bunya to check their current quotas and usage. It provides quotas and usage for `/home`, `/scratch/user` and `/scratch/project` (more information below) they have access too.
