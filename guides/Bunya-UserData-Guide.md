@@ -64,25 +64,47 @@ to check on their quotas and grace period in `/scratch/user`.
 
 ### `/scratch/opendata`
 
-The opendata space is a read-only space to house data sets and models. Current data includes, GTDB, BLAST, Kraken, CheckM2, SingleM, nuScens, nuScenes-C, huggingface, ollama, gguf, and many more.
+The [opendata](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/List-of-Datasets.md#open-data-sets) space is a read-only space to house data sets and models. Current data includes, GTDB, BLAST, Kraken, CheckM2, SingleM, nuScens, nuScenes-C, huggingface, ollama, gguf, and many more.
 
-Users are required to check if the data they need is already housed in `/scratch/opendata` or could be housed there before requesting an increase to their `/scratch/user` space or scratch project. 
+Users are required to check if the data they need is already housed in `/scratch/opendata` or could be housed there before requesting an increase to their `/scratch/user` space or scratch project group space. 
 
 If data is not yet available in `/scratch/opendata` users can submit a request for data to be installed there.
 
+Information needed to consider an instal request:
+* Link to webpage and downlaod page
+* Which data to install if multiple versions are available
+* Link to license and usage terms and/or agreements
+* Details of size and number of files
+
+### `/scratch/licenseddata`
+
+The [licenseddata](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/List-of-Datasets.md#licensed-data-sets) space is a read-only space to house licensed data sets and models. 
+
+Users are required to check if the data they need is already housed in `/scratch/licenseddata` or could be housed there before requesting an increase to their `/scratch/user` space or scratch project group space. 
+
+If data is not yet available in `/scratch/licenseddata` users can submit a request for data to be installed there.
+
+Information needed to consider an instal request:
+* Link to webpage and downlaod page
+* Which data to install if multiple versions are available
+* Link to license and usage terms and/or agreements
+* If needed procedure to check users have agreed to license and usage terms and/or agreements and adding user access
+* Details of size and number of files
 
 ### `/scratch/project`
 
-Scratch projects are shared spaces in `/scratch` that provide more space and space that is shared by members of a group.
+Scratch projects are shared group spaces in `/scratch` that provide more space and space that is shared by members of a group.
 
 * Apply for a scratch project by sending a request to rcc-support@uq.edu.au and you will then be send the link to the application form.
 * **Only the group leader or grant holder can apply for a scratch projet**
-* Scratch projects may be used to install software that needs to be shared but applying for space in`/sw` is preferred.
+* Scratch projects should not be used to install software that needs to be shared. Groups should apply for space in`/sw`.
 * Scratch projects can be used to share data sets and output that multiple users need access to during their calculations.
 * Scratch projects should not be used to provide additional scratch space for single users. For single users the quotas in `/scratch/user` can be increased.
 * Scratch projects should not contain directories for each of the different users.
 * The scratch project directory is **not backed up**.
-* Old files might be auto deleted
+* Deleted files from the scratch project directory cannot be recovered. 
+* Files not accessed for 90 days are auto deleted and cannot be recovered.
+* Groups should only apply for a single scratch project. Application for multiple projects for the same group are discouraged.
 
 #### How scratch projects work
 
