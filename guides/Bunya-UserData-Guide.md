@@ -4,6 +4,19 @@ Bunya has several spaces users have access to to keep their data and software.
 >[!IMPORTANT]
 >These spaces are subject to the [Bunya User Data Spaces Operational Procedure](../policy/Bunya-User-Data-Spaces-Operational-Procedure.md) and the [UQ Research Data Management Policy](https://policies.uq.edu.au/document/view-current.php?id=120) and [UQ Research Data Management Procedure](https://policies.uq.edu.au/document/view-current.php?id=476&version=1).
 
+**Individual, not sharable, spaces**<br>
+[home directory](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#homeusername)<br>
+[scratch user directory](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchuserusername)<br>
+**Space during jobs**<br>
+[TMPDIR](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#tmpdir)<br>
+**Spaces to host data**<br>
+[opendata](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchopendata)<br>
+[licenseddata](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchlicenseddata)<br>
+**Group spaces**<br>
+[Group projects](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchproject)<br>
+**Storage**<br>
+[UQRDM Q storage records](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata)<br>
+
 
 ## Spaces available by default for every user
 
