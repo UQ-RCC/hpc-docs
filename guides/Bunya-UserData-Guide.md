@@ -154,6 +154,16 @@ drwxrwsr-x.  2 user-2 Project_Access_Group        4K Oct  9 2023  directory-2
 -rwxrwxr-x.  1 user-2 Project_Access_Group        6M Mar  8 14:01 executable-2
 ```
 
+### `/sw`
+
+Users or groups who want to share software should check if it is already installed as a software module on Bunya and if not contact rcc-support@uq.edu.au to see if it could be installed. See [software modules on Bunya](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#software) and the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md). 
+
+Groups that need to share a range of software and/or share custom build software can apply for space in `/sw`. Usually only one custodion with install (write) access will be permitted with the rest of the group accessing the software read-only similar to all Bunya software. 
+
+Only software is permitted to be installed in `/sw` and any data and/or additional files are required to be housed in `/scratch/opendata` and/or `/scratch/licenseddata`.
+
+Software installed in `/sw/` must not point to any location in `/QRISData`.
+
 
 ### `/QRISdata`
 
