@@ -1,5 +1,49 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
 
+## 27 January 2026
+
+* The next scheduled maintenance on Bunya will occur between 9pm Monday 9th March and 9pm Tuesday 10th March.
+* There will be no access to Bunya during the maintenance. This includes no access to data in /home, /scratch/user and /scratch/project.
+* Bunya queues will not schedule jobs that would run into the maintenance window.
+
+## 9 December 2025
+
+* The RCC will be performing an operating system upgrade on Bunya in early 2026.
+* All software modules that rely on gcc-10, foss-2021a, intel-2021a, or gompi-2021a will be deprecated as they are not supported on the new OS.
+* A list of modules that will be deprecated has been published [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/2021a-software-modules.md).
+* User compiled modules that depend on any of the deprecated modules will stop working after the upgrade, so recompiling against the latest available versions of module dependencies is strongly recommended.
+* All gcc-11, and 2022a modules will also be deprecated by the end of 2026, so using the latest available versions will lead to the least disruptions to productivity.
+* Users who are currently using modules on the list to be deprecated, that don't have a newer version available, should email rcc-support@uq.edu.au as soon as possible.
+
+## 12 November 2025
+
+* 90 day file expiry on /scratch has now commenced. Any files that have not been accessed in 90 days will be deleted automatically on a daily basis.
+* A reminder that /scratch/user, /scratch/project, and /home are not backed up, and once deleted files in these location cannot be recovered.
+
+## 10 October 2025
+
+* To improve the availability of GPU resources on Bunya and prevent users from unintentionally reducing their fair share, the RCC will start automatically delete jobs that leave GPU resources idle.
+* Start date: Monday 27 October 2025.
+* The RCC will review the impact on queues and GPU resource wait times and if required consider stricter time frames. In future, the automatic deletion of jobs that leave resources idle will be extended to CPU only jobs.
+
+## 3 October 2025
+
+* UQRDM Q collections will not be accessible from Bunya or onBunya tomorrow, due to scheduled maintenance.
+* Maintenance window: 8am to 8pm Saturday 4 October 2025.
+* During this time users will not be able to access their Q storage record in /QRISdata. Users should not submit any jobs that rely on access to /QRISdata during this time. They should also consider putting queued jobs that rely on access to /QRISData on hold until after the maintenance. Jobs that rely on access to /QRISdata and are running into the maintenance window might crash.
+
+## 11 September 2025
+
+* The scheduled November quarterly maintenance has been postponed to align with the arrival of new hardware being added to Bunya. The new maintenance date will be announced at least 2 weeks in advance.
+* The daily automatic deletion of files in /scratch/user and /scratch/project that was scheduled to commence at November quarterly maintenance will still start as scheduled. Any files that have not been accessed in 90 days will be deleted automatically starting on Wednesday 12 November 2025.
+
+## 8 September 2025
+
+* Processes from VScode, Cursor, PyCharm/JetBrains and other IDE's on the login nodes will now be killed via an automated process. This may be extended to other processes in the future.
+* In many cases this will terminate user processes running on compute nodes. To avoid this, users should not use the IDE to connect to Bunya and users should not attach the IDE to an interactive job. Users should start a job first and then start the IDE on the actual compute node inside a job.
+* A VScode app is now available via onBunya that users are encouraged to use.
+* Users are reminded that no processes should be run on the login nodes. This includes R and Python, conda, python, pip, and R software environment installation, make and other compile processes, and servers.
+
 ## 20 August 2025
 
 * To ensure that adequate scratch space is available for computation, the RCC is working on implementing automatic deletion of files that have not been accessed in over 90 days from /scratch/user and /scratch/project. This is planned to start after the November quarterly maintenance.
