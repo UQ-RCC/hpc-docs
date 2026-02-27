@@ -4,31 +4,25 @@ This project is for providing _up-to-date_ information about HPC systems operate
 
 ## Guides
 
-[Bunya User Guide](guides/Bunya-User-Guide.md)
-
+[Bunya User Guide](guides/Bunya-User-Guide.md)<br>
 [onBunya](guides/OnDemand-Guide.md)<br>
-Webportal to access Bunya
+[Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
+[Who gets what on Bunya](guides/BunyaResourceDistribution.md)<br>
+[All Available User Guides](guides)
 
-[Who gets what on Bunya](guides/BunyaResourceDistribution.md)
+## Conda
+[Conda on Bunya](guides/conda-environment.md)
 
 ## Procedures, Agreements, Terms and Conditions
 
-[RCC Infrastructure Policies and Operational Procedures](policy/Policies.md)
-
-[Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
-Your spaces in *home*, *scratch*, *opendata*, *$TMPDIR* and *RDM*
-
-[Conda on Bunya](guides/conda-environment.md)
-
-[Accounting Groups and Accounting Strings](guides/Accounting-group-admin.md)
-
-[Bunya Access Conditions all users agree to](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-Conditions-of-Access.md)
-
+[RCC Infrastructure Policies and Operational Procedures](policy/Policies.md)<br>
+[Accounting Groups and Accounting Strings](guides/Accounting-group-admin.md)<br>
+[Bunya Access Conditions all users agree to](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-Conditions-of-Access.md)<br>
 [How to acknowledge Bunya and/or RCC](https://rcc.uq.edu.au/about/acknowledging-rcc)
 
-[Software Installation Status](guides/Software-Status.md)
+## Other
 
-[All Available User Guides](guides)
+[Software Installation Status](guides/Software-Status.md)
 
 <br>
 
