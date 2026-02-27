@@ -11,6 +11,9 @@
 
 onBunya is a web portal that provides access to the Bunya supercomputer, allowing users to submit and monitor jobs, manage files, and use a desktop environment to run graphical jobs using software such as Jupyter.
 
+## onBunya applications list
+[List of onBunya applications](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/List-of-Software.md#onbunya-applications)
+
 ## Accessing onBunya
 
 Users cannot use onBunya unless they already have Bunya access. To apply for access to Bunya, [click here.](https://rcc.uq.edu.au/systems/high-performance-computing/bunya) and follow the instructions given under *Getting a Bunya account*.
