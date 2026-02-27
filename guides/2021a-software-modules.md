@@ -1,8 +1,8 @@
-# 2021a, GCC 10.3, and other softeware modules that will be removed
+# 2021a, GCC 10.3, and other software modules that will be removed
 
 ```
-BUSCO-5.4.5-foss-2022a
-GDAL-3.5.0-foss-2022a
+BUSCO-5.4.5-foss-2022a (Alternatives available: GDAL-3.7.1-foss-2023a, GDAL-3.11.1-foss-2025a)
+GDAL-3.5.0-foss-2022a (Alternative available: BUSCO-5.8.2-foss-2023a)
 ```
 
 ```
