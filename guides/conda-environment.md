@@ -51,7 +51,9 @@ There is no need to install Conda yourself. Several Conda modules are available 
 - By default, Miniforge uses the `conda-forge` channel for package management.  
 
 Several versions of Anaconda3, Miniconda3, and Miniforge, are available as modules on Bunya. Use 
-`module avail anaconda miniconda miniforge` 
+```
+module avail anaconda miniconda miniforge
+``` 
 to check on current versions available.
 
 
