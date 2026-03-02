@@ -84,7 +84,7 @@ Now your shell is ready to use, create, and modify a Conda environment.
 Conda environments are self-contained spaces that contain the software and dependencies needed to run your Python applications.
 
 If you want to activate the base Conda environment you can do<br>
-`[username@bunya3 ~]$ conda activate`<br>
+`[username@bun-node ~]$ conda activate`<br>
 `(base) [username@bun-node ~]$`<br> 
 
 And to get out of the base Conda environment you can do<br>
