@@ -97,7 +97,8 @@ By default, Conda stores environments and downloaded package files in your home 
 
 Users should check `/scratch/opendata` first for available data sets and models before installing a copy themselves.
 
-However, in cases where there is a need to install Conda environments and/or packages into a different location such as `/scratch/user/username`, or `/scratch/project/projectname` the default location for Conda environments and/or packages can be changed.
+However, in cases where there is a need to install Conda environments and/or packages into a different location such as `/scratch/user/username`, or `/scratch/project/projectname` the default location for Conda environments and/or packages can be changed. <br>
+IMPORTANT: Please note that files in `/scratch/user` and `/scratch/project` expire after 90 days not been accessed. Even if a conda environment is being used on a regular basis it does not guarantee that all its files are accessed. The deletion of files from a conda environmet might render it unusable. Users should where possible install software into `/home` if request of conda environments can be installed as modules.
 
 To change the default location update Conda's configuration edit `~/.condarc`
 and ensure it contains these lines:
