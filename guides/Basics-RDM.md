@@ -1,4 +1,10 @@
-# Basics of RDM Q Storage Allocations
+# Basics of Connecting to RDM Q Storage Allocations
+
+Please also refer to 
+- the [Bunya Storage User Guide section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata) and
+- the [RCC's RDM Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/RDM-guide.md) as well as
+- the [UQ RDM portal](https://rdm.uq.edu.au)
+
 
 ## Document Purpose
 This document's focus is the key concepts for using RDM Q as they relate to integrating RDM within your computational workflows.
