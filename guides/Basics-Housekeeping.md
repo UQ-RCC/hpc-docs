@@ -8,15 +8,18 @@ Please refer to our User Guide about [Bunya Storage](https://github.com/UQ-RCC/h
 
 Currently, RDM storage allocations are initially limited to 1TB and 1M files.
 The TB limit is a soft limit, so you can go over it without realising so.
+The TBs available on RDM Q storage is quite large, due to its hierarchical structure.
+If you suspect that you have gone over the 1TB, assess what the [apparent size of your data in RDM](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#how-much-data-and-how-many-files-do-i-have)  is and submit a quota increase request via the UQ RDM portal. 
+
 The files limit, however, has a hard limit at 10% above.
 This means that when you transfer files into RDM Q storage, things may start to go wrong once you get to the 1M files mark.
 
-If you suspect you 
+If you suspect that you are hitting file count limits, then [check your current consumption of inodes](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#how-much-data-and-how-many-files-do-i-have) and read scenario 1 before you reach for the RDM portal to request a boost of the inode limit.
 
 ### Scenario 1: Large numbers of file
 
-So you are transferring a large number of files over to the RDM using rsync. 
-That is, you are copying the data to RDM file-by-file. 
+So you are transferring a large number of files over to the RDM using rsync. *STOP!!*
+You are copying the data to RDM file-by-file. 
 This is a _not_ best practice and it is an inefficient way to work with the archival storage infrastructure.
 The RDM Q storage works best in "streaming" mode, and worse with a lot of little pieces of data.
 
