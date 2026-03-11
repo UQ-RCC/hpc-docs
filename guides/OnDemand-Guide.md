@@ -79,7 +79,7 @@ This is similar to a standard ssh session on one of Bunya's login nodes. Do not 
 ![Interactive Apps](../media/Interactive-Apps.png)
 
 
-Access to *Jupyter* notebook and Lab session (CPU and/or GPU) *GPU-Accelerated Desktop* (L40 NVIDIA GPU only), *Desktop* preset resource flavours (CPU and/or GPU) and *Expert Desktop* (CPU and/or GPU, allows custom request of resources). 
+Access to *Jupyter* notebook and Lab session (CPU and/or GPU) *GPU-Accelerated Desktop* (A16, L40 and L40s NVIDIA GPU only), *Desktop* preset resource flavours (CPU and/or GPU) and *Expert Desktop* (CPU and/or GPU, allows custom request of resources). 
 
 #### Important: If you get a "Could not connect to the session bus: Failed to connect ..." error
 
@@ -89,7 +89,7 @@ If you have the conda initialisation in your `.bashrc` file then you cannot use 
 Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
 
 * **Jupyter** will launch a Jupyter notebook or Lab on a compute node. User will need to request appropriate resources.
-* **GPU-Accelerated Desktop** will launch an accelerated interactive desktop session on a L40 NVIDIA compute node.
+* **GPU-Accelerated Desktop** will launch an accelerated interactive desktop session on an A16, L40 or L40s NVIDIA compute node.
 * **Desktop** will launch an interactive desktop on one of Bunya's compute nodes. Users can select from preset flavours with different cores and memory. Users can request a custom running time and add GPU to any of the preset flavours. The flavours are<br>
 *Mini*: 2 cores (4 cpu threads), 8 GB of RAM<br>
 *Standard*: 4 cores (8 cpu threads), 32 GB of RAM<br>
@@ -160,6 +160,10 @@ From time to time, users may experience minor inconvenience due to bugs or hardw
 
 This section provides some useful information for some of them. If what you are seeing is not here, then please submit a support request to rcc-support@uq.edu.au
 
+### You get an error message in a red text box, featuring the text "Disk quota exceeded"
+
+There are limits to the amount of disk space and number of files in your home directory, and once this is exceeded onBunya jobs will fail due to being unable to write to your home directory. You can check your quota with the Files -> GPFS Quota menu, or in a terminal with the 'rquota' command.
+
 ### You get a web page with an error message and a big red button on it 
 
 Please READ what it says, refer to the Note in this [section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#onbunya-dashboard) above and follow the instructions to initialise your home directory _before_ using onBunya.
@@ -191,9 +195,11 @@ If your Desktop looks like it has all the contents of your home directory (inste
 terminate all running onBunya Desktops, then check that this is set in the file `$HOME/.config/user-dirs.dirs`</br>
 `XDG_DESKTOP_DIR="$HOME/Desktop"`<br>Fix, as necessary, and relaunch a desktop.
 
-### Your Expert Desktop job cancels almost immediately
+### Your Expert or GPU-Accelerated Desktop job cancels almost immediately
 
 This is generally some sort of error has occurred as the desktop environment was being set up or as you launched the desktop.
+
+You can check what happened by clicking on the Session ID link in the job card. It will take you to a list of the files used by the job. The file 'output.log' will contain any error output by the job.
 
 We usually suspect that you are hitting the "Invalid EGL device" error. Try the following.
 
@@ -202,33 +208,32 @@ Instead of requesting a GPU accelerated desktop from the menus,
 - add a suitable GPU using the web form,
 - when the job starts, launch the desktop,
 - open a terminal app in the desktop,
-- load the virtualgl module using the command `module load virtualgl` in the terminal,
+- load the virtualgl module using the command `module load virtualgl/3.1.3-gcc-13.3.0` in the terminal,
 - start your software using the command `vglrun -d egl <command>` in the terminal.
 
- 
+Please note that GPU-Accelerated Desktops are only needed for hardware-accelerated graphics rendering. If you are doing GPU computational work, you do not need this option and it might even be detrimental to your compute performance.
 
 
 
 ## Software
 
-### CVL Apps
+### Bunya Apps
 
-The *CVL Apps* can be found under *Applications* on the left in the top panel of the desktop. Please note that not all of these have been tested on Bunya. Please report any issues to rcc-support@uq.edu.au.
+The *Bunya Apps* can be found under *Applications* on the left in the top panel of the desktop. Please note that not all of these have been tested on Bunya. Please report any issues to rcc-support@uq.edu.au.
 
-![CVL Apps](../media/CVL-apps.png)
+![Bunya Apps](../media/CVL-apps.png)
 
 
 ### RStudio
 
-**R 4.4.4 with RStudio** is only available via the *CVL Apps*.
+**R with RStudio** is only available via the *Bunya Apps* menu. Multiple versions are available.
 
-To use *RStudio* click on the terminal icon at the top. In the terminal type `module load rstudio/2023.12.1-r4.2.1`. To check if there are newer versions available type `module available rstudio` and then select the version you wish to use. Then type `RStudio`.
+You can also use the associated R and packages on the command line. To do so, click on the terminal icon at the top. In the terminal type `module spider rstudio` to see the available versions, then `module load <desired version>`. Then you will have access to `R`, `Rscript` and `RStudio` commands.
 
 ![Load RStudio](../media/RStudio-1.png)
 
 ![Run RStudio](../media/RStudio-2.png)
 
-You can also select *RStudio* from the *CVL Apps*. Please see above.
 
 ### Gaussview (UQ only)
 
