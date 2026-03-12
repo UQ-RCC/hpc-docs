@@ -223,6 +223,7 @@ The *Bunya Apps* can be found under *Applications* on the left in the top panel 
 
 ![Bunya Apps](../media/onBunya-apps.png)
 
+You can change the background, theme and fonts in the *System -> Preferences -> Appearance* menu.
 
 ### RStudio
 
