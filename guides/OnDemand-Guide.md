@@ -221,7 +221,7 @@ Please note that GPU-Accelerated Desktops are only needed for hardware-accelerat
 
 The *Bunya Apps* can be found under *Applications* on the left in the top panel of the desktop. Please note that not all of these have been tested on Bunya. Please report any issues to rcc-support@uq.edu.au.
 
-![Bunya Apps](../media/CVL-apps.png)
+![Bunya Apps](../media/onBunya-apps.png)
 
 
 ### RStudio
@@ -230,7 +230,7 @@ The *Bunya Apps* can be found under *Applications* on the left in the top panel 
 
 You can also use the associated R and packages on the command line. To do so, click on the terminal icon at the top. In the terminal type `module spider rstudio` to see the available versions, then `module load <desired version>`. Then you will have access to `R`, `Rscript` and `RStudio` commands.
 
-![Load RStudio](../media/RStudio-1.png)
+![Load RStudio](../media/onBunya-RStudio-1.png)
 
 ![Run RStudio](../media/RStudio-2.png)
 
