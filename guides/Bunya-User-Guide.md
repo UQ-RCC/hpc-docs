@@ -976,7 +976,7 @@ You can use the `jobstats` module to check utilisation of running and completed 
 Please note that for MPI jobs a max CPU utilisation of 50% means an effective 100% utilisation (if `ntasks` have been requested with `--ntasks-per-core=1`) as MPI jobs need to run on core and not cpus (threads). For MPI jobs only as CPU RAM has been requested as `--mem-per-cpu` with `--ntasks-per-core=1` the allocated RAM will be double of what has been requested.
 
 ```
-module load jobstats
+module load jobstats/2024.08
 jobstats JobID
 ```
 
