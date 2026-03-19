@@ -1,4 +1,20 @@
 # Latest Updates and Changes to the Bunya HPC Cluster
+ 
+## 11 March 2026
+ 
+* Bunya's operating system has been upgraded from Rocky Linux 8 to Rocky Linux 9. If you have compiled your own code on Bunya, it will likely need to be recompiled under the new OS. Please reach out to rcc-support@uq.edu.au if you need assistance with this.
+* Modules built with foss-2021a and gcc-10.3 have now been removed from Bunya. Please update your workflows to use newer module versions. If a newer version of a module you require is not yet available, please contact us at rcc-support@uq.edu.au and we will be happy to arrange an installation.
+* The **foss/2025a** toolchain is now available on Bunya, featuring GCC 14.2. Users are encouraged to recompile their software against this toolchain to take advantage of the latest compiler improvements.
+* The **intel/2025a** toolchain is now available on Bunya, featuring the Intel 2025.1.1 compiler suite. This is a good opportunity to recompile Intel-optimised codes and benefit from the latest performance enhancements.
+* Some codes have shown significant performance improvements under Rocky Linux 9. If your application is performance-sensitive, we encourage you to recompile and benchmark it under the new OS — you may be pleasantly surprised!
+* If you are running MPI codes that were not compiled in 2026, you will need to add the `--mpi=pmix_v4` option to your `srun` command, i.e.:
+ 
+  `srun --mpi=pmix_v4 <your_usual_srun_command>`
+ 
+  Please see the earlier [20 May 2025](#20-may-2025) entry for more background on this requirement.
+* Jobs that leave GPU resources idle will be automatically deleted. Please ensure your job scripts make active use of any GPU resources they request, to help keep these valuable resources available for all users.
+* Automated processes will terminate IDE sessions (such as VSCode, Cursor, and PyCharm/JetBrains) running directly on the login nodes. Please use the VSCode app available via onBunya, or connect your IDE to a compute node from within a job, rather than running it on a login node.
+* A 90-day file expiry policy is in effect for `/scratch/user` and `/scratch/project`. Files that have not been accessed within 90 days will be automatically deleted. Please ensure any data you wish to keep is moved to an appropriate longer-term storage location, such as RDM.
 
 ## 27 January 2026
 
