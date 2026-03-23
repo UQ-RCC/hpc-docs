@@ -296,22 +296,22 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 **Please note:**
 - Use the full module name, software/version, to be sure to load the version you need and ensure that your research is consistend and repeatable
-- Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky8c/epyc3/modules/all` or `/sw/local/rocky8/noarch/qcif/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
+- Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky9a/epyc3/modules/all` or `/sw/local/rocky9/noarch/rcc/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
 - Most system libraries and tools (gfortran, gcc, eigen, etc) are required to be loaded as modules. Users should check `module --show_hidden avail` if they get a *library not found error* to see if it is avialable via a module.
 
 **Please note:**
-- The modules in `/sw/auto/rocky8c/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8/epyc3/rcc/modules`, `/sw/local/rocky8/noarch/rcc/modules`, and `/sw/local/rocky8/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
+- The modules in `/sw/auto/rocky9a/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8/epyc3/rcc/modules`, `/sw/local/rocky8/noarch/rcc/modules`, `/sw/local/rocky9/noarch/rcc/modules`, and `/sw/local/rocky8/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
 - The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which modules are avialable for the specific GPU architectures. For example, CUDA modules will not be availalbe on CPU nodes, but will be available on the CUDA GPU nodes.<br>
 The command that will load the default version of the cuda drivers etc. on a GPU node will be <br>
 `module load cuda`<br>
 An alternative to using an interactive session on a CUDA node, would be to interrogate the `/sw` filesystem for the versions of cuda that are available.<br>
-`ls /sw/auto/rocky8*/*/modules/all/cuda/`
+`ls /sw/auto/rocky9*/*/modules/all/cuda/`
 
 ### Compilers
 
 - The GCC compilers are available via the `foss` modules. These contain the complete tool chain, which include the compiler, OpenMPI, FlexiBlas, FFTW and Scalapack.
-- Users should use `foss/2021a`, `foss/2022a` or `foss/2023a`
-- The Intel compilers are available via the `intel/2021a`, `intel/2022a` or `intel/2023a` modules which include the compiler, IntelMPI and MKL. 
+- Users should use `foss/2023a`, `foss/2024a`, or `foss/2025a`. `foss/2022a` is scheduled to be removed before the end of 2026.
+- The Intel compilers are available via the `intel/2023a`, `intel/2024a` or `intel/2025a` modules which include the compiler, IntelMPI and MKL. 
 
 ### How to build your own software
 
@@ -367,18 +367,23 @@ As you can see, the toolchains are built upon a specific version of compiler. Th
 
 |Toolchain Module|Compiler Base|Status on Bunya|
 |:---|:---:|:---:|
+|foss/2025a|GCC 14.2.0|Solid|
+|gfbf/2025a|GCC 14.2.0|Solid|
+|gcc/14.2.0|GCC 14.2.0|Solid|
+|foss/2024a|GCC 13.3.0|Solid|
+|gfbf/2024a|GCC 13.3.0|Solid|
+|gcc/13.3.0|GCC 13.3.0|Solid|
 |foss/2023a|GCC 12.3.0|Solid|
 |gfbf/2023a|GCC 12.3.0|Solid|
 |gcc/12.3|GCC 12.3.0|Solid|
-|foss/2022a|GCC 11.3.0|Solid|
-|gfbf/2022a|GCC 11.3.0|Solid|
-|gcc/11.3|GCC 11.3.0|Solid|
-|foss/2021a|GCC 10.3.0|Solid|
-|gcc/10.3|GCC 10.3.0|Solid|
+|foss/2022a|GCC 11.3.0|To be removed|
+|gfbf/2022a|GCC 11.3.0|To be removed|
+|gcc/11.3|GCC 11.3.0|To be remvoved|
 ||||
+|intel/2025a|Intel 2025.1.1|Solid|
+|intel/2024a|Intel 2024.2.0|Solid|
 |intel/2023a|Intel 2023.1.0|Solid|
-|intel/2022a|Intel 2022.1.0|Solid|
-|intel/2021a|Intel 2021.2.0|Solid|
+|intel/2022a|Intel 2022.1.0|To be removed|
 
 For more information about the toolchains, refer to the [EasyBuild documentation](https://docs.easybuild.io/common-toolchains/#newest-generations-2022b-and-later)
 
