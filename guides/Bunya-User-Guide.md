@@ -378,7 +378,7 @@ As you can see, the toolchains are built upon a specific version of compiler. Th
 |gcc/12.3|GCC 12.3.0|Solid|
 |foss/2022a|GCC 11.3.0|To be removed|
 |gfbf/2022a|GCC 11.3.0|To be removed|
-|gcc/11.3|GCC 11.3.0|To be remvoved|
+|gcc/11.3|GCC 11.3.0|To be removed|
 ||||
 |intel/2025a|Intel 2025.1.1|Solid|
 |intel/2024a|Intel 2024.2.0|Solid|
