@@ -63,6 +63,12 @@ to check on their quotas and grace period in `/scratch/user`.
 * `$TMPDIR` is not `/scratch/user`.
 * `$TMPDIR` is not `/tmp`.
 * `$TMPDIR` is recommended if calculations produce a very large amount of (often very small) files.
+* You can check your current utilisation of `$TMPDIR` with the following command
+
+  ```
+  /usr/lpp/mmfs/bin/mmlsquota --block-size=auto -u $USER scratch:temp
+  ```
+
 * Software that allows a flag or option to set a *temporary* or *scratch* directory should always use `$TMPDIR` and ***NOT*** `/tmp`.
 * To use `$TMPDIR` for software that does not allow to set a temporary/scratch directory, change to `$TMPDIR` (`cd $TMPDIR`), then copy all required input files to `$TMPDIR` or use the full path to point to input files in `/scratch` or `/home` or `/QRISdata` (for `/QRISdata` restrictions apply, see below). After the calculation copy all ouput needed to `/scratch` or `/QRISdata` (see below for restrictions on `/QRISdata`) and make sure to tar and/or zip output if required. This will need to be done in your Slurm submit script.
 
