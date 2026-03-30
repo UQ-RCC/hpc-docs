@@ -27,9 +27,12 @@ The additional packages (numbering approximately 1,200) were built as separate i
 r/4.3.3-gfbf-2023a
 r/4.4.0-gfbf-2023a
 r/4.4.0-combo-EPYC3-only
+r/4.4.2-gfbf-2024a
 ```
 Unfortunately, the `r/4.4.0-gfbf-2023a` installation was incomplete. The 1,200 or so additional packages did not build for EPYC4 CPUs. If you do choose to use this version, then you may need to build a great many packages for yourself.<br>
 **I recommend that you avoid using `r/4.4.0-gfbf-2023a`.**
+
+The `r/4.4.2-gfbf-2024a` is a new build after the Rocky 9 operating system upgrade.
 
 If you target the older EPYC3 CPU nodes, you can use the purpose built `r/4.4.0-combo-EPYC3-only`
 
