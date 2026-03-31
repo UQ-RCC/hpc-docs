@@ -85,7 +85,7 @@ There are a few things we've noticed that can go wrong in your Globus session.
 There is a process that is only run once periodically, that is required before an RDM Storage Allocation becomes accessible in Globus File Manager (even if it is visible in the list of collections)
 
 * Queries timing out ?</br>
-You may get a wrror about operation timing out.</br>
+You may get an error about operation timing out.</br>
 Try clicking the "Try again" button 
 
 * Blank panes? </br>
