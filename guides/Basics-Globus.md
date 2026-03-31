@@ -4,7 +4,7 @@ Globus Markdown
 
 >[!Note]
 >
->This page is still under construction
+>This page is still under construction. Last updated 20260331
 
 ## What is Globus ?
 
@@ -37,7 +37,7 @@ If you are connecting to globus to pull data from a collaborator's Globus endpoi
 
 ### Getting at the UQ endpoint
 
-Visit (https://app.globus.org/endpoints)[https://app.globus.org/endpoints]
+Visit [https://app.globus.org/endpoints](https://app.globus.org/endpoints)
 
 Login with your institutional credentials
 
@@ -67,9 +67,14 @@ On the UQ endpoint you need to
 
 Alternatively, you can 
 * click on the FILE MANAGER icon in the left panel 
-* type QRIScloud Data into the search field
-* click on the folder that belongs to you from the long list
+* type QRIScloud Data into the Collection field and press Enter,
+* the list of all available Globus connected UQ RDM Q type storage allocations should be presented,
+* select the click on the folder that belongs to you from the long list
  
+And another option is to enter the collection and your folder directly
+* click on the FILE MANAGER icon in the left panel, 
+* type QRIScloud Data into the Collection field,
+* type /Q1234/ into the Path field and press Enter.
 
 
 ### Not working?
@@ -77,12 +82,18 @@ Alternatively, you can
 There are a few things we've noticed that can go wrong in your Globus session.
 
 * Too soon, maybe? </br>
-There is a process that is only run once every 24 hours, in the middle of the night, that is required before an RDM Storage Allocation becomes accessible in Globus File Manager (even if it is visible in the list of collections)
+There is a process that is only run once periodically, that is required before an RDM Storage Allocation becomes accessible in Globus File Manager (even if it is visible in the list of collections)
+
+* Queries timing out ?</br>
+You may get a wrror about operation timing out.</br>
+Try clicking the "Try again" button 
 
 * Blank panes? </br>
-Sometimes the web interface does not display the list of Collections, or the folders in a Globus Collection. Hit page reload button in your browser, that usually fixes it.
+Sometimes the web interface does not display the list of Collections, or the folders in a Globus Collection. </br>
+Hit page reload button in your browser, that usually fixes it.
 
-* Sometimes you might get authentication or access errors. You may need to logout and login again.
+* Sometimes you might get authentication or access errors.</br>
+You may need to logout and login again.
 
 * Sometimes when you are trying to access a Q collection, </br>
 you may get an "Authentication/Consent is required for Globus transfer service to manage data on this collection." errors. Click on the Continue button. </br>
@@ -90,4 +101,5 @@ On the "Identity Required" page you will be offered a blue URL that looks like y
 Do _not_ use the drop down menu of Institutions and the Continue button on the Identity Required page because it gets stuck in an infinite loop!
 
 * It is not possible to use the Upload file feature with files in excess of 1GB. Use the Globus Connect Personal application to _transfer_ big files to the destination.
+  
 * If all else fails, email rcc-support@uq.edu.au. Screenshots of what you were seeing are very helpful. Please attach screenshots to the email instead of pasting into the body.
