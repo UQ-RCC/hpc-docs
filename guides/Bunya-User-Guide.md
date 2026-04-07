@@ -152,7 +152,7 @@ QCIF users are required to go here [https://services.qriscloud.org.au/credential
 Users will first be asked for their password (or key). After users have entered this, they will see one or more options given. Choose the option you wish to use and type the respective number on the command line. If you have only set up one MFA option for your account, it will use this option automatically.
 
 For UQ users, you will be asked to enter the DUO passcode (6 numbers with no spaces).</br>
-Do not attempt to use the new Okta MFA with Bunya HPC until we advise you to do so (via direct email). Even if you use Okta for other UQ services, you must maintain your Duo tool for now.
+Do not attempt to use the new Okta MFA with Bunya HPC until we advise you to do so (via direct email). Even if you use Okta for other UQ services, you must maintain your Duo tool for now.</br>
 It can happen, under usual circumstances, that your Duo MFA access fails outright. You will just need to *wait one hour* before trying again.</br>
 If the problem persists you should contact the ITS help desk about [MFA issues](https://my.uq.edu.au/information-and-services/information-technology/uq-accounts-and-passwords/multi-factor-authentication-mfa).   
 
