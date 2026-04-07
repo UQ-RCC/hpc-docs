@@ -271,6 +271,7 @@ The basic commands are:
 
 `module overview` - shows a brief list of all available modules, and the number of distinct versions<br>
 `module avail` - shows all available main modules<br>
+`module --ignore_cache avail` - shows all available main modules after re-initialising your personal module cache (which speeds up future searches, but can get out-of-date)<br>
 `module --show_hidden avail` - shows all available modules, including those that are normally hidden<br>
 `module -t avail` - shows a _terse_ single column list of the available modules<br>
 `module avail [SOFTWARE-NAME or KEYWORD]` - shows all modules for SOFTWARE-NAME or KEYWORD<br>
@@ -280,7 +281,7 @@ The basic commands are:
 `module list` - lists all currently loaded software modules<br>
 `module purge` - unloads ALL currently loaded software modules<br>
 
-Bunya uses EasyBuild to build and install software and modules. Modules on Bunya are self-contained which means users do not need to load any dependencies for the module to work. This is similar to how modules worked on Tinaroo and FlashLite but different to Wiener.
+Bunya uses EasyBuild to build and install software and modules. Modules on Bunya are self-contained which means users do not need to load any dependencies for the module to work. -This is similar to how modules worked on Tinaroo and FlashLite but different to Wiener.-
 
 Using `module avail` will show only the main software modules installed. It will not show all the different dependency modules that are also available. To show ALL modules including hidden modules use
 
@@ -296,7 +297,7 @@ The command `module unuse path_to_where_you_keep_your_modules` will reverse this
 You can make sure it is always set by modifying your `$HOME/.bashrc` file.  
 
 **Please note:**
-- Use the full module name, software/version, to be sure to load the version you need and ensure that your research is consistend and repeatable
+- Use the full module name, software/version, to be sure to load the version you need and ensure that your research is consistent and repeatable
 - Modules denoted as the default (D) are only the default in their module list, `/sw/auto/rocky9a/epyc3/modules/all` or `/sw/local/rocky9/noarch/rcc/modules` for example. If a software is available as a module in more than one list then users are required to use the full module name (software/version).
 - Most system libraries and tools (gfortran, gcc, eigen, etc) are required to be loaded as modules. Users should check `module --show_hidden avail` if they get a *library not found error* to see if it is avialable via a module.
 
