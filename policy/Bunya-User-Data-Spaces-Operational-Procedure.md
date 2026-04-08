@@ -141,11 +141,11 @@ In below clauses:
 ### /scratch/licenseddata
 
 
-51) /scratch/licenseddata houses licensed data sets for software and inout data sets.
+51) /scratch/licenseddata houses licensed data sets for software and input data sets.
 
 52) Access to data in /scratch/licenseddata is controlled by access groups. 
 
-53) Bunya users may apply to store data sets and/or inout data that does not change once installed in /scratch/licenseddata.
+53) Bunya users may apply to store data sets and/or input data that does not change once installed in /scratch/licenseddata.
 
 54) Data in /scratch/licenseddata requires the set up of a procedure for granting access including required access agreements. 
 
