@@ -67,20 +67,29 @@ layout: default
     {% assign extra_docs = "" | split: "" %}
 
     {% comment %} 
-      STEP 1: Process Registry. 
-      We manually build an array of objects so Liquid can sort by weight.
+      STEP 1: Process Registry (Internal & External)
     {% endcomment %}
     {% for entry in site.data.registry %}
-      {% assign file_path = entry[0] %}
+      {% assign key = entry[0] %}
       {% assign meta = entry[1] %}
       
-      {% if file_path contains dir_name %}
-        {% comment %} Create a 'virtual' object that includes the path {% endcomment %}
-        {% assign item = meta | university_case_fix | merge: meta %}
-        {% assign item = item | merge: "path", file_path %}
+      {% if key contains dir_name %}
+        {% comment %} 
+          We use 'link' as a common key for sorting/rendering. 
+          If there is no explicit URL, we build the internal path.
+        {% endcomment %}
+        {% if meta.url %}
+          {% assign final_url = meta.url %}
+        {% else %}
+          {% assign final_url = site.baseurl | append: "/" | append: key %}
+        {% endif %}
+
+        {% comment %} Build a manual hash to avoid merge/filter issues {% endcomment %}
+        {% capture item_json %}{ "title": "{{ meta.title }}", "url": "{{ final_url }}", "weight": {{ meta.weight | default: 99 }} }{% endcapture %}
+        {% assign item_obj = item_json | json_parse %}
         
-        {% assign priority_docs = priority_docs | push: item %}
-        {% assign displayed_urls = displayed_urls | push: file_path %}
+        {% assign priority_docs = priority_docs | push: item_obj %}
+        {% assign displayed_urls = displayed_urls | push: key %}
       {% endif %}
     {% endfor %}
 
@@ -112,17 +121,11 @@ layout: default
       {% endif %}
     {% endfor %}
 
-    {% comment %} RENDER PRIORITY GRID (Sorted by Weight) {% endcomment %}
+    {% comment %} RENDER PRIORITY GRID {% endcomment %}
     <div class="resource-grid">
       {% assign sorted_priority = priority_docs | sort: "weight" %}
       {% for item in sorted_priority %}
-        {% if item.url %}
-          {% assign link = item.url %}
-        {% else %}
-          {% assign link = site.baseurl | append: "/" | append: item.path %}
-        {% endif %}
-        
-        <a href="{{ link }}" class="item-card">
+        <a href="{{ item.url }}" class="item-card">
           <span class="item-link">{{ item.title }}</span>
         </a>
       {% endfor %}

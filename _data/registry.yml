@@ -44,7 +44,7 @@ policy/Bunya-Accounting-Group-Operational-Procedure.md:
 policy/Bunya-User-Data-Spaces-Operational-Procedure.md:
   title: "Bunya User Data Spaces Operational Procedure"
   weight: 6
-external/acknowledgments:
+policy/acknowledgments:
   title: "How to Acknowledge Bunya and/or RCC"
   url: "https://rcc.uq.edu.au/about/acknowledging-rcc"
   weight: 5
