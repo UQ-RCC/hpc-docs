@@ -63,12 +63,11 @@ layout: default
     <div class="folder-blurb">{{ category_blurb }}</div>
 
     {% assign displayed_paths = "" | split: "" %}
-    {% assign extra_docs = "" | split: "" %}
 
     <div class="resource-grid">
       {% comment %} 
-        MANUAL OVERRIDE: Add specific external links here. 
-        We check if we are in the 'guides' section to display the Acknowledgment link.
+        MANUAL EXTERNAL LINKS
+        We just drop them straight into the grid based on the category.
       {% endcomment %}
       {% if dir_name == "guides" %}
         <a href="https://rcc.uq.edu.au/about/acknowledging-rcc" class="item-card">
@@ -76,24 +75,54 @@ layout: default
         </a>
       {% endif %}
 
-      {% comment %} 1. Weighted Markdown Pages {% endcomment %}
-      {% assign weighted_pages = site.pages | where_exp: "p", "p.path contains dir_name" | where: "weight", true | sort: "weight" %}
+      {% comment %} 
+        1. Priority Items from Registry (Internal only)
+      {% endcomment %}
+      {% for entry in site.data.registry %}
+        {% if entry[0] contains dir_name %}
+          <a href="{{ entry[0] | relative_url }}" class="item-card">
+            <span class="item-link">{{ entry[1].title }}</span>
+          </a>
+          {% assign displayed_paths = displayed_paths | push: entry[0] %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} 
+        2. Weighted Markdown Pages (that weren't in registry)
+      {% endcomment %}
+      {% assign weighted_pages = site.pages | where_exp: "p", "p.path contains dir_name" | where_exp: "p", "p.weight != nil" | sort: "weight" %}
       {% for p in weighted_pages %}
-        <a href="{{ p.url | relative_url }}" class="item-card">
-          <span class="item-link">{{ p.title }}</span>
-        </a>
-        {% assign displayed_paths = displayed_paths | push: p.path %}
+        {% unless displayed_paths contains p.path %}
+          <a href="{{ p.url | relative_url }}" class="item-card">
+            <span class="item-link">{{ p.title }}</span>
+          </a>
+          {% assign displayed_paths = displayed_paths | push: p.path %}
+        {% endunless %}
       {% endfor %}
     </div>
 
-    {% comment %} 2. Unweighted Files (MD, PDF, HTML) in Dropdown {% endcomment %}
-    {% assign all_files = site.pages | concat: site.static_files %}
-    {% for file in all_files %}
+    {% comment %} 
+      3. Additional Docs (Unweighted MD, PDF, HTML)
+    {% endcomment %}
+    {% assign extra_docs = "" | split: "" %}
+    
+    {% comment %} Check site.pages {% endcomment %}
+    {% assign unweighted_md = site.pages | where_exp: "p", "p.path contains dir_name" | where_exp: "p", "p.weight == nil" %}
+    {% for p in unweighted_md %}
+      {% if p.name != "index.md" and p.title %}
+        {% unless displayed_paths contains p.path %}
+          {% assign extra_docs = extra_docs | push: p %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+    {% comment %} Check static_files (PDFs) {% endcomment %}
+    {% for file in site.static_files %}
       {% if file.path contains dir_name %}
-        {% if file.extname == ".pdf" or file.extname == ".html" or file.extname == ".md" %}
+        {% if file.extname == ".pdf" or file.extname == ".html" %}
           {% assign clean_path = file.path | remove_first: "/" %}
-          {% unless displayed_paths contains clean_path or displayed_paths contains file.path or file.name == "index.md" %}
-             {% assign extra_docs = extra_docs | push: file %}
+          {% unless displayed_paths contains clean_path or displayed_paths contains file.path %}
+            {% assign extra_docs = extra_docs | push: file %}
           {% endunless %}
         {% endif %}
       {% endif %}
@@ -106,4 +135,14 @@ layout: default
           {% assign sorted_extras = extra_docs | sort: "title" %}
           {% for doc in sorted_extras %}
             <li>
-              <a href="{{
+              <a href="{{ doc.url | default: doc.path | relative_url }}">
+                {{ doc.title | default: doc.basename | replace: "-", " " | replace: "_", " " }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endif %}
+
+  </div>
+{% endfor %}
