@@ -1,0 +1,28 @@
+# Format: "path/to/file": { title: "Title Case Name", weight: X }  
+tools/bunya-gpu-guide.html:
+  title: "Bunya GPU Guide"
+  weight: 1
+tools/bunya-llm-gpu-guide.html:
+  title: "Bunya LLM GPU Guide"
+  weight: 2
+guides/group-admin.md:
+  title: "Accounting Group and Administration"
+  weight: 6
+guides/BunyaResourceDistribution.md:
+  title: "Who gets what on Bunya?"
+  weight: 4 
+guides/Bunya-UserData-Guide.md:
+  title: "Where should my data and software go on Bunya?"
+  weight: 3
+guides/Bunya-User-Guide.md:
+  title: "Bunya User Guide"
+  weight: 1
+guides/conda-environment.md:
+  title: "Conda on Bunya"
+  weight: 8
+guides/FairShare.md:
+  title: "FairShare"
+  weight: 5
+guides/OnDemand-Guide.md:
+  title: "onBunya"
+  weight: 2

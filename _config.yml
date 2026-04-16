@@ -12,14 +12,3 @@ uq_neutral: "#97999B"
 theme: jekyll-theme-minimal
 exclude: [README.md] # Excludes the old manual readme from the site build
 
-defaults:
-  - scope:
-      path: "tools/bunya-gpu-guide.html" # Path relative to repo root
-    values:
-      title: "Bunya GPU Guide"
-      weight: 1
-  - scope:
-      path: "tools/bunya-llm-gpu-guide.html" # Path relative to repo root
-    values:
-      title: "Bunya LLM GPU Guide"
-      weight: 2

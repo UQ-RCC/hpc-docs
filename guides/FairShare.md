@@ -1,7 +1,3 @@
----
-title: "FairShare"
-weight: 5
----
 # Bunya Fair Share 
 
 Bunya employs fair share to ensure that every Bunya user can use an equal share of the computational resources.

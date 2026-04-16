@@ -1,7 +1,3 @@
----
-title: "Who gets what on Bunya?"
-weight: 4 
----
 # Who gets what on Bunya
 
 Bunya is a UQ funded HPC facility for UQ researchers and operated by UQ staff.
