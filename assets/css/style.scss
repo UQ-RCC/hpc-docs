@@ -2,6 +2,22 @@
 ---
 @import "{{ site.theme }}";
 
+/* Fix the header title color */
+header h1 a {
+  color: #51247a !important;
+  text-decoration: none;
+}
+
+header h1 a:hover {
+  color: #51247a;
+  text-decoration: underline;
+}
+
+/* Optional: If the theme is using a different selector for the title */
+header h1 {
+  color: #51247a !important;
+}
+
 /* 1. Global Layout Fixes (Applies to Index and all Sub-pages) */
 .wrapper { 
   max-width: 1200px !important; 
@@ -116,3 +132,7 @@ summary {
 }
 
 .extra-list a:hover { text-decoration: underline; }
+
+.view p {
+  display: none;
+}

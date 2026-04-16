@@ -2,7 +2,6 @@
 layout: default
 ---
 
-# UQ RCC HPC Documentation Hub
 <p class="welcome-blurb">Welcome to the central index for information and guides for systems operated by the UQ Research Computing Centre.</p>
 
 {% for category in site.data.descriptions %}
