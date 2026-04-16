@@ -9,14 +9,13 @@ layout: default
   section { width: 100% !important; float: none !important; }
 
   body { font-family: Arial, sans-serif !important; color: #333; line-height: 1.6; }
-  h1 { color: {{ site.uq_purple }}; border-bottom: 4px solid {{ site.uq_gold }}; padding-bottom: 10px; margin-bottom: 5px; }
+  h1 { color: #51247a; border-bottom: 4px solid #A08030; padding-bottom: 10px; margin-bottom: 5px; }
   .welcome-blurb { margin-bottom: 40px; color: #555; font-size: 1.1rem; }
   
   .folder-section { margin-top: 50px; }
-  .folder-header { color: {{ site.uq_purple }}; font-size: 1.6rem; font-weight: bold; margin-bottom: 5px; border-left: 10px solid {{ site.uq_gold }}; padding-left: 15px; }
+  .folder-header { color: #51247a; font-size: 1.6rem; font-weight: bold; margin-bottom: 5px; border-left: 10px solid #A08030; padding-left: 15px; }
   .folder-blurb { font-style: italic; color: #666; margin-bottom: 20px; padding-left: 25px; }
 
-  /* Priority Grid (2 Columns) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
@@ -29,20 +28,19 @@ layout: default
     padding: 15px 20px;
     background: #fff;
     border: 1px solid #ddd;
-    border-left: 5px solid {{ site.uq_purple }};
+    border-left: 5px solid #51247a;
     border-radius: 4px;
     text-decoration: none;
     transition: 0.2s ease;
   }
-  .item-card:hover { border-left-color: {{ site.uq_gold }}; background: #fdfdfd; transform: translateX(5px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-  .item-link { font-weight: bold; color: {{ site.uq_purple }}; font-size: 1.05rem; }
+  .item-card:hover { border-left-color: #A08030; background: #fdfdfd; transform: translateX(5px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .item-link { font-weight: bold; color: #51247a; font-size: 1.05rem; }
 
-  /* Dropdown for Additional Docs */
   details { background: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eee; margin-top: 10px; }
-  summary { font-weight: bold; color: {{ site.uq_purple }}; cursor: pointer; outline: none; }
-  .extra-list { list-style: none; padding: 15px 0 0 10px; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
-  .extra-list a { color: {{ site.uq_purple }}; text-decoration: none; border-bottom: 1px solid transparent; }
-  .extra-list a:hover { border-bottom: 1px solid {{ site.uq_gold }}; }
+  summary { font-weight: bold; color: #51247a; cursor: pointer; outline: none; }
+  .extra-list { list-style: none; padding: 15px 0 0 10px; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 10px; }
+  .extra-list a { color: #51247a; text-decoration: none; }
+  .extra-list a:hover { text-decoration: underline; }
 </style>
 
 # UQ RCC HPC Documentation Hub
@@ -57,71 +55,60 @@ layout: default
     <div class="folder-blurb">{{ category_blurb }}</div>
 
     {% comment %} 
-      1. Aggregation Phase 
+      Step 1: Collect ALL relevant files into two buckets, tracking URLs to prevent duplicates.
     {% endcomment %}
-    {% assign priority_list = "" | split: "," %}
-    {% assign additional_list = "" | split: "," %}
+    {% assign displayed_urls = "" | split: "" %}
+    {% assign priority_docs = "" | split: "" %}
+    {% assign extra_docs = "" | split: "" %}
 
-    {% comment %} Check all pages (Markdown with Front Matter) {% endcomment %}
-    {% for p in site.pages %}
-      {% if p.path contains dir_name and p.name != "index.md" %}
-        {% if p.weight %}
-          {% assign priority_list = priority_list | push: p %}
-        {% else %}
-          {% assign additional_list = additional_list | push: p %}
-        {% endif %}
+    {% comment %} Check Registry first (Highest Priority) {% endcomment %}
+    {% for entry in site.data.registry %}
+      {% if entry[0] contains dir_name %}
+        {% assign priority_docs = priority_docs | push: entry %}
+        {% assign displayed_urls = displayed_urls | push: entry[0] %}
       {% endif %}
     {% endfor %}
 
-    {% comment %} Check Registry for HTML tools or unweighted files {% endcomment %}
-    {% for file in site.static_files %}
-      {% if file.path contains dir_name %}
-        {% assign reg_entry = site.data.registry[file.path] %}
-        {% if reg_entry %}
-          {% comment %} Create a virtual object for sorting {% endcomment %}
-          {% assign virtual_page = file | append: "" %} 
-          {% comment %} We actually need to handle the Registry items by path to avoid duplicates {% endcomment %}
-        {% endif %}
+    {% comment %} Check site.pages (Markdown with weights) {% endcomment %}
+    {% assign cat_pages = site.pages | where_exp: "p", "p.path contains dir_name" | sort: "weight" %}
+    {% for p in cat_pages %}
+      {% if p.name != "index.md" and p.title %}
+        {% unless displayed_urls contains p.path %}
+          {% if p.weight %}
+            {% assign priority_docs = priority_docs | push: p %}
+          {% else %}
+            {% assign extra_docs = extra_docs | push: p %}
+          {% endif %}
+          {% assign displayed_urls = displayed_urls | push: p.path %}
+        {% endunless %}
       {% endif %}
     {% endfor %}
 
-    {% comment %} 
-       REFINED LOGIC: Separate Priority from Additional
-    {% endcomment %}
-    
+    {% comment %} 1. Render Priority Grid {% endcomment %}
     <div class="resource-grid">
-      {% comment %} Sort priority by weight {% endcomment %}
-      {% assign all_priority = site.pages | where_exp: "p", "p.path contains dir_name" | where_exp: "p", "p.weight != nil" | sort: "weight" %}
-      
-      {% for doc in all_priority %}
-        <a href="{{ site.baseurl }}{{ doc.url }}" class="item-card">
-          <span class="item-link">{{ doc.title }}</span>
-        </a>
-      {% endfor %}
-
-      {% comment %} Manually Inject Registry Tools into Priority Grid {% endcomment %}
-      {% for entry in site.data.registry %}
-        {% assign file_path = entry[0] %}
-        {% assign meta = entry[1] %}
-        {% if file_path contains dir_name %}
-          <a href="{{ site.baseurl }}/{{ file_path }}" class="item-card">
-            <span class="item-link">{{ meta.title }}</span>
+      {% for item in priority_docs %}
+        {% if item[1].title %} {% comment %} Registry Item {% endcomment %}
+          <a href="{{ site.baseurl }}/{{ item[0] }}" class="item-card">
+            <span class="item-link">{{ item[1].title }}</span>
+          </a>
+        {% else %} {% comment %} Regular Page Item {% endcomment %}
+          <a href="{{ site.baseurl }}{{ item.url }}" class="item-card">
+            <span class="item-link">{{ item.title }}</span>
           </a>
         {% endif %}
       {% endfor %}
     </div>
 
-    {% comment %} 2. Dropdown for everything else {% endcomment %}
-    {% assign all_others = site.pages | where_exp: "p", "p.path contains dir_name" | where_exp: "p", "p.weight == nil" | where_exp: "p", "p.name != 'index.md'" %}
-    
-    {% if all_others.size > 0 %}
+    {% comment %} 2. Render Additional Dropdown {% endcomment %}
+    {% if extra_docs.size > 0 %}
       <details>
         <summary>Additional {{ dir_name | capitalize }} Resources</summary>
         <ul class="extra-list">
-          {% for doc in all_others %}
-            {% comment %} Prettify the title: strip hyphens/ext, then respect provided title {% endcomment %}
+          {% assign sorted_extras = extra_docs | sort: "title" %}
+          {% for doc in sorted_extras %}
             <li>
               <a href="{{ site.baseurl }}{{ doc.url }}">
+                {% comment %} Logic: If title exists use it, otherwise fix the filename case {% endcomment %}
                 {{ doc.title | default: doc.basename | replace: "-", " " | replace: "_", " " }}
               </a>
             </li>
