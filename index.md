@@ -105,20 +105,20 @@ layout: default
 
     {% comment %} RENDER PRIORITY GRID {% endcomment %}
     <div class="resource-grid">
-      {% assign sorted_priority = priority_docs | sort: "weight" %}
+    {% assign sorted_priority = priority_docs | sort: "weight" %}
       {% for item in sorted_priority %}
-        {% comment %} Registry items with explicit url field: use as-is (may be external) {% endcomment %}
-        {% if item.url %}
+        {% if item.layout or item.content %}
+          {% comment %} Jekyll page object - use compiled .url {% endcomment %}
+          <a href="{{ item.url | relative_url }}" class="item-card">
+            <span class="item-link">{{ item.title }}</span>
+          </a>
+        {% elsif item.url %}
+          {% comment %} Registry item with explicit URL (may be external) {% endcomment %}
           <a href="{{ item.url }}" class="item-card">
             <span class="item-link">{{ item.title }}</span>
           </a>
-        {% comment %} Jekyll page objects have a .path and a .url (the generated page URL) {% endcomment %}
-        {% elsif item.path %}
-          <a href="{{ item.path | relative_url }}" class="item-card">
-            <span class="item-link">{{ item.title }}</span>
-          </a>
-        {% comment %} Fallback: registry item with no explicit url, derive from registry key {% endcomment %}
         {% else %}
+          {% comment %} Registry item, derive path from key {% endcomment %}
           {% for entry in site.data.registry %}
             {% if entry[1] == item %}
               <a href="{{ entry[0] | relative_url }}" class="item-card">
