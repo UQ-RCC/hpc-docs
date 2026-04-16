@@ -1,3 +1,7 @@
+---
+title: "Where should my data and software go on Bunya?"
+weight: 3
+---
 # Where should my data and software go on Bunya
 
 Bunya has several spaces users have access to to keep their data and software.

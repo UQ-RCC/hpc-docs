@@ -1,3 +1,7 @@
+---
+title: "onBunya"
+weight: 2
+---
 # onBunya User Guide
 
 ## Table of Contents 

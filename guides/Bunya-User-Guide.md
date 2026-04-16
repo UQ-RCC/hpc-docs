@@ -1,3 +1,7 @@
+---
+title: "Bunya User Guide"
+weight: 1
+---
 # Bunya user guide
 
 ## Quick links

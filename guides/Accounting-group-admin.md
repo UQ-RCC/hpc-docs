@@ -1,3 +1,7 @@
+---
+title: "Accounting Group and Administration"
+weight: 6
+---
 # Accounting Group and Administration
 
 ## Accounting group policy
