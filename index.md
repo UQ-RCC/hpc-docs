@@ -67,39 +67,37 @@ layout: default
     {% assign extra_docs = "" | split: "" %}
 
     {% comment %} 
-      STEP 1: Process Registry (Internal & External)
+      1. Registry Items
     {% endcomment %}
     {% for entry in site.data.registry %}
-      {% assign key = entry[0] %}
-      {% assign meta = entry[1] %}
-      
-      {% if key contains dir_name %}
-        {% comment %} 
-          We use 'link' as a common key for sorting/rendering. 
-          If there is no explicit URL, we build the internal path.
-        {% endcomment %}
-        {% if meta.url %}
-          {% assign final_url = meta.url %}
-        {% else %}
-          {% assign final_url = site.baseurl | append: "/" | append: key %}
-        {% endif %}
-
-        {% comment %} Build a manual hash to avoid merge/filter issues {% endcomment %}
-        {% capture item_json %}{ "title": "{{ meta.title }}", "url": "{{ final_url }}", "weight": {{ meta.weight | default: 99 }} }{% endcapture %}
-        {% assign item_obj = item_json | json_parse %}
+      {% if entry[0] contains dir_name %}
+        {% assign item = entry[1] %}
         
-        {% assign priority_docs = priority_docs | push: item_obj %}
-        {% assign displayed_urls = displayed_urls | push: key %}
+        {% comment %} Determine Link: Priority is an explicit URL {% endcomment %}
+        {% if item.url %}
+          {% assign final_link = item.url %}
+        {% else %}
+          {% assign final_link = site.baseurl | append: "/" | append: entry[0] %}
+        {% endif %}
+        
+        {% comment %} Inject the calculated link back into the item object {% endcomment %}
+        {% assign item_with_url = item | append_payload: "" %} {% comment %} Dummy filter to force object behavior if needed {% endcomment %}
+        {% assign item_with_url = item | merge: "computed_url", final_link %}
+        
+        {% assign priority_docs = priority_docs | push: item_with_url %}
+        {% assign displayed_urls = displayed_urls | push: entry[0] %}
       {% endif %}
     {% endfor %}
 
-    {% comment %} STEP 2: Process Markdown Pages {% endcomment %}
+    {% comment %} 2. Markdown Pages {% endcomment %}
     {% assign cat_pages = site.pages | where_exp: "p", "p.path contains dir_name" %}
     {% for p in cat_pages %}
       {% if p.name != "index.md" and p.title %}
         {% unless displayed_urls contains p.path %}
           {% if p.weight %}
-            {% assign priority_docs = priority_docs | push: p %}
+             {% comment %} Standardize the URL key for sorting/rendering {% endcomment %}
+             {% assign p_with_url = p | merge: "computed_url", p.url %}
+             {% assign priority_docs = priority_docs | push: p_with_url %}
           {% else %}
             {% assign extra_docs = extra_docs | push: p %}
           {% endif %}
@@ -108,7 +106,7 @@ layout: default
       {% endif %}
     {% endfor %}
 
-    {% comment %} STEP 3: Process Static Files (PDFs/HTML not in registry) {% endcomment %}
+    {% comment %} 3. Static Files (PDF/HTML) {% endcomment %}
     {% for file in site.static_files %}
       {% if file.path contains dir_name %}
         {% if file.extname == ".pdf" or file.extname == ".html" %}
@@ -125,7 +123,8 @@ layout: default
     <div class="resource-grid">
       {% assign sorted_priority = priority_docs | sort: "weight" %}
       {% for item in sorted_priority %}
-        <a href="{{ item.url }}" class="item-card">
+        {% comment %} Use the computed_url we injected earlier {% endcomment %}
+        <a href="{{ item.computed_url | relative_url }}" class="item-card">
           <span class="item-link">{{ item.title }}</span>
         </a>
       {% endfor %}
@@ -139,7 +138,7 @@ layout: default
           {% assign sorted_extras = extra_docs | sort: "title" %}
           {% for doc in sorted_extras %}
             <li>
-              <a href="{{ site.baseurl }}{{ doc.url | default: doc.path }}">
+              <a href="{{ doc.url | default: doc.path | relative_url }}">
                 {{ doc.title | default: doc.basename | replace: "-", " " | replace: "_", " " }}
               </a>
             </li>
