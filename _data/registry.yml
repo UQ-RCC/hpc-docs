@@ -26,3 +26,25 @@ guides/FairShare.md:
 guides/OnDemand-Guide.md:
   title: "onBunya"
   weight: 2
+policy/Policies.md:
+  title: "RCC Infrastructure Policies and Operational Procedures"
+  weight: 1
+policy/Bunya-Conditions-of-Access.md:
+  title: "Bunya Conditions of Access"
+  weight: 2
+policy/UQ-Conditions-of-Access-to-RCC-Infrastructure.pdf:
+  title: "UQ Conditions of Access to RCC Infrastructure"
+  weight: 3
+policy/Bunya-User-Operational-Procedure.md:
+  title: "Bunya User Operational Procedure"
+  weight: 4
+policy/Bunya-Accounting-Group-Operational-Procedure.md:
+  title: "Bunya Accounting Group Operational Procedure"
+  weight: 5
+policy/Bunya-User-Data-Spaces-Operational-Procedure.md:
+  title: "Bunya User Data Spaces Operational Procedure"
+  weight: 6
+external/acknowledgments:
+  title: "How to Acknowledge Bunya and/or RCC"
+  url: "https://rcc.uq.edu.au/about/acknowledging-rcc"
+  weight: 5
