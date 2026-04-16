@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Bunya GPU Should I Use? — UQ Research Computing Centre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ── UQ Purple palette ── */
+    --uq-purple: #51247A;
+    --uq-purple-light: #7b52a5;
+    --uq-purple-lighter: #a07cc3;
+    --uq-purple-pale: #c8b3dc;
+    --uq-purple-glow: rgba(81,36,122,0.25);
+
+    /* ── Dark theme built on purple ── */
+    --bg: #0e0a14;
+    --bg-warm: #130f1c;
+    --card: #1a1428;
+    --card-hover: #231c34;
+    --border: #2e2542;
+    --border-light: #3d3258;
+
+    /* ── Accent & semantic ── */
+    --accent: #9b72cf;
+    --accent-bright: #b690e8;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --rose: #fb7185;
+    --blue: #60a5fa;
+    --teal: #2dd4bf;
+
+    /* ── Text ── */
+    --text: #e4dff0;
+    --text-muted: #a89ebe;
+    --text-dim: #7a6d94;
+    --white: #f5f0ff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(160deg, var(--uq-purple) 0%, var(--bg-warm) 60%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(81,36,122,0.35) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .header-badge {
+    position: relative;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--uq-purple-pale);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    position: relative;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .header p {
+    position: relative;
+    font-size: 15px;
+    color: var(--uq-purple-pale);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .header .sub { font-size: 13px; color: var(--text-dim); }
+
+  /* ── Container ── */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+  }
+
+  /* ── Progress bar ── */
+  .progress-track {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--uq-purple), var(--accent-bright), var(--green));
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  /* ── Navigation ── */
+  .nav-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .nav-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .nav-btn:hover { border-color: var(--accent); color: var(--accent-bright); }
+  .nav-btn.reset:hover { border-color: var(--rose); color: var(--rose); }
+
+  /* ── Question card ── */
+  .question-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .question-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--uq-purple), var(--accent-bright));
+  }
+  .step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .question-card h2 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .question-card .subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ── Option buttons ── */
+  .options { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+
+  .option-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    text-align: left;
+    cursor: pointer;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    line-height: 1.5;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .option-btn:hover {
+    background: var(--card-hover);
+    border-color: var(--uq-purple-light);
+    transform: translateX(4px);
+  }
+  .option-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--uq-purple-glow);
+    color: var(--accent-bright);
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── Result card ── */
+  .result-card {
+    background: linear-gradient(145deg, var(--card) 0%, #1c1630 50%, #151224 100%);
+    border: 1px solid rgba(52,211,153,0.22);
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 28px;
+  }
+  .result-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #0e0a14;
+    background: var(--green);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .result-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  .result-card > .desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ── GPU card ── */
+  .gpu-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .gpu-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .gpu-icon { font-size: 22px; }
+  .gpu-name { font-size: 20px; font-weight: 700; }
+  .gpu-vendor-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .gpu-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .gpu-specs .label { color: var(--text-dim); }
+  .gpu-specs .val { color: var(--text); }
+  .gpu-specs .mono { font-family: 'DM Mono', monospace, 'Courier New'; font-size: 13px; }
+  .gpu-highlight { font-size: 13px; color: var(--text-muted); margin-top: 12px; line-height: 1.6; }
+  .gpu-access { font-size: 12px; color: var(--text-dim); margin-top: 6px; font-style: italic; }
+
+  /* ── Tip ── */
+  .tip-box {
+    background: rgba(251,191,36,0.06);
+    border: 1px solid rgba(251,191,36,0.18);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .tip-icon { font-size: 16px; flex-shrink: 0; }
+  .tip-text { font-size: 13px; color: var(--amber); line-height: 1.6; }
+
+  /* ── Restart ── */
+  .restart-btn {
+    width: 100%;
+    background: var(--uq-purple-glow);
+    border: 1px solid rgba(81,36,122,0.4);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+    cursor: pointer;
+    color: var(--accent-bright);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .restart-btn:hover { background: rgba(81,36,122,0.4); }
+
+  /* ── Reference table ── */
+  .ref-section {
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+  }
+  .ref-section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; color: var(--text-muted); }
+  thead tr { border-bottom: 1px solid var(--border); }
+  th {
+    text-align: left; padding: 8px 10px; font-weight: 600;
+    color: var(--text-dim); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap;
+  }
+  td { padding: 10px; }
+  td.gpu-name-cell { font-weight: 600; white-space: nowrap; }
+  td.mono-cell { font-family: 'DM Mono', monospace, 'Courier New'; font-size: 12px; }
+  td.best-cell { font-size: 12px; line-height: 1.5; max-width: 200px; }
+  tbody tr { border-bottom: 1px solid rgba(46,37,66,0.4); }
+
+  .help-box {
+    margin-top: 20px;
+    padding: 14px 18px;
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .help-box strong { color: var(--text-muted); }
+  .help-box .link { color: var(--accent-bright); }
+
+  /* ── Animations ── */
+  .fade-in { animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 520px) {
+    .header h1 { font-size: 22px; }
+    .question-card, .result-card { padding: 20px; }
+    .gpu-specs { grid-template-columns: 1fr; }
+    .option-btn { font-size: 14px; padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">UQ Research Computing Centre</div>
+  <h1>Which Bunya GPU Should I Use?</h1>
+  <p>Answer a few questions about your research to find the right GPU.<br><span class="sub">Most researchers only need 2–4 clicks.</span></p>
+</div>
+
+<div class="container">
+  <div class="progress-track"><div class="progress-fill" id="progress" style="width:20%"></div></div>
+  <div id="nav" class="nav-row" style="display:none">
+    <button class="nav-btn" onclick="goBack()">← Back</button>
+    <button class="nav-btn reset" onclick="restart()">Start over</button>
+  </div>
+  <div id="content"></div>
+
+  <div class="ref-section">
+    <h3>All Bunya GPUs at a Glance</h3>
+    <div class="table-wrap">
+      <table><thead><tr>
+        <th>GPU</th><th>Vendor</th><th>VRAM</th><th>Total Cards</th><th>Partition</th><th>Best For</th>
+      </tr></thead><tbody id="refTable"></tbody></table>
+    </div>
+    <div class="help-box">
+      <strong>Need help?</strong>
+      Contact the RCC support team at <span class="link">rcc-support@uq.edu.au</span>.
+      Full documentation: <span class="link">github.com/UQ-RCC/hpc-docs</span>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════
+   GPU DATA
+   ════════════════════════════════════════ */
+const GPUS = {
+  h100_sxm5: {
+    name:"H100 SXM5", vendor:"NVIDIA", vram:"80 GB HBM3",
+    cards:"16 total (4 nodes × 4 GPUs)", partition:"gpu_cuda",
+    color:"#60a5fa", icon:"🔷", maxPerJob:4,
+    highlight:"NVLink interconnect (900 GB/s between GPUs). Liquid-cooled. 320 GB cohesive GPU memory pool per node.",
+    access:"Requires application — must demonstrate high GPU utilisation and large memory needs.",
+    best:"Massive AI/ML training, LLMs, generative AI, multi-GPU tightly-coupled workloads"
+  },
+  h100_pcie: {
+    name:"H100 PCIe", vendor:"NVIDIA", vram:"80 GB HBM3",
+    cards:"21 total (7 nodes × 3 GPUs)", partition:"gpu_cuda",
+    color:"#60a5fa", icon:"🔹", maxPerJob:4,
+    highlight:"High-performance NVIDIA GPU available to all users. No special application needed.",
+    access:"Available to all Bunya users.",
+    best:"AI/ML training & inference, deep learning, accelerated simulation, molecular dynamics"
+  },
+  l40: {
+    name:"L40", vendor:"NVIDIA", vram:"48 GB GDDR6",
+    cards:"18 total (6 nodes × 3 GPUs)", partition:"gpu_cuda",
+    color:"#34d399", icon:"🟢", maxPerJob:3,
+    highlight:"Excellent for visualisation and full-precision (FP32) workloads. Also powers onBunya GPU-Accelerated Desktops.",
+    access:"Available to all Bunya users.",
+    best:"Visualisation, 3D rendering, GUI apps, FP32 scientific computing, CAD/CAM/GIS"
+  },
+  l40s: {
+    name:"L40S", vendor:"NVIDIA", vram:"48 GB GDDR6",
+    cards:"6 total (2 nodes × 3 GPUs)", partition:"gpu_cuda",
+    color:"#34d399", icon:"🟩", maxPerJob:3,
+    highlight:"Enhanced L40 with FP16 support. Versatile multi-workload GPU — found to outperform the A100 for many ML tasks.",
+    access:"Available to all Bunya users.",
+    best:"Blended workloads: lighter AI/ML, 3D rendering, molecular dynamics, FP32 & FP16"
+  },
+  a100: {
+    name:"A100 (full)", vendor:"NVIDIA", vram:"80 GB HBM2e",
+    cards:"5 total (1 node × 3 + 1 node × 2)", partition:"gpu_cuda",
+    color:"#a78bfa", icon:"🟣", maxPerJob:3,
+    highlight:"Previous-gen flagship. Solid all-rounder for CUDA workloads.",
+    access:"Available to all Bunya users.",
+    best:"General GPU-accelerated computing, ML training, scientific simulation"
+  },
+  a100_mig: {
+    name:"A100 MIG slices", vendor:"NVIDIA", vram:"10 / 20 / 40 GB",
+    cards:"6×10 GB, 3×20 GB, 3×40 GB slices", partition:"gpu_cuda",
+    color:"#a78bfa", icon:"🔮", maxPerJob:6,
+    highlight:"Fractional A100 slices — use only what you need. Great for lightweight jobs.",
+    access:"Available to all Bunya users. Use --constraint=cuda10gb / cuda20gb / cuda40gb.",
+    best:"Small-scale inference, testing, prototyping, lightweight GPU tasks"
+  },
+  mi210: {
+    name:"MI210", vendor:"AMD", vram:"64 GB HBM2e",
+    cards:"6 total (3 nodes × 2 GPUs)", partition:"gpu_rocm",
+    color:"#fbbf24", icon:"🟡", maxPerJob:2,
+    highlight:"AMD Instinct GPU using the ROCm/HIP open software stack. Well-supported by many major scientific and ML codes.",
+    access:"Available to all Bunya users.",
+    best:"Scientific simulation, ML training, any ROCm-compatible workload"
+  },
+  mi300x: {
+    name:"MI300x", vendor:"AMD", vram:"192 GB HBM3",
+    cards:"16 total (2 nodes × 8 GPUs)", partition:"gpu_rocm",
+    color:"#fbbf24", icon:"🟠", maxPerJob:8,
+    highlight:"Largest GPU memory on Bunya (192 GB per card). Exceptional for memory-bound workloads.",
+    access:"Available to all Bunya users (up to 4 with gpu QoS). Access to all 8 via sdf QoS requires approval — contact rcc-support@uq.edu.au.",
+    best:"Very large models, memory-bound simulations, large-scale ML on ROCm"
+  },
+  a16: {
+    name:"A16", vendor:"NVIDIA", vram:"16 GB GDDR6 (per GPU)",
+    cards:"36 total (onBunya fleet)", partition:"gpu_viz (onBunya only)",
+    color:"#2dd4bf", icon:"🖥️", maxPerJob:"—",
+    highlight:"Dedicated visualisation GPU. Enables smooth accelerated desktops, rendering, 4K video decoding, and wireframe mesh acceleration on onBunya.",
+    access:"Automatic via onBunya. Not available for batch jobs.",
+    best:"Interactive desktops, GUI apps, real-time feedback, visual characterisation"
+  }
+};
+
+/* ════════════════════════════════════════
+   DECISION TREE
+   ════════════════════════════════════════ */
+const Q = {
+  start: {
+    q:"Does your research software actually use a GPU?",
+    sub:"Many research codes (R, standard Python, bioinformatics pipelines) run on CPUs only. Using a GPU when your code can't use one wastes resources and delays your queue time.",
+    opts:[
+      {label:"Yes — my code is GPU-accelerated", next:"interactive"},
+      {label:"No / I'm not sure", next:"no_gpu"}
+    ]
+  },
+  no_gpu: {
+    result:true,
+    title:"You don't need a GPU — use CPU nodes",
+    desc:"Submit to the 'general' partition with --qos=normal. Bunya has 113 CPU nodes with up to 96 cores and 2 TB RAM each. If you're unsure whether your software can use a GPU, check the software's documentation or ask RCC support (rcc-support@uq.edu.au).",
+    gpus:[],
+    tip:"Requesting a GPU you don't use still counts against your fair share allocation and delays other researchers."
+  },
+  interactive: {
+    q:"Do you need an interactive graphical desktop (GUI)?",
+    sub:"For example: Jupyter notebooks, RStudio, Matlab, visualising 3D data, ParaView, GaussView, or any application with a graphical window.",
+    opts:[
+      {label:"Yes — I need a visual desktop", next:"gui_type"},
+      {label:"No — I submit batch jobs via scripts", next:"vendor_lock"}
+    ]
+  },
+  gui_type: {
+    q:"What kind of desktop work are you doing?",
+    sub:"This determines which onBunya desktop type to choose. The partition is selected automatically — you don't need to specify one.",
+    opts:[
+      {label:"General GUI apps (Jupyter, RStudio, Matlab, etc.)", next:"result_a16"},
+      {label:"GPU-accelerated graphics (3D rendering, CAD, GIS, volume rendering)", next:"result_l40_viz"},
+      {label:"Expert Desktop — I need a desktop with GPU compute resources (ML training, simulation, etc.)", next:"result_expert_desktop"}
+    ]
+  },
+  result_a16: {
+    result:true,
+    title:"Use an onBunya Desktop (A16 or CPU desktop)",
+    desc:"Launch a Desktop session from onBunya's Interactive Apps menu. Choose a preset flavour that matches your memory and CPU needs. Bunya has a fleet of 36 NVIDIA A16 visualisation GPUs that handle the graphical rendering automatically.",
+    gpus:["a16"],
+    tip:"For Jupyter, you can also launch a dedicated Jupyter session directly from onBunya — no desktop needed."
+  },
+  result_l40_viz: {
+    result:true,
+    title:"Use an onBunya GPU-Accelerated Desktop (L40)",
+    desc:"Launch a 'GPU-Accelerated Desktop' from onBunya's Interactive Apps menu. This places you on an L40 node for hardware-accelerated 3D rendering, volume visualisation, and GPU-enabled GUI applications. The partition is handled automatically — you do not need to select one. Use 'uq_vglrun' to launch GPU-rendered applications.",
+    gpus:[],
+    tip:"The L40 has 48 GB of GDDR6 memory and strong FP32 performance. If you also need GPU compute (not just graphics), choose Expert Desktop instead."
+  },
+  result_expert_desktop: {
+    q:"Which GPU partition do you need for your Expert Desktop?",
+    sub:"Expert Desktop on onBunya lets you request custom resources including specific GPU types. This is for researchers who need a desktop environment combined with GPU compute — for example, running ML training interactively, GPU-accelerated simulation with visual monitoring, or codes that need both a GUI and serious GPU power. Select the GPU partition you need, then choose from the available GPUs.",
+    opts:[
+      {label:"NVIDIA GPUs (H100, L40, L40S, A100, A100 MIG) — gpu_cuda partition", next:"expert_cuda"},
+      {label:"AMD GPUs (MI210, MI300x) — gpu_rocm partition", next:"expert_rocm"}
+    ]
+  },
+  expert_cuda: {
+    q:"How much GPU memory do you need on your Expert Desktop?",
+    sub:"Select the Expert Desktop from onBunya, choose the gpu_cuda partition, and specify the GPU type and count you need.",
+    opts:[
+      {label:"Small (≤ 40 GB) — A100 MIG slice or L40/L40S for lighter workloads", next:"result_expert_cuda_small"},
+      {label:"Medium (≤ 48 GB) — L40 or L40S", next:"result_expert_cuda_med"},
+      {label:"Large (≤ 80 GB) — H100 PCIe", next:"result_expert_cuda_large"}
+    ]
+  },
+  result_expert_cuda_small: {
+    result:true,
+    title:"Expert Desktop with A100 MIG slice, L40, or L40S",
+    desc:"In onBunya, select Expert Desktop, choose the gpu_cuda partition, and request a MIG slice (10, 20, or 40 GB) or an L40/L40S. MIG slices are efficient for lighter interactive GPU work. The L40/L40S (48 GB each) provide more headroom.",
+    gpus:["a100_mig","l40s"],
+    tip:"MIG slices are the most resource-efficient option for interactive notebooks and lightweight GPU tasks. Use --constraint=cuda10gb/cuda20gb/cuda40gb to select the slice size."
+  },
+  result_expert_cuda_med: {
+    result:true,
+    title:"Expert Desktop with L40 or L40S",
+    desc:"In onBunya, select Expert Desktop, choose the gpu_cuda partition, and request an L40 or L40S (48 GB each). Both are versatile for interactive ML work, simulation, and visualisation.",
+    gpus:["l40s","l40"],
+    tip:"The L40S supports FP16 in addition to FP32, making it the better choice for ML workloads. The L40 is ideal for FP32-heavy simulation and rendering."
+  },
+  result_expert_cuda_large: {
+    result:true,
+    title:"Expert Desktop with H100 PCIe",
+    desc:"In onBunya, select Expert Desktop, choose the gpu_cuda partition, and request an H100 (80 GB HBM3). This gives you the most powerful generally-accessible NVIDIA GPU in an interactive desktop environment.",
+    gpus:["h100_pcie"],
+    tip:"H100 GPUs on Expert Desktop are ideal for interactive ML training, large model inference with visual monitoring, or GPU-heavy simulation that benefits from real-time feedback."
+  },
+  expert_rocm: {
+    q:"How much GPU memory do you need on your Expert Desktop?",
+    sub:"Select the Expert Desktop from onBunya, choose the gpu_rocm partition, and specify the GPU type.",
+    opts:[
+      {label:"Standard (≤ 64 GB) — MI210", next:"result_expert_rocm_mi210"},
+      {label:"Large (> 64 GB) — MI300x", next:"result_expert_rocm_mi300x"}
+    ]
+  },
+  result_expert_rocm_mi210: {
+    result:true,
+    title:"Expert Desktop with MI210",
+    desc:"In onBunya, select Expert Desktop, choose the gpu_rocm partition, and request an MI210 (64 GB HBM2e). Suitable for interactive ROCm/HIP workloads with moderate memory needs.",
+    gpus:["mi210"],
+    tip:"Make sure your software environment is compiled for ROCm. PyTorch, TensorFlow, and many scientific codes support ROCm builds."
+  },
+  result_expert_rocm_mi300x: {
+    result:true,
+    title:"Expert Desktop with MI300x",
+    desc:"In onBunya, select Expert Desktop, choose the gpu_rocm partition, and request an MI300x (192 GB HBM3). The largest GPU memory available on Bunya — ideal for interactive work with very large models or memory-bound simulations.",
+    gpus:["mi300x"],
+    tip:"The MI300x's 192 GB per card can hold 70B parameter models at FP16 on a single GPU — useful for interactive experimentation."
+  },
+  vendor_lock: {
+    q:"Is your software locked to a specific GPU vendor?",
+    sub:"Most major open-source scientific and ML frameworks (PyTorch, TensorFlow, GROMACS, LAMMPS, OpenMM, CP2K, etc.) can be compiled for both NVIDIA and AMD GPUs. Only certain proprietary or vendor-specific codes are restricted to one platform.",
+    opts:[
+      {label:"My software works on both NVIDIA and AMD (or I can compile for either)", next:"workload_type"},
+      {label:"My software requires NVIDIA CUDA only (e.g. some commercial/proprietary codes)", next:"cuda_workload"},
+      {label:"My software requires AMD ROCm only", next:"rocm_workload"},
+      {label:"I'm not sure", next:"not_sure_vendor"}
+    ]
+  },
+  not_sure_vendor: {
+    result:true,
+    title:"Check your software's GPU support — then come back!",
+    desc:"Most major open-source scientific and ML codes now support both NVIDIA (CUDA) and AMD (ROCm/HIP) GPUs. Check your software's documentation, or search for '[your software] + ROCm' or '[your software] + CUDA'. If you're still unsure, the RCC team can help you determine compatibility.",
+    gpus:[],
+    tip:"Contact rcc-support@uq.edu.au — they can advise on which GPUs your specific software supports on Bunya."
+  },
+
+  /* ── Flexible path ── */
+  workload_type: {
+    q:"What best describes your GPU workload?",
+    sub:"Since your code supports both vendors, we'll match you to the best GPU based on your workload's characteristics — performance, memory, and availability.",
+    opts:[
+      {label:"Large-scale AI/ML training (LLMs, generative AI, very large models)", next:"flex_large_ai"},
+      {label:"Standard AI/ML training or deep learning", next:"flex_standard_ml"},
+      {label:"Scientific simulation (molecular dynamics, CFD, finite element, etc.)", next:"flex_sim"},
+      {label:"Small tasks: inference, testing, prototyping, notebooks", next:"result_mig"}
+    ]
+  },
+  flex_large_ai: {
+    q:"How much GPU memory do you need, and do you need tight multi-GPU coupling?",
+    sub:"Very large models benefit from either NVLink coupling (H100 SXM5: 4 GPUs sharing 320 GB) or massive per-card memory (MI300x: 192 GB each, up to 8 per node).",
+    opts:[
+      {label:"I need tightly-coupled multi-GPU with NVLink (I'll apply for H100 SXM5 access)", next:"result_h100_sxm5"},
+      {label:"I need maximum GPU memory per card (192 GB)", next:"result_mi300x"},
+      {label:"Standard multi-GPU (up to 4 GPUs, 80 GB each is fine)", next:"result_flex_large_both"}
+    ]
+  },
+  result_flex_large_both: {
+    result:true,
+    title:"H100 PCIe or MI300x — both are strong options",
+    desc:"For large-scale training without the NVLink requirement, you have excellent choices on both sides. The H100 PCIe offers 80 GB HBM3 per card (up to 4 GPUs). The MI300x offers 192 GB HBM3 per card (up to 4 with gpu QoS). Access to all 8 MI300x GPUs on a node requires sdf QoS, which must be requested from rcc-support@uq.edu.au. The MI300x's larger memory is a significant advantage for memory-bound models. Choose based on which ecosystem your code is currently compiled for, or try both and benchmark.",
+    gpus:["h100_pcie","mi300x"],
+    tip:"AMD GPUs may have shorter queue wait times due to lower contention. Consider benchmarking your code on both platforms — you may find better throughput or shorter time-to-solution on one."
+  },
+  flex_standard_ml: {
+    q:"How much GPU memory does your model need?",
+    sub:"Larger models, bigger batch sizes, and higher-resolution inputs all increase GPU memory requirements.",
+    opts:[
+      {label:"Large (> 48 GB per GPU)", next:"result_flex_std_large"},
+      {label:"Moderate (≤ 48 GB per GPU is fine)", next:"result_flex_std_mod"}
+    ]
+  },
+  result_flex_std_large: {
+    result:true,
+    title:"H100 PCIe or MI300x",
+    desc:"When you need more than 48 GB of GPU memory, your options are the H100 PCIe (80 GB HBM3) or the MI300x (192 GB HBM3). If your framework supports both, the MI300x provides substantially more memory headroom. The H100 PCIe is a strong all-rounder on the NVIDIA side.",
+    gpus:["h100_pcie","mi300x"],
+    tip:"If your model fits comfortably in 80 GB, either card works well. If you're hitting memory limits or want room to scale up batch size, the MI300x's 192 GB gives significant breathing room."
+  },
+  result_flex_std_mod: {
+    result:true,
+    title:"L40S, MI210, L40, or A100 MIG — several good choices",
+    desc:"For moderate memory needs, the L40S (48 GB, strong FP32/FP16), MI210 (64 GB HBM2e), and L40 (48 GB, strong FP32) are all efficient choices that leave higher-end GPUs free for workloads that genuinely need them. The L40S has been found to outperform the A100 for many ML workloads. If your workload fits in 40 GB or less, an A100 MIG slice (10, 20, or 40 GB) is the most resource-efficient option.",
+    gpus:["l40s","mi210","l40","a100_mig"],
+    tip:"Right-sizing your GPU request is good practice — it helps your fair share score and reduces queue wait times for everyone. MIG slices are ideal for smaller workloads."
+  },
+  flex_sim: {
+    q:"How much GPU memory does your simulation need per GPU?",
+    sub:"Larger simulation domains, higher-resolution meshes, or bigger molecular systems need more GPU memory per card.",
+    opts:[
+      {label:"Very large (> 80 GB per GPU)", next:"result_mi300x"},
+      {label:"Large (49–80 GB per GPU)", next:"result_flex_sim_large"},
+      {label:"Moderate (≤ 48 GB per GPU)", next:"result_flex_sim_mod"}
+    ]
+  },
+  result_flex_sim_large: {
+    result:true,
+    title:"H100 PCIe or MI300x",
+    desc:"For simulations needing 49–80 GB per GPU, the H100 PCIe (80 GB HBM3) and MI300x (192 GB HBM3) are both suitable. The MI300x gives you substantial headroom to scale up your system size. Many major simulation codes (GROMACS, LAMMPS, OpenMM, CP2K, VASP, etc.) support both CUDA and ROCm builds.",
+    gpus:["h100_pcie","mi300x"],
+    tip:"Consider benchmarking your specific simulation on both platforms. You may find shorter queue times on the AMD side, and the extra memory can let you run larger systems."
+  },
+  result_flex_sim_mod: {
+    result:true,
+    title:"L40S, MI210, L40, or A100 MIG",
+    desc:"For simulations fitting within 48–64 GB of GPU memory, the L40S (48 GB, excellent FP32), MI210 (64 GB HBM2e), and L40 (48 GB, strong FP32) are all efficient choices. For smaller simulations that fit in 40 GB or less, A100 MIG slices (10, 20, or 40 GB) are the most resource-efficient option. These leave the H100s and MI300x free for workloads that genuinely need them — which helps everyone's queue times.",
+    gpus:["l40s","mi210","l40","a100_mig"],
+    tip:"The L40/L40S have strong FP32 throughput, which most scientific simulations use. The MI210's 64 GB HBM gives a memory advantage over the 48 GB GDDR6 on the L40/L40S. MIG slices are ideal for smaller-scale simulations."
+  },
+
+  /* ── CUDA-only path ── */
+  cuda_workload: {
+    q:"What best describes your NVIDIA-only workload?",
+    sub:"Since your software specifically requires CUDA, we'll find the best NVIDIA GPU for your needs.",
+    opts:[
+      {label:"Large-scale AI/ML training (multi-GPU, very large models)", next:"cuda_large_ai"},
+      {label:"Standard training, simulation, or accelerated computing", next:"cuda_memory"},
+      {label:"Small tasks: inference, testing, prototyping", next:"result_mig"}
+    ]
+  },
+  cuda_large_ai: {
+    q:"Do you need tightly-coupled multi-GPU training with shared memory across GPUs?",
+    sub:"The H100 SXM5 nodes link 4 GPUs via NVLink at 900 GB/s, creating a unified 320 GB GPU memory pool. Access requires an application to RCC demonstrating efficient GPU use.",
+    opts:[
+      {label:"Yes — I need NVLink multi-GPU (I'll apply for access)", next:"result_h100_sxm5"},
+      {label:"No — single-GPU or standard multi-GPU is fine", next:"result_h100_pcie"}
+    ]
+  },
+  cuda_memory: {
+    q:"How much GPU memory does your workload need?",
+    sub:"This determines whether you need an 80 GB card or if a 48 GB card is sufficient.",
+    opts:[
+      {label:"Large (needs > 48 GB per GPU)", next:"result_h100_pcie"},
+      {label:"Moderate (≤ 48 GB is enough)", next:"result_l40s_cuda"}
+    ]
+  },
+  result_l40s_cuda: {
+    result:true,
+    title:"Use the L40S, L40, or an A100 MIG slice",
+    desc:"The L40S is an excellent multi-purpose NVIDIA GPU with 48 GB of memory and strong FP32/FP16 performance. It has been found to outperform the A100 for many ML and simulation workloads. The L40 is also suitable for FP32 workloads. For smaller workloads fitting within 40 GB or less, A100 MIG slices (10, 20, or 40 GB) are the most resource-efficient choice. For software like Ansys, make sure to use the 2024.1 module.",
+    gpus:["l40s","l40","a100_mig"],
+    tip:"Use '--partition=gpu_cuda --gres=gpu:l40s:1 --qos=gpu' for an L40S, or '--constraint=cuda40gb' for a 40 GB MIG slice."
+  },
+
+  /* ── ROCm-only path ── */
+  rocm_workload: {
+    q:"How much GPU memory does your workload need?",
+    sub:"The MI300x has the largest GPU memory of any card on Bunya at 192 GB per GPU.",
+    opts:[
+      {label:"Standard amounts (≤ 64 GB per GPU is fine)", next:"result_mi210"},
+      {label:"Large (> 64 GB per GPU) or I need many GPUs", next:"result_mi300x"}
+    ]
+  },
+
+  /* ── Shared results ── */
+  result_h100_sxm5: {
+    result:true,
+    title:"Use the H100 SXM5 (application required)",
+    desc:"These are Bunya's NVLink-connected GPU nodes — 4× H100s per node with 320 GB of unified GPU memory and 900 GB/s inter-GPU bandwidth. You must apply to RCC and demonstrate that your code efficiently utilises multiple GPUs and large amounts of GPU memory.",
+    gpus:["h100_sxm5"],
+    tip:"Contact rcc-support@uq.edu.au to apply. You'll need to show evidence of high GPU utilisation and multi-GPU scaling."
+  },
+  result_h100_pcie: {
+    result:true,
+    title:"Use the H100 PCIe",
+    desc:"Each H100 PCIe has 80 GB of HBM3 memory and is available to all users — no application needed. Up to 4 H100 GPUs across all your jobs. Strong choice for demanding CUDA workloads that need high memory and performance.",
+    gpus:["h100_pcie"],
+    tip:"Use '--partition=gpu_cuda --gres=gpu:h100:1 --qos=gpu' in your SLURM script."
+  },
+  result_mi210: {
+    result:true,
+    title:"Use the AMD MI210",
+    desc:"Each MI210 has 64 GB of HBM2e memory. You can request up to 2 per job. A solid workhorse for scientific and ML codes compiled with ROCm/HIP.",
+    gpus:["mi210"],
+    tip:"Use '--partition=gpu_rocm --gres=gpu:mi210:1 --qos=gpu' in your SLURM script."
+  },
+  result_mi300x: {
+    result:true,
+    title:"Use the AMD MI300x",
+    desc:"Each MI300x has an enormous 192 GB of HBM3 memory — by far the largest of any GPU on Bunya. You can request up to 4 with --qos=gpu. Access to all 8 on a node requires sdf QoS, which must be specifically requested via rcc-support@uq.edu.au. Exceptional for memory-bound workloads and very large models.",
+    gpus:["mi300x"],
+    tip:"Use '--partition=gpu_rocm --gres=gpu:mi300x:1 --qos=gpu' in your SLURM script."
+  },
+  result_mig: {
+    result:true,
+    title:"Use an A100 MIG slice",
+    desc:"MIG (Multi-Instance GPU) slices give you a fraction of an A100 — just what you need for small jobs. Available in 10 GB, 20 GB, and 40 GB sizes. This is the most efficient and fair option for lightweight GPU tasks.",
+    gpus:["a100_mig"],
+    tip:"Use '--partition=gpu_cuda --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1 --constraint=cuda10gb --qos=gpu' for a 10 GB slice. Adjust the gres and constraint for larger slices."
+  }
+};
+
+
+/* ════════════════════════════════════════
+   ENGINE
+   ════════════════════════════════════════ */
+let history = ["start"];
+
+function render() {
+  const id = history[history.length - 1];
+  const node = Q[id];
+  const el = document.getElementById("content");
+  const nav = document.getElementById("nav");
+  const bar = document.getElementById("progress");
+
+  nav.style.display = history.length > 1 ? "flex" : "none";
+  bar.style.width = Math.min(history.length / 5, 1) * 100 + "%";
+
+  el.innerHTML = node.result ? renderResult(node) : renderQuestion(node, history.length);
+}
+
+function renderQuestion(node, step) {
+  const L = "ABCDEFGH";
+  let opts = node.opts.map((o,i) =>
+    `<button class="option-btn" onclick="pick('${o.next}')">
+       <span class="option-letter">${L[i]}</span>
+       <span>${esc(o.label)}</span>
+     </button>`
+  ).join("");
+  return `
+    <div class="question-card fade-in">
+      <div class="step-label">Step ${step}</div>
+      <h2>${esc(node.q)}</h2>
+      ${node.sub ? `<p class="subtitle">${esc(node.sub)}</p>` : ""}
+    </div>
+    <div class="options">${opts}</div>`;
+}
+
+function renderResult(node) {
+  let cards = node.gpus.map(k => renderGPU(k)).join("");
+  let tip = node.tip
+    ? `<div class="tip-box"><span class="tip-icon">💡</span><p class="tip-text">${esc(node.tip)}</p></div>`
+    : "";
+  return `
+    <div class="result-card fade-in">
+      <div class="result-badge">Recommendation</div>
+      <h2>${esc(node.title)}</h2>
+      <p class="desc">${esc(node.desc)}</p>
+      ${cards}${tip}
+    </div>
+    <button class="restart-btn" onclick="restart()">↩ Try again with a different workload</button>`;
+}
+
+function renderGPU(key) {
+  const g = GPUS[key];
+  if (!g) return "";
+  return `
+    <div class="gpu-card" style="border:1px solid ${g.color}33; border-left:4px solid ${g.color}">
+      <div class="gpu-header">
+        <span class="gpu-icon">${g.icon}</span>
+        <span class="gpu-name" style="color:${g.color}">${esc(g.name)}</span>
+        <span class="gpu-vendor-tag" style="background:${g.color}22; color:${g.color}">${g.vendor}</span>
+      </div>
+      <div class="gpu-specs">
+        <div><span class="label">Memory:</span> <span class="val">${esc(g.vram)}</span></div>
+        <div><span class="label">Cards:</span> <span class="val">${esc(g.cards)}</span></div>
+        <div><span class="label">Partition:</span> <span class="val mono">${esc(g.partition)}</span></div>
+        <div><span class="label">Max/job:</span> <span class="val">${g.maxPerJob}</span></div>
+      </div>
+      <p class="gpu-highlight">${esc(g.highlight)}</p>
+      <p class="gpu-access">${esc(g.access)}</p>
+    </div>`;
+}
+
+function pick(next) {
+  history.push(next);
+  render();
+  document.getElementById("content").scrollIntoView({behavior:"smooth", block:"start"});
+}
+function goBack() { if (history.length > 1) { history.pop(); render(); } }
+function restart() { history = ["start"]; render(); window.scrollTo({top:0, behavior:"smooth"}); }
+function esc(s) { const d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+
+/* ── Reference table ── */
+(function(){
+  const tb = document.getElementById("refTable");
+  for (const [k,g] of Object.entries(GPUS)) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td class="gpu-name-cell" style="color:${g.color}">${g.icon} ${esc(g.name)}</td>
+      <td>${g.vendor}</td>
+      <td style="white-space:nowrap">${esc(g.vram)}</td>
+      <td style="white-space:nowrap">${esc(g.cards)}</td>
+      <td class="mono-cell">${esc(g.partition)}</td>
+      <td class="best-cell">${esc(g.best)}</td>`;
+    tb.appendChild(tr);
+  }
+})();
+
+render();
+</script>
+</body>
+</html>

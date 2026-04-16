@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Bunya GPU for My LLM? — UQ Research Computing Centre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --uq-purple:#51247A;--uq-purple-light:#7b52a5;--uq-purple-lighter:#a07cc3;
+    --uq-purple-pale:#c8b3dc;--uq-purple-glow:rgba(81,36,122,0.25);
+    --bg:#0e0a14;--bg-warm:#130f1c;--card:#1a1428;--card-hover:#231c34;
+    --border:#2e2542;--border-light:#3d3258;
+    --accent:#9b72cf;--accent-bright:#b690e8;--green:#34d399;--amber:#fbbf24;
+    --rose:#fb7185;--blue:#60a5fa;--teal:#2dd4bf;
+    --text:#e4dff0;--text-muted:#a89ebe;--text-dim:#7a6d94;--white:#f5f0ff;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;min-height:100vh}
+  .header{background:linear-gradient(160deg,var(--uq-purple) 0%,var(--bg-warm) 60%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden}
+  .header::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 20%,rgba(81,36,122,0.35) 0%,transparent 60%);pointer-events:none}
+  .header-badge{position:relative;font-size:12px;font-weight:600;color:var(--uq-purple-pale);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px}
+  .header h1{position:relative;font-size:27px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:10px}
+  .header p{position:relative;font-size:15px;color:var(--uq-purple-pale);max-width:560px;margin:0 auto;line-height:1.5}
+  .header .sub{font-size:13px;color:var(--text-dim)}
+  .container{max-width:700px;margin:0 auto;padding:0 24px 60px}
+  .progress-track{height:3px;background:var(--border);border-radius:2px;margin-top:20px;overflow:hidden}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--uq-purple),var(--accent-bright),var(--green));border-radius:2px;transition:width 0.4s ease}
+  .nav-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+  .nav-btn{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;font-family:inherit;transition:border-color .2s,color .2s}
+  .nav-btn:hover{border-color:var(--accent);color:var(--accent-bright)}
+  .nav-btn.reset:hover{border-color:var(--rose);color:var(--rose)}
+  .question-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-top:28px;position:relative;overflow:hidden}
+  .question-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--uq-purple),var(--accent-bright))}
+  .step-label{font-size:11px;font-weight:600;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+  .question-card h2{font-size:20px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
+  .question-card .subtitle{font-size:14px;color:var(--text-muted);line-height:1.6}
+  .options{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+  .option-btn{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;text-align:left;cursor:pointer;color:var(--text);font-size:15px;font-weight:500;font-family:inherit;line-height:1.5;transition:background .2s,border-color .2s,transform .2s;display:flex;align-items:flex-start;gap:14px}
+  .option-btn:hover{background:var(--card-hover);border-color:var(--uq-purple-light);transform:translateX(4px)}
+  .option-letter{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;border-radius:8px;background:var(--uq-purple-glow);color:var(--accent-bright);font-size:13px;font-weight:700;flex-shrink:0;margin-top:1px}
+  .result-card{background:linear-gradient(145deg,var(--card) 0%,#1c1630 50%,#151224 100%);border:1px solid rgba(52,211,153,0.22);border-radius:16px;padding:28px;margin-top:28px}
+  .result-badge{display:inline-block;font-size:11px;font-weight:700;color:#0e0a14;background:var(--green);padding:4px 12px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+  .result-card h2{font-size:21px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:12px}
+  .result-card>.desc{font-size:15px;color:var(--text-muted);line-height:1.65}
+  .gpu-card{background:var(--card);border-radius:12px;padding:20px 24px;margin-top:16px}
+  .gpu-header{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  .gpu-icon{font-size:22px}.gpu-name{font-size:20px;font-weight:700}
+  .gpu-vendor-tag{font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;letter-spacing:.5px}
+  .gpu-specs{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;font-size:14px;color:var(--text-muted);line-height:1.7}
+  .gpu-specs .label{color:var(--text-dim)}.gpu-specs .val{color:var(--text)}.gpu-specs .mono{font-family:monospace;font-size:13px}
+  .gpu-highlight{font-size:13px;color:var(--text-muted);margin-top:12px;line-height:1.6}
+  .gpu-access{font-size:12px;color:var(--text-dim);margin-top:6px;font-style:italic}
+  .tip-box{background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.18);border-radius:10px;padding:14px 18px;margin-top:20px;display:flex;gap:10px;align-items:flex-start}
+  .tip-icon{font-size:16px;flex-shrink:0}.tip-text{font-size:13px;color:var(--amber);line-height:1.6}
+  .restart-btn{width:100%;background:var(--uq-purple-glow);border:1px solid rgba(81,36,122,0.4);border-radius:12px;padding:16px;margin-top:16px;cursor:pointer;color:var(--accent-bright);font-size:15px;font-weight:600;font-family:inherit;transition:background .2s}
+  .restart-btn:hover{background:rgba(81,36,122,0.4)}
+  .model-table-section{margin-top:48px;border-top:1px solid var(--border);padding-top:28px}
+  .model-table-section h3{font-size:16px;font-weight:700;color:var(--white);margin-bottom:16px}
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{width:100%;border-collapse:collapse;font-size:13px;color:var(--text-muted)}
+  thead tr{border-bottom:1px solid var(--border)}
+  th{text-align:left;padding:8px 10px;font-weight:600;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.8px;white-space:nowrap}
+  td{padding:10px}
+  tbody tr{border-bottom:1px solid rgba(46,37,66,0.4)}
+  .help-box{margin-top:20px;padding:14px 18px;background:var(--card);border-radius:10px;border:1px solid var(--border);font-size:13px;color:var(--text-dim);line-height:1.6}
+  .help-box strong{color:var(--text-muted)}.help-box .link{color:var(--accent-bright)}
+  .fade-in{animation:fadeIn .3s ease}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  @media(max-width:520px){.header h1{font-size:21px}.question-card,.result-card{padding:20px}.gpu-specs{grid-template-columns:1fr}.option-btn{font-size:14px;padding:14px 16px}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-badge">UQ Research Computing Centre</div>
+  <h1>Which Bunya GPU for My Open-Weight LLM?</h1>
+  <p>Find the right GPU for inference, fine-tuning, or training open-weight language models on Bunya.<br><span class="sub">Covers Llama, Qwen, DeepSeek, Gemma, Mistral, GLM, Phi, and more.</span></p>
+</div>
+<div class="container">
+  <div class="progress-track"><div class="progress-fill" id="progress" style="width:20%"></div></div>
+  <div id="nav" class="nav-row" style="display:none">
+    <button class="nav-btn" onclick="goBack()">← Back</button>
+    <button class="nav-btn reset" onclick="restart()">Start over</button>
+  </div>
+  <div id="content"></div>
+
+  <div class="model-table-section">
+    <h3>Quick Reference — Model Sizes &amp; Minimum GPU Memory</h3>
+    <p style="font-size:13px;color:var(--text-dim);margin-bottom:16px;line-height:1.5">Approximate VRAM for inference (model weights + KV cache overhead). Fine-tuning requires significantly more — see the picker above. MoE models must load all parameters even though only a subset are active per token.</p>
+    <div class="table-wrap">
+      <table><thead><tr>
+        <th>Model Family</th><th>Variant</th><th>Params</th><th>FP16</th><th>INT8</th><th>INT4</th><th>Bunya GPU (inference, FP16)</th>
+      </tr></thead><tbody>
+        <tr><td style="font-weight:600;color:var(--blue)">Llama 3.1/3.3</td><td>8B</td><td>8B</td><td>~18 GB</td><td>~10 GB</td><td>~5 GB</td><td>A100 MIG 20GB+, MI210</td></tr>
+        <tr><td></td><td>70B</td><td>70B</td><td>~168 GB</td><td>~85 GB</td><td>~44 GB</td><td>MI300x (192GB) or 3× H100</td></tr>
+        <tr><td></td><td>405B</td><td>405B</td><td>~970 GB</td><td>~485 GB</td><td>~245 GB</td><td>Multi-node (H100 SXM5 or MI300x)</td></tr>
+        <tr><td style="font-weight:600;color:var(--blue)">Llama 4</td><td>Scout (MoE)</td><td>109B (17B active)</td><td>~260 GB</td><td>~130 GB</td><td>~66 GB</td><td>2× MI300x or 4× H100</td></tr>
+        <tr><td></td><td>Maverick (MoE)</td><td>400B (17B active)</td><td>~960 GB</td><td>~480 GB</td><td>~240 GB</td><td>Multi-node (H100 SXM5 or MI300x)</td></tr>
+        <tr><td style="font-weight:600;color:var(--teal)">Qwen 3 / 3.5</td><td>7-8B</td><td>7-8B</td><td>~18 GB</td><td>~10 GB</td><td>~5 GB</td><td>A100 MIG 20GB+, MI210</td></tr>
+        <tr><td></td><td>27-32B</td><td>27-32B</td><td>~70 GB</td><td>~36 GB</td><td>~18 GB</td><td>H100 (80GB) or MI210 (64GB, INT8)</td></tr>
+        <tr><td></td><td>72B</td><td>72B</td><td>~173 GB</td><td>~87 GB</td><td>~44 GB</td><td>MI300x or 3× H100</td></tr>
+        <tr><td></td><td>235B (MoE, 22B active)</td><td>235B</td><td>~564 GB</td><td>~282 GB</td><td>~141 GB</td><td>4× H100 SXM5 or 2× MI300x (INT8)</td></tr>
+        <tr><td style="font-weight:600;color:var(--teal)">DeepSeek</td><td>R1-distill 7/8B</td><td>7-8B</td><td>~18 GB</td><td>~10 GB</td><td>~5 GB</td><td>A100 MIG 20GB+, MI210</td></tr>
+        <tr><td></td><td>R1-distill 14B</td><td>14B</td><td>~34 GB</td><td>~17 GB</td><td>~9 GB</td><td>A100 MIG 40GB, MI210 (64GB)</td></tr>
+        <tr><td></td><td>R1-distill 70B</td><td>70B</td><td>~168 GB</td><td>~85 GB</td><td>~44 GB</td><td>MI300x or 3× H100</td></tr>
+        <tr><td></td><td>V3.2 / R1 (MoE)</td><td>671-685B (37B active)</td><td>~1.6 TB</td><td>~820 GB</td><td>~410 GB</td><td>Multi-node MI300x cluster</td></tr>
+        <tr><td style="font-weight:600;color:var(--green)">Gemma</td><td>2/3 9B</td><td>9B</td><td>~22 GB</td><td>~11 GB</td><td>~6 GB</td><td>A100 MIG 40GB, MI210</td></tr>
+        <tr><td></td><td>2/3 27B</td><td>27B</td><td>~65 GB</td><td>~33 GB</td><td>~17 GB</td><td>H100 (80GB) or MI210 (64GB, INT8)</td></tr>
+        <tr><td style="font-weight:600;color:var(--green)">Gemma 4</td><td>27B (MoE)</td><td>27B (14B active)</td><td>~65 GB</td><td>~33 GB</td><td>~17 GB</td><td>H100 (80GB) or MI210 (64GB, INT8)</td></tr>
+        <tr><td style="font-weight:600;color:var(--rose)">Mistral</td><td>7B / Nemo 12B</td><td>7-12B</td><td>~18-29 GB</td><td>~9-15 GB</td><td>~5-8 GB</td><td>A100 MIG 20-40GB, MI210</td></tr>
+        <tr><td></td><td>Small 3 (24B)</td><td>24B</td><td>~58 GB</td><td>~29 GB</td><td>~15 GB</td><td>MI210 (64GB) or H100 (80GB)</td></tr>
+        <tr><td></td><td>Large 2 (123B)</td><td>123B</td><td>~295 GB</td><td>~148 GB</td><td>~74 GB</td><td>2× MI300x or 4× H100</td></tr>
+        <tr><td style="font-weight:600;color:var(--accent-bright)">Phi</td><td>3/4-mini (3-4B)</td><td>3-4B</td><td>~10 GB</td><td>~5 GB</td><td>~3 GB</td><td>A100 MIG 10GB</td></tr>
+        <tr><td></td><td>4 (14B)</td><td>14B</td><td>~34 GB</td><td>~17 GB</td><td>~9 GB</td><td>A100 MIG 40GB, MI210 (64GB)</td></tr>
+        <tr><td style="font-weight:600;color:var(--amber)">GLM</td><td>4.7 (355B)</td><td>355B</td><td>~852 GB</td><td>~426 GB</td><td>~213 GB</td><td>Multi-node MI300x or H100 SXM5</td></tr>
+        <tr><td></td><td>5 (744B)</td><td>744B</td><td>~1.8 TB</td><td>~893 GB</td><td>~447 GB</td><td>Multi-node MI300x cluster</td></tr>
+      </tbody></table>
+    </div>
+    <div class="help-box">
+      <strong>Need help?</strong>
+      Contact the RCC support team at <span class="link">rcc-support@uq.edu.au</span>.
+      Full documentation: <span class="link">github.com/UQ-RCC/hpc-docs</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const GPUS={
+  h100_sxm5:{name:"H100 SXM5",vendor:"NVIDIA",vram:"80 GB HBM3",cards:"16 (4 nodes × 4)",partition:"gpu_cuda",color:"#60a5fa",icon:"🔷",maxPerJob:4,highlight:"NVLink (900 GB/s). Liquid-cooled. 320 GB unified pool per node.",access:"Requires application — contact rcc-support@uq.edu.au."},
+  h100_pcie:{name:"H100 PCIe",vendor:"NVIDIA",vram:"80 GB HBM3",cards:"21 (7 nodes × 3)",partition:"gpu_cuda",color:"#60a5fa",icon:"🔹",maxPerJob:4,highlight:"High-performance NVIDIA GPU. No application needed.",access:"Available to all Bunya users."},
+  a100:{name:"A100 (full)",vendor:"NVIDIA",vram:"80 GB HBM2e",cards:"5 (1 node × 3 + 1 node × 2)",partition:"gpu_cuda",color:"#a78bfa",icon:"🟣",maxPerJob:3,highlight:"Previous-gen flagship. Solid all-rounder for LLM inference and fine-tuning.",access:"Available to all Bunya users."},
+  a100_mig:{name:"A100 MIG slices",vendor:"NVIDIA",vram:"10 / 20 / 40 GB",cards:"6×10GB, 3×20GB, 3×40GB",partition:"gpu_cuda",color:"#a78bfa",icon:"🔮",maxPerJob:6,highlight:"Fractional GPU — use only what you need.",access:"Available to all Bunya users."},
+  mi210:{name:"MI210",vendor:"AMD",vram:"64 GB HBM2e",cards:"6 (3 nodes × 2)",partition:"gpu_rocm",color:"#fbbf24",icon:"🟡",maxPerJob:2,highlight:"ROCm/HIP stack. Well-supported by PyTorch, vLLM, and many frameworks.",access:"Available to all Bunya users."},
+  mi300x:{name:"MI300x",vendor:"AMD",vram:"192 GB HBM3",cards:"16 (2 nodes × 8)",partition:"gpu_rocm",color:"#fbbf24",icon:"🟠",maxPerJob:4,highlight:"Largest GPU memory on Bunya (192 GB). Exceptional for large models.",access:"Up to 4 with gpu QoS. Access to all 8 via sdf QoS requires approval — contact rcc-support@uq.edu.au."}
+};
+
+const Q={
+  start:{
+    q:"What do you want to do with an open-weight LLM on Bunya?",
+    sub:"This determines how much GPU memory you'll need. Inference (running a model to generate text) needs the least. Fine-tuning and training need progressively more.",
+    opts:[
+      {label:"Inference — run a pre-trained model to generate outputs",next:"inf_size"},
+      {label:"Fine-tuning with LoRA / QLoRA — adapt a model to my data efficiently",next:"ft_size"},
+      {label:"Full fine-tuning — update all model weights on my data",next:"full_ft_size"},
+    ]
+  },
+
+  /* ═══ INFERENCE PATH ═══ */
+  inf_size:{
+    q:"How large is the model you want to run for inference?",
+    sub:"If you're not sure, think about what model you want. Common choices: Llama 3.1, Qwen 3, Gemma, DeepSeek R1 distilled, Mistral, or Phi. The number (7B, 70B, etc.) is the parameter count.",
+    opts:[
+      {label:"Small (≤ 14B) — Llama 8B, Qwen 7B, Gemma 9B, Phi-4 14B, Mistral 7B, DeepSeek R1-distill 7/14B",next:"inf_small_quant"},
+      {label:"Medium (15–32B) — Qwen 27B, Gemma 27B, Gemma 4 27B, Mistral Small 24B",next:"inf_med_quant"},
+      {label:"Large (33–80B) — Llama 70B, Qwen 72B, DeepSeek R1-distill 70B",next:"inf_large_quant"},
+      {label:"Very large (100B+) — Llama 4 Scout, Mistral Large, Qwen 235B MoE",next:"inf_vlarge_quant"},
+      {label:"Massive (400B+) — Llama 405B, DeepSeek V3.2/R1 671B, GLM-5 744B, Llama 4 Maverick",next:"r_inf_massive"},
+    ]
+  },
+  inf_small_quant:{
+    q:"What precision will you use for inference?",
+    sub:"FP16/BF16 gives best quality. INT8 halves memory with negligible quality loss. INT4 (GPTQ, AWQ, GGUF) quarters it with minor quality impact. Most researchers use FP16 or INT8.",
+    opts:[
+      {label:"FP16 / BF16 (full precision, best quality) — needs ~18–34 GB",next:"r_inf_small_fp16"},
+      {label:"INT8 (quantised, excellent quality) — needs ~10–17 GB",next:"r_inf_small_int8"},
+      {label:"INT4 (heavily quantised, good quality) — needs ~5–9 GB",next:"r_inf_small_int4"},
+    ]
+  },
+  r_inf_small_fp16:{result:true,title:"A100 MIG 40 GB slice or MI210",desc:"Small models (≤14B) at FP16 need roughly 18–34 GB of VRAM. An A100 MIG 40 GB slice is the most efficient choice for single-model inference. The MI210 (64 GB) also works well and gives headroom for longer context or batching.",gpus:["a100_mig","mi210"],tip:"For the smallest models (7–8B), a 20 GB MIG slice at FP16 is tight but possible. A 40 GB slice is safer if you need longer context windows."},
+  r_inf_small_int8:{result:true,title:"A100 MIG 20 GB slice or A100 MIG 10 GB (for 7–8B only)",desc:"At INT8, small models need ~10–17 GB. A 20 GB MIG slice comfortably handles models up to 14B. For 7–8B models, even a 10 GB MIG slice can work. This is the most resource-efficient option on Bunya.",gpus:["a100_mig"],tip:"Use '--constraint=cuda20gb' for a 20 GB MIG slice, or '--constraint=cuda10gb' for a 10 GB slice. Efficient use of MIG slices is appreciated — it leaves full GPUs free for bigger workloads."},
+  r_inf_small_int4:{result:true,title:"A100 MIG 10 GB slice",desc:"At INT4, small models need only ~5–9 GB. A single 10 GB MIG slice handles this easily. This is the lightest possible GPU footprint for LLM inference on Bunya.",gpus:["a100_mig"],tip:"INT4 quantisation (GPTQ, AWQ, or GGUF format) has minimal quality impact for most tasks. Ideal for prototyping and interactive notebooks."},
+
+  inf_med_quant:{
+    q:"What precision will you use?",
+    sub:"Medium models (24–32B) at FP16 need ~58–77 GB. Quantisation can bring this into range of smaller GPUs.",
+    opts:[
+      {label:"FP16 / BF16 — needs ~58–77 GB",next:"r_inf_med_fp16"},
+      {label:"INT8 — needs ~29–39 GB",next:"r_inf_med_int8"},
+      {label:"INT4 — needs ~15–20 GB",next:"r_inf_med_int4"},
+    ]
+  },
+  r_inf_med_fp16:{result:true,title:"H100 PCIe (80 GB) or MI210 (64 GB)",desc:"Medium models at FP16 need 58–77 GB. The H100 PCIe (80 GB) fits all medium models comfortably. The MI210 (64 GB) works for models up to ~27B parameters at FP16, though headroom is tight. For 32B models, the H100 is the safer choice on the NVIDIA side.",gpus:["h100_pcie","mi210"],tip:"If your framework supports ROCm (PyTorch, vLLM, etc.), the MI210 may have shorter queue times."},
+  r_inf_med_int8:{result:true,title:"MI210 (64 GB) or A100 MIG 40 GB",desc:"At INT8, medium models need ~29–39 GB. The MI210 (64 GB HBM2e) handles this with generous headroom for batching and longer context. An A100 MIG 40 GB slice also works for single-request inference with smaller context.",gpus:["mi210","a100_mig"],tip:"INT8 is an excellent sweet spot for medium models — negligible quality loss with a 2× memory saving. The MI210's HBM2e memory bandwidth gives better throughput than MIG slices for sustained workloads."},
+  r_inf_med_int4:{result:true,title:"A100 MIG 20 GB or 40 GB slice",desc:"At INT4, medium models need only ~15–20 GB. A 20 GB MIG slice works for most, and a 40 GB slice gives comfortable headroom. This is very resource-efficient.",gpus:["a100_mig"],tip:"Ideal for prototyping and interactive work in Jupyter notebooks on onBunya."},
+
+  inf_large_quant:{
+    q:"What precision will you use?",
+    sub:"Large models (70B) at FP16 need ~168 GB — more than any single GPU on Bunya except the MI300x (192 GB). Quantisation is essential to fit on smaller GPUs.",
+    opts:[
+      {label:"FP16 / BF16 — needs ~168 GB",next:"r_inf_large_fp16"},
+      {label:"INT8 — needs ~85 GB",next:"r_inf_large_int8"},
+      {label:"INT4 — needs ~44 GB",next:"r_inf_large_int4"},
+    ]
+  },
+  r_inf_large_fp16:{result:true,title:"MI300x (192 GB) — the only single-GPU option",desc:"A 70B model at FP16 needs ~168 GB. The MI300x (192 GB) is the only single GPU on Bunya that can hold this. Alternatively, you can shard across 3× H100 PCIe (80 GB each = 240 GB total) using tensor parallelism in frameworks like vLLM or DeepSpeed.",gpus:["mi300x","h100_pcie"],tip:"The MI300x's 192 GB is a natural fit for 70B models at full precision. If using H100s, you'll need a framework that supports tensor parallelism (vLLM, TensorRT-LLM, DeepSpeed)."},
+  r_inf_large_int8:{result:true,title:"MI300x, H100 PCIe, or MI210",desc:"At INT8, a 70B model needs ~85 GB. The MI300x (192 GB) handles this easily. A single H100 PCIe (80 GB) is tight — possible for some models but may OOM with longer contexts. The MI210 (64 GB) is too small. For safe H100 usage, consider 2× H100 with tensor parallelism.",gpus:["mi300x","h100_pcie"],tip:"If using a single H100 at INT8, keep context length short and batch size to 1. For production serving, the MI300x is the safer choice."},
+  r_inf_large_int4:{result:true,title:"MI210 (64 GB) or A100 (80 GB)",desc:"At INT4, a 70B model needs ~44 GB. This fits on a single MI210 (64 GB HBM2e) or a full A100 (80 GB HBM2e). The A100 gives more headroom for longer context or batching. Quality impact from INT4 is small but measurable — use FP16/INT8 on larger GPUs if quality is critical.",gpus:["mi210","a100"],tip:"INT4 quantisation makes 70B models accessible on a single GPU. Use GPTQ or AWQ formats. Bunya only has 5 full A100 cards, so the MI210 is often the faster option to queue for."},
+
+  inf_vlarge_quant:{
+    q:"What precision will you use?",
+    sub:"Very large models (100B–235B, including MoE architectures) need substantial GPU memory. MoE models must load ALL parameters into VRAM even though only a subset are active per token.",
+    opts:[
+      {label:"FP16 / BF16 — needs ~240–564 GB",next:"r_inf_vlarge_fp16"},
+      {label:"INT8 — needs ~120–282 GB",next:"r_inf_vlarge_int8"},
+      {label:"INT4 — needs ~60–141 GB",next:"r_inf_vlarge_int4"},
+    ]
+  },
+  r_inf_vlarge_fp16:{result:true,title:"Multi-GPU: H100 SXM5 (4× = 320 GB) or multiple MI300x",desc:"Very large models at FP16 need 240–564 GB. For models up to ~130B (e.g. Llama 4 Scout, Mistral Large), 4× H100 SXM5 (320 GB unified via NVLink) can work. For larger MoE models like Qwen 235B (~564 GB), you'll need multiple MI300x GPUs or multi-node setups. Access to H100 SXM5 requires an application to RCC.",gpus:["h100_sxm5","mi300x"],tip:"For the H100 SXM5 nodes, contact rcc-support@uq.edu.au to apply. You must demonstrate efficient multi-GPU utilisation."},
+  r_inf_vlarge_int8:{result:true,title:"2–4× H100 PCIe or 1–2× MI300x",desc:"At INT8, very large models need ~120–282 GB. A pair of MI300x (384 GB total) handles models up to ~235B. For ~100–130B models at INT8 (~120–150 GB), 2× H100 PCIe with tensor parallelism works well.",gpus:["mi300x","h100_pcie"],tip:"The MI300x's 192 GB per card makes it the most practical choice for very large models — fewer GPUs needed means simpler setup."},
+  r_inf_vlarge_int4:{result:true,title:"MI300x (192 GB) or 2× H100 PCIe",desc:"At INT4, very large models need ~60–141 GB. Many models in this range fit on a single MI300x (192 GB). For the smaller end (~100B at INT4, ~60 GB), a single H100 PCIe works.",gpus:["mi300x","h100_pcie"],tip:"INT4 quantisation brings even 200B+ MoE models into single-GPU range on the MI300x."},
+
+  r_inf_massive:{result:true,title:"Multi-node GPU clusters required",desc:"Massive models (400B+ dense, 671B+ MoE) need hundreds of gigabytes to terabytes of GPU memory. Llama 405B at FP16 needs ~970 GB. DeepSeek V3.2/R1 (671B) needs ~1.6 TB at FP16. Even at INT4, these models need 200–410+ GB. This requires multi-node deployments using tensor parallelism across many GPUs (e.g. 8× MI300x = 1.5 TB, or multi-node H100 SXM5). Contact RCC to discuss feasibility and resource allocation.",gpus:["mi300x","h100_sxm5"],tip:"These workloads are research-scale deployments. Contact rcc-support@uq.edu.au well in advance to discuss your requirements, access to sdf QoS, and scheduling. INT4/INT8 quantisation is strongly recommended to reduce the GPU footprint."},
+
+  /* ═══ LoRA / QLoRA FINE-TUNING PATH ═══ */
+  ft_size:{
+    q:"How large is the base model you want to fine-tune?",
+    sub:"LoRA adds small trainable adapters on top of frozen base weights. QLoRA loads the base model in 4-bit and trains LoRA adapters in FP16 — dramatically reducing VRAM. QLoRA is the most common approach for fine-tuning large models on limited hardware.",
+    opts:[
+      {label:"Small (≤ 14B) — Llama 8B, Qwen 7B, Gemma 9B, Phi-4 14B, Mistral 7B",next:"ft_small_method"},
+      {label:"Medium (15–32B) — Qwen 27B, Gemma 27B, Mistral Small 24B",next:"ft_med_method"},
+      {label:"Large (33–80B) — Llama 70B, Qwen 72B, DeepSeek R1-distill 70B",next:"ft_large_method"},
+      {label:"Very large (100B+) — contact RCC for guidance",next:"r_ft_vlarge"},
+    ]
+  },
+  ft_small_method:{
+    q:"Which fine-tuning method will you use?",
+    sub:"QLoRA (4-bit base + LoRA adapters) needs much less memory than standard LoRA (FP16 base + adapters). QLoRA is recommended when memory is a concern.",
+    opts:[
+      {label:"QLoRA (4-bit quantised base) — needs ~8–20 GB",next:"r_ft_small_qlora"},
+      {label:"LoRA (FP16 base) — needs ~20–45 GB",next:"r_ft_small_lora"},
+    ]
+  },
+  r_ft_small_qlora:{result:true,title:"A100 MIG 20–40 GB slice or MI210",desc:"QLoRA fine-tuning of small models (≤14B) needs roughly 8–20 GB. A 20 GB MIG slice handles 7–8B models. A 40 GB MIG slice or MI210 (64 GB) handles models up to 14B comfortably. This is very accessible on Bunya.",gpus:["a100_mig","mi210"],tip:"QLoRA is supported by Hugging Face PEFT, Axolotl, and Unsloth. Make sure your framework version supports your chosen GPU architecture — for the MI210, ensure you have a ROCm build of PyTorch."},
+  r_ft_small_lora:{result:true,title:"MI210 (64 GB), A100 (80 GB), or H100 PCIe (80 GB)",desc:"Standard LoRA on small models at FP16 needs ~20–45 GB. The MI210 (64 GB) handles this well. For 14B models with larger batch sizes, the full A100 (80 GB) or H100 PCIe (80 GB) give more headroom.",gpus:["mi210","a100","h100_pcie"],tip:"LoRA at FP16 gives better training stability than QLoRA. If VRAM allows, it's the higher-quality choice."},
+
+  ft_med_method:{
+    q:"Which fine-tuning method will you use?",
+    sub:"For medium models (24–32B), QLoRA is strongly recommended to keep VRAM requirements manageable.",
+    opts:[
+      {label:"QLoRA (4-bit quantised base) — needs ~20–30 GB",next:"r_ft_med_qlora"},
+      {label:"LoRA (FP16 base) — needs ~65–90 GB",next:"r_ft_med_lora"},
+    ]
+  },
+  r_ft_med_qlora:{result:true,title:"MI210 (64 GB) or A100 MIG 40 GB",desc:"QLoRA on medium models needs ~20–30 GB. An A100 MIG 40 GB slice handles this, and the MI210 (64 GB) gives even more headroom for larger batch sizes or longer sequences.",gpus:["mi210","a100_mig"],tip:"QLoRA makes 27–32B model fine-tuning very practical on Bunya. The MI210's 64 GB HBM gives the best headroom among available AI-appropriate GPUs in this tier."},
+  r_ft_med_lora:{result:true,title:"H100 PCIe (80 GB) or MI300x (192 GB)",desc:"Standard LoRA on medium models at FP16 needs ~65–90 GB. The H100 PCIe (80 GB) is tight for 32B models but works for 24–27B. The MI300x (192 GB) has ample headroom and is the safer choice.",gpus:["h100_pcie","mi300x"],tip:"For 32B models, the MI300x avoids OOM risks. For 24–27B models, the H100 PCIe usually suffices."},
+
+  ft_large_method:{
+    q:"Which fine-tuning method will you use?",
+    sub:"For 70B models, QLoRA is essential unless you have multi-GPU resources. Even QLoRA needs a substantial GPU.",
+    opts:[
+      {label:"QLoRA (4-bit quantised base) — needs ~44–55 GB",next:"r_ft_large_qlora"},
+      {label:"LoRA (FP16 base) — needs ~170–200+ GB",next:"r_ft_large_lora"},
+    ]
+  },
+  r_ft_large_qlora:{result:true,title:"MI210 (64 GB), MI300x (192 GB), or H100 PCIe (80 GB)",desc:"QLoRA on a 70B model needs ~44–55 GB. The MI210 (64 GB) can handle this with careful batch sizing. The H100 PCIe (80 GB) and MI300x (192 GB) give more headroom. The MI300x is ideal if you want larger batch sizes or longer sequences.",gpus:["mi210","h100_pcie","mi300x"],tip:"QLoRA is the standard approach for fine-tuning 70B models. Use Unsloth, Axolotl, or Hugging Face PEFT. Monitor VRAM usage carefully on the MI210 — keep batch size small."},
+  r_ft_large_lora:{result:true,title:"MI300x (192 GB) or multi-GPU H100",desc:"Standard LoRA on a 70B model at FP16 needs ~170–200+ GB. A single MI300x (192 GB) can handle this tightly. Alternatively, use 3–4× H100 PCIe with FSDP or DeepSpeed ZeRO. The H100 SXM5 nodes (4× 80 GB with NVLink, 320 GB unified) are ideal but require application.",gpus:["mi300x","h100_sxm5","h100_pcie"],tip:"For LoRA on 70B, the MI300x is the simplest single-GPU path. For multi-GPU, consider the H100 SXM5 nodes — contact rcc-support@uq.edu.au to apply."},
+
+  r_ft_vlarge:{result:true,title:"Contact RCC — multi-GPU planning required",desc:"Fine-tuning models over 100B parameters requires careful multi-GPU planning, even with QLoRA. A 100B model with QLoRA needs ~60–80 GB (single MI300x or H100 works). For 200B+ MoE models, multi-GPU setups with DeepSpeed ZeRO or FSDP are needed. RCC staff can help plan the optimal configuration for your specific model and dataset.",gpus:["mi300x","h100_sxm5"],tip:"Contact rcc-support@uq.edu.au before starting. Include: model name, parameter count, dataset size, fine-tuning method, and framework you plan to use."},
+
+  /* ═══ FULL FINE-TUNING PATH ═══ */
+  full_ft_size:{
+    q:"How large is the model you want to fully fine-tune?",
+    sub:"Full fine-tuning updates every parameter. This requires ~4–6× the model's FP16 size in VRAM (for weights, gradients, and optimizer states). It is extremely memory-intensive. Consider LoRA/QLoRA first unless you have a specific reason to update all weights.",
+    opts:[
+      {label:"Small (≤ 14B) — needs ~70–170 GB total",next:"r_fullft_small"},
+      {label:"Medium (15–32B) — needs ~200–460 GB total",next:"r_fullft_med"},
+      {label:"Large (33–80B) — needs ~500 GB–1+ TB total",next:"r_fullft_large"},
+      {label:"Very large (100B+) — data-centre scale",next:"r_fullft_vlarge"},
+    ]
+  },
+  r_fullft_small:{result:true,title:"H100 PCIe (80 GB) or MI300x (192 GB), or multi-GPU with DeepSpeed",desc:"Full fine-tuning a 7–8B model needs ~70–100 GB. A single H100 PCIe (80 GB) is tight but possible with gradient checkpointing and mixed-precision training. The MI300x (192 GB) handles it comfortably. For 14B models (~120–170 GB), use the MI300x or 2–3× H100 PCIe with DeepSpeed ZeRO.",gpus:["mi300x","h100_pcie"],tip:"Use DeepSpeed ZeRO Stage 2 or 3 to shard optimizer states across GPUs. Enable gradient checkpointing to trade compute time for memory savings."},
+  r_fullft_med:{result:true,title:"MI300x (192 GB) or multi-GPU H100 with DeepSpeed ZeRO",desc:"Full fine-tuning a 27B model needs ~300–460 GB. This requires multiple GPUs: 2× MI300x (384 GB total), 4× H100 PCIe with DeepSpeed ZeRO, or the 4× H100 SXM5 node (320 GB unified via NVLink, which requires application). These are substantial workloads — plan carefully.",gpus:["mi300x","h100_sxm5","h100_pcie"],tip:"DeepSpeed ZeRO Stage 3 partitions model weights, gradients, and optimizer states across GPUs. This is essential for full fine-tuning at this scale."},
+  r_fullft_large:{result:true,title:"Multi-node GPU clusters — contact RCC",desc:"Full fine-tuning a 70B model requires ~500 GB–1+ TB of aggregate GPU memory. This is a major research computing allocation: 4–8× MI300x nodes, or multi-node H100 SXM5 clusters with NVLink. DeepSpeed ZeRO Stage 3 with offloading is essential. Contact RCC well in advance.",gpus:["mi300x","h100_sxm5"],tip:"Contact rcc-support@uq.edu.au with a detailed research plan. Full fine-tuning at this scale is a significant resource commitment — RCC can help optimise your approach."},
+  r_fullft_vlarge:{result:true,title:"Data-centre scale — discuss with RCC",desc:"Full fine-tuning 100B+ parameter models requires terabytes of aggregate GPU memory and is typically done by large AI labs. It is unlikely to be feasible on Bunya without multi-node allocations and significant planning. Consider LoRA/QLoRA instead, which can achieve excellent results with a fraction of the resources.",gpus:[],tip:"Seriously consider QLoRA — research shows it achieves comparable results to full fine-tuning for most downstream tasks, at a tiny fraction of the GPU cost. Contact rcc-support@uq.edu.au to discuss options."},
+};
+
+let history=["start"];
+function render(){
+  const id=history[history.length-1],node=Q[id],el=document.getElementById("content"),nav=document.getElementById("nav"),bar=document.getElementById("progress");
+  nav.style.display=history.length>1?"flex":"none";
+  bar.style.width=Math.min(history.length/5,1)*100+"%";
+  el.innerHTML=node.result?renderResult(node):renderQuestion(node,history.length);
+}
+function renderQuestion(n,step){
+  const L="ABCDEFGH";
+  let opts=n.opts.map((o,i)=>`<button class="option-btn" onclick="pick('${o.next}')"><span class="option-letter">${L[i]}</span><span>${esc(o.label)}</span></button>`).join("");
+  return `<div class="question-card fade-in"><div class="step-label">Step ${step}</div><h2>${esc(n.q)}</h2>${n.sub?`<p class="subtitle">${esc(n.sub)}</p>`:""}</div><div class="options">${opts}</div>`;
+}
+function renderResult(n){
+  let cards=n.gpus.map(k=>renderGPU(k)).join(""),tip=n.tip?`<div class="tip-box"><span class="tip-icon">💡</span><p class="tip-text">${esc(n.tip)}</p></div>`:"";
+  return `<div class="result-card fade-in"><div class="result-badge">Recommendation</div><h2>${esc(n.title)}</h2><p class="desc">${esc(n.desc)}</p>${cards}${tip}</div><button class="restart-btn" onclick="restart()">↩ Try a different model or task</button>`;
+}
+function renderGPU(key){
+  const g=GPUS[key];if(!g)return "";
+  return `<div class="gpu-card" style="border:1px solid ${g.color}33;border-left:4px solid ${g.color}"><div class="gpu-header"><span class="gpu-icon">${g.icon}</span><span class="gpu-name" style="color:${g.color}">${esc(g.name)}</span><span class="gpu-vendor-tag" style="background:${g.color}22;color:${g.color}">${g.vendor}</span></div><div class="gpu-specs"><div><span class="label">Memory:</span> <span class="val">${esc(g.vram)}</span></div><div><span class="label">Cards:</span> <span class="val">${esc(g.cards)}</span></div><div><span class="label">Partition:</span> <span class="val mono">${esc(g.partition)}</span></div><div><span class="label">Max/job:</span> <span class="val">${g.maxPerJob}</span></div></div><p class="gpu-highlight">${esc(g.highlight)}</p><p class="gpu-access">${esc(g.access)}</p></div>`;
+}
+function pick(next){history.push(next);render();document.getElementById("content").scrollIntoView({behavior:"smooth",block:"start"})}
+function goBack(){if(history.length>1){history.pop();render()}}
+function restart(){history=["start"];render();window.scrollTo({top:0,behavior:"smooth"})}
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+render();
+</script>
+</body>
+</html>
