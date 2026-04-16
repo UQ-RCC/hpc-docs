@@ -62,75 +62,75 @@ layout: default
     <div class="folder-header">{{ dir_name | capitalize }}</div>
     <div class="folder-blurb">{{ category_blurb }}</div>
 
-    {% assign displayed_urls = "" | split: "" %}
+    {% assign displayed_paths = "" | split: "" %}
     {% assign priority_docs = "" | split: "" %}
     {% assign extra_docs = "" | split: "" %}
 
-    {% comment %} 1. Registry Items {% endcomment %}
+    {% comment %} 
+      1. Collect Registry items and weighted Pages into one list for sorting.
+    {% endcomment %}
+    
     {% for entry in site.data.registry %}
       {% if entry[0] contains dir_name %}
-        {% assign item = entry[1] %}
-        {% assign priority_docs = priority_docs | push: item %}
-        {% assign displayed_urls = displayed_urls | push: entry[0] %}
+        {% assign priority_docs = priority_docs | push: entry %}
+        {% assign displayed_paths = displayed_paths | push: entry[0] %}
       {% endif %}
     {% endfor %}
 
-    {% comment %} 2. Markdown Pages {% endcomment %}
     {% assign cat_pages = site.pages | where_exp: "p", "p.path contains dir_name" %}
     {% for p in cat_pages %}
       {% if p.name != "index.md" and p.title %}
-        {% unless displayed_urls contains p.path %}
+        {% unless displayed_paths contains p.path %}
           {% if p.weight %}
-            {% assign priority_docs = priority_docs | push: p %}
+             {% assign priority_docs = priority_docs | push: p %}
           {% else %}
-            {% assign extra_docs = extra_docs | push: p %}
+             {% assign extra_docs = extra_docs | push: p %}
           {% endif %}
-          {% assign displayed_urls = displayed_urls | push: p.path %}
+          {% assign displayed_paths = displayed_paths | push: p.path %}
         {% endunless %}
       {% endif %}
     {% endfor %}
 
-    {% comment %} 3. Static Files (PDF/HTML) {% endcomment %}
+    {% comment %} 2. Render Grid with explicit URL branching {% endcomment %}
+    <div class="resource-grid">
+      {% assign sorted_priority = priority_docs | sort: "weight" %}
+      {% for item in sorted_priority %}
+        
+        {% if item.layout %}
+          {% comment %} This is a Jekyll Page Object {% endcomment %}
+          {% assign final_link = item.url | relative_url %}
+          {% assign final_title = item.title %}
+        {% else %}
+          {% comment %} This is a Registry Entry (Array [key, meta]) {% endcomment %}
+          {% assign reg_key = item[0] %}
+          {% assign reg_meta = item[1] %}
+          {% assign final_title = reg_meta.title %}
+          
+          {% if reg_meta.url %}
+            {% assign final_link = reg_meta.url %}
+          {% else %}
+            {% assign final_link = reg_key | relative_url %}
+          {% endif %}
+        {% endif %}
+
+        <a href="{{ final_link }}" class="item-card">
+          <span class="item-link">{{ final_title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+
+    {% comment %} 3. Additional Static Files (PDF/HTML) {% endcomment %}
     {% for file in site.static_files %}
       {% if file.path contains dir_name %}
         {% if file.extname == ".pdf" or file.extname == ".html" %}
           {% assign clean_path = file.path | remove_first: "/" %}
-          {% unless displayed_urls contains clean_path or displayed_urls contains file.path %}
+          {% unless displayed_paths contains clean_path or displayed_paths contains file.path %}
             {% assign extra_docs = extra_docs | push: file %}
-            {% assign displayed_urls = displayed_urls | push: file.path %}
           {% endunless %}
         {% endif %}
       {% endif %}
     {% endfor %}
 
-    {% comment %} RENDER PRIORITY GRID {% endcomment %}
-    <div class="resource-grid">
-    {% assign sorted_priority = priority_docs | sort: "weight" %}
-      {% for item in sorted_priority %}
-        {% if item.layout or item.content %}
-          {% comment %} Jekyll page object - use compiled .url {% endcomment %}
-          <a href="{{ item.url | relative_url }}" class="item-card">
-            <span class="item-link">{{ item.title }}</span>
-          </a>
-        {% elsif item.url %}
-          {% comment %} Registry item with explicit URL (may be external) {% endcomment %}
-          <a href="{{ item.url }}" class="item-card">
-            <span class="item-link">{{ item.title }}</span>
-          </a>
-        {% else %}
-          {% comment %} Registry item, derive path from key {% endcomment %}
-          {% for entry in site.data.registry %}
-            {% if entry[1] == item %}
-              <a href="{{ entry[0] | relative_url }}" class="item-card">
-                <span class="item-link">{{ item.title }}</span>
-              </a>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    {% comment %} RENDER ADDITIONAL DROPDOWN {% endcomment %}
     {% if extra_docs.size > 0 %}
       <details>
         <summary>Additional {{ dir_name | capitalize }} Resources</summary>
