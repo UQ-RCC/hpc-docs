@@ -123,8 +123,12 @@ layout: default
     <div class="resource-grid">
       {% assign sorted_priority = priority_docs | sort: "weight" %}
       {% for item in sorted_priority %}
+        {% if item.computed_url contains "://" %}
+          <a href="{{ item.computed_url }}" class="item-card">
+        {% else %}
+          <a href="{{ item.computed_url | relative_url }}" class="item-card">
+        {% endif %}
         {% comment %} Use the computed_url we injected earlier {% endcomment %}
-        <a href="{{ item.computed_url | relative_url }}" class="item-card">
           <span class="item-link">{{ item.title }}</span>
         </a>
       {% endfor %}
