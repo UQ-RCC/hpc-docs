@@ -19,6 +19,10 @@ This project is for providing _up-to-date_ information about HPC systems operate
 [Bunya Access Conditions all users agree to](https://github.com/UQ-RCC/hpc-docs/blob/main/policy/Bunya-Conditions-of-Access.md)<br>
 [How to acknowledge Bunya and/or RCC](https://rcc.uq.edu.au/about/acknowledging-rcc)
 
+## Tools and Utilities
+[Bunya GPU Selection Guide](tools/bunya-gpu-guide.html)<br>
+[Bunya LLM GPU Selection Guide](tools/bunya-llm-gpu-guide.html)
+
 ## Other
 [Software Installation Status](guides/Software-Status.md)
 <br>
