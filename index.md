@@ -66,25 +66,11 @@ layout: default
     {% assign priority_docs = "" | split: "" %}
     {% assign extra_docs = "" | split: "" %}
 
-    {% comment %} 
-      1. Registry Items
-    {% endcomment %}
+    {% comment %} 1. Registry Items {% endcomment %}
     {% for entry in site.data.registry %}
       {% if entry[0] contains dir_name %}
         {% assign item = entry[1] %}
-        
-        {% comment %} Determine Link: Priority is an explicit URL {% endcomment %}
-        {% if item.url %}
-          {% assign final_link = item.url %}
-        {% else %}
-          {% assign final_link = site.baseurl | append: "/" | append: entry[0] %}
-        {% endif %}
-        
-        {% comment %} Inject the calculated link back into the item object {% endcomment %}
-        {% assign item_with_url = item | append_payload: "" %} {% comment %} Dummy filter to force object behavior if needed {% endcomment %}
-        {% assign item_with_url = item | merge: "computed_url", final_link %}
-        
-        {% assign priority_docs = priority_docs | push: item_with_url %}
+        {% assign priority_docs = priority_docs | push: item %}
         {% assign displayed_urls = displayed_urls | push: entry[0] %}
       {% endif %}
     {% endfor %}
@@ -95,9 +81,7 @@ layout: default
       {% if p.name != "index.md" and p.title %}
         {% unless displayed_urls contains p.path %}
           {% if p.weight %}
-             {% comment %} Standardize the URL key for sorting/rendering {% endcomment %}
-             {% assign p_with_url = p | merge: "computed_url", p.url %}
-             {% assign priority_docs = priority_docs | push: p_with_url %}
+            {% assign priority_docs = priority_docs | push: p %}
           {% else %}
             {% assign extra_docs = extra_docs | push: p %}
           {% endif %}
@@ -123,14 +107,26 @@ layout: default
     <div class="resource-grid">
       {% assign sorted_priority = priority_docs | sort: "weight" %}
       {% for item in sorted_priority %}
-        {% if item.computed_url contains "://" %}
-          <a href="{{ item.computed_url }}" class="item-card">
+        {% comment %} Registry items with explicit url field: use as-is (may be external) {% endcomment %}
+        {% if item.url %}
+          <a href="{{ item.url }}" class="item-card">
+            <span class="item-link">{{ item.title }}</span>
+          </a>
+        {% comment %} Jekyll page objects have a .path and a .url (the generated page URL) {% endcomment %}
+        {% elsif item.path %}
+          <a href="{{ item.path | relative_url }}" class="item-card">
+            <span class="item-link">{{ item.title }}</span>
+          </a>
+        {% comment %} Fallback: registry item with no explicit url, derive from registry key {% endcomment %}
         {% else %}
-          <a href="{{ item.computed_url | relative_url }}" class="item-card">
+          {% for entry in site.data.registry %}
+            {% if entry[1] == item %}
+              <a href="{{ entry[0] | relative_url }}" class="item-card">
+                <span class="item-link">{{ item.title }}</span>
+              </a>
+            {% endif %}
+          {% endfor %}
         {% endif %}
-        {% comment %} Use the computed_url we injected earlier {% endcomment %}
-          <span class="item-link">{{ item.title }}</span>
-        </a>
       {% endfor %}
     </div>
 
