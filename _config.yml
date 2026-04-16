@@ -1,0 +1,13 @@
+title: UQ RCC HPC Documentation
+description: High Performance Computing guides and policies for the University of Queensland.
+baseurl: "/hpc-docs" # Critical: matches your repo name
+url: "https://uq-rcc.github.io"
+
+# UQ Brand Identity Colors
+uq_purple: "#51247a"
+uq_gold: "#A08030"
+uq_neutral: "#97999B"
+
+# Build settings
+theme: jekyll-theme-minimal
+exclude: [README.md] # Excludes the old manual readme from the site build
