@@ -8,7 +8,6 @@ layout: default
   header { display: none !important; }
   section { width: 100% !important; float: none !important; }
   
-  /* Force footer to stay at the bottom of the content */
   footer { 
     position: relative !important; 
     clear: both !important; 
@@ -25,7 +24,6 @@ layout: default
   .folder-header { color: #51247a; font-size: 1.6rem; font-weight: bold; margin-bottom: 5px; border-left: 10px solid #A08030; padding-left: 15px; }
   .folder-blurb { font-style: italic; color: #666; margin-bottom: 20px; padding-left: 25px; }
 
-  /* Priority Grid (2 Columns) */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
@@ -46,7 +44,6 @@ layout: default
   .item-card:hover { border-left-color: #A08030; background: #fdfdfd; transform: translateX(5px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
   .item-link { font-weight: bold; color: #51247a; font-size: 1.05rem; }
 
-  /* Dropdown for Additional Docs */
   details { background: #f9f9f9; padding: 15px; border-radius: 4px; border: 1px solid #eee; margin-top: 10px; }
   summary { font-weight: bold; color: #51247a; cursor: pointer; outline: none; }
   .extra-list { list-style: none; padding: 15px 0 0 10px; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 10px; }
@@ -65,23 +62,30 @@ layout: default
     <div class="folder-header">{{ dir_name | capitalize }}</div>
     <div class="folder-blurb">{{ category_blurb }}</div>
 
-    {% comment %} 
-      Step 1: Collect ALL relevant files (MD, HTML, PDF, External) 
-    {% endcomment %}
     {% assign displayed_urls = "" | split: "" %}
     {% assign priority_docs = "" | split: "" %}
     {% assign extra_docs = "" | split: "" %}
 
-    {% comment %} 1a. Check Registry first (Highest Priority) {% endcomment %}
+    {% comment %} 
+      STEP 1: Process Registry. 
+      We manually build an array of objects so Liquid can sort by weight.
+    {% endcomment %}
     {% for entry in site.data.registry %}
-      {% if entry[0] contains dir_name %}
-        {% assign priority_docs = priority_docs | push: entry %}
-        {% assign displayed_urls = displayed_urls | push: entry[0] %}
+      {% assign file_path = entry[0] %}
+      {% assign meta = entry[1] %}
+      
+      {% if file_path contains dir_name %}
+        {% comment %} Create a 'virtual' object that includes the path {% endcomment %}
+        {% assign item = meta | university_case_fix | merge: meta %}
+        {% assign item = item | merge: "path", file_path %}
+        
+        {% assign priority_docs = priority_docs | push: item %}
+        {% assign displayed_urls = displayed_urls | push: file_path %}
       {% endif %}
     {% endfor %}
 
-    {% comment %} 1b. Check site.pages (Markdown with weights) {% endcomment %}
-    {% assign cat_pages = site.pages | where_exp: "p", "p.path contains dir_name" | sort: "weight" %}
+    {% comment %} STEP 2: Process Markdown Pages {% endcomment %}
+    {% assign cat_pages = site.pages | where_exp: "p", "p.path contains dir_name" %}
     {% for p in cat_pages %}
       {% if p.name != "index.md" and p.title %}
         {% unless displayed_urls contains p.path %}
@@ -95,7 +99,7 @@ layout: default
       {% endif %}
     {% endfor %}
 
-    {% comment %} 1c. Check static_files (Unweighted PDFs and HTML) {% endcomment %}
+    {% comment %} STEP 3: Process Static Files (PDFs/HTML not in registry) {% endcomment %}
     {% for file in site.static_files %}
       {% if file.path contains dir_name %}
         {% if file.extname == ".pdf" or file.extname == ".html" %}
@@ -108,27 +112,23 @@ layout: default
       {% endif %}
     {% endfor %}
 
-    {% comment %} 2. Render Priority Grid {% endcomment %}
+    {% comment %} RENDER PRIORITY GRID (Sorted by Weight) {% endcomment %}
     <div class="resource-grid">
-      {% for item in priority_docs %}
-        {% if item[1].title %} {% comment %} Registry Entry {% endcomment %}
-          {% if item[1].url %}
-            {% assign target_url = item[1].url %}
-          {% else %}
-            {% assign target_url = site.baseurl | append: "/" | append: item[0] %}
-          {% endif %}
-          <a href="{{ target_url }}" class="item-card">
-            <span class="item-link">{{ item[1].title }}</span>
-          </a>
-        {% else %} {% comment %} Page Object {% endcomment %}
-          <a href="{{ site.baseurl }}{{ item.url }}" class="item-card">
-            <span class="item-link">{{ item.title }}</span>
-          </a>
+      {% assign sorted_priority = priority_docs | sort: "weight" %}
+      {% for item in sorted_priority %}
+        {% if item.url %}
+          {% assign link = item.url %}
+        {% else %}
+          {% assign link = site.baseurl | append: "/" | append: item.path %}
         {% endif %}
+        
+        <a href="{{ link }}" class="item-card">
+          <span class="item-link">{{ item.title }}</span>
+        </a>
       {% endfor %}
     </div>
 
-    {% comment %} 3. Render Additional Dropdown {% endcomment %}
+    {% comment %} RENDER ADDITIONAL DROPDOWN {% endcomment %}
     {% if extra_docs.size > 0 %}
       <details>
         <summary>Additional {{ dir_name | capitalize }} Resources</summary>

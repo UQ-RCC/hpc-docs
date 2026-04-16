@@ -5,27 +5,27 @@ tools/bunya-gpu-guide.html:
 tools/bunya-llm-gpu-guide.html:
   title: "Bunya LLM GPU Guide"
   weight: 2
-guides/group-admin.md:
-  title: "Accounting Group and Administration"
-  weight: 6
+guides/Bunya-User-Guide.md:
+  title: "Bunya User Guide"
+  weight: 1
+guides/OnDemand-Guide.md:
+  title: "onBunya"
+  weight: 2
 guides/BunyaResourceDistribution.md:
   title: "Who gets what on Bunya?"
   weight: 4 
 guides/Bunya-UserData-Guide.md:
   title: "Where should my data and software go on Bunya?"
   weight: 3
-guides/Bunya-User-Guide.md:
-  title: "Bunya User Guide"
-  weight: 1
+guides/group-admin.md:
+  title: "Accounting Group and Administration"
+  weight: 6
 guides/conda-environment.md:
   title: "Conda on Bunya"
   weight: 8
 guides/FairShare.md:
   title: "FairShare"
   weight: 5
-guides/OnDemand-Guide.md:
-  title: "onBunya"
-  weight: 2
 policy/Policies.md:
   title: "RCC Infrastructure Policies and Operational Procedures"
   weight: 1
