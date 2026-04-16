@@ -63,69 +63,37 @@ layout: default
     <div class="folder-blurb">{{ category_blurb }}</div>
 
     {% assign displayed_paths = "" | split: "" %}
-    {% assign priority_docs = "" | split: "" %}
     {% assign extra_docs = "" | split: "" %}
 
-    {% comment %} 
-      1. Collect Registry items and weighted Pages into one list for sorting.
-    {% endcomment %}
-    
-    {% for entry in site.data.registry %}
-      {% if entry[0] contains dir_name %}
-        {% assign priority_docs = priority_docs | push: entry %}
-        {% assign displayed_paths = displayed_paths | push: entry[0] %}
-      {% endif %}
-    {% endfor %}
-
-    {% assign cat_pages = site.pages | where_exp: "p", "p.path contains dir_name" %}
-    {% for p in cat_pages %}
-      {% if p.name != "index.md" and p.title %}
-        {% unless displayed_paths contains p.path %}
-          {% if p.weight %}
-             {% assign priority_docs = priority_docs | push: p %}
-          {% else %}
-             {% assign extra_docs = extra_docs | push: p %}
-          {% endif %}
-          {% assign displayed_paths = displayed_paths | push: p.path %}
-        {% endunless %}
-      {% endif %}
-    {% endfor %}
-
-    {% comment %} 2. Render Grid with explicit URL branching {% endcomment %}
     <div class="resource-grid">
-      {% assign sorted_priority = priority_docs | sort: "weight" %}
-      {% for item in sorted_priority %}
-        
-        {% if item.layout %}
-          {% comment %} This is a Jekyll Page Object {% endcomment %}
-          {% assign final_link = item.url | relative_url %}
-          {% assign final_title = item.title %}
-        {% else %}
-          {% comment %} This is a Registry Entry (Array [key, meta]) {% endcomment %}
-          {% assign reg_key = item[0] %}
-          {% assign reg_meta = item[1] %}
-          {% assign final_title = reg_meta.title %}
-          
-          {% if reg_meta.url %}
-            {% assign final_link = reg_meta.url %}
-          {% else %}
-            {% assign final_link = reg_key | relative_url %}
-          {% endif %}
-        {% endif %}
-
-        <a href="{{ final_link }}" class="item-card">
-          <span class="item-link">{{ final_title }}</span>
+      {% comment %} 
+        MANUAL OVERRIDE: Add specific external links here. 
+        We check if we are in the 'guides' section to display the Acknowledgment link.
+      {% endcomment %}
+      {% if dir_name == "guides" %}
+        <a href="https://rcc.uq.edu.au/about/acknowledging-rcc" class="item-card">
+          <span class="item-link">How to Acknowledge Bunya and/or RCC</span>
         </a>
+      {% endif %}
+
+      {% comment %} 1. Weighted Markdown Pages {% endcomment %}
+      {% assign weighted_pages = site.pages | where_exp: "p", "p.path contains dir_name" | where: "weight", true | sort: "weight" %}
+      {% for p in weighted_pages %}
+        <a href="{{ p.url | relative_url }}" class="item-card">
+          <span class="item-link">{{ p.title }}</span>
+        </a>
+        {% assign displayed_paths = displayed_paths | push: p.path %}
       {% endfor %}
     </div>
 
-    {% comment %} 3. Additional Static Files (PDF/HTML) {% endcomment %}
-    {% for file in site.static_files %}
+    {% comment %} 2. Unweighted Files (MD, PDF, HTML) in Dropdown {% endcomment %}
+    {% assign all_files = site.pages | concat: site.static_files %}
+    {% for file in all_files %}
       {% if file.path contains dir_name %}
-        {% if file.extname == ".pdf" or file.extname == ".html" %}
+        {% if file.extname == ".pdf" or file.extname == ".html" or file.extname == ".md" %}
           {% assign clean_path = file.path | remove_first: "/" %}
-          {% unless displayed_paths contains clean_path or displayed_paths contains file.path %}
-            {% assign extra_docs = extra_docs | push: file %}
+          {% unless displayed_paths contains clean_path or displayed_paths contains file.path or file.name == "index.md" %}
+             {% assign extra_docs = extra_docs | push: file %}
           {% endunless %}
         {% endif %}
       {% endif %}
@@ -138,14 +106,4 @@ layout: default
           {% assign sorted_extras = extra_docs | sort: "title" %}
           {% for doc in sorted_extras %}
             <li>
-              <a href="{{ doc.url | default: doc.path | relative_url }}">
-                {{ doc.title | default: doc.basename | replace: "-", " " | replace: "_", " " }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </details>
-    {% endif %}
-
-  </div>
-{% endfor %}
+              <a href="{{
