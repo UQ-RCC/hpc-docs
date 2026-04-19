@@ -60,7 +60,8 @@ ___
 * Version 10.0.1 has been installed and configured.
 * Awaiting a patch to the license server to be applied. 
 * The licensing patch has been applied.
-* Version 11.0.3 has been deployed and is the (current) default version. 
+* Version 11.0.3 has been deployed
+* Version 13.0.0 is the (current) default version. 
 ```
 [uq_user@bunya2 ~]$ module purge
 [uq_user@bunya2 ~]$ module load gurobi/11.0.3
