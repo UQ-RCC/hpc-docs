@@ -6,7 +6,7 @@
 
 - [Troubleshooting](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#troubleshooting)
 - [Software](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#software)
-- [CryoSparc](./Cryosparc.md)
+- [CryoSPARC](./Cryosparc.md)
 - 
 
 ## What is onBunya?
@@ -227,9 +227,9 @@ The *Bunya Apps* can be found under *Applications* on the left in the top panel 
 
 You can change the background, theme and fonts in the *System -> Preferences -> Appearance* menu.
 
-### CryoSparc
+### CryoSPARC
 
-[CryoSparc Guide](./Cryosparc.md)
+[CryoSPARC Guide](./Cryosparc.md)
 
 ### RStudio
 
