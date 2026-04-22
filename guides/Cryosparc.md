@@ -6,7 +6,7 @@
 ## Installing CryoSPARC
 You will run your own CryoSPARC instance, therefore you will need to obtain a license key. The license is free for non-profit academic use. The key is in UUID format. It looks like this: `01234567-89ab-cdef-0123-456789abcdef`. You will need this key to install the software.
 
-In the onBunya menu, there are two CryoSPARC entries, "CryoSPARC" and "CryoSPARC updater (to <version>)". Select "CryoSPARC" to install or use the software. The updater will only update existing installations to the latest version on Bunya. You are free to change the version you use via command line tools. The CryoSPARC website has extensive documentation on how to use the command line tools.
+In the onBunya menu, there are two CryoSPARC entries, "CryoSPARC" and "CryoSPARC updater (to version-number)". Select "CryoSPARC" to install or use the software. The updater will only update existing installations to the latest version on Bunya. You are free to change the version you use via command line tools. The CryoSPARC website has extensive documentation on how to use the command line tools.
 
 When you launch CryoSPARC for the first time, it will detect that you do not have the software installed yet, and begin the installation process. You will see a terminal window with brief instructions for entering the information the software needs to install. Enter your license key when asked.
 
@@ -40,6 +40,6 @@ If you have detached a project, either for storage or to share with another user
 ### My login doesn't work anymore
 This is often a sign of deeper database corruption, but you can restore the user account you had by running this command, using the account you created when you installed CryoSPARC. The details are saved in your home directory in the file `cryosparc-default-user.txt`
 
-cryosparcm user create --email "<email@address>" --firstname "<first name>" --lastname "<last name>" --username "<username>" --password "<password>" --role "admin"
+cryosparcm user create --email "email-address" --firstname "first-name" --lastname "last-name" --username "username" --password "password" --role "admin"
 
 And check your database using the `cryosparcm database check` command as described above. You may have to delete your entire database and re-create it, then re-attach your projects. To do so, you can make a backup of your ~/cryosparc/cryosparc_database directory by copying it e.g. to your scratch directory. Then delete that directory and all its contents, then restart CryoSPARC. You will have to create a user account as described above, then re-attach your projects (you may need to delete cs.lock files as described above).
