@@ -5,6 +5,7 @@
 (To be completed)</br>
 
 - [Troubleshooting](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#troubleshooting)
+- [Software](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#software)
 - [CryoSparc](./Cryosparc.md)
 - 
 
