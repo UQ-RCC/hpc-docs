@@ -5,6 +5,7 @@
 (To be completed)</br>
 
 - [Troubleshooting](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/OnDemand-Guide.md#troubleshooting)
+- [CryoSparc](./Cryosparc.md)
 - 
 
 ## What is onBunya?
