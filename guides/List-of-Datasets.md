@@ -1,6 +1,6 @@
 # List of Datasets
 
-**Updated: 19 June 2025**
+**Updated: 24 April 2026**
 
 To save on disk space, and reduce duplication of effort, a growing number of datasets are being made available.
 They are being provided centrally in Bunya scratch filesystem.
@@ -193,41 +193,128 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 /scratch/opendata/models
 ├── ComfyUI
 │   └── models
+├── PRISM
+│   ├── colon
+│   ├── kidney
+│   ├── liver
+│   └── pancreas
 ├── gguf
+│   ├── GLM-4.7-iq4_xs
+│   ├── Kimi-K2.5-BF16
+│   ├── Kimi-K2.5-Q2_K_XL
+│   ├── Solar-Open-100B-q4_0
+│   ├── Solar-Open-100B-q8_0
 │   ├── aya-expanse-8b
 │   ├── codellama-70b
 │   ├── cogito-70b
 │   ├── deepcoder-14b
-│   ├── granite3.1-dense-8b
+│   ├── gpt-oss-120b
+│   ├── granite-code-34b
 │   ├── granite3-dense-8b
 │   ├── granite3-moe-1b
 │   ├── granite3-moe-3b
-│   ├── granite-code-34b
+│   ├── granite3.1-dense-8b
+│   ├── ling-1t
+│   ├── ling-1t-q4_k_xl
 │   ├── llama3.1-405b
 │   ├── llama3.1-405b-instruct-fp16
 │   ├── llama3.1-70b
 │   ├── llama3.2-3b
 │   ├── llama3.2-vision-90b
 │   ├── llama3.3-70b-instruct-fp16
+│   ├── minimax-m2.5-Q4_K_XL
 │   ├── mistral-large-123b
 │   ├── phi3-medium
 │   └── qwen2.5-coder-32b
 ├── huggingface
-│   └── Qwen2.5-Coder-32B-Instruct
+│   ├── DeepSeek-R1-Distill-Llama-70B
+│   ├── Kimi-K2-Instruct-0905
+│   ├── Ling-1T
+│   ├── Llama-3.3-70B-Instruct
+│   ├── Qwen2.5-Coder-32B-Instruct
+│   ├── gemma-4-31B
+│   └── incoming
+├── llama.cpp
 ├── modelzoo
 │   └── checkpoints
 ├── ollama
 │   ├── blobs
-│   └── manifests
-└── sd3.5
-    ├── text_encoder
-    └── VAE
+│   ├── manifests
+│   └── workshop
+├── openclip
+│   ├── models--apple--DFN2B-CLIP-ViT-B-16
+│   ├── models--apple--DFN2B-CLIP-ViT-L-14
+│   ├── models--apple--DFN5B-CLIP-ViT-H-14-378
+│   ├── models--apple--MobileCLIP-B-LT-OpenCLIP
+│   ├── models--laion--CLIP-ViT-B-16-CommonPool.L.laion-s1B-b8K
+│   ├── models--laion--CLIP-ViT-B-16-DataComp.L-s1B-b8K
+│   ├── models--laion--CLIP-ViT-B-16-DataComp.XL-s13B-b90K
+│   ├── models--laion--CLIP-ViT-B-16-laion2B-s34B-b88K
+│   ├── models--laion--CLIP-ViT-B-32-256x256-DataComp-s34B-b86K
+│   ├── models--laion--CLIP-ViT-B-32-CommonPool.M.clip-s128M-b4K
+│   ├── models--laion--CLIP-ViT-B-32-DataComp.XL-s13B-b90K
+│   ├── models--laion--CLIP-ViT-B-32-roberta-base-laion2B-s12B-b32k
+│   ├── models--laion--CLIP-ViT-B-32-xlm-roberta-base-laion5B-s13B-b90k
+│   ├── models--laion--CLIP-ViT-H-14-laion2B-s32B-b79K
+│   ├── models--laion--CLIP-ViT-L-14-CommonPool.XL.clip-s13B-b90K
+│   ├── models--laion--CLIP-ViT-L-14-DataComp.XL-s13B-b90K
+│   ├── models--laion--CLIP-ViT-bigG-14-laion2B-39B-b160k
+│   ├── models--laion--CLIP-ViT-g-14-laion2B-s12B-b42K
+│   ├── models--laion--CLIP-convnext_base_w-laion2B-s13B-b82K
+│   ├── models--laion--CLIP-convnext_base_w_320-laion_aesthetic-s13B-b82K
+│   ├── models--laion--CLIP-convnext_large_d.laion2B-s26B-b102K-augreg
+│   ├── models--laion--CLIP-convnext_large_d_320.laion2B-s29B-b131K-ft
+│   ├── models--laion--CLIP-convnext_xxlarge-laion2B-s34B-b82K-augreg-soup
+│   ├── models--laion--CoCa-ViT-B-32-laion2B-s13B-b90k
+│   ├── models--laion--CoCa-ViT-L-14-laion2B-s13B-b90k
+│   ├── models--timm--ViT-B-16-SigLIP2
+│   ├── models--timm--eva02_base_patch16_clip_224.merged2b_s8b_b131k
+│   ├── models--timm--eva02_enormous_patch14_clip_224.laion2b_s4b_b115k
+│   ├── models--timm--eva02_large_patch14_clip_336.merged2b_s6b_b61k
+│   ├── models--timm--eva_giant_patch14_clip_224.laion400m_s11b_b41k
+│   ├── models--timm--resnet101_clip.openai
+│   ├── models--timm--resnet101_clip.yfcc15m
+│   ├── models--timm--resnet50_clip.cc12m
+│   ├── models--timm--resnet50_clip.openai
+│   ├── models--timm--resnet50x4_clip.openai
+│   ├── models--timm--resnet50x64_clip.openai
+│   ├── models--timm--vit_base_patch16_clip_224.metaclip_2pt5b
+│   ├── models--timm--vit_base_patch16_plus_clip_240.laion400m_e31
+│   ├── models--timm--vit_base_patch32_clip_224.laion2b_e16
+│   ├── models--timm--vit_base_patch32_clip_224.laion400m_e31
+│   ├── models--timm--vit_base_patch32_clip_224.metaclip_2pt5b
+│   ├── models--timm--vit_base_patch32_clip_224.openai
+│   ├── models--timm--vit_huge_patch14_clip_224.metaclip_2pt5b
+│   ├── models--timm--vit_large_patch14_clip_224.laion400m_e31
+│   ├── models--timm--vit_large_patch14_clip_224.metaclip_2pt5b
+│   ├── models--timm--vit_large_patch14_clip_224.openai
+│   ├── models--timm--vit_large_patch14_clip_336.openai
+│   ├── models--visheratin--nllb-clip-base-oc
+│   ├── models--visheratin--nllb-clip-base-siglip
+│   └── xet
+├── sd3.5
+│   ├── VAE
+│   └── text_encoder
+└── ultralytics
 
-31 directories
+105 directories
 ```
 
 ```
-/scratch/opendata/model-datasets/
+/scratch/opendata/model-datasets
+├── PRISM
+├── Robo3D
+│   ├── create
+│   ├── data
+│   ├── docs
+│   └── zoo
+├── RoboBEV
+│   ├── corruptions
+│   ├── docs
+│   ├── log
+│   ├── pyenv
+│   ├── uda
+│   └── zoo
 ├── broken_nuScenes-C
 │   ├── beam_missing
 │   ├── cross_sensor
@@ -238,29 +325,17 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 │   ├── snow
 │   └── wet_ground
 ├── nuScenes -> Robo3D/data/sets/nuscenes
-├── nuscenes-c
-│   ├── Brightness
-│   ├── CameraCrash
-│   ├── ColorQuant
-│   ├── Fog
-│   ├── FrameLost
-│   ├── LowLight
-│   ├── MotionBlur
-│   └── Snow
-├── Robo3D
-│   ├── create
-│   ├── data
-│   ├── docs
-│   └── zoo
-└── RoboBEV
-    ├── corruptions
-    ├── docs
-    ├── log
-    ├── pyenv
-    ├── uda
-    └── zoo
+└── nuscenes-c
+    ├── Brightness
+    ├── CameraCrash
+    ├── ColorQuant
+    ├── Fog
+    ├── FrameLost
+    ├── LowLight
+    ├── MotionBlur
+    └── Snow
 
-31 directories
+32 directories
 ```
 
 ## HOW TO UPDATE THIS INFORMATION
