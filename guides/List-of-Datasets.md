@@ -52,18 +52,13 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 
 ```
 /scratch/opendata/genomics
+├── AllTheBacteria
+│   └── atb.lmi
 ├── AntiFam -> ProteinSequenceDatabases/AntiFam
-├── Bakta
-│   └── v6
-├── BinChicken
-│   ├── checkm2
-│   ├── gtdbtk
-│   ├── singlem
-│   └── taxonomy
-├── Biobakery
-│   └── 3.1
 ├── BLAST
 │   ├── Betacoronavirus
+│   ├── NIH
+│   ├── UniProt
 │   ├── env_nr
 │   ├── human_genome
 │   ├── mouse_genome
@@ -80,11 +75,20 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 │   ├── refseq_select_prot
 │   ├── tsa_nr
 │   └── tsa_nt
+├── Bakta
+│   └── v6
+├── BinChicken
+│   ├── checkm2
+│   ├── gtdbtk
+│   ├── singlem
+│   └── taxonomy
+├── Biobakery
+│   └── 3.1
 ├── Centrifuge
 │   ├── LLNL-nt
 │   ├── nt-20180303
-│   ├── p-compressed-20180415
-│   └── p+h+v-20161200
+│   ├── p+h+v-20161200
+│   └── p-compressed-20180415
 ├── CheckM2
 │   ├── version_2
 │   └── version_3
@@ -122,16 +126,12 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 │   ├── sc3
 │   ├── wbcel235
 │   └── wbcel235_tran
-├── kneadData
-│   ├── Homo_sapiens_hg37_and_human_contamination_Bowtie2_v0.1
-│   ├── Homo_sapiens_hg38_transcriptome_Bowtie2_v0.1
-│   ├── Homo_sapiens_hg39_T2T_Bowtie2_v0.1
-│   ├── mouse_C57BL_6NJ_Bowtie2_v0.1
-│   └── SILVA_128_LSUParc_SSUParc_ribosomal_RNA_v0.2
+├── Humann
+│   └── Humann4
 ├── KOfam -> ProteinSequenceDatabases/KOfam
 ├── Kraken2
-│   ├── Refseq
 │   ├── RNA
+│   ├── Refseq
 │   └── Uniq
 ├── METABOLIC
 │   └── METABOLIC_v4.0
@@ -149,18 +149,28 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 │   ├── AntiFam
 │   ├── KOfam
 │   └── Pfam
+├── RefSeqGenBank
+│   └── genbank
 ├── RoseTTAFold
-│   ├── bfd
-│   ├── pdb100_2021Mar03
 │   ├── Software
 │   ├── UniRef30_2020_06
+│   ├── bfd
+│   ├── pdb100_2021Mar03
 │   └── weights
-└── SingleM
-    ├── 3.2.1
-    ├── 4.3.0
-    └── 5.4.0
+├── SingleM
+│   ├── 3.2.1
+│   ├── 4.3.0
+│   └── 5.4.0
+├── UniProt
+│   └── UniRef
+└── kneadData
+    ├── Homo_sapiens_hg37_and_human_contamination_Bowtie2_v0.1
+    ├── Homo_sapiens_hg38_transcriptome_Bowtie2_v0.1
+    ├── Homo_sapiens_hg39_T2T_Bowtie2_v0.1
+    ├── SILVA_128_LSUParc_SSUParc_ribosomal_RNA_v0.2
+    └── mouse_C57BL_6NJ_Bowtie2_v0.1
 
-107 directories
+117 directories
 ```
 ### Machine Learning
 
