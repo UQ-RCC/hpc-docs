@@ -17,12 +17,20 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 
 ```
 /scratch/licenseddata/
-└── imagenet
-    ├── imagenet-10k
-    ├── imagenet-1k
-    └── imagenet-21k
+├── ADNI
+│   ├── derivatives
+│   └── metadata
+├── imagenet
+│   ├── imagenet-10k
+│   ├── imagenet-1k
+│   └── imagenet-21k
+├── tvsd
+│   └── TVSD
+└── waymo
+    └── waymo
 
-4 directories
+11 directories
+
 ```
 
 ## Open Data Sets
