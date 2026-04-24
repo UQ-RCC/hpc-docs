@@ -30,22 +30,37 @@ To gain access to these licensed data sets, please submit an email to rcc-suppor
 ### Protein Folding
 
 ```
-/scratch/opendata/protein/
+/scratch/opendata/protein
 ├── AlphaFold
 │   ├── databases
 │   ├── databases_3
 │   └── model_3
+├── ColabFold
+│   ├── database
+│   └── database_gpu
+├── LocalColabFold
+│   └── params
+├── OpenFold
+│   ├── openfold3
+│   ├── openfold_params
+│   └── openfold_soloseq_params
+├── bagel
+│   ├── models--facebook--esm2_t33_650M_UR50D
+│   └── models--facebook--esmfold_v1
+├── boltzgen
+│   ├── datasets--boltzgen--inference-data
+│   ├── hub
+│   ├── models--boltzgen--boltzgen-1
+│   └── xet
 ├── chai-lab
 │   ├── esm
 │   └── models_v2
-├── ColabFold
-│   └── database
-├── LocalColabFold
-│   └── params
-└── mmseqs
-    └── NR
+├── mmseqs
+│   └── NR
+└── proteina-complexa
+    └── community_models
 
-13 directories
+28 directories
 ```
 
 ### Genomics
