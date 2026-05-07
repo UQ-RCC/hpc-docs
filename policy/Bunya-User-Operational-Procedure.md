@@ -10,7 +10,7 @@ In below clauses:
 
 **“RCC”** refers to the University of Queensland Research Computing Centre.  
 
-**“QCIF”** refers to Queensland Cyber Infrastructure Foundation.  
+**“Approved Customer”** refers to UQ Approved Customer or any other organisation as approved in writing by UQ.  
 
 **“Bunya”** refers to University of Queensland High Performance Computing Cluster Bunya. 
 
@@ -19,11 +19,11 @@ In below clauses:
 <br>
 
 
-1) A Bunya user must have UQ credentials or credentials of a QCIF member institution. Other credentials are not permitted. 
+1) A Bunya user must have UQ credentials or credentials of an Approved Customer. Other credentials are not permitted. 
 
-2) A user must use their UQ or QCIF member institution credentials to apply for access to Bunya through the Bunya application process. Requests for access to Bunya will not be considered if made outside of the Bunya application process.  
+2) A user must use their UQ or Approved Customer credentials to apply for access to Bunya through the Bunya application process. Requests for access to Bunya will not be considered if made outside of the Bunya application process.  
 
-3) UQ or QCIF member institution credentials do not guarantee access to Bunya. 
+3) UQ or Approved Customer credentials do not guarantee access to Bunya. 
 
 4) Applying for Bunya access does not guarantee that access will be granted. 
 
