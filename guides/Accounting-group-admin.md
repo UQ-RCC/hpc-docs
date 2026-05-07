@@ -10,9 +10,9 @@ Every Bunya user is required to be in a Bunya accounting group and every Bunya u
 
 Bunya users are usually added to accounting groups by their supervisor, group leader or group's administrator. 
 
-Accounting group owners/administrators endorse a Bunya user when they add the Bunya user to the accounting group. The accounting group owner/administrators confirm that they know the Bunya user and that the Bunya user has legitimate UQ and/or QCIF research that requires the access to Bunya resources. 
+Accounting group owners/administrators endorse a Bunya user when they add the Bunya user to the accounting group. The accounting group owner/administrators confirm that they know the Bunya user and that the Bunya user has legitimate UQ non-commercial research that requires the access to Bunya resources. 
 
-Accounting group owners take on the responsibility that their group, and each member who is a Bunya user consumes Bunya resources for UQ and/or QCIF research only.  
+Accounting group owners take on the responsibility that their group, and each member who is a Bunya user consumes Bunya resources for legitimate non-commercial research only.  
 
 Accounting group owners/administrators take on the responsibility to remove any Bunya user member of their accounting who should no longer consume Bunya resources under their accounting group. 
 
