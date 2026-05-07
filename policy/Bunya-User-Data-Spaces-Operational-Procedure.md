@@ -9,7 +9,7 @@ In below clauses:
 
 **“RCC”** refers to the University of Queensland Research Computing Centre.   
 
-**“QCIF”** refers to Queensland Cyber Infrastructure Foundation.   
+**“Approved Customer”** refers to UQ Approved Customer or any other organisation as approved in writing by UQ.   
 
 **“Bunya”** refers to University of Queensland High Performance Computing Cluster Bunya. 
 
