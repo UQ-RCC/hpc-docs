@@ -618,8 +618,8 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 |||||||||
 | gpu_rocm | bun[001-002] | 2 | 500000 | 192 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
+| gpu_rocm | bun144 | 1 | 2000000 | 192 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun145 | 1 | 2000000 | 128 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
-| gpu_rocm | bun146 | 1 | 2000000 | 192 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 
 ## Maximum CPU resources per GPU
 
@@ -644,9 +644,8 @@ This table shows what are appropriate maximum CPU resource requests per GPU, dep
 |||||||||
 | gpu_rocm | bun[001-002] | 2 | 250000 | 96 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun070 | 1 | 190000 | 32 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
+| gpu_rocm | bun144 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun145 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
-| gpu_rocm | bun146 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
-
 
 <br>
 
