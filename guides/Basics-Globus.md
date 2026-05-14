@@ -47,8 +47,9 @@ An individual can have multiple institutional credentials but they will have to 
 
 ### Globus Connect Personal Software
 
-Globus provides a desktop tool that enables your personal computer to pretend to be a Globus endpoint.
-There is a link to the "Get Globus Connect Personal" on the Collections part of the Globus web interface.
+Globus provides a desktop tool that enables your personal computer to pretend to be a Globus endpoint.<br>
+There is a link to the "Get Globus Connect Personal" on the Collections part of the Globus web interface.<br>
+You can also download the software for your operating system from https://www.globus.org/globus-connect-personal
 
 You might find the Personal Connect software useful if you are sending or receiving data from your workstation. </br>
 You will find it necessary to use the Globus Connect Personal application to _transfer_ big files (>1GB) to the destination.
