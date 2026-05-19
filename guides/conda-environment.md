@@ -64,6 +64,8 @@ miniconda3/4.12.0
 miniconda3/23.9.0-0
 miniforge/24.3.0-0
 miniforge/24.11.3-0
+miniforge/25.3.0-3
+miniforge/26.1.0-0
 ```
 
 Please load the relevant module by using the full name and version.
