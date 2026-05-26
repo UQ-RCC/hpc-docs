@@ -75,20 +75,30 @@ Launch Bunya shell access in a new browser tab. Users will need to log in with a
 
 This is similar to a standard ssh session on one of Bunya's login nodes. Do not run calculations in this session as this is on one of the login nodes. To run calculations or install software users are required to submit a batch or interactive job.
 
-### Interactive Apps
+### Failure to launch Interactive Apps
 
+#### Problems with onBunya desktops launching may be a "you problem"
+
+>[!NOTE]
+>
+>If you get a `Could not connect to the session bus: Failed to connect ...` error, then you probably have initialised a conda environment.</br>
+>If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand.</br>
+>To use the virtual desktop in Open OnDemand, you need to have "clean" `.bashrc` file. </br>
+>The easiest way to clean it is to run </br>
+`conda init --reverse` </br>
+></br></br>
+>If you get errors like `[websockify]: failed to launch!`, then you have probably automatically loaded a base conda that includes a dbus package. </br>
+>Diagnose with `conda list | grep dbus` </br>
+>Please stop loading conda environments automatically in your .bashrc </br>
+></br>
+>Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment. </br>
+
+
+### Interactive Apps
 
 ![Interactive Apps](../media/Interactive-Apps.png)
 
-
 Access to *Jupyter* notebook and Lab session (CPU and/or GPU) *GPU-Accelerated Desktop* (A16, L40 and L40s NVIDIA GPU only), *Desktop* preset resource flavours (CPU and/or GPU) and *Expert Desktop* (CPU and/or GPU, allows custom request of resources). 
-
-#### Important: If you get a "Could not connect to the session bus: Failed to connect ..." error
-
-If you have the conda initialisation in your `.bashrc` file then you cannot use Open OnDemand. To use the virtual desktop in Open OnDemand, you need to have "clean" `.bashrc` file. The easiest way to clean it is to run <br>
-`conda init --reverse` <br>
-
-Please read the [Conda on Bunya Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md) to set up your conda environment.
 
 * **Jupyter** will launch a Jupyter notebook or Lab on a compute node. User will need to request appropriate resources.
 * **GPU-Accelerated Desktop** will launch an accelerated interactive desktop session on an A16, L40 or L40s NVIDIA compute node.
