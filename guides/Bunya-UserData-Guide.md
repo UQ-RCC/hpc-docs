@@ -7,14 +7,18 @@ Bunya has several spaces users have access to to keep their data and software.
 **Individual, not sharable, spaces**<br>
 [home directory](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#homeusername)<br>
 [scratch user directory](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchuserusername)<br>
+
 **Space during jobs**<br>
 [TMPDIR](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#tmpdir)<br>
+
 **Spaces to host data and software**<br>
 [opendata](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchopendata)<br>
 [licenseddata](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchlicenseddata)<br>
 [sw](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#sw)<br>
+
 **Group spaces**<br>
 [Group projects](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#scratchproject)<br>
+
 **Storage**<br>
 [UQRDM Q storage records](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata)<br>
 
