@@ -173,7 +173,7 @@ Groups that need to share a range of software and/or share custom build software
 
 Only software is permitted to be installed in `/sw` and any data and/or additional files are required to be housed in `/scratch/opendata` and/or `/scratch/licenseddata`.
 
-Software installed in `/sw/` must not point to any location in `/QRISData`.
+Software installed in `/sw/` must not point to any location in `/QRISdata`.
 
 
 ### `/QRISdata`
@@ -195,7 +195,7 @@ The following are important _behaviours_ to observe when interacting with the /Q
 * The /QRISdata storage is designed as archival space (see *How /QRISdata works* section, below). <br>Write once, read rarely. Bigger files are better than lots of small files.
 * You should not do multiple reads from a directory in `/QRISdata`. <br>A once-only read of a few input files on /QRISdata at the start of your computations is OK. You should be using `/scratch` for inputs to calculations when they are repeatedly being accessed.
 * You should not do perform multiple writes into a directory in `/QRISdata`.
-* Standard output should not be written to `/QRISdata`. Use /scratch instead.
+* Standard output should not be written to `/QRISdata`. Use `/scratch` instead.
 * A once-off write at the end of your job or interactive session is permitted. However, the general data workflow should be using `/scratch` for intensive input _and_ output of calculations.
 * Software should not be installed in `/QRISdata`. This is because accessing software is often repeatedly accessing `/QRISdata` which is not permitted.
 * Do not unpack archives or tar files directly in `/QRISdata`. Unpack archives into a directory in `/scratch`
