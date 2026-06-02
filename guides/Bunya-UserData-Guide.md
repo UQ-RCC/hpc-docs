@@ -213,7 +213,7 @@ The storage technology behind `/QRISdata` consists of multiple layers of storage
 |:----|:------|:------------|
 |GPFS Cache|Used for intersite transfers and is mounted onto Bunya HPC|Immediate once mounted onto Bunya|
 |Zero Watt Storage (ZWS)|Disk drives that operate like tapes. Only powered on when required.|<1 minute to activate a read from off|
-|Robotic Tape Silo|Deep archive copies|Can take several minutes to commence reading|
+|Robotic Tape Silo|Deep archive copies|Will take several minutes to commence reading your data, if there is no backlog of tape recall requests.</br>Sometimes several hours may elapse before tape is loaded due to a high volume of recall requests.|
 
 The hierarchical storage management (HSM) software will move files downwards when they are not in active use in the top layer.
 If a file is required, but is not in the top layer, then it will be recalled from ZWS, or tape and copied into place on the GPFS Cache layer.
@@ -276,7 +276,9 @@ Use the `recall_medici` command. That command should be in your standard PATH, b
 ```
 /usr/local/bin/recall_medici FILEPATH
 ```
-Replace FILEPATH with the name of the file(s) you wish to retrieve. Wildcards are also supported so you can retrieve the files in a folder.
+Replace FILEPATH with the name of the file(s) you wish to retrieve. </br>
+Wildcards `*` are also supported so you can retrieve the files in a folder.
+The recall_medici utility will create a thread pool and retrieve multiple files concurrently.
 
 The `recall_medici` command is also available on data.qriscloud.org.au if you don't have access to Bunya.
 
