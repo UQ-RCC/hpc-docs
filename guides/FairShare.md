@@ -40,3 +40,30 @@ will print out the information below. The last value is the fair share. The valu
 Account                    User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare 
 -------------------- ---------- ---------- ----------- ----------- ------------- ----------
 ```
+
+### AssocGrpBillingMinutes
+
+Bunya employs [per user limits](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#qos-use-and-limits) on total number of CPU cores, CPU ram, and total number of GPUs that can be in use at any one time. Bunya also employs a limit on total fair share usage. The current maximum per user is 15 million BillingMinutes.
+
+User can obtain their BillingMinutes by using the command 
+
+`sshare -a | grep YourUsername`<br>
+
+The number given under RawUsage is BillingSeconds and BillingMinutes can be obtained by deviding RawUsage by 60.
+
+Example
+```
+sshare -a | grep user1
+ a_group1           user1          1    0.000472   720200160      0.014297   0.000392
+
+720200160 / 60 = 12003336
+```
+user1 has over 12 million BillingMinutes in fair share usage. 
+
+Once a user reaches 15 million BillingMinutes their jobs will no longer start and will show AssocGrpBillingMinutes as the reason. The user's RawUsage needs to drop below 15 million BillingMinutes, with enough margin to accommodate the user's next job, for the next job to start.
+
+The RawUsage has a half-life of 28 days. This means the RawUsage decays (reduces) by 50% every 28 days, by 16% per 7 days, and by 2.4% per day.
+
+Taking the half-life of the RawUsage into account, 15 million BillingMinutes are equivalent to a user running a job over 2 full Bunya CPU nodes or 2 H100 GPUs, 24/7 for 1 year. This amount of usage is similar to a small project grant on one of Australias Tier 1 HPC facilites.
+
+
