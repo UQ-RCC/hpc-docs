@@ -64,6 +64,6 @@ Once a user reaches 15 million BillingMinutes their jobs will no longer start an
 
 The RawUsage has a half-life of 28 days. This means the RawUsage decays (reduces) by 50% every 28 days, by 16% per 7 days, and by 2.4% per day.
 
-Taking the half-life of the RawUsage into account, 15 million BillingMinutes are equivalent to a user running a job over 2 full Bunya CPU nodes or 2 H100 GPUs, 24/7 for 1 year. This amount of usage is similar to a small project grant on one of Australias Tier 1 HPC facilites.
+Taking the half-life of the RawUsage into account, 15 million BillingMinutes are equivalent to a user running a job over 2 full Bunya CPU nodes or 2 H100 GPUs, 24/7 for 1 year. This amount of usage is similar to a small project grant on one of Australia's Tier 1 HPC facilites.
 
 
