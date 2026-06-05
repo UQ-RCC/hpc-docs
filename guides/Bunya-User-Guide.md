@@ -568,7 +568,8 @@ QoS are used to control access to resources and apply sustainable limits.<br>
 * viz for onBunya jobs only
 * onBunya Accelerated Desktops with 2 or 3 GPUs will be submitted with the gpu QoS.
 * gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.
-T* he max of H100 GPUs is 4 across all QoS and paritions
+* The max of H100 GPUs is 4 across all QoS and paritions
+* FairShare usage limit is 15 million BillingMinutes per user, see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/FairShare.md#assocgrpbillingminutes)
 
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
