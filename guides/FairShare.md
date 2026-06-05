@@ -48,7 +48,7 @@ Bunya employs [per user limits](https://github.com/UQ-RCC/hpc-docs/blob/main/gui
 For example, if a user has 4 GPUs in use, any further job will queue until the usage of the user drops below the limit of 4 GPUs. If the usage drops to 3 GPUs and the queued job needs 2 GPUs then this job will still stay queued as the usage needs to drop below of what the queued job requires to run. Once the usage is 2 GPUs the queued job can start as the current usage and new job now fit into the limit of 4 GPUs.
 
 
-### AssocGrpBillingMinutes
+#### AssocGrpBillingMinutes
 
 Most of the limits mkae it easy for users to see if their jobs have reached the limit or not. The limit on BillingMinutes is a bit different as it relates to the user's fair share usage which changes with time and the user's jobs finishing.<br>
 
