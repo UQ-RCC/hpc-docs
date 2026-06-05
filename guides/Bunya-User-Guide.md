@@ -570,6 +570,8 @@ QoS are used to control access to resources and apply sustainable limits.<br>
 * gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.
 * The max of H100 GPUs is 4 across all QoS and paritions
 * FairShare usage limit is 15 million BillingMinutes per user, see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/FairShare.md#assocgrpbillingminutes)
+* The task limit on array jobs is 1000.
+
 
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
