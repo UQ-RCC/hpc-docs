@@ -41,9 +41,16 @@ Account                    User  RawShares  NormShares    RawUsage  EffectvUsage
 -------------------- ---------- ---------- ----------- ----------- ------------- ----------
 ```
 
+### User Limits
+
+Bunya employs [per user limits](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#qos-use-and-limits) on total amount of resources that can be in use at any one time. When these limits are reached they will show a reason that is a `QOSMax*PerUserLimit`, or `JobArrayTaskLimit`, or `AssocGrpBillingMinutes` depending on the limit that has been reached.
+
+For example, if a user has 4 GPUs in use, any further job will queue until the usage of the user drops below the limit of 4 GPUs. If the usage drops to 3 GPUs and the queued job needs 2 GPUs then this job will still stay queued as the usage needs to drop below of what the queued job requires to run. Once the usage is 2 GPUs the queued job can start as the current usage and new job now fit into the limit of 4 GPUs.
+
+
 ### AssocGrpBillingMinutes
 
-Bunya employs [per user limits](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#qos-use-and-limits) on total number of CPU cores, CPU ram, and total number of GPUs that can be in use at any one time. Bunya also employs a limit on total fair share usage. The current maximum per user is 15 million BillingMinutes.
+Most of the limits mkae it easy for users to see if their jobs have reached the limit or not. The limit on BillingMinutes is a bit different as it relates to the user's fair share usage which changes with time and the user's jobs finishing.<br>
 
 User can obtain their BillingMinutes by using the command 
 
@@ -53,17 +60,21 @@ The number given under RawUsage is BillingSeconds and BillingMinutes can be obta
 
 Example
 ```
+
 sshare -a | grep user1
  a_group1           user1          1    0.000472   720200160      0.014297   0.000392
 
+
 720200160 / 60 = 12003336
 ```
+
 user1 has over 12 million BillingMinutes in fair share usage. 
 
-Once a user reaches 15 million BillingMinutes their jobs will no longer start and will show AssocGrpBillingMinutes as the reason. The user's RawUsage needs to drop below 15 million BillingMinutes, with enough margin to accommodate the user's next job, for the next job to start.
+Once a user reaches 15 million BillingMinutes their jobs will no longer start and will show `AssocGrpBillingMinutes` as the reason. The user's `RawUsage` needs to drop below 15 million BillingMinutes, with enough margin to accommodate the user's next job, for the next job to start.
 
 The RawUsage has a half-life of 28 days. This means the RawUsage decays (reduces) by 50% every 28 days, by 16% per 7 days, and by 2.4% per day.
 
 Taking the half-life of the RawUsage into account, 15 million BillingMinutes are equivalent to a user running a job over 2 full Bunya CPU nodes or 2 H100 GPUs, 24/7 for 1 year. This amount of usage is similar to a small project grant on one of Australia's Tier 1 HPC facilites.
+
 
 
