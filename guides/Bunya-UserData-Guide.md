@@ -220,6 +220,8 @@ If a file is required, but is not in the top layer, then it will be recalled fro
 
 #### How much data, and how many files, do I have?
 
+_On a compute node via an onBunya session or interactive batch job_
+
 ```
 #Total size of the data in your RDM collection
 du -sh --apparent-size  /QRISdata/QNNNN
@@ -231,6 +233,11 @@ du -sh  /QRISdata/QNNNN
 df -i /QRISdata/QNNNN
 ```
 
+* If you need help to figure out where to look, draw the directory tree, to two levels initially. </br>
+`tree -d -L 2 /QRISdata/QNNNN` </br>
+You can drill down deeper if necessary (increase -L value, and/or, start looking deeper within the collection.) 
+
+  
 * If you need to ascertain where the data is you can use these variants of the du command
 ```
 #You can explore subdirectories by adding to the path for the du command.
@@ -278,7 +285,7 @@ Use the `recall_medici` command. That command should be in your standard PATH, b
 ```
 Replace FILEPATH with the name of the file(s) you wish to retrieve. </br>
 Wildcards `*` are also supported so you can retrieve the files in a folder.
-The recall_medici utility will create a thread pool and retrieve multiple files concurrently.
+The recall_medici utility will create a "thread pool" and retrieve multiple files concurrently.
 
 The `recall_medici` command is also available on data.qriscloud.org.au if you don't have access to Bunya.
 
