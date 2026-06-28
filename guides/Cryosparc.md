@@ -40,6 +40,30 @@ If you have detached a project, either for storage or to share with another user
 ### My login doesn't work anymore
 This is often a sign of deeper database corruption, but you can restore the user account you had by running this command, using the account you created when you installed CryoSPARC. The details are saved in your home directory in the file `cryosparc-default-user.txt`
 
-cryosparcm user create --email "email-address" --firstname "first-name" --lastname "last-name" --username "username" --password "password" --role "admin"
+`cryosparcm user create --email "email-address" --firstname "first-name" --lastname "last-name" --username "username" --password "password" --role "admin"`
 
-And check your database using the `cryosparcm database check` command as described above. You may have to delete your entire database and re-create it, then re-attach your projects. To do so, you can make a backup of your ~/cryosparc/cryosparc_database directory by copying it e.g. to your scratch directory. Then delete that directory and all its contents, then restart CryoSPARC. You will have to create a user account as described above, then re-attach your projects (you may need to delete cs.lock files as described above).
+And check your database using the `cryosparcm database check` command as described above. You may have to delete your entire database and re-create it, then re-attach your projects. To do so, you can make a backup of your `~/cryosparc/cryosparc_database` directory by copying it e.g. to your scratch directory. Then delete that directory and all its contents, then restart CryoSPARC. You will have to create a user account as described above, then re-attach your projects (you may need to delete cs.lock files as described above).
+
+### It still doesn't run and I think my database is corrupted
+You can verify this by checking your Cryosparc database log (`~/cryosparc/cryosparc_master/run/database.log`). It may have errors such as missing metadata for a table that might not exist anymore. It's possible that the database files became corrupted either from being unable to write files due to quota, or from being interrupted during writing by something like a job running out of time and being killed by the scheduling system. If you need to clear space, the first thing to check is for the presence of `cryosparc_master.tar.gz` and `cryosparc_worker.tar.gz` files in your `~/cryosparc` directory. These files are not needed and take up about 4GB.
+
+Unfortunately, it is very hard to recover data from corrupted Cryosparc databases, and even if you can it is unlikely that Cryosparc will be able to use the data. You may have to rebuild the database from scratch and recover the projects manually. These are the steps to do so:
+
+1. (Optional): back up the database you have. You might not be able to make use of the data but if the problem turns out to be something else and you have many large projects, it can be quicker to restore the database than rebuild it and reattach the projects. You can copy or tar the contents of `~/cryosparc/cryosparc_database` onto one of your collections. The tar command would look like:
+
+`cd ~/cryosparc
+tar -zcf /QRISdata/Qnnnn/cs-db-backup.tar.gz cryosparc_database`
+
+2. Delete the cryosparc database. The command is:
+
+`rm -rf ~/cryosparc/cryosparc_database`
+
+3. Start Cryosparc. It will rebuild a blank database. You will not yet be able to log in but it should start and open Firefox. Leave it running so that the following commands can work.
+
+4. Open a different terminal window to the Cryosparc console and create your user account again. The commands are
+
+`cryosparcm user create --email "email-address" --firstname "first-name" --lastname "last-name" --username "username" --password "password" --role "admin"`
+
+You can find the values to substitute into the quotes from the file `~/cryosparc-default-user.txt`, or just make up new ones.
+
+5. From this point, you should be able to log in to Cryosparc using the email and password you entered. To reattach your projects, there is an "Attach project" function in the project view. First, you are going to have to go to the directories where your projects are in the file browser and delete the `cs.lock` files in each project's directory. It may take several minutes to read in all the files from all the Jobs, depending on how large the projects are.
