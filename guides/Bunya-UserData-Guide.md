@@ -289,6 +289,21 @@ The recall_medici utility will create a "thread pool" and retrieve multiple file
 
 The `recall_medici` command is also available on data.qriscloud.org.au if you don't have access to Bunya.
 
+#### What if I have to recall an entire branch of an RDM directory tree?
+
+_On a compute node via an onBunya Desktop session or interactive batch job_ 
+
+Currently, the recall_medici utility does not reliably support recursion down into sub-directories.</br> 
+What you can do is create a list and process it in parallel.</br>
+*Note: The number of tape drives is limited so please don't go too crazy with running concurrent recalls*
+
+I suggest this approach:</br>
+- launch a mini or small CPU-only onBunya desktop with days of walltime (you might need to use Expert to get a long enough walltime)
+- use the `find` command to create a list of recall_medici commands (one per directory below the top level folder)
+- use the `parallel` run each command in the list parallel (choose a small number of parallel threads (<4) that is compatible with your CPU resources in your desktop job _and_ consistent with the number of available tape drives)
+- ignore it for 12 hours
+- use the diagnostics described above to check on progress run `du -sh .` for how much has been recalled and `du -sh --apparent-size` for how much there is on tape in total.
+
 #### Why does it sometimes take longer to connect to my RDM from Bunya?
 
 At a time between 20 past and 40 past the hour at the hours of  08, 12, 16, and 22,
@@ -298,7 +313,8 @@ access to the RDMs from Bunya can be delayed. It happens while the service acces
 #### Why does my collection not show up in the /QRISdata folder all the time?
 
 As stated in the first section of the /QRISdata section of this guide, you won't see your folder unless it has been mounted onto /QRISdata.
-* Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to see the RDM storage record.</br>Due to the automount the RDM storage record needs to be used to be seen.
+* Use `ls /QRISdata/QNNNN/` (the `/` at the end is important) or `cd /QRISdata/QNNNN` to see the RDM storage record.</br>Due to the automount the RDM storage record needs to be used to be seen.</br>
+The command `df -i /QRISdata/QNNNN` will also force the mounting of your RDM Q storage allocation.
 
 
 #### How can I access my /QRISdata collection in other ways?
