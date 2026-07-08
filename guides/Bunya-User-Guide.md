@@ -70,7 +70,9 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 ## Applying for Access
 
-Access to Bunya HPC is not automatic. You need to apply by emailing rcc-support@uq.edu.au or using [this form](https://forms.office.com/r/87rfgvxDnz)
+Access to Bunya HPC is not automatic.</br>
+Please refer to this link regarding [eligibility](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/BunyaResourceDistribution.md#who-has-access-to-bunya).</br> 
+You need to apply by emailing rcc-support@uq.edu.au or using [this form](https://forms.office.com/r/87rfgvxDnz).
 
 >[!NOTE]
 >Applications under staff account preferred. Those applying under a student account will be asked to provide an end date for their access.
