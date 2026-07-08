@@ -185,6 +185,7 @@ Software installed in `/sw/` must not point to any location in `/QRISdata`.
 The [UQ RDM User Guides](https://guides.library.uq.edu.au/for-researchers/uq-research-data-manager) provide a lot of information about RDM research records and RDM storage records and how to use and administer these.
 
 UQ RDM storage records, where users selected that the data should be available on HPC when they have applied for the RDM storage record (it cannot be changed afterwards), are automatically available on Bunya in `/QRISdata/QNNNN`, where `QNNNN` is the storage record number and can be found as part of the short identifier for the RDM storage record.
+For historical reasons, UQ RDM storage records may also be referred to in this document as "RDM Q collections" or "RDM Q storage allocations".
 
 
 * `/QRISdata/QNNNN` are shared spaces with default quotas of *1TB and 1 million files*. This can be increased by applying for more storage via the [RDM portal](https://rdm.uq.edu.au/).
@@ -304,9 +305,10 @@ What you can do is create a list and process it in parallel.</br>
 I suggest this approach:</br>
 - launch a mini or small CPU-only onBunya desktop with days of walltime (you might need to use Expert to get a long enough walltime)
 - use the `find` command to create a list of recall_medici commands (one per directory below the top level folder)
-- use the `parallel` run each command in the list parallel (choose a small number of parallel threads (<4) that is compatible with your CPU resources in your desktop job _and_ consistent with the number of available tape drives)
+- use the `parallel` run each command in the list parallel (choose a small number of parallel threads (<=4) that is compatible with your CPU resources in your desktop job _and_ consistent with the number of available tape drives)
 - ignore it for 12 hours
-- use the diagnostics described above to check on progress run `du -sh .` for how much has been recalled and `du -sh --apparent-size` for how much there is on tape in total.
+- use the diagnostics described above to check on progress.
+- run `du -sh .` for how much has been recalled and `du -sh --apparent-size` for how much there is on tape in total.
 
 #### Why does it sometimes take longer to connect to my RDM from Bunya?
 
