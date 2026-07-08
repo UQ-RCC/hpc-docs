@@ -58,6 +58,8 @@ Users can use the command
 ```
 to check on their quotas and grace period in `/scratch/user`. 
 
+## Space during jobs
+
 ### `$TMPDIR`
 
 * `$TMPDIR` is created automatically for each Slurm job and is then automatically deleted once the Slurm job finishes. It is the ideal place for temporary files of jobs.
