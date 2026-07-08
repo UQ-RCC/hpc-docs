@@ -10,7 +10,7 @@ research groups have made contributions to Bunya.
 >**No researchers or groups have exclusive or special access to Bunya resources, such as partitions, queues, or compute nodes.**
 
 ## Who has access to Bunya
-Researchers from UQ and QCIF member institutions can apply for access to Bunya.
+Researchers from UQ and from UQ Approved Customers can apply for access to Bunya.
 
 Access to Bunya will only be given for research. Any researcher from an eligible institution can apply for access to Bunya if they have a research 
 project that needs HPC resources. This includes access for master, honours, and project/thesis students with a research project and 
