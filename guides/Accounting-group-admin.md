@@ -26,7 +26,7 @@ Once a Bunya user has been added to an accounting group they should start a new 
 
 New Bunya users in accounting groups are added once an hour to Slurm on Bunya, so it might take about 1 hour before a Bunya user can successfully submit a job on Bunya after being added to an accounting group.
 
-Accounting group owner and administrators can find the AccounString on the accounting group page in qriscloud.org.au (see below for instructions).
+Accounting group owner and administrators can find the AccountString on the accounting group page in qriscloud.org.au (see below for instructions).
 
 ## Administration
 
