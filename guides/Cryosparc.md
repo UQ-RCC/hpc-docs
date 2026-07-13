@@ -23,6 +23,19 @@ CryoSPARC must be running while jobs in the cluster lanes are running. This can 
 
 If your desktop job runs out of time, it will be stopped and this can cause corruption to your CryoSPARC database. Please ensure you stop CryoSPARC manually by closing your Firefox window and letting the terminal program complete its shutdown tasks.
 
+## Archiving projects
+Because Bunya enforces disk space quotas and automatic file deletion from scratch directories, you are encouraged to archive projects when you are not using them. Cryosparc has functions for detaching and archiving projects, but these can fail and corrupt the data from some of your jobs if you run out of quota during the process. You can monitor the log files for errors during these operations, the logs are in `~/cryosparc/cryosparc_master/run`.
+
+Because of this, the best way to archive your projects is to use rsync to copy the project directory onto an RDM collection. The command to do so might looks like this:
+
+`rsync -avWP /scratch/user/$USER/cryosparc/projects/MyProject /QRISdata/Qnnnn/cryosparc_archive/`
+
+which will put all files in `MyProject` into `cryosparc_archive`. After you have copied the files (you can verify the copy by running the rsync command again), you can detach the project in Cryosparc and optionally delete the database entry for it, which will free up some space in your home directory. You can also use `tar` to bundle and compress the project into one file for archival, like this:
+
+`tar -zcvf /QRISdata/Qnnnn/cryosparc_archive/MyProject.tar.gz /scratch/user/$USER/cryosparc/projects/MyProject`
+
+If you want to reattach the project, you can copy it back into your scratch by the same method. If Cryosparc gives an error reattaching the project, you may need to delete the `cs.lock` file in the project's directory.
+
 ## Troubleshooting
 There are a variety of common errors you might see when running CryoSPARC. If you cannot fix the error yourself, open a ticket with RCC support for help. The first thing to check is that your home directory's file usage is below quota. Run the `rquota` command in a terminal, or select `Files -> GPFS Quota` in onBunya (the website, not in a desktop session) to check this, and if you are over quota you will have to move or delete files to return under quota.
 
