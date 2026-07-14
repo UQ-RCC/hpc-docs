@@ -16,11 +16,11 @@ This document's focus is the key concepts for using RDM Q as they relate to inte
 |St Lucia Gateway|Everybody|\\\\uq.edu.au\UQ-Research|R: Drive|Windows|
 |||\\\\shares01.rdm.uq.edu.au|RDM Share|Windows|
 |||smb://shares01.rdm.uq.edu.au|RDM Share|MacOS and Linux|
-|Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au|Q storage allocations only|
-||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au|Q storage allocations only|
-||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au|Q storage allocations only|
-||IMB|\\\\uq.edu.au\UQ-Inst-Gateway1||Q storage allocations only.</br>You may need to request that it be mounted.|
-|Institute Gateway #2|IMB|\\\\uq.edu.au\UQ-Inst-Gateway2|data.imb.uq.edu.au|Q storage allocations only.</br>The Institute Gateway #2 hardware is being decommissioned soon.</br>|
+|Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
+||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
+||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
+||IMB|\\\\uq.edu.au\UQ-Inst-Gateway1|data.imb.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
+|<del>Institute Gateway #2</del>||||The Institute Gateway #2 hardware has been decommissioned.</br>|
 
 Note:<br>
 <br> 
