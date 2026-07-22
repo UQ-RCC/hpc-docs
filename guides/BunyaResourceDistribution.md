@@ -19,6 +19,16 @@ research supervisor.
 Access will **not** be given for teaching, including undergraduate courses, or workshops. 
 Workshops might be permitted if they are research training and participants are existing Bunya users.
 
+## Access for Research Workshops
+
+- Research workshops using Bunya are requiring an application by the organisers at least 4 weeks before the workshop. Contact rcc-support@uq.edu.au to obtain the link to the application form.
+- There are strict limits on resources and workshop length.
+- Bunya access will **not** be given for workshop attendance only. Workshop participants are required to be existing Bunya users or new users with an eligible research projects and access need. 
+- All participants usernames are required to be known at least one week before the workshop.
+- It is the workshop organiser's and/or presenter's responsibility to test all required software, setups and resources before the workshops and ensure that they are working for the intended course contents. If the workshop date is after a maintenance, it is strongly suggested that all is tested after the latest maintenance.  
+- Workshop organisers understand that the requested resources may not be available on the day if there is an incident that requires the shutdown of nodes or Bunya as a whole. They confirm that the workflows and software to be used on the day have been tested prior to the workshop and no RCC personnel is required to be present to run the workshop. They confirm that any trouble shooting on the day will be dealt with by those running the workshop.
+
+
 ## Fair share
 
 >[!IMPORTANT]
