@@ -325,7 +325,7 @@ An alternative to using an interactive session on a CUDA node, would be to inter
 
 ### How to build your own software
 
-***IMPORTANT*** If you are building your own software, especially if you are compiling your own software, you need to be aware of the different architectures, `epyc3` and `epyc4`. Software built on an `epyc3` compute node will run on a `epyc4` compute node **BUT** software built on a `epyc4` compute node will not run on a `epyc3` compute node. If you want ease of use you need to make sure to compile on a `epyc3` compute node. If you want best performance you should compile for a specific architecture but then need to request that architecture for your jobs. 
+***IMPORTANT*** If you are building your own software, especially if you are compiling your own software, you need to be aware of the different architectures, `epyc3`, `epyc4`, and `epyc5`. Software built on an `epyc3` compute node will run on a `epyc4` or `epyc5` compute node **BUT** software built on a `epyc4` compute node will not run on a `epyc3` compute node and software built on a `epyc5` compute node will not run on a `epyc3` or `epyc4` compute node. If you want ease of use you need to make sure to compile on a `epyc3` compute node. If you want best performance you should compile for a specific architecture but then need to request that architecture for your jobs. 
 
 These AMD guides (in PDF) [EPYC3](https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/programmer-references/compiler-options-quick-ref-guide-epyc-7xx3-series-processors.pdf)  [EPYC4](https://www.amd.com/content/dam/amd/en/documents/developer/compiler-options-quick-ref-guide-amd-epyc-9xx4-series-processors.pdf) will be useful to understanding the options you may need to consider for optimising the performance of your code on Bunya. 
 
@@ -512,7 +512,7 @@ Use the `groups` command to list your groups- Bunya Account Strings will begin a
 
 #### What if I need a particular CPU type ?
 
-To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc` part.
+To target an `epyc3` compute node add `--constraint=epyc3` to the `salloc` part. To target an `epyc4` compute node add `--constraint=epyc4` to the `salloc` part. To target an `epyc5` compute node add `--constraint=epyc5` to the `salloc` part.
 
 #### What about using a GUI ?
 
@@ -612,6 +612,7 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | general | bun[006-008] | 3 | 4000000 | 192 | epyc3 | (null) | 1 |
 | general | bun[009-067] | 59 | 2000000 | 192 | epyc3 | (null) | 1 |
 | general| bun[083-115,126-143] | 51 | 1500000 | 192 | epyc4 | (null) | 1 |
+| general| bun[147-158] | 12 | 3000000 | 512 | epyc5 | (null) | 1 |
 |||||||||
 | gpu_cuda | bun003 | 1 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
 | gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:6, <br> gpu:nvidia_a100_80gb_pcie_2g.20gb:3, <br> gpu:nvidia_a100_80gb_pcie_3g.40gb:3| 6, <br> 12, <br> 24 |
@@ -628,6 +629,8 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun144 | 1 | 2000000 | 192 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun145 | 1 | 2000000 | 128 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+|||||||||
+| user_test | bun[159-161 | 3 | 2300000 | 192 | epyc5, <br> rocm | gpu:mi355x:8 | 100 |
 
 ## Maximum CPU resources per GPU
 
@@ -652,16 +655,18 @@ This table shows what are appropriate maximum CPU resource requests per GPU, dep
 |||||||||
 | gpu_rocm | bun[001-002] | 2 | 250000 | 96 | epyc3,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun070 | 1 | 190000 | 32 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
-| gpu_rocm | bun144 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+| gpu_rocm | bun144 | 1 | 250000 | 24 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun145 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+|||||||||
+| user_test | bun[159-161] | 3 | 287500 | 24 | epyc5, <br> rocm | gpu:mi355x:8 | 100 |
 
 <br>
 
 ## Slurm scripts
 
-Users should keep in mind that Bunya has 96 cores (192 threads) per node. 96 cores (`--ntask-per-node=96`)  192 threads (`--cpu-per-task=192`)  is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 96/192 cores/threads **do some testing first**. 
+Users should keep in mind that the majority of CPU nodes on Bunya have 96 cores (192 threads) per node. Only 12 nodes have 256 cores (512 threads). 256 cores (`--ntask-per-node=256`) 512 threads (`--cpu-per-task=512`) is therefore the maximum a multi thread job can request. Please note not all calculations scale well with cores, so before requesting all 256/512 cores/threads **do some testing first**. 
 
-The GPU nodes can have different nmbers of CPUs available. Users are reminded to check and request sensible CPU numbers with their GPU requests.
+The GPU nodes can have different numbers of CPUs available. Users are reminded to check and request sensible CPU numbers with their GPU requests.
 
 The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925978/How+to+Migrate+from+PBS+Pro+to+Slurm). The Pawsey Centre also provides a good general overview of [job scheduling with Slurm](https://support.pawsey.org.au/documentation/display/US/Job+Scheduling) and [examples workflows](https://support.pawsey.org.au/documentation/display/US/Example+Workflows) like array jobs.
 
@@ -679,13 +684,13 @@ Below are examples for single thread, single node but multiple threads, MPI, and
 The different request flags mean the following:
 <br>
 `#SBATCH --nodes=[number]` - how many nodes the job will use<br>
-`#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 96 (or less if single node) for MPI jobs.<br>
+`#SBATCH --ntasks-per-node=[number]` - This is 1 for single thread jobs and multi thread jobs. This is 256 (or less if single node) for MPI jobs.<br>
 `#SBATCH --ntasks=[number]` - total number of tasks of the job. Relevant to MPI jobs (it is usually 1 for non-MPI jobs) and should be set to the total number of tasks for the job (what you would use with the -np or -n option for mpirun). This should be used instead of requesting number of nodes and tasks per node to enable faster scheduling of MPI jobs.<br> 
 `#SBATCH --ntasks-per-core=[number]` - maximum  ntasks on each core. Use with `--ntasks=[number]` for MPI jobs and set to `--ntasks-per-core=1`.
 `#SBATCH --cpus-per-task=[number]` - This is 1 for single thread jobs, number of threads for multi thread jobs. `--cpus-per-task` can be undertstood as `OMP_NUM_THREADS`. Do not use for MPI jobs.<br>
 `#SBATCH --hint nomultithread` - This option may help in situations where your parallelisation (single node multicore or hybrid OpenMP+MPI) is confused by the numbers of cores/threads.<br>
 <br>
-`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB r 2TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 4TB (1500G or 2000G or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
+`#SBATCH --mem=[number M|G|T]` - RAM per job given in megabytes (M), gigabytes (G), or terabytes (T). The full memory of 1.5 TB or 2TB or 3TB or 4TB is not available to jobs, therefore jobs asking for 1.5TB or 2TB or 3TB or 4TB (1500G or 2000G or 3000GB or 4000G) will NOT run. Ask for `1500000M` to get the maximum on an `epyc4` standard node. Ask for `2000000M` to get the maximum memory on a `epyc3` standard node and ask for `3000000M` to get the maximum memory on a `epyc5` standard node. Ask for `4000000M` to get the maximum memory on a high memory node. See note below why.<br>
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs. This request is per cpu, so RAM per core (MPI task) will be double what is requested here.<br>
 <br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
@@ -698,8 +703,8 @@ The different request flags mean the following:
 <br>
 `#SBATCH --account=[Name]` - AccountString for your research or accounting group. All AccountStrings start with `a_`. Use the `groups` command to list your groups<br>
 <br>
-`#SBATCH --constraint=[epyc3 or epyc4]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.<br>
-`#SBATCH --batch=[epyc3 or epyc4]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.<br>
+`#SBATCH --constraint=[epyc3, epyc4, or epyc5]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.<br>
+`#SBATCH --batch=[epyc3, epyc4, or epyc5]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.<br>
 <br>
 `#SBATCH --partition=general/gpu_rocm/gpu_cuda/gpu_sxm`<br>
 <br>
@@ -785,6 +790,13 @@ For Mi300x change to<br>
 With `--qos=gpu` you can ask for up to 4<br>
 With `--qos=sdf` you can ask for all 8<br>
 
+For Mi355x change to<br>
+```
+#SBATCH --gres=gpu:mi355x:1
+#SBATCH --partition=user_test
+```
+With `--qos=gpu` you can ask for up to 4<br>
+With `--qos=sdf` you can ask for all 8<br>
 
 ### Simple script for CPUs and single node
 
@@ -814,11 +826,11 @@ To ask for more than 1 thread change the line
 To run over 12 threads for example.
 
 
-You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+You can target specific architectures like `epyc3` (phase 1), `epyc4` (phase 2-3), `epcy5 (phase 4) by adding
 
 ```
-#SBATCH --constraint=[epyc3 or epyc4]
-#SBATCH --batch=[epyc3 or epyc4]
+#SBATCH --constraint=[epyc3, epyc4, or epyc5]
+#SBATCH --batch=[epyc3, epyc4, or epyc5]
 ```
 
 
@@ -842,11 +854,11 @@ module-loads-go-here
 srun executable < input > output
 ```
 
-You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+You can target specific architectures like `epyc3` (phase 1), `epyc4` (phase 2-3), `epyc5` (phase 4) by adding
 
 ```
-#SBATCH --constraint=[epyc3 or epyc4]
-#SBATCH --batch=[epyc3 or epyc4]
+#SBATCH --constraint=[epyc3, epyc4, or epyc5]
+#SBATCH --batch=[epyc3, epyc4, or epyc5]
 ```
 
 ### Job Arrays
@@ -879,11 +891,11 @@ Useful variables for array jobs
 `$SLURM_ARRAY_TASK_ID` = Job array ID (index) number.
 
 
-You can target specific architectures like `epyc3` (phase 1) and `epyc4` (phase 2) by adding
+You can target specific architectures like `epyc3` (phase 1), `epyc4` (phase 2-3), `epyc5` (phase 4) by adding
 
 ```
-#SBATCH --constraint=[epyc3 or epyc4]
-#SBATCH --batch=[epyc3 or epyc4]
+#SBATCH --constraint=[epyc3, epyc4, or epyc5]
+#SBATCH --batch=[epyc3, epyc4, or epyc5]
 ``````
 
 ### How to manage your jobs and cluster activity in SLURM
