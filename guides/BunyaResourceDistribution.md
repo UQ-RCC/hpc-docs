@@ -12,9 +12,7 @@ research groups have made contributions to Bunya.
 ## Who has access to Bunya
 Researchers from UQ and from UQ Approved Customers can apply for access to Bunya.
 
-Access to Bunya will only be given for research. Any researcher from an eligible institution can apply for access to Bunya if they have a research 
-project that needs HPC resources. This includes access for master, honours, and project/thesis students with a research project and 
-research supervisor.
+Access to Bunya will only be given for research. **All research projects should contribute to publishable research.** Any researcher from an eligible institution can apply for access to Bunya if they have a research project that needs HPC resources. This includes access for master, honours, and project/thesis students who work on a research project and who have research supervisor.
 
 Access will **not** be given for teaching, including undergraduate courses, or workshops. 
 Workshops might be permitted if they are research training and participants are existing Bunya users.
