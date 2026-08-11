@@ -150,16 +150,14 @@ For those using command line ssh:<br>
 
 #### Bunya enforces MFA (multi-factor authentication)
 
-For UQ users, this will use their DUO MFA that is used for all other access to UQ resources.
+For UQ users, this will use their UQ Okta MFA that is used for all other access to UQ resources.
 
 QCIF users are required to go here [https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential) and set up an **Authenticator App**.
 
-Users will first be asked for their password (or key). After users have entered this, they will see one or more options given. Choose the option you wish to use and type the respective number on the command line. If you have only set up one MFA option for your account, it will use this option automatically.
+Users will first be asked for their password (or key). After users have entered this, you will be asked to use MFA.
 
-For UQ users, you will be asked to enter the DUO passcode (6 numbers with no spaces).</br>
-Do not attempt to use the new Okta MFA with Bunya HPC until we advise you to do so (via direct email). Even if you use Okta for other UQ services, you must maintain your Duo tool for now.</br>
-It can happen, under usual circumstances, that your Duo MFA access fails outright. You will just need to *wait one hour* before trying again.</br>
-If the problem persists you should contact the ITS help desk about [MFA issues](https://my.uq.edu.au/information-and-services/information-technology/uq-accounts-and-passwords/multi-factor-authentication-mfa).   
+For UQ users, you will receive an Okta push to your UQ Okta registered device with the number shown on the command line. Press enter once you have answered the push on your device.<br>
+For any problems with Okta you should contact the ITS help desk about [MFA issues](https://my.uq.edu.au/information-and-services/information-technology/uq-accounts-and-passwords/multi-factor-authentication-mfa).   
 
 For QCIF users, you will be asked to enter the one-time-authentication code (6 numbers with no spaces).
 
@@ -311,7 +309,7 @@ You can make sure it is always set by modifying your `$HOME/.bashrc` file.
 
 **Please note:**
 - The modules in `/sw/auto/rocky9a/epyc3/modules/all` will also be available on the `epyc4` compute nodes and names etc are identical. So there is nothing different do for modules in this list. Modules in `/sw/local/rocky8/epyc3/rcc/modules`, `/sw/local/rocky8/noarch/rcc/modules`, `/sw/local/rocky9/noarch/rcc/modules`, and `/sw/local/rocky8/noarch/qcif/modules` are also available on all `epyc4` compute nodes.
-- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which modules are avialable for the specific GPU architectures. For example, CUDA modules will not be availalbe on CPU nodes, but will be available on the CUDA GPU nodes.<br>
+- The GPU nodes will have different modules available and users are advised to log onto a GPU node via an interactive session to see which modules are available for the specific GPU architectures. For example, CUDA modules will not be available on CPU nodes, but will be available on the CUDA GPU nodes.<br>
 The command that will load the default version of the cuda drivers etc. on a GPU node will be <br>
 `module load cuda`<br>
 An alternative to using an interactive session on a CUDA node, would be to interrogate the `/sw` filesystem for the versions of cuda that are available.<br>
@@ -498,13 +496,13 @@ However, some people sometimes don't see that (notably when they use conda envir
 
 You can use the command<br>
 `hostname`<br>
-to check that you are on a compute node. If the command output includes `bunya1` or `bunya2` then you are still on a login node. <br> **Do not start your calculation, compile or environment install on a login node.* Make sure you are on a compute node. 
+to check that you are on a compute node. If the command output includes `bunya1`, `bunya2`, 'bunya3', 'bunya4', or 'bunya5' then you are still on a login node. <br> **Do not start your calculation, compile or environment install on a login node.* Make sure you are on a compute node. 
 
 When an interactive job reaches the walltime, the job will terminate and your login session will return to the login node. Again, check your login prompt or use the `hostname` command to confirm you are on a compute node before doing work.
 
 #### Which Partition and QoS ?
 
-Please use `--partition=general` unless you need access to GPUs. The `general` partition has `epyc3` and `epyc4` architecture CPUs. The `--qos=debug` has a higher priority but has a walltime limit of 1 hour and limits number of jobs per user. Use `--qos=normal` to submit standard jobs. The `normal` QoS does not allow GPUs. 
+Please use `--partition=general` unless you need access to GPUs. The `general` partition has `epyc3`, `epyc4`, and 'epyc5' architecture CPUs. The `--qos=debug` has a higher priority but has a walltime limit of 1 hour and limits number of jobs per user. Use `--qos=normal` to submit standard jobs. The `normal` QoS does not allow GPUs. 
 
 #### What is my AccountString ?
 
@@ -522,7 +520,7 @@ If you need to run a GUI then add the option `--x11` to the `salloc` part.
 
 For an interactive session on the `gpu_rocm` or `gpu_cuda`  partitions you will need to add `--gres=gpu:[type]:[number]` to the `salloc` request and use `--qos=gpu` instead of `--qos=normal`. It is important that you use a **`[type]`** to get the correct GPU card for your job.
 
-To target a particular GPU RAM in the `gpu_cuda` partition, especially an A100 MIG slice add `--constraint=cuda10gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
+To target a particular GPU RAM in the `gpu_cuda` partition, especially an A100 and H100 MIG slice add `--constraint=cuda40gb`, or `--constraint=cuda80gb` to target a card with the full GPU RAM to the `salloc` part.
 
 See [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions-and-nodes) for a full list of partitions, QoS, GPU types and other features.
 
@@ -548,6 +546,7 @@ gpu_rocm
 gpu_cuda
 gpu_sxm
 gpu_viz
+ext_intersect
 ```
 ## Available Quality of Service (QoS)
 
@@ -555,8 +554,6 @@ gpu_viz
 normal
 debug
 short
-mig
-sxm
 sdf
 gpu
 viz
@@ -568,8 +565,6 @@ viz
 QoS are used to control access to resources and apply sustainable limits.<br> 
 
 **Important:**<br>
-* mig requires the request of at least 1 MIG slice: gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
-* sxm requires the request of at least 1 H100:gres=gpu:h100:1
 * viz for onBunya jobs only
 * onBunya Accelerated Desktops with 2 or 3 GPUs will be submitted with the gpu QoS.
 * gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.
@@ -583,11 +578,9 @@ QoS are used to control access to resources and apply sustainable limits.<br>
 |:---|:---|:---:|:---:|:---|:---|
 |||||||
 | normal | general | open | 10 | 20000 CPUs, <br> 200 T CPU memory | 2 weeks,</br>1536 CPUs,<br> 16 T CPU memory,<br> 0 GPUs,<br> 5000 jobs submitted | 
-| debug | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 30 | none | 1 hour, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
+| debug | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz,<br> ext_intersect | open | 30 | none | 1 hour, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
 | short | general,<br> gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 20 | none | 12 hours, <br> 1536 CPUs, <br> 16 T CPU memory, <br> 4 GPUs, <br> 2 jobs running, <br> 20 jobs submitted |
-| gpu | gpu_rocm,<br> gpu_cuda,<br> gpu_viz | open | 10 | none | 1 week,</br> 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
-| mig | gpu_cuda | open | 10 | none | 441 CPUs, <br> 1932 GB CPU memory, <br> 21 GPUs, <br> 1000 jobs submitted |
-| sxm | gpu_sxm | approved users | 10 | none | 192 CPUs, <br> 1 T CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 50 jobs submitted |
+| gpu | gpu_rocm,<br> gpu_cuda,<br> gpu_viz,<br> ext_intersect | open | 10 | none | 1 week,</br> 256 CPUs, <br> 2 T of CPU memory, <br> 4 GPUs, <br> 4 jobs running, <br> 100 jobs submitted |
 |sdf | gpu_rocm| approved users | 10 | none | 256 CPUs, <br> 2 T CPU memory, <br> 8 GPUs |
 | viz | general, <br> gpu_viz| onBunya only | 30 | none | 1 day,<br> 192 CPUs (96 CPU per job), <br> 500G per job, <br> 2 GPUs (1 GPU per job), <br> 2 running jobs, <br> 20 jobs submitted | 
 <br>
@@ -598,14 +591,14 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 
 **Maximum walltimes**:<br>
 * general: 2 weeks (14 days, 336 hours)
-* gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm: 1 week (7 days, 168 hours) 
+* gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm, ext_intersect : 1 week (7 days, 168 hours) 
 
 **Default walltime for all partitons: 30 minutes**
 
 **Default number of GPUs for all partitons: zero**
 
-**gpu_viz** is used exclusively by onBunya. Users should not be submitting batch jobs via sbatch to the gpu_viz partition. The L40 and L40s GPUs are available through the gpu_cuda partition. <br>
-
+**gpu_viz** is used exclusively by onBunya. Users should not be submitting batch jobs via sbatch to the gpu_viz partition. The L40s GPUs are available through the gpu_cuda partition. <br>
+**ext_intersect** is exclusive for ACU users.
 
 | Partition | Hostnames |  Count |  CPU Memory (MB) per node| CPUS per node| FEATURES | GRES per node| Charge Multiplier|
 |:---|:---|:---:|---:|:---:|:---|:---|---:|
@@ -615,11 +608,12 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | general| bun[147-158] | 12 | 3000000 | 512 | epyc5 | (null) | 1 |
 |||||||||
 | gpu_cuda | bun003 | 1 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
-| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:6, <br> gpu:nvidia_a100_80gb_pcie_2g.20gb:3, <br> gpu:nvidia_a100_80gb_pcie_3g.40gb:3| 6, <br> 12, <br> 24 |
+| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_a100_80gb_pcie_3g.40gb:6| 24 |
 | gpu_cuda | bun068 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
+| gpu_cuda | bun071 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_h100_80gb_pcie_3g.40gb:6 | 50 |
 | gpu_cuda | bun[071-076,116] | 7 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
-| gpu_sxm | bun[117-120] | 4 | 1000000 | 192 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
+| gpu_sxm | bun[118-120] | 3 | 1000000 | 192 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 |||||||||
 | gpu_cuda <br> gpu_viz | bun[077-082] | 6 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda48gb | gpu:l40:3 | 40 |
 | gpu_cuda <br> gpu_viz | bun[124-125] | 2 | 750000 | 192 | epyc4,<br> cuda,<br> cuda48gb | gpu:l40s:3 | 42 |
@@ -629,8 +623,9 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | gpu_rocm | bun070 | 1 | 380000 | 64 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun144 | 1 | 2000000 | 192 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun145 | 1 | 2000000 | 128 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+| gpu_rocm | bun[159-161 | 3 | 2300000 | 192 | epyc5, <br> rocm | gpu:mi355x:8 | 150 |
 |||||||||
-| user_test | bun[159-161 | 3 | 2300000 | 192 | epyc5, <br> rocm | gpu:mi355x:8 | 100 |
+| ext_intersect | bun117 | 1 | 1000000 | 192 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 
 ## Maximum CPU resources per GPU
 
@@ -647,7 +642,7 @@ This table shows what are appropriate maximum CPU resource requests per GPU, dep
 | gpu_cuda | bun068 | 1 | 1000000 | 96 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
 | gpu_cuda | bun[071-076,116] | 7 | 700000 | 64 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
-| gpu_sxm | bun[117-120] | 4 | 250000 | 48 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
+| gpu_sxm | bun[118-120] | 3 | 250000 | 48 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 |||||||||
 | gpu_cuda <br> gpu_viz | bun[077-082] | 6 | 700000 | 64 | epyc3,<br> cuda,<br> cuda48gb | gpu:l40:3 | 40 |
 | gpu_cuda <br> gpu_viz | bun[124-125] | 2 | 250000 | 64 | epyc4,<br> cuda,<br> cuda48gb | gpu:l40s:3 | 42 |
@@ -657,8 +652,9 @@ This table shows what are appropriate maximum CPU resource requests per GPU, dep
 | gpu_rocm | bun070 | 1 | 190000 | 32 | epyc4,<br> rocm | gpu:mi210:2 | 50 |
 | gpu_rocm | bun144 | 1 | 250000 | 24 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
 | gpu_rocm | bun145 | 1 | 250000 | 16 | epyc4, <br> rocm | gpu:mi300x:8 | 100 |
+| gpu_rocm | bun[159-161] | 3 | 287500 | 24 | epyc5, <br> rocm | gpu:mi355x:8 | 150 |
 |||||||||
-| user_test | bun[159-161] | 3 | 287500 | 24 | epyc5, <br> rocm | gpu:mi355x:8 | 100 |
+| ext_intersect | bun117 | 1 | 250000 | 48 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 
 <br>
 
@@ -672,7 +668,7 @@ The Pawsey Centre has an excellent guide on how to [migrate from PBS to SLURM](h
 
 ### How to submit a job
 
-You would usually write a slurm script to subimit your jobs. Once you have a script you use `sbatch` to submit this script. For example if you have a script called `first-job-script` then you use<br>
+You would usually write a slurm script to submit your jobs. Once you have a script you use `sbatch` to submit this script. For example if you have a script called `first-job-script` then you use<br>
 
 `sbatch first-job-script`<br>
 
@@ -694,9 +690,9 @@ The different request flags mean the following:
 `#SBATCH --mem-per-cpu=[number M|G|T]` - alternative to the request above, only relevant to MPI jobs. This request is per cpu, so RAM per core (MPI task) will be double what is requested here.<br>
 <br>
 `#SBATCH --gres=gpu:[type]:[number]` - to request the use of GPU on a GPU node. Please see description of partitions above for the available types of GPUs<br>
-`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `gpu_rocm, gpu_cuda, gpu_sxm` = 168 hours (1 week).<br>
+`#SBATCH --time=[hours:minutes:seconds]` - time the job needs to complete. Partition limits: `general` = 336 hours (2 weeks), `gpu_rocm, gpu_cuda, gpu_sxm, ext_intersect` = 168 hours (1 week).<br>
 <br>
-`#SBATCH --qos=[normal,gpu,debug,mig,sxm,sdf]` - to request a quality of service for the job.<br>
+`#SBATCH --qos=[normal,gpu,debug,sdf]` - to request a quality of service for the job.<br>
 `#SBATCH -o filename` - filename where the standard output should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -e filename` - filename where the standard error should go to. See `man sbatch` for filename templating options.<br>
 `#SBATCH -job-name=[Name]` - Name for the job that is seen in the queue<br>
@@ -706,7 +702,7 @@ The different request flags mean the following:
 `#SBATCH --constraint=[epyc3, epyc4, or epyc5]` - to submit to a specific CPU architectures if required, needs to be applied with `--batch` below.<br>
 `#SBATCH --batch=[epyc3, epyc4, or epyc5]` - to submit to the a specific CPU architecture, needs to be applied with `--constraint` above.<br>
 <br>
-`#SBATCH --partition=general/gpu_rocm/gpu_cuda/gpu_sxm`<br>
+`#SBATCH --partition=general/gpu_rocm/gpu_cuda/gpu_sxm/ext_intersect`<br>
 <br>
 `#SBATCH --array=[range]` - Indicates that this is an array job with range number of tasks. Range can be `0-999`. The maximum range value is 1000.<br>
 <br>
@@ -740,7 +736,7 @@ So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This
 #SBATCH --time=1:00:00
 #SBATCH --qos=gpu
 #SBATCH --partition=gpu_cuda
-#SBATCH --gres=gpu:nvidia_a100_80gb_pcie_1g.10gb:1
+#SBATCH --gres=gpu:nvidia_a100_80gb_pcie_3g.40gb:1
 #SBATCH --account=AccountString
 #SBATCH -o slurm-%j.output
 #SBATCH -e slurm-%j.error
@@ -755,16 +751,13 @@ For full A100 change to<br>
 For H100 change to<br> 
 `#SBATCH --gres=gpu:h100:1`<br>
 
-For L40 change to<br> 
-`#SBATCH --gres=gpu:l40:1`<br>
-
 For L40s change to<br> 
 `#SBATCH --gres=gpu:l40s:1`<br>
 
 
 ### Simple script for AMD ROCM GPUs.
 
-**Nodes bun001, bun002, bun070, and bun145. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these.**
+**Nodes bun001, bun002, bun070, bun144, bun145, and bun159 - bun161. These are AMD GPUs. You most likely will need to compile your own code or use a container to run on these.**
 
 ```
 #!/bin/bash --login
@@ -791,10 +784,7 @@ With `--qos=gpu` you can ask for up to 4<br>
 With `--qos=sdf` you can ask for all 8<br>
 
 For Mi355x change to<br>
-```
-#SBATCH --gres=gpu:mi355x:1
-#SBATCH --partition=user_test
-```
+`#SBATCH --gres=gpu:mi355x:1`<br>
 With `--qos=gpu` you can ask for up to 4<br>
 With `--qos=sdf` you can ask for all 8<br>
 
