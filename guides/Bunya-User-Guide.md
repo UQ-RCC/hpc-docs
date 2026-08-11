@@ -47,11 +47,12 @@ For UQ users and QCIF users with a QRIScloud collection please also listen to
 
 - Bunya has 32 nodes of various types.
 - There are 4 H100 SXM5 NVIDIA GPU nodes (intel Xeon SP4) with 4 H100 cards each (16 in total). Each H100 card has 80GB of GPU RAM. 
-- There are 7 H100 PCIE NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total). Each H100 card has 80GB of GPU RAM.
+- There are 6 H100 PCIE NVIDIA GPU nodes (epyc3) with 3 H100 cards each (21 in total). Each H100 card has 80GB of GPU RAM.
+- There is 1 H100 PCIE NVIDIA GPU nodes (epyc3) with MIG H100 cards leading to 6 MIG slices with 40GB of GPU RAM.
 - There are 6 L40 NVIDIA GPU nodes (epyc3) with 3 L40 cards each (18 in total). Each L40 card has 48GB of GPU RAM. The L40 are good for visualisation and FP32 workloads.
 - There are 2 L40s NVIDIA GPUs nodes (epyc4) with 3 L40s cards each (6 in total). Each L40s card has 48GB of GPU RAM. The L40s are good for visualisation and FP32 and FP16 workloads.
 - There is 1 A100 NVIDIA GPU nodes (epyc3) with 3 A100 cards each, 1 A100 NVIDIA GPU node with 2 A100 cards. Each A100 card has 80GB of GPU RAM. 
-- There are 2 A100 NVIDIA GPU node with MIG A100 cards leading to 3 MIG slices with 40GB of GPU RAM, 3 MIG slices with 20GB of GPU RAM and 6 MIG slices with 10GB of GPU RAM.
+- There are 2 A100 NVIDIA GPU nodes (epyc3) with MIG A100 cards leading to 12 MIG slices with 40GB of GPU RAM.
 - There are 3 A16 NVIDIA GPU nodes (epyc4) with 12 A16 GPUs each (36 in total). The A16 GPU are good for vizualisation and accelerated desktops.
 - There are 3 AMD Mi210 GPU nodes (2 epyc3 and 1 epyc4) with 2 Mi201 cards each (6 in total). Each Mi210 card has 64GB GPU RA.M.
 - There are 2 AMD Mi300x GPU nodes (epyc4) with 8 Mi300x cards. Each Mi300x card has 192GB GPU RAM
@@ -608,11 +609,11 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | general| bun[147-158] | 12 | 3000000 | 512 | epyc5 | (null) | 1 |
 |||||||||
 | gpu_cuda | bun003 | 1 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
-| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_a100_80gb_pcie_3g.40gb:6| 24 |
+| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_a100_80gb_pcie_3g.40gb:3<br> gpu:nvidia_a100_80gb_pcie_4g.40gb:3| 24 |
 | gpu_cuda | bun068 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
-| gpu_cuda | bun071 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_h100_80gb_pcie_3g.40gb:6 | 50 |
-| gpu_cuda | bun[071-076,116] | 7 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
+| gpu_cuda | bun071 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_h100_80gb_pcie_3g.40gb:3<br> gpu:nvidia_h100_80gb_pcie_4g.40gb:3 | 50 |
+| gpu_cuda | bun[072-076,116] | 6 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
 | gpu_sxm | bun[118-120] | 3 | 1000000 | 192 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 |||||||||
 | gpu_cuda <br> gpu_viz | bun[077-082] | 6 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda48gb | gpu:l40:3 | 40 |
@@ -630,18 +631,19 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 ## Maximum CPU resources per GPU
 
 >[!IMPORTANT] 
->Users should be mindful of the CPU resources per node when requesting GPU resources. Over requesting CPU resources such as the number of CPUs and CPU ram can unintentionally block other GPUs on the same node being used as the CPU resources of other jobs cannot be accommodated even if GPUs are still free. This can lead to unnecessary wait time for other users's jobs and might lead to GPU resources being left idle. Users should request the resources that their job needs to run and not just arbritary CPU resources or just always the same CPU resources. Users are required to check the resource utilisation of their jobs and adjust future job accordingly.
->Jobs that are found to not utilise the resources they have requested and are blocking free GPUs being used mayb be terminated.  
+>Users should be mindful of the CPU resources per node when requesting GPU resources. Over requesting CPU resources such as the number of CPUs and CPU ram can unintentionally block other GPUs on the same node being used as the CPU resources of other jobs cannot be accommodated even if GPUs are still free. This can lead to unnecessary wait time for other user's jobs and might lead to GPU resources being left idle. Users should request the resources that their job needs to run and not just arbitrary CPU resources or just always the same CPU resources. Users are required to check the resource utilisation of their jobs and adjust future job accordingly.
+>Jobs that are found to not utilise the resources they have requested and are blocking free GPUs being used may be terminated.  
 
 This table shows what are appropriate maximum CPU resource requests per GPU, depending on the GPU and GPU node.
 
 | Partition | Hostnames |  Count | Max CPU Memory (MB) per GPU| Max CPUS per GPU | FEATURES | GPUs per node | multiplier per GPU|
 |:---|:---|:---:|---:|:---:|:---|:---|---:|
 | gpu_cuda | bun003 | 1 | 700000 | 86 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
-| gpu_cuda | bun[004-005] | 2 | 180000 | 22 | epyc3,<br> cuda,<br> cuda10gb | gpu:nvidia_a100_80gb_pcie_1g.10gb:6, <br> gpu:nvidia_a100_80gb_pcie_2g.20gb:3, <br> gpu:nvidia_a100_80gb_pcie_3g.40gb:3| 6, <br> 12, <br> 24 |
+| gpu_cuda | bun[004-005] | 2 | 333000 | 42 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_a100_80gb_pcie_3g.40gb:3, <br> gpu:nvidia_a100_80gb_pcie_4g.40gb:3| 24 |
 | gpu_cuda | bun068 | 1 | 1000000 | 96 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
-| gpu_cuda | bun[071-076,116] | 7 | 700000 | 64 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
+| gpu_cuda | bun071 | 1 | 333000 | 32 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_h100_80gb_pcie_3g.40gb:3, <br> gpu:nvidia_h100_80gb_pcie_4g.40gb:3 | 50 |
+| gpu_cuda | bun[072-076,116] | 6 | 700000 | 64 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
 | gpu_sxm | bun[118-120] | 3 | 250000 | 48 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 |||||||||
 | gpu_cuda <br> gpu_viz | bun[077-082] | 6 | 700000 | 64 | epyc3,<br> cuda,<br> cuda48gb | gpu:l40:3 | 40 |
