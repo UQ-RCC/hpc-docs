@@ -151,7 +151,9 @@ For those using command line ssh:<br>
 
 #### Bunya enforces MFA (multi-factor authentication)
 
-For UQ users, this will use their UQ Okta MFA that is used for all other access to UQ resources.
+For UQ users, this will use their UQ Okta MFA that is used for all other access to UQ resources.<br>
+
+**IMPORTANT**: Bunya uses a push notification to the user's device. For this to work the user has to have FaceID or passcode enabled or the push will not work even if the user selects the right number on their device. Users are strongly advised to log into a UQ service and select to use a push notification to make sure their device setup is working with Bunya.
 
 QCIF users are required to go here [https://services.qriscloud.org.au/credential](https://services.qriscloud.org.au/credential) and set up an **Authenticator App**.
 
