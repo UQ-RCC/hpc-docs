@@ -33,7 +33,7 @@ You can use the command `squeue` to check why a job is sitting in the queue. In 
 
 The command `sshare` can be used to check a user's fair share. 
 
-`sshare -a | grep YourUsername`<br>
+`sshare`<br>
 will print out the information below. The last value is the fair share. The value will be between `0` and `1`. With `1` being a full fair share and `0` being no fair share. 
 
 ```
@@ -54,15 +54,17 @@ Most of the limits make it easy for users to see if their jobs have reached the 
 
 User can obtain their BillingMinutes by using the command 
 
-`sshare -a | grep YourUsername`<br>
+`sshare`<br>
 
 The number given under `RawUsage` is BillingSeconds and the BillingMinutes can be obtained by dividing `RawUsage` by 60.
 
 Example
 ```
 
-sshare -a | grep user1
- a_group1           user1          1    0.000472   720200160      0.014297   0.000392
+sshare
+Account                    User  RawShares  NormShares    RawUsage  EffectvUsage  FairShare 
+-------------------- ---------- ---------- ----------- ----------- ------------- ----------
+a_group1                  user1          1    0.000472   720200160      0.014297   0.000392
 
 
 720200160 / 60 = 12003336
