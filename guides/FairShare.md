@@ -27,7 +27,7 @@ The fair share amount is constantly slowly refilling over time and the fair shar
 
 ### Useful commands
 
-You can use the command `squeue` to check why a job is sitting in the queue. In the command below the `%18p` will print out the priority of the job and `%S` will print out an estimated start time. The estimated start time will only be printed for jobs high enough in the queue to be considered by the scheduler. The jobs where this is *N/A* are still too low in the queue. `%16R` will print out the reason why a job is queueing. *Priority* means jobs with higher priority are in the queue before this job. *Resources* means the job is waiting for requested resources to become available. *QOSMax\*Limit* means that this job would bring the user over the maximum allowed resourcs per user.
+You can use the command `squeue` to check why a job is sitting in the queue. In the command below the `%18p` will print out the priority of the job and `%S` will print out an estimated start time. The estimated start time will only be printed for jobs high enough in the queue to be considered by the scheduler. The jobs where this is *N/A* are still too low in the queue. `%16R` will print out the reason why a job is queuing. *Priority* means jobs with higher priority are in the queue before this job. *Resources* means the job is waiting for requested resources to become available. *QOSMax\*Limit* means that this job would bring the user over the maximum allowed resources per user.
 
 `squeue --me -o "%12i %6q %.8P %.12j %.10u %.2t %.4D %.4C %.20b %10m %16R %18p %S"`
 
@@ -50,13 +50,13 @@ For example, if a user has 4 GPUs in use, any further job will queue until the u
 
 #### AssocGrpBillingMinutes
 
-Most of the limits mkae it easy for users to see if their jobs have reached the limit or not. The limit on BillingMinutes is a bit different as it relates to the user's fair share usage which changes with time and the user's jobs finishing.<br>
+Most of the limits make it easy for users to see if their jobs have reached the limit or not. The limit on BillingMinutes is a bit different as it relates to the user's fair share usage which changes with time and the user's jobs finishing.<br>
 
 User can obtain their BillingMinutes by using the command 
 
 `sshare -a | grep YourUsername`<br>
 
-The number given under `RawUsage` is BillingSeconds and the BillingMinutes can be obtained by deviding `RawUsage` by 60.
+The number given under `RawUsage` is BillingSeconds and the BillingMinutes can be obtained by dividing `RawUsage` by 60.
 
 Example
 ```
@@ -74,7 +74,7 @@ Once a user reaches 15 million BillingMinutes their jobs will no longer start an
 
 The `RawUsage` has a half-life of 28 days. This means the `RawUsage` decays (reduces) by 50% every 28 days, by 16% per 7 days, and by 2.4% per day.
 
-Taking the half-life of the `RawUsage` into account, 15 million BillingMinutes are equivalent to a user running a job over 2 full Bunya CPU nodes or 2 H100 GPUs, 24/7 for 1 year. This amount of usage is similar to a small project grant on one of Australia's Tier 1 HPC facilites.
+Taking the half-life of the `RawUsage` into account, 15 million BillingMinutes are equivalent to a user running a job over 2 full Bunya CPU nodes or 2 H100 GPUs, 24/7 for 1 year. This amount of usage is similar to a small project grant on one of Australia's Tier 1 HPC facilities.
 
 
 
