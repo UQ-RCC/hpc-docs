@@ -16,7 +16,7 @@ This document's focus is the key concepts for using RDM Q as they relate to inte
 |St Lucia Gateway|Everybody|\\\\uq.edu.au\UQ-Research|R: Drive|Windows|
 |||\\\\shares01.rdm.uq.edu.au|RDM Share|Windows|
 |||smb://shares01.rdm.uq.edu.au|RDM Share|MacOS and Linux|
-|Institute Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
+|Institutes Gateway #1|AIBN|\\\\uq.edu.au\UQ-Inst-Gateway1|data.aibn.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
 ||CAI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.cai.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
 ||QBI|\\\\uq.edu.au\UQ-Inst-Gateway1|data.qbi.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
 ||IMB|\\\\uq.edu.au\UQ-Inst-Gateway1|data.imb.uq.edu.au|Q storage allocations only.</br>You need to request that it be mounted.|
@@ -24,14 +24,12 @@ This document's focus is the key concepts for using RDM Q as they relate to inte
 
 Note:<br>
 <br> 
-All Institute users can access their RDM Q allocations via the Institute Gateway #1 once it has been set up.
+All Institute users now access their RDM Q storage allocations via the Institute Gateway #1.
 
-## Requesting your RDM Q storage allocation be mounted on an Institutes endpoint
+## Requesting your RDM Q storage allocation be mounted on an Institutes Gateway
 
-Owners of RDM Q storage allocations should email *rcc-support@uq.edu.au* to request it be mounted. </br>
+The _owner_ of RDM Q storage allocations should email *rcc-support@uq.edu.au* to request that it be mounted. </br>
 Please provide details of the collection and confirm that you are the owner.</br>
-
-New requests to mount RDM Q storage allocations onto Institute Gateway #2 are being mounted to Institute Gateway #1.
 
 ## Accessing RDM from Bunya HPC
 
@@ -46,4 +44,4 @@ Please refer to the [Bunya Storage User Guide section](https://github.com/UQ-RCC
 
 ## Document Updated
 
-July 14 2026
+August 21 2026
