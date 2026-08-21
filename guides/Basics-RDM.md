@@ -26,7 +26,7 @@ Note:<br>
 <br> 
 All Institute users now access their RDM Q storage allocations via the Institute Gateway #1.
 
-## Requesting your RDM Q storage allocation be mounted on an Institutes Gateway
+## Requesting your RDM Q storage allocation be mounted on the Institutes Gateway
 
 The _owner_ of RDM Q storage allocations should email *rcc-support@uq.edu.au* to request that it be mounted. </br>
 Please provide details of the collection and confirm that you are the owner.</br>
