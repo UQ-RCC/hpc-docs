@@ -187,6 +187,16 @@ User ... authenticated with identity provider bunyaaaf does not exist.<br>
 it could mean that you used the wrong credentials (staff cf. student) or it could be that your application for access to Bunya has not been processed, or possibly even submitted.
 Refer to the  accessing Bunya section of the Bunya User Guide.
 
+### When you press the Launch Desktop button the desktops slurm job crashes immediately
+
+You may have something in your .bashrc or your .bash_profile that is incompatible with your onBunya session launching.
+Candidates include loading modules that are graphics related and automatically initialising conda environments.
+Refer to the [conda environments user guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md#important-warning-on-user-installed-conda) for details of the latter.
+
+Debug this by searching for error messages in the logs for your desktop launcher.
+`/home/$USER/ondemand/data/sys/dashboard/batch_connect/sys/std_desktop/output/SESSION_ID_CODE/output.log`
+
+
 ### Your onBunya Desktop appears blank 
 
 Your Desktop has become damaged and needs to be rebuilt.</br>
