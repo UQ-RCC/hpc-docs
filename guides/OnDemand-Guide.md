@@ -193,8 +193,13 @@ You may have something in your .bashrc or your .bash_profile that is incompatibl
 Candidates include loading modules that are graphics related and automatically initialising conda environments.
 Refer to the [conda environments user guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/conda-environment.md#important-warning-on-user-installed-conda) for details of the latter.
 
-Debug this by searching for error messages in the logs for your desktop launcher.
-`/home/$USER/ondemand/data/sys/dashboard/batch_connect/sys/std_desktop/output/SESSION_ID_CODE/output.log`
+Debug this behaviour by searching for error messages in the logs for your desktop launcher.
+
+|Desktop Type|Path|
+|:---|:---|
+|Standard|`/home/$USER/ondemand/data/sys/dashboard/batch_connect/sys/std_desktop/output/SESSION_ID_CODE/output.log`|
+|GPU-Accelerated|`/home/$USER/ondemand/data/sys/dashboard/batch_connect/sys/viz_desktop/output/SESSION_ID_CODE/output.log`|
+|Expert|`/home/$USER/ondemand/data/sys/dashboard/batch_connect/sys/adv_desktop/output/SESSION_ID_CODE/output.log`|
 
 
 ### Your onBunya Desktop appears blank 
