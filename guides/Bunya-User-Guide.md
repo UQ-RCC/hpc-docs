@@ -596,9 +596,9 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 * general: 2 weeks (14 days, 336 hours)
 * gpu_cuda, gpu_viz, gpu_rocm, gpu_sxm, ext_intersect : 1 week (7 days, 168 hours) 
 
-**Default walltime for all partitons: 30 minutes**
+**Default walltime for all partitions: 30 minutes**
 
-**Default number of GPUs for all partitons: zero**
+**Default number of GPUs for all partitions: zero**
 
 **gpu_viz** is used exclusively by onBunya. Users should not be submitting batch jobs via sbatch to the gpu_viz partition. The L40s GPUs are available through the gpu_cuda partition. <br>
 **ext_intersect** is exclusive for ACU users.
