@@ -3,16 +3,16 @@
 Bunya is a UQ funded HPC facility for UQ researchers and operated by UQ staff.
 
 ## Who has contributed to Bunya
-UQ has funded Phase 1-3 of Bunya with contributions to Phase 1 from QCIF and the Institute for Molecular Biosciences. Individual 
-research groups have made contributions to Bunya. 
+UQ has funded Phase 1-4 of Bunya with contributions to Phase 1 from QCIF and the Institute for Molecular Biosciences. Individual 
+research groups and external institutions have made contributions to Bunya. 
 
 >[!IMPORTANT]
->**No researchers or groups have exclusive or special access to Bunya resources, such as partitions, queues, or compute nodes.**
+>**No UQ researchers or UQ groups have exclusive or special access to Bunya resources, such as partitions, queues, or compute nodes.**
 
 ## Who has access to Bunya
 Researchers from UQ and from UQ Approved Customers can apply for access to Bunya.
 
-Access to Bunya will only be given for research. All research projects should contribute to publishable research, for a complete definition of research see [definition of research](https://research-support.uq.edu.au/resources-and-support/research-management/applying-and-submitting-proposal/definition-research). Any researcher from an eligible institution can apply for access to Bunya if they have a research project that needs HPC resources. This includes access for master, honours, and project/thesis students who work on a research project and who have a research supervisor.
+Access to Bunya will only be given for research. All research projects should contribute to publishable research, for a complete definition of research see [definition of research](https://research-support.uq.edu.au/resources-and-support/research-management/applying-and-submitting-proposal/definition-research). Any researcher from an eligible institution can apply for access to Bunya if they have a research project that needs HPC resources. This includes access for master, honours, and project/thesis students who work on a research project and who have a research supervisor who is an eligible principal HDR supervisor. Projects that teach students the principles of research and to develop an understanding of research are not eligible.
 
 Access will **not** be given for teaching, including undergraduate courses, or workshops. 
 Workshops might be permitted if they are research training and participants are existing Bunya users.
