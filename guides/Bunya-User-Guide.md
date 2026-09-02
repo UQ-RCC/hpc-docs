@@ -611,10 +611,10 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 | general| bun[147-158] | 12 | 3000000 | 512 | epyc5 | (null) | 1 |
 |||||||||
 | gpu_cuda | bun003 | 1 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:3 | 50 |
-| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_a100_80gb_pcie_3g.40gb:3<br> gpu:nvidia_a100_80gb_pcie_4g.40gb:3| 24 |
+| gpu_cuda | bun[004-005] | 2 | 2000000 | 256 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_a100_80gb_pcie_3g.40gb:3<br> gpu:nvidia_a100_80gb_pcie_4g.40gb:3| 24 <br> 26 |
 | gpu_cuda | bun068 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:a100:2 | 50 |
 |||||||||
-| gpu_cuda | bun071 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_h100_80gb_pcie_3g.40gb:3<br> gpu:nvidia_h100_80gb_pcie_4g.40gb:3 | 50 |
+| gpu_cuda | bun071 | 1 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda40gb | gpu:nvidia_h100_80gb_pcie_3g.40gb:3<br> gpu:nvidia_h100_80gb_pcie_4g.40gb:3 | 45 <br> 55 |
 | gpu_cuda | bun[072-076,116] | 6 | 2000000 | 192 | epyc3,<br> cuda,<br> cuda80gb | gpu:h100:3 | 100 |
 | gpu_sxm | bun[118-120] | 3 | 1000000 | 192 | xeonsp4,<br> cuda,<br> cuda80gb,<br> sxm | gpu:h100:4 | 100 |
 |||||||||
