@@ -449,6 +449,10 @@ You can build your own on a suitable external system and bring it onto Bunya.
 
 You cannot build a container on Bunya directly from a Dockerfile prescription. Instead, you will need to use the docker software to create a container image and upload it to a suitable repository. Then you will be able to "pull" a copy of it and it will be converted to apptainer format.
 
+#### For more information about software containers
+
+Refer to this more [detailed guide about using apptainer](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Basics-apptainer.md).
+
 ## Fair Share
 
 Bunya employs [fair share](FairShare.md) to ensure that each user is able to use Bunya resources.
