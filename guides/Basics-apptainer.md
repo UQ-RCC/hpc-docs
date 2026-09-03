@@ -2,7 +2,7 @@
 
 **TO BE COMPLETED**
 
-David Green 28/11/2024
+David Green 28/11/2024 (updated 03/09/2026)
   
 ## What is a software container?
 Software containers is a generic technology term. It provides a mechanism for different operating systems and software that are not available in the host operating system so they can be used safely on the HPC platform. Software containers can be built from a "recipe" or downloaded as pre-built images, often as a stack that is assembled on the fly.
@@ -20,7 +20,8 @@ There are several reasons for supporting the use of software containers on Bunya
 
 ## What is apptainer
 
-Bunya uses [*Apptainer*](https://apptainer.org/docs/user/latest/introduction.html). Apptainer was created when Singularity was rebranded when it joined the Linux Foundation. Currently, the version of Apptainer installed on Bunya is version 1.3.3-1.el8.
+Bunya uses [*Apptainer*](https://apptainer.org/docs/user/latest/introduction.html). Apptainer was created when Singularity was rebranded when it joined the Linux Foundation. Currently, the version of Apptainer installed on Bunya is version ~~1.3.3-1.el8~~ **1.5.2-1.el9**
+.
 
 ## How is apptainer provided on Bunya
 
@@ -35,6 +36,7 @@ Bunya uses [*Apptainer*](https://apptainer.org/docs/user/latest/introduction.htm
 - The default locations for container caches are in /home and this can quickly exceed your GB quota.<br> 
 Specifically, you may need to set the **APPTAINER_CACHEDIR** and **APPTAINER_TMPDIR** to a location where you have sufficient space (such as `/scratch/user` , `/scratch/project` or `$TMPDIR`)
 - Building a sandbox container can also consume your file count quota in `/scratch`.<br>Consider building sandboxes in `/home` or `$TMPDIR`.
+- A recent update to Apptainer introduced a problem (_"proot issue"_) when used on Bunya. This problem should disappear once the apptainer version is updated.
 
 ## What storage can I access from within the container?
   
@@ -60,8 +62,10 @@ A software container can automatically access `/home` and `/scratch/user`.<br>Th
 
 ||Operation|Command|
 |:-:|:------|:--|
-|1a|create a container image outright|`apptainer build myContainer.sif myContainer.def`|
-|1b|pull a container image|`apptainer pull ... `|
+|1a|create a container image outright (no proot issue)|`apptainer build myContainer.sif myContainer.def`|
+|1b|create a container image outright (proot issue)|`apptainer build --ignore-proot myContainer.sif myContainer.def`|
+|1c|pull a container image (no proot issue)|`apptainer pull ... `|
+|1d|pull a container image (if proot issue)|`apptainer build --ignore-proot container.sif docker://repo/name:tag`|
 |2|create a sandbox|`apptainer build --sandbox myContainer.sandbox myContainer.def`|
 |3|update the sandbox|`apptainer shell --writable myContainer.sandbox`|
 |4|convert the sandbox to a standalone image|`apptainer build myContainer.sif myContainer.sandbox`|
