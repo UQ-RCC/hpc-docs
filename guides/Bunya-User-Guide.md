@@ -183,26 +183,26 @@ After this you will be logged into Bunya.
 Some network devices and firewalls may terminate inactive ssh connections. To help keep your connection to Bunya open, configure ssh keepalive settings in your ssh client.
 
 - OpenSSH (Linux, macOS, Windows OpenSSH)
-  Add the following to your ~/.ssh/config file:
+  Add the following to your ~/.ssh/config file:<br>
   ```
   Host bunya
       ServerAliveInterval 300
   ```
-  Alternatively, specify the option on the command line:
+  Alternatively, specify the option on the command line:<br>
   ```
   ssh -o ServerAliveInterval=300 username@bunya.rcc.uq.edu.au
   ```
 - Putty
-  Open the PuTTY configuration window.
-  Navigate to Connection.
-  Under Sending of null packets to keep session active, set:
-  Seconds between keepalives: 300
-  Save the session profile.
+  Open the PuTTY configuration window<br>
+  Navigate to Connection<br>
+  Under Sending of null packets to keep session active, set:<br>
+  Seconds between keepalives: 300<br>
+  Save the session profile<br>
 - MobaXterm
-  Open Settings → Configuration.
-  Select the SSH tab.
-  Enable SSH keepalive.
-  Set the keepalive interval to an appropriate value, such as 300 seconds (default might be 60).
+  Open Settings and then Configuration<br>
+  Select the SSH tab<br>
+  Enable SSH keepalive<br>
+  Set the keepalive interval to an appropriate value, such as 300 seconds (default might be 60)<br>
 - Other SSH Clients
   Most SSH clients provide a keepalive or connection persistence setting. Consult your client's documentation and configure a keepalive interval of approximately 60 seconds to reduce the likelihood of idle connections being disconnected.
   
