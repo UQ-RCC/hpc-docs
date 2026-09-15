@@ -178,6 +178,35 @@ For QCIF users, you will be asked to enter the one-time-authentication code (6 n
 
 After this you will be logged into Bunya.
 
+#### Preventing SSH session timeouts
+
+Some network devices and firewalls may terminate inactive ssh connections. To help keep your connection to Bunya open, configure ssh keepalive settings in your ssh client.
+
+- OpenSSH (Linux, macOS, Windows OpenSSH)
+  Add the following to your ~/.ssh/config file:
+  ```
+  Host bunya
+      ServerAliveInterval 300
+  ```
+  Alternatively, specify the option on the command line:
+  ```
+  ssh -o ServerAliveInterval=300 username@bunya.rcc.uq.edu.au
+  ```
+- Putty
+  Open the PuTTY configuration window.
+  Navigate to Connection.
+  Under Sending of null packets to keep session active, set:
+  Seconds between keepalives: 300
+  Save the session profile.
+- MobaXterm
+  Open Settings → Configuration.
+  Select the SSH tab.
+  Enable SSH keepalive.
+  Set the keepalive interval to an appropriate value, such as 300 seconds (default might be 60).
+- Other SSH Clients
+  Most SSH clients provide a keepalive or connection persistence setting. Consult your client's documentation and configure a keepalive interval of approximately 60 seconds to reduce the likelihood of idle connections being disconnected.
+  
+
 #### Note for those using MobaXTerm Software
 
 This SSH/X11 client has an experimental feature called "Remote monitoring". 
