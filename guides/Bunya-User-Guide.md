@@ -205,7 +205,13 @@ Some network devices and firewalls may terminate inactive ssh connections. To he
   Set the keepalive interval to an appropriate value, such as 300 seconds (default might be 60)<br>
 - Other SSH Clients<br>
   Most SSH clients provide a keepalive or connection persistence setting. Consult your client's documentation and configure a keepalive interval of approximately 60 seconds to reduce the likelihood of idle connections being disconnected.
-  
+
+#### VS Code and other IDEs
+
+VS Code must not be run on login nodes. Users who require VS Code for development or interactive work can use one of the following supported options:
+
+- The VS Code software module on a compute node 
+- The VS Code app available through OnBunya.
 
 #### Note for those using MobaXTerm Software
 
