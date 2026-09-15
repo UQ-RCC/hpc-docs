@@ -138,6 +138,18 @@ Multi-factor authentication must also be configured. See below.
 >You may find from time to time that you need to query the batch system or perform tasks that require Bunya Shell Access. <br><br>
 >Alternatively, you can use an ssh command line client like putty or ssh in a command terminal on a Mac, Linux or Windows PC as described here:
 
+#### Approved connection methods
+
+Approved methods to connect to Bunya are
+- command line ssh and ssh clients (putty, MobaXterm)
+- command line sftp and sftp clients (WinSCP, MobaXterm)
+- onBunya
+
+#### Not permitted connection methods
+
+This list shows examples of not permitted methods. By default, unless listed above, the connected method should be assumed as *not permitted* unless confirmed as permitted in writing by RCC.  
+- VS Code and similar IDE apps (pycharm, zed, cursor, etc)
+- Remote tunnelling services and features, including VS Code remote tunnels
 
 #### Command line SSH Access to Bunya
 
