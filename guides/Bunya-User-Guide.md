@@ -141,13 +141,13 @@ Multi-factor authentication must also be configured. See below.
 #### Approved connection methods
 
 Approved methods to connect to Bunya are
-- command line ssh and ssh clients (putty, MobaXterm)
+- command line ssh and ssh clients (PuTTY, MobaXterm)
 - command line sftp and sftp clients (WinSCP, MobaXterm)
 - onBunya
 
 #### Not permitted connection methods
 
-This list shows examples of not permitted methods. By default, unless listed above, the connected method should be assumed as *not permitted* unless confirmed as permitted in writing by RCC.  
+This list shows examples of not permitted methods. By default, unless listed above, the connection method should be assumed as *not permitted* unless confirmed as permitted in writing by RCC.  
 - VS Code and similar IDE apps (pycharm, zed, cursor, etc)
 - Remote tunnelling services and features, including VS Code remote tunnels
 
