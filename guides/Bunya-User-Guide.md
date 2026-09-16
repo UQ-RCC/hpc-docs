@@ -148,7 +148,7 @@ Approved methods to connect to Bunya are
 #### Not permitted connection methods
 
 This list shows examples of not permitted methods. By default, unless listed above, the connection method should be assumed as *not permitted* unless confirmed as permitted in writing by RCC.  
-- VS Code and similar IDE apps (pycharm, zed, cursor, etc)
+- VS Code and similar IDE apps (pycharm, zed, cursor, mutagen, etc)
 - Remote tunnelling services and features, including VS Code remote tunnels
 
 #### Command line SSH Access to Bunya
