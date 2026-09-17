@@ -206,6 +206,10 @@ Some network devices and firewalls may terminate inactive ssh connections. To he
 - Other SSH Clients<br>
   Most SSH clients provide a keepalive or connection persistence setting. Consult your client's documentation and configure a keepalive interval of approximately 300 seconds to reduce the likelihood of idle connections being disconnected.
 
+#### SSH multiplexing
+
+SHH multiplexing allows multiple and subsequent sessions to use the same initial ssh connection without having to authenticate again. See the [guide on SSH multiplexing](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-SSH-Multiplexing-Guide.md) for more details.
+
 #### VS Code and other IDEs
 
 VS Code must not be run on login nodes. Users who require VS Code for development or interactive work can use one of the following supported options:
