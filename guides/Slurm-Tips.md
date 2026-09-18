@@ -1,4 +1,4 @@
-# Slurm Tips for subnitting to GPU nodes on Bunya
+# Slurm tips for submitting to GPU nodes on Bunya
 
 A collection of practical Slurm submission tips for getting the most out of Bunya's scheduling and GPU resources. 
 
