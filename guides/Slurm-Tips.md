@@ -70,7 +70,7 @@ For jobs that can run on a GPU with 40GB or 48GB you can target either of these 
 
 This allows the job to be scheduled to the 40GB MIG slices (A100 or H100) or the L40s GPUs.
 
-## Use the Right QoS for Faster Turnaround
+## Use the right QoS for short jobs to reduce wait time
 
 ### debug QoS
 
