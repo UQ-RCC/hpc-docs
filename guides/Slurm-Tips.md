@@ -33,7 +33,7 @@ This allows Slurm to schedule the job onto suitable 80GB A100 or H100 resources.
 
 ## Target any H100
 
-If your code can run on both standard H100 and H100 SXM systems, allow Slurm to schedule on either partition:
+The H100 nodes in the `gpu_cuda` and the `gpu_sxm` partition are a different architecture. If your code can run on both standard H100 and H100 SXM nodes, you can allow Slurm to schedule on either partition:
 
 ```
 #SBATCH --gres=gpu:h100:1
@@ -60,7 +60,7 @@ This is useful when maintaining separate application builds or tuning parameters
 
 ## Target 40GB and 48GB GPUs
 
-For jobs that can run on a GPU with 40GB or 48GB you can targer either of these with the **`Or`** option for the node features.
+For jobs that can run on a GPU with 40GB or 48GB you can target either of these with the **`Or`** option for the node features.
 
 ```
 #SBATCH --partition=gpu_cuda
@@ -91,6 +91,7 @@ Characteristics:
 
 - Maximum walltime: 1 hour
 - Up to 2 concurrent running jobs
+- 20 jobs submitted
 - Priority: 30
 
 Compared with the `general` (CPU only) and `gpu` QoS priority of 10, `debug` jobs are scheduled with higher priority.
@@ -103,13 +104,12 @@ For jobs that need more time but are still relatively short-lived:
 #SBATCH --qos=short
 #SBATCH --time=12:00:00
 ```
-
 Characteristics:
 
 - Maximum walltime: 12 hours
 - Up to 2 concurrent running jobs
+- 20 jobs submitted
 - Priority: 20
-
 
 Use the most specific constraint that matches your requirements. Specifying a compatible GPU family or memory size instead of targeting one specific GPU type only can often improve queue times.
 
