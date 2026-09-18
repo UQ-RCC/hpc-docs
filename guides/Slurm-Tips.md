@@ -50,7 +50,7 @@ In job scripts, you can use the partition assigned to the job to determine wheth
 if [ "$SLURM_JOB_PARTITION" = "gpu_sxm" ]; then
    echo "Running on H100 SXM"
    # Use SXM-specific code path
-else
+elif [ "$SLURM_JOB_PARTITION" = "gpu_cuda" ]; then
    echo "Running on standard H100"
    # Use standard code path
 fi
