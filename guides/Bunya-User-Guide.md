@@ -539,6 +539,8 @@ The salloc is used to submit an interactive job and you should specify the requi
 ```
 salloc --nodes=1 --ntasks-per-node=1 --cpus-per-task=1 --mem=5G --job-name=CHANGE-ME --time=01:00:00 --partition=general --qos=debug --account=AccountString srun --export=PATH,TERM,HOME,LANG --pty /bin/bash -l
 ```
+Once you are done type `exit` on the command line which will stop any processes still running and will release the allocation for the job.
+
 
 >[!WARNING]
 >For interactive work, we recommend that you combine `salloc` and `srun`, as shown above, to ensure that your session switches to a Bunya compute node and does not remain on the login node.
@@ -582,13 +584,7 @@ To target a particular GPU RAM in the `gpu_cuda` partition, especially an A100 a
 
 See [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-User-Guide.md#available-partitions-and-nodes) for a full list of partitions, QoS, GPU types and other features.
 
-This will log you onto a node. To run a job just type as you would usually do on the command line. As `srun` was already used in the above command there is no need to use `srun` to run your executables, it will just mess things up.
-
-Once you are done type `exit` on the command line which will stop any processes still running and will release the allocation for the job.
-
-Alternatively, if you use _just_ an `salloc` on the login node, then you _must_ use `srun` to run your command otherwise it will start running on login node and that is not fair on other users.
-
-
+See [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Slurm-Tips.md) for tips on how to target different sets of GPUs and submit short jobs on Bunya.
 
 ### Interactive MPI jobs only (for experts)
 
@@ -623,13 +619,13 @@ viz
 QoS are used to control access to resources and apply sustainable limits.<br> 
 
 **Important:**<br>
-* viz for onBunya jobs only
+* viz for onBunya jobs only.
 * onBunya Accelerated Desktops with 2 or 3 GPUs will be submitted with the gpu QoS.
 * gpu still requires that at least one GPU is requested for the job as the default for number of GPUs is zero.
-* The max of H100 GPUs is 4 across all QoS and paritions
+* The max of H100 GPUs is 4 across all QoS and paritions.
 * FairShare usage limit is 15 million BillingMinutes per user, see [here](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/FairShare.md#assocgrpbillingminutes)
 * The task limit on array jobs is 1000.
-
+* See [Slurm Tips](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Slurm-Tips.md) on using different QoS for short jobs.
 
 
 | QOS |  Partitions |  Access| Priority | All User Group limit | User limits |
@@ -657,6 +653,8 @@ The available compute nodes on Bunya are listed in the table below. Please note 
 
 **gpu_viz** is used exclusively by onBunya. Users should not be submitting batch jobs via sbatch to the gpu_viz partition. The L40s GPUs are available through the gpu_cuda partition. <br>
 **ext_intersect** is exclusive for ACU users.
+
+See [Slurm tips](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Slurm-Tips.md) on how to target multiple partions and range of GPUs.
 
 | Partition | Hostnames |  Count |  CPU Memory (MB) per node| CPUS per node| FEATURES | GRES per node| Charge Multiplier|
 |:---|:---|:---:|---:|:---:|:---|:---|---:|
@@ -781,7 +779,7 @@ See `man sbatch` and `man srun` for more options (use arrow keys to scroll up an
 
 So why is 2000000MB not the same as 2TB? 1024 MB = 1 GB and 1024 GB = 1 TB. This means 2000 GB = 2048000 MB which is larger than 2000000M which is set as the maximum available memory on a standard compute node.
 
-***Accounting has now been switched on and will be enforced. Users cannot run jobs without a valid AccountString. Type `groups` on the command line to check if you have one. All valid AccountStrings start with `a_` and are all lower case letters. If you do not have a valid AccountString then please contact your supervisor. AccountStrings and access are managed by research groups and group leaders. Groups who wish to use Bunya are required to apply to set up a group with a valid AccountString. Only group leaders can apply to set up such a group. A PhD student or postdoc without their own funding and group should not apply. Applications can be made by contacting [rcc-support@uq.edu.au](mailto:rcc-support@uq.edu.au).***
+***See [Slurm tips](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Slurm-Tips.md) on how to target a rage of GPUs, multiple partitions, and short jobs.***
 
 ### Simple script for CUDA GPUs.
 
