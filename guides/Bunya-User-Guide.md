@@ -554,13 +554,13 @@ However, some people sometimes don't see that (notably when they use conda envir
 
 You can use the command<br>
 `hostname`<br>
-to check that you are on a compute node. If the command output includes `bunya1`, `bunya2`, 'bunya3', 'bunya4', or 'bunya5' then you are still on a login node. <br> **Do not start your calculation, compile or environment install on a login node.* Make sure you are on a compute node. 
+to check that you are on a compute node. If the command output includes `bunya1`, `bunya2`, `bunya3`, `bunya4`, or `bunya5` then you are still on a login node. <br> **Do not start your calculation, compile or environment install on a login node.* Make sure you are on a compute node. 
 
 When an interactive job reaches the walltime, the job will terminate and your login session will return to the login node. Again, check your login prompt or use the `hostname` command to confirm you are on a compute node before doing work.
 
 #### Which Partition and QoS ?
 
-Please use `--partition=general` unless you need access to GPUs. The `general` partition has `epyc3`, `epyc4`, and 'epyc5' architecture CPUs. The `--qos=debug` has a higher priority but has a walltime limit of 1 hour and limits number of jobs per user. Use `--qos=normal` to submit standard jobs. The `normal` QoS does not allow GPUs. 
+Please use `--partition=general` unless you need access to GPUs. The `general` partition has `epyc3`, `epyc4`, and `epyc5` architecture CPUs. The `--qos=debug` has a higher priority but has a walltime limit of 1 hour and limits number of jobs per user. Use `--qos=normal` to submit standard jobs. The `normal` QoS does not allow GPUs. 
 
 #### What is my AccountString ?
 
