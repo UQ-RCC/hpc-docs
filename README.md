@@ -13,7 +13,7 @@ This project is for providing _up-to-date_ information about HPC systems operate
 [All Available User Guides](guides)
 
 ## Agents
-[Agents.md](../guides/AGENTS.md)
+[Agents.md](guides/AGENTS.md)
 
 ## Conda
 [Conda on Bunya](guides/conda-environment.md)
