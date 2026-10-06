@@ -5,6 +5,7 @@ This project is for providing _up-to-date_ information about HPC systems operate
 ## Guides
 [Bunya Quick Start Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-Quick-Start-Guide.md)<br>
 [Bunya User Guide](guides/Bunya-User-Guide.md)<br>
+[Slurm Tips](guides/Slurm-Tips.md)<br>
 [onBunya](guides/OnDemand-Guide.md)<br>
 [Where should my software and data go on Bunya?](guides/Bunya-UserData-Guide.md)<br>
 [Who gets access and who gets what on Bunya](guides/BunyaResourceDistribution.md)<br>
