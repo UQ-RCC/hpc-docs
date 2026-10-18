@@ -80,3 +80,14 @@ tar -zcf /QRISdata/Qnnnn/cs-db-backup.tar.gz cryosparc_database`
 You can find the values to substitute into the quotes from the file `~/cryosparc-default-user.txt`, or just make up new ones.
 
 5. From this point, you should be able to log in to Cryosparc using the email and password you entered. To reattach your projects, there is an "Attach project" function in the project view. First, you are going to have to go to the directories where your projects are in the file browser and delete the `cs.lock` files in each project's directory. It may take several minutes to read in all the files from all the Jobs, depending on how large the projects are.
+
+### I had crashed jobs and now the default lane won't work
+You need to clear the jobs that were queued to it. If you cannot do this by marking the jobs as complete then clearing them in the web interface, you will have to mark the jobs as failed on the command line. The command to do this is:
+
+`cryosparcm cli "api.jobs.mark_failed('Px', 'Jy')"`
+
+where x and y match the project and job numbers of the stuck job. Cryosparc needs to be running when you do this so launch it and open a second terminal window to run the commands. If you get an error that cryosparcm is not found, you will have to use the full path:
+
+`~/cryosparc/cryosparc_master/bin/cryosparcm cli "api.jobs.mark_failed('Px', 'Jy')"`
+
+Once the jobs are marked as failed, you should be able to delete or clear them in the web interface. After that, you will have to close and relaunch Cryosparc to update the default lane configuration.
