@@ -1,5 +1,12 @@
 # SSH multiplexing on Bunya
 
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 ## Quick links
 
 - [What is SSH multiplexing?](#what-is-ssh-multiplexing)
