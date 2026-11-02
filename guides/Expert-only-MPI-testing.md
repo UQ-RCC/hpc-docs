@@ -1,3 +1,11 @@
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
+
 >[!WARNING]
 >**For MPI interactive jobs only**
 >MPI interactive jobs should **only** be used for essential testing that cannot be done via a batch submission. Any MPI testing that requires more than a 2 tasks should be done via a batch job.
