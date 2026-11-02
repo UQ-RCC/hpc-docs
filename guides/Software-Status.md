@@ -1,5 +1,13 @@
 # Status of Major Software Installations
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 ## Graphical or Browser Software
 
 Please consult the  [onBunya User Guide](../guides/OnDemand-Guide.md) to see which software is installed and how to run. RStudio, Jupyter Notebooks and Labs, Gaussview, Mathematica and many CVL apps are available through onBunya.
