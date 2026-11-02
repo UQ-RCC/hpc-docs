@@ -1,4 +1,12 @@
 # AI and LLMs on Bunya
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 There are a variety of research workloads on Bunya working with artificial intelligence and machine learning. UQ RCC is working to establish and support these workloads with research integrity and security in mind.
 
 ### A note about commercial LLM services
