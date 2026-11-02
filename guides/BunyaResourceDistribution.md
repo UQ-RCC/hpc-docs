@@ -1,5 +1,12 @@
 # Who gets what on Bunya
 
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 Bunya is a UQ funded HPC facility for UQ researchers and operated by UQ staff.
 
 ## Who has contributed to Bunya
