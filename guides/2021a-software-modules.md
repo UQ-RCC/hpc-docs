@@ -1,5 +1,13 @@
 # 2021a, GCC 10.3, and other software modules that will be removed
 
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
+
 ```
 BUSCO-5.4.5-foss-2022a (Alternatives available: GDAL-3.7.1-foss-2023a, GDAL-3.11.1-foss-2025a)
 GDAL-3.5.0-foss-2022a (Alternative available: BUSCO-5.8.2-foss-2023a)
