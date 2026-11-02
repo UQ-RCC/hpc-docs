@@ -1,5 +1,13 @@
 # Basics of Connecting to RDM Q Storage Allocations
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 Please also refer to 
 - the [Bunya Storage User Guide section](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/Bunya-UserData-Guide.md#qrisdata) and
 - the [RCC's RDM Guide](https://github.com/UQ-RCC/hpc-docs/blob/main/guides/RDM-guide.md) as well as
