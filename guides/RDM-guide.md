@@ -1,5 +1,12 @@
 # UQRDM overview
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
 ## Document Purpose
 This document's focus is the key concepts for using RDM Q as they relate to integrating RDM within your computational workflows.
 
