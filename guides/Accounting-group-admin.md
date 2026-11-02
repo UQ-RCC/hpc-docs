@@ -1,5 +1,12 @@
 # Accounting Group and Administration
 
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 ## Accounting group policy
 
 Accounting group owners and administrators should read and consult the [Accounting Group Operational Procedure](../policy/Bunya-Accounting-Group-Operational-Procedure.md).
