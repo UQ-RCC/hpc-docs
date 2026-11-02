@@ -1,5 +1,13 @@
 # Instructions for AI agents on Bunya (UQ Research Computing Centre)
 
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
+
 <!-- DRAFT v0.5, 2026-10-06. Not for publication until every TODO(RCC) below is resolved and removed. -->
 
 This file is for AI coding agents and other automated assistants working on Bunya, the HPC cluster operated by the University of Queensland Research Computing Centre (RCC). It covers what is specific to, or enforced on, Bunya. It supplements the Bunya User Guide and does not replace it:
