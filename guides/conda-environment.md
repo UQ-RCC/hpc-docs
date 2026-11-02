@@ -1,5 +1,13 @@
 # Conda, Conda modules and Conda environments
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 Conda is a Python environment and package manager. It supports isolated environments and allows you to manage dependencies for different Python projects
 without interfering with system-wide packages or each other. It also provides a large set of precompiled binaries for applications such as Tensorflow, PyTorch,
 NumPy, Pandas, bioinformatics and genomics software, and many more.
