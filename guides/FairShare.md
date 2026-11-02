@@ -1,5 +1,12 @@
 # Bunya Fair Share 
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
 Bunya employs fair share to ensure that every Bunya user can use an equal share of the computational resources.
 
 ### How does fair share work?
