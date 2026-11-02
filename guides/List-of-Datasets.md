@@ -1,5 +1,13 @@
 # List of Datasets
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 **Updated: 26 August 2026**
 
 To save on disk space, and reduce duplication of effort, a growing number of datasets are being made available.
