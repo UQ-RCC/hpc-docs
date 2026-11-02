@@ -1,5 +1,12 @@
 # Slurm tips for submitting on Bunya
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
 A collection of practical Slurm submission tips for getting the most out of Bunya's scheduling and GPU resources. 
 
 When queue times seem longer than expected, first check whether your resource request is more restrictive than your application actually requires. Broadening GPU selection (for example, allowing both gpu_cuda and gpu_sxm H100 resources) and using appropriate QoS settings can significantly improve job start times while still meeting application requirements.
