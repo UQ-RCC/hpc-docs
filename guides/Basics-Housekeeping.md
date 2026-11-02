@@ -1,5 +1,13 @@
 # Basics of Housekeeping on HPC
 
+
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 `under construction 20260305`
 
 ## Saving work to RDM
