@@ -1,5 +1,12 @@
 # UQ Bunya HPC Quick Start Guide
 
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 ## 1. Access Bunya
 
 Before using Bunya you must have:
