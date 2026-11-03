@@ -1,5 +1,13 @@
 # RCC Infrastructure Operational Procedures and Conditions of Access
 
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
+
 Access and usage of RCC infrastructure is governed by the following operational procedures, conditions of access and UQ policies.
 
 ## Bunya Conditions of Access
