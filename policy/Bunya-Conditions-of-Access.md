@@ -1,3 +1,10 @@
+---
+# The RCC and Bunya user guides have moved to https://docs.hpc.rcc.uq.edu.au/
+---
+<br>
+<br>
+
+
 ## Bunya Conditions of Access
 dated 2025-11-10 
 
